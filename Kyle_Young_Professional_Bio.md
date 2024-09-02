@@ -59,5 +59,6 @@ Some potential areas of interest are:
 - Game development using Godot
 - PC or Mobile Application
 - Something that integrates with a hardware component, like an Arduino
+
 Ultimately, I would be interested in a project that would strike a balance between fun and utility.
 I want to work on something that I can use as an outlet for creativity and passion for technology!
