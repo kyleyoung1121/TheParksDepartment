@@ -27,7 +27,7 @@ This has often included game development and hardware-based projects.
   - **Non-technical skills:** Scheduled and led frequent project meetings, Communicated and collected feedback from customers, Collaborated with developers in several time zones
  
 - **Campus Job:**
-  - **Job title:** Workstudy Student
+  - **Job title:** Work Study Student
   - **Company:** University of Cincinnati Financial Aid Office
   - **Dates of employment:** Summer 2023 and Fall 2023
   - **Technical skills:** Managed Microsoft Access database, Modified massive Excel spreadsheets, Programmed in VBA
@@ -56,8 +56,8 @@ This has often included game development and hardware-based projects.
 ### Project Sought
 I am seeking a project that will challenge my current skill set. I want to put my skills to use, but hope to pick up new knowledge too.
 Some potential areas of interest are:
-- Game developement using Godot
+- Game development using Godot
 - PC or Mobile Application
-- Something that integrates with a hardware componenet, like an Arduino
+- Something that integrates with a hardware component, like an Arduino
 Ultimately, I would be interested in a project that would strike a balance between fun and utility.
 I want to work on something that I can use as an outlet for creativity and passion for technology!
