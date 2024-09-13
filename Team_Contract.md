@@ -5,6 +5,10 @@
     - **Phone number:** 513-635-7720
     - **School email:** suerns@mail.uc.edu
 
+- Owen Richards
+    - **Phone number:** 610-927-7645
+    - **School email:** richaroc@mail.uc.edu
+
 
 ## Team Meetings
 Meetings will be held every every Friday 3pm - 5pm. Except for School Holidays and Breaks.
