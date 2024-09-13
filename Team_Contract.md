@@ -9,6 +9,10 @@
     - **Phone number:** 610-927-7645
     - **School email:** richaroc@mail.uc.edu
 
+- Ryan Williams
+    - **Phone number:** 937-919-3397
+    - **School email:** willi5r7@mail.uc.edu
+
 
 ## Team Meetings
 Meetings will be held every every Friday 3pm - 5pm. Except for School Holidays and Breaks.
