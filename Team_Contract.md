@@ -13,6 +13,11 @@
     - **Phone number:** 937-919-3397
     - **School email:** willi5r7@mail.uc.edu
 
+- Kyle Young
+    - **Phone number:** 513-781-8539
+    - **Email Address:** young4kg@mail.uc.edu
+    - **LinkedIn Page:** www.linkedin.com/in/kyleyoung1121
+
 
 ## Team Meetings
 Meetings will be held every every Friday 3pm - 5pm. Except for School Holidays and Breaks.
