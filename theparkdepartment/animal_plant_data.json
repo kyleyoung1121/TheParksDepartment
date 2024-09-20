@@ -1,95 +1,96 @@
 {
-    "animals": [
-      {
-        "name": "Eastern Gray Squirrel",
-        "scientific_name": "Sciurus carolinensis",
-        "asset_filename": "",
-        "animation_filename": "",
-        "texture_filename": "",
-        "type": "Mammal",
-        "invasive_or_native": "Native",
-        "habitat": "Woodlands, parks, urban areas",
-        "diet": "Herbivore"
-      },
-      {
-        "name": "White-tailed Deer",
-        "scientific_name": "Odocoileus virginianus",
-        "asset_filename": "",
-        "animation_filename": "",
-        "texture_filename": "",
-        "type": "Mammal",
-        "invasive_or_native": "Native",
-        "habitat": "Forests, fields, suburban areas",
-        "diet": "Herbivore"
-      },
-      {
-        "name": "American Bullfrog",
-        "scientific_name": "Lithobates catesbeianus",
-        "asset_filename": "",
-        "animation_filename": "",
-        "texture_filename": "",
-        "type": "Amphibian",
-        "invasive_or_native": "Native",
-        "habitat": "Ponds, marshes",
-        "diet": "Carnivore"
-      },
-      {
-        "name": "Eastern Box Turtle",
-        "scientific_name": "Terrapene carolina",
-        "asset_filename": "",
-        "animation_filename": "",
-        "texture_filename": "",
-        "type": "Reptile",
-        "invasive_or_native": "Native",
-        "habitat": "Forests, grasslands",
-        "diet": "Omnivore"
-      }
-    ],
-    "plants": [
-      {
-        "name": "Eastern Cottonwood",
-        "scientific_name": "Populus deltoides",
-        "asset_filename": "",
-        "animation_filename": "",
-        "texture_filename": "",
-        "type": "Tree",
-        "invasive_or_native": "Native",
-        "habitat": "Riparian zones",
-        "growth_form": "Deciduous"
-      },
-      {
-        "name": "Purple Coneflower",
-        "scientific_name": "Echinacea purpurea",
-        "asset_filename": "",
-        "animation_filename": "",
-        "texture_filename": "",
-        "type": "Flower",
-        "invasive_or_native": "Native",
-        "habitat": "Prairies, gardens",
-        "growth_form": "Perennial"
-      },
-      {
-        "name": "Japanese Honeysuckle",
-        "scientific_name": "Lonicera japonica",
-        "asset_filename": "",
-        "animation_filename": "",
-        "texture_filename": "",
-        "type": "Vine",
-        "invasive_or_native": "Invasive",
-        "habitat": "Forest edges, disturbed areas",
-        "growth_form": "Perennial"
-      },
-      {
-        "name": "Black-eyed Susan",
-        "scientific_name": "Rudbeckia hirta",
-        "asset_filename": "",
-        "animation_filename": "",
-        "texture_filename": "",
-        "type": "Flower",
-        "invasive_or_native": "Native",
-        "habitat": "Fields, meadows",
-        "growth_form": "Annual"
-      }
-    ]
-  }
+  "animals": [
+    {
+      "name": "Eastern Gray Squirrel",
+      "scientific_name": "Sciurus carolinensis",
+      "asset_filename": "",
+      "animation_filename": "",
+      "texture_filename": "",
+      "type": "Mammal",
+      "invasive_or_native": "Native",
+      "habitat": ["woodlands", "parks", "urban_areas"],
+      "diet": "Herbivore"
+    },
+    {
+      "name": "White-tailed Deer",
+      "scientific_name": "Odocoileus virginianus",
+      "asset_filename": "",
+      "animation_filename": "",
+      "texture_filename": "",
+      "type": "Mammal",
+      "invasive_or_native": "Native",
+      "habitat": ["forests", "fields", "suburban_areas"],
+      "diet": "Herbivore"
+    },
+    {
+      "name": "American Bullfrog",
+      "scientific_name": "Lithobates catesbeianus",
+      "asset_filename": "",
+      "animation_filename": "",
+      "texture_filename": "",
+      "type": "Amphibian",
+      "invasive_or_native": "Native",
+      "habitat": ["ponds", "marshes"],
+      "diet": "Carnivore"
+    },
+    {
+      "name": "Eastern Box Turtle",
+      "scientific_name": "Terrapene carolina",
+      "asset_filename": "",
+      "animation_filename": "",
+      "texture_filename": "",
+      "type": "Reptile",
+      "invasive_or_native": "Native",
+      "habitat": ["forests", "grasslands"],
+      "diet": "Omnivore"
+    }
+  ],
+  "plants": [
+    {
+      "name": "Eastern Cottonwood",
+      "scientific_name": "Populus deltoides",
+      "asset_filename": "",
+      "animation_filename": "",
+      "texture_filename": "",
+      "type": "Tree",
+      "invasive_or_native": "Native",
+      "habitat": ["riparian_zones"],
+      "growth_form": "Deciduous"
+    },
+    {
+      "name": "Purple Coneflower",
+      "scientific_name": "Echinacea purpurea",
+      "asset_filename": "",
+      "animation_filename": "",
+      "texture_filename": "",
+      "type": "Flower",
+      "invasive_or_native": "Native",
+      "habitat": ["prairies", "gardens"],
+      "growth_form": "Perennial"
+    },
+    {
+      "name": "Japanese Honeysuckle",
+      "scientific_name": "Lonicera japonica",
+      "asset_filename": "",
+      "animation_filename": "",
+      "texture_filename": "",
+      "type": "Vine",
+      "invasive_or_native": "Invasive",
+      "habitat": ["forest_edges", "disturbed_areas"],
+      "growth_form": "Perennial"
+    },
+    {
+      "name": "Black-eyed Susan",
+      "scientific_name": "Rudbeckia hirta",
+      "asset_filename": "",
+      "animation_filename": "",
+      "texture_filename": "",
+      "type": "Flower",
+      "invasive_or_native": "Native",
+      "habitat": ["fields", "meadows"],
+      "growth_form": "Annual"
+    }
+  ]
+}
+
   
