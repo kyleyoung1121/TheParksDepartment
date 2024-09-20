@@ -1,323 +1,323 @@
 {
   "animals": [
-    {
-      "name": "Eastern Gray Squirrel",
-      "scientific_name": "Sciurus carolinensis",
-      "genus": "Sciurus",
-      "asset_filename": "",
-      "animation_filename": "",
-      "texture_filename": {
-        "male": "",
-        "female": ""
-      },
-      "type": "Mammal",
-      "invasive_or_native": "Native",
-      "habitat": ["woodlands", "parks", "urban_areas"],
-      "diet": "Herbivore",
-      "scale": [1, 1, 1],
-      "description": "A common tree squirrel native to North America, known for its bushy tail and gray fur.",
-      "default_conservation_status": "Least Concern",
-      "fun_facts": ["They can leap up to 10 times their body length.", "They communicate using a variety of vocalizations."],
-      "average_weight": {"male": 0.5, "female": 0.4},
-      "breeding_info": {
-        "description": "Breeding occurs in late winter to early spring, often in cozy tree nests or leafy dens.",
-        "gestation_time": "44 days",
-        "mating_window": "January to March",
-        "pregnancy_recovery_time": "6-8 weeks",
-        "litter_size": "2-5",
-        "childhood_survival_rate": "70%",
-        "mating_behavior": "Males engage in acrobatic displays and chase each other to attract females.",
-        "nurturing": "Mothers care for the young in nests made from twigs and leaves."
-      }
-    },
-    {
-      "name": "White-tailed Deer",
-      "scientific_name": "Odocoileus virginianus",
-      "genus": "Odocoileus",
-      "asset_filename": "",
-      "animation_filename": "",
-      "texture_filename": {
-        "male": "",
-        "female": ""
-      },
-      "type": "Mammal",
-      "invasive_or_native": "Native",
-      "habitat": ["forests", "fields", "suburban_areas"],
-      "diet": "Herbivore",
-      "scale": [1, 1, 1],
-      "description": "A medium-sized deer characterized by its white tail and adaptability to various habitats.",
-      "default_conservation_status": "Least Concern",
-      "fun_facts": ["They can run up to 30 miles per hour.", "White-tailed deer are highly social animals."],
-      "average_weight": {"male": 80, "female": 60},
-      "breeding_info": {
-        "description": "Breeding season occurs in the fall, with males competing fiercely for females in spectacular displays.",
-        "gestation_time": "201 days",
-        "mating_window": "October to December",
-        "pregnancy_recovery_time": "2-3 weeks",
-        "litter_size": "1-2",
-        "childhood_survival_rate": "50%",
-        "mating_behavior": "Males use scent marking and vocalizations to attract mates.",
-        "nurturing": "Females conceal fawns in dense cover to protect them from predators."
-      }
-    },
-    {
-      "name": "American Bullfrog",
-      "scientific_name": "Lithobates catesbeianus",
-      "genus": "Lithobates",
-      "asset_filename": "",
-      "animation_filename": "",
-      "texture_filename": {
-        "male": "",
-        "female": ""
-      },
-      "type": "Amphibian",
-      "invasive_or_native": "Native",
-      "habitat": ["ponds", "marshes"],
-      "diet": "Carnivore",
-      "scale": [1, 1, 1],
-      "description": "A large frog known for its deep croak and voracious appetite.",
-      "default_conservation_status": "Least Concern",
-      "fun_facts": ["They can eat prey as large as themselves.", "American bullfrogs are known for their loud calls."],
-      "average_weight": {"male": 0.5, "female": 0.6},
-      "breeding_info": {
-        "description": "Breeding occurs in spring, with males calling to attract females to shallow waters.",
-        "gestation_time": "Eggs hatch in 3-12 days",
-        "mating_window": "April to July",
-        "pregnancy_recovery_time": "N/A",
-        "litter_size": "2000-3000 eggs",
-        "childhood_survival_rate": "10%",
-        "mating_behavior": "Males are highly territorial and use vocal displays to ward off competitors.",
-        "nurturing": "Females lay eggs in clusters among vegetation, providing a safe nursery for tadpoles."
-      }
-    },
-    {
-      "name": "Eastern Box Turtle",
-      "scientific_name": "Terrapene carolina",
-      "genus": "Terrapene",
-      "asset_filename": "",
-      "animation_filename": "",
-      "texture_filename": {
-        "male": "",
-        "female": ""
-      },
-      "type": "Reptile",
-      "invasive_or_native": "Native",
-      "habitat": ["forests", "grasslands"],
-      "diet": "Omnivore",
-      "scale": [1, 1, 1],
-      "description": "A terrestrial turtle recognized for its high-domed shell and long lifespan.",
-      "default_conservation_status": "Vulnerable",
-      "fun_facts": ["They can live for over 100 years.", "Eastern box turtles can retract completely into their shells."],
-      "average_weight": {"male": 1.5, "female": 1.2},
-      "breeding_info": {
-        "description": "Mating occurs in spring and summer, often in sunny areas where turtles can bask.",
-        "gestation_time": "N/A",
-        "mating_window": "April to August",
-        "pregnancy_recovery_time": "N/A",
-        "litter_size": "3-8 eggs",
-        "childhood_survival_rate": "50%",
-        "mating_behavior": "Males may nudge and bite at the female's shell during courtship.",
-        "nurturing": "Females bury their eggs in soft soil, returning to the same nesting sites each year."
-      }
-    },
-    {
-      "name": "Turkey Vulture",
-      "scientific_name": "Cathartes aura",
-      "genus": "Cathartes",
-      "asset_filename": "",
-      "animation_filename": "",
-      "texture_filename": {
-        "male": "",
-        "female": ""
-      },
-      "type": "Bird",
-      "invasive_or_native": "Native",
-      "habitat": ["open_fields", "wooded_areas"],
-      "diet": "Scavenger",
-      "scale": [1, 1, 1],
-      "description": "A large bird of prey known for its scavenging habits and distinctive appearance.",
-      "default_conservation_status": "Least Concern",
-      "fun_facts": ["They have an excellent sense of smell.", "Turkey vultures can soar for hours without flapping their wings."],
-      "average_weight": {"male": 2.0, "female": 2.2},
-      "breeding_info": {
-        "description": "Breeding occurs in the spring, with nests typically found on cliffs or in trees.",
-        "gestation_time": "N/A",
-        "mating_window": "March to May",
-        "pregnancy_recovery_time": "N/A",
-        "litter_size": "1-3 eggs",
-        "childhood_survival_rate": "60%",
-        "mating_behavior": "Males display impressive soaring and puffing up to attract mates.",
-        "nurturing": "Both parents share incubation duties and feed chicks with regurgitated food."
-      }
-    },
-    {
-      "name": "Black Vulture",
-      "scientific_name": "Coragyps atratus",
-      "genus": "Coragyps",
-      "asset_filename": "",
-      "animation_filename": "",
-      "texture_filename": {
-        "male": "",
-        "female": ""
-      },
-      "type": "Bird",
-      "invasive_or_native": "Native",
-      "habitat": ["forests", "fields", "urban_areas"],
-      "diet": "Scavenger",
-      "scale": [1, 1, 1],
-      "description": "A scavenging bird that is often found in open areas, known for its dark plumage.",
-      "default_conservation_status": "Least Concern",
-      "fun_facts": ["They often work in groups to find food.", "Black vultures can be aggressive in protecting their territory."],
-      "average_weight": {"male": 1.8, "female": 1.6},
-      "breeding_info": {
-        "description": "Breeding takes place in the spring, often in large communal roosts that offer safety and social interaction.",
-        "gestation_time": "N/A",
-        "mating_window": "February to April",
-        "pregnancy_recovery_time": "N/A",
-        "litter_size": "2-3 eggs",
-        "childhood_survival_rate": "50%",
-        "mating_behavior": "They engage in synchronized flight displays to strengthen pair bonds.",
-        "nurturing": "Nests are typically built in tree cavities or on cliffs, where both parents help rear the chicks."
-      }
-    },
-    {
-      "name": "Eastern Wolf",
-      "scientific_name": "Canis lupus lycaon",
-      "genus": "Canis",
-      "asset_filename": "",
-      "animation_filename": "",
-      "texture_filename": {
-        "male": "",
-        "female": ""
-      },
-      "type": "Mammal",
-      "invasive_or_native": "Native",
-      "habitat": ["forests", "national_parks"],
-      "diet": "Carnivore",
-      "scale": [1, 1, 1],
-      "description": "A subspecies of the gray wolf, known for its distinctive appearance and social structure.",
-      "default_conservation_status": "Endangered",
-      "fun_facts": ["They have a complex social structure.", "Eastern wolves are known for their vocalizations."],
-      "average_weight": {"male": 30, "female": 25},
-      "breeding_info": {
-        "description": "Breeding occurs in winter, with a close-knit pack structure that helps raise the young.",
-        "gestation_time": "63 days",
-        "mating_window": "January to March",
-        "pregnancy_recovery_time": "1-2 months",
-        "litter_size": "4-7 pups",
-        "childhood_survival_rate": "40%",
-        "mating_behavior": "Only the dominant pair breed, ensuring that the strongest genes are passed on.",
-        "nurturing": "Pups are cared for by all pack members, who bring food to the den and help protect them."
-      }
-    },
-    {
-      "name": "Black Bear",
-      "scientific_name": "Ursus americanus",
-      "genus": "Ursus",
-      "asset_filename": "",
-      "animation_filename": "",
-      "texture_filename": {
-        "male": "",
-        "female": ""
-      },
-      "type": "Mammal",
-      "invasive_or_native": "Native",
-      "habitat": ["forests", "mountains"],
-      "diet": "Omnivore",
-      "scale": [1, 1, 1],
-      "description": "A medium-sized bear known for its adaptability and intelligence.",
-      "default_conservation_status": "Least Concern",
-      "fun_facts": ["They can run at speeds up to 30 miles per hour.", "Black bears are excellent climbers."],
-      "average_weight": {"male": 150, "female": 130},
-      "breeding_info": {
-        "description": "Breeding occurs in summer, with a fascinating delayed implantation process that optimizes timing.",
-        "gestation_time": "7-8 months",
-        "mating_window": "June to July",
-        "pregnancy_recovery_time": "N/A",
-        "litter_size": "1-3 cubs",
-        "childhood_survival_rate": "60%",
-        "mating_behavior": "Males display strength and dominance to attract females.",
-        "nurturing": "Cubs are born blind and helpless, relying entirely on their mother for warmth and nourishment."
-      }
-    }
+	{
+	  "name": "Eastern Gray Squirrel",
+	  "scientific_name": "Sciurus carolinensis",
+	  "genus": "Sciurus",
+	  "asset_filename": "",
+	  "animation_filename": "",
+	  "texture_filename": {
+		"male": "",
+		"female": ""
+	  },
+	  "type": "Mammal",
+	  "invasive_or_native": "Native",
+	  "habitat": ["woodlands", "parks", "urban_areas"],
+	  "diet": "Herbivore",
+	  "scale": [1, 1, 1],
+	  "description": "A common tree squirrel native to North America, known for its bushy tail and gray fur.",
+	  "default_conservation_status": "Least Concern",
+	  "fun_facts": ["They can leap up to 10 times their body length.", "They communicate using a variety of vocalizations."],
+	  "average_weight": {"male": 0.5, "female": 0.4},
+	  "breeding_info": {
+		"description": "Breeding occurs in late winter to early spring, often in cozy tree nests or leafy dens.",
+		"gestation_time": "44 days",
+		"mating_window": "January to March",
+		"pregnancy_recovery_time": "6-8 weeks",
+		"litter_size": "2-5",
+		"childhood_survival_rate": "70%",
+		"mating_behavior": "Males engage in acrobatic displays and chase each other to attract females.",
+		"nurturing": "Mothers care for the young in nests made from twigs and leaves."
+	  }
+	},
+	{
+	  "name": "White-tailed Deer",
+	  "scientific_name": "Odocoileus virginianus",
+	  "genus": "Odocoileus",
+	  "asset_filename": "",
+	  "animation_filename": "",
+	  "texture_filename": {
+		"male": "",
+		"female": ""
+	  },
+	  "type": "Mammal",
+	  "invasive_or_native": "Native",
+	  "habitat": ["forests", "fields", "suburban_areas"],
+	  "diet": "Herbivore",
+	  "scale": [1, 1, 1],
+	  "description": "A medium-sized deer characterized by its white tail and adaptability to various habitats.",
+	  "default_conservation_status": "Least Concern",
+	  "fun_facts": ["They can run up to 30 miles per hour.", "White-tailed deer are highly social animals."],
+	  "average_weight": {"male": 80, "female": 60},
+	  "breeding_info": {
+		"description": "Breeding season occurs in the fall, with males competing fiercely for females in spectacular displays.",
+		"gestation_time": "201 days",
+		"mating_window": "October to December",
+		"pregnancy_recovery_time": "2-3 weeks",
+		"litter_size": "1-2",
+		"childhood_survival_rate": "50%",
+		"mating_behavior": "Males use scent marking and vocalizations to attract mates.",
+		"nurturing": "Females conceal fawns in dense cover to protect them from predators."
+	  }
+	},
+	{
+	  "name": "American Bullfrog",
+	  "scientific_name": "Lithobates catesbeianus",
+	  "genus": "Lithobates",
+	  "asset_filename": "",
+	  "animation_filename": "",
+	  "texture_filename": {
+		"male": "",
+		"female": ""
+	  },
+	  "type": "Amphibian",
+	  "invasive_or_native": "Native",
+	  "habitat": ["ponds", "marshes"],
+	  "diet": "Carnivore",
+	  "scale": [1, 1, 1],
+	  "description": "A large frog known for its deep croak and voracious appetite.",
+	  "default_conservation_status": "Least Concern",
+	  "fun_facts": ["They can eat prey as large as themselves.", "American bullfrogs are known for their loud calls."],
+	  "average_weight": {"male": 0.5, "female": 0.6},
+	  "breeding_info": {
+		"description": "Breeding occurs in spring, with males calling to attract females to shallow waters.",
+		"gestation_time": "Eggs hatch in 3-12 days",
+		"mating_window": "April to July",
+		"pregnancy_recovery_time": "N/A",
+		"litter_size": "2000-3000 eggs",
+		"childhood_survival_rate": "10%",
+		"mating_behavior": "Males are highly territorial and use vocal displays to ward off competitors.",
+		"nurturing": "Females lay eggs in clusters among vegetation, providing a safe nursery for tadpoles."
+	  }
+	},
+	{
+	  "name": "Eastern Box Turtle",
+	  "scientific_name": "Terrapene carolina",
+	  "genus": "Terrapene",
+	  "asset_filename": "",
+	  "animation_filename": "",
+	  "texture_filename": {
+		"male": "",
+		"female": ""
+	  },
+	  "type": "Reptile",
+	  "invasive_or_native": "Native",
+	  "habitat": ["forests", "grasslands"],
+	  "diet": "Omnivore",
+	  "scale": [1, 1, 1],
+	  "description": "A terrestrial turtle recognized for its high-domed shell and long lifespan.",
+	  "default_conservation_status": "Vulnerable",
+	  "fun_facts": ["They can live for over 100 years.", "Eastern box turtles can retract completely into their shells."],
+	  "average_weight": {"male": 1.5, "female": 1.2},
+	  "breeding_info": {
+		"description": "Mating occurs in spring and summer, often in sunny areas where turtles can bask.",
+		"gestation_time": "N/A",
+		"mating_window": "April to August",
+		"pregnancy_recovery_time": "N/A",
+		"litter_size": "3-8 eggs",
+		"childhood_survival_rate": "50%",
+		"mating_behavior": "Males may nudge and bite at the female's shell during courtship.",
+		"nurturing": "Females bury their eggs in soft soil, returning to the same nesting sites each year."
+	  }
+	},
+	{
+	  "name": "Turkey Vulture",
+	  "scientific_name": "Cathartes aura",
+	  "genus": "Cathartes",
+	  "asset_filename": "",
+	  "animation_filename": "",
+	  "texture_filename": {
+		"male": "",
+		"female": ""
+	  },
+	  "type": "Bird",
+	  "invasive_or_native": "Native",
+	  "habitat": ["open_fields", "wooded_areas"],
+	  "diet": "Scavenger",
+	  "scale": [1, 1, 1],
+	  "description": "A large bird of prey known for its scavenging habits and distinctive appearance.",
+	  "default_conservation_status": "Least Concern",
+	  "fun_facts": ["They have an excellent sense of smell.", "Turkey vultures can soar for hours without flapping their wings."],
+	  "average_weight": {"male": 2.0, "female": 2.2},
+	  "breeding_info": {
+		"description": "Breeding occurs in the spring, with nests typically found on cliffs or in trees.",
+		"gestation_time": "N/A",
+		"mating_window": "March to May",
+		"pregnancy_recovery_time": "N/A",
+		"litter_size": "1-3 eggs",
+		"childhood_survival_rate": "60%",
+		"mating_behavior": "Males display impressive soaring and puffing up to attract mates.",
+		"nurturing": "Both parents share incubation duties and feed chicks with regurgitated food."
+	  }
+	},
+	{
+	  "name": "Black Vulture",
+	  "scientific_name": "Coragyps atratus",
+	  "genus": "Coragyps",
+	  "asset_filename": "",
+	  "animation_filename": "",
+	  "texture_filename": {
+		"male": "",
+		"female": ""
+	  },
+	  "type": "Bird",
+	  "invasive_or_native": "Native",
+	  "habitat": ["forests", "fields", "urban_areas"],
+	  "diet": "Scavenger",
+	  "scale": [1, 1, 1],
+	  "description": "A scavenging bird that is often found in open areas, known for its dark plumage.",
+	  "default_conservation_status": "Least Concern",
+	  "fun_facts": ["They often work in groups to find food.", "Black vultures can be aggressive in protecting their territory."],
+	  "average_weight": {"male": 1.8, "female": 1.6},
+	  "breeding_info": {
+		"description": "Breeding takes place in the spring, often in large communal roosts that offer safety and social interaction.",
+		"gestation_time": "N/A",
+		"mating_window": "February to April",
+		"pregnancy_recovery_time": "N/A",
+		"litter_size": "2-3 eggs",
+		"childhood_survival_rate": "50%",
+		"mating_behavior": "They engage in synchronized flight displays to strengthen pair bonds.",
+		"nurturing": "Nests are typically built in tree cavities or on cliffs, where both parents help rear the chicks."
+	  }
+	},
+	{
+	  "name": "Eastern Wolf",
+	  "scientific_name": "Canis lupus lycaon",
+	  "genus": "Canis",
+	  "asset_filename": "",
+	  "animation_filename": "",
+	  "texture_filename": {
+		"male": "",
+		"female": ""
+	  },
+	  "type": "Mammal",
+	  "invasive_or_native": "Native",
+	  "habitat": ["forests", "national_parks"],
+	  "diet": "Carnivore",
+	  "scale": [1, 1, 1],
+	  "description": "A subspecies of the gray wolf, known for its distinctive appearance and social structure.",
+	  "default_conservation_status": "Endangered",
+	  "fun_facts": ["They have a complex social structure.", "Eastern wolves are known for their vocalizations."],
+	  "average_weight": {"male": 30, "female": 25},
+	  "breeding_info": {
+		"description": "Breeding occurs in winter, with a close-knit pack structure that helps raise the young.",
+		"gestation_time": "63 days",
+		"mating_window": "January to March",
+		"pregnancy_recovery_time": "1-2 months",
+		"litter_size": "4-7 pups",
+		"childhood_survival_rate": "40%",
+		"mating_behavior": "Only the dominant pair breed, ensuring that the strongest genes are passed on.",
+		"nurturing": "Pups are cared for by all pack members, who bring food to the den and help protect them."
+	  }
+	},
+	{
+	  "name": "Black Bear",
+	  "scientific_name": "Ursus americanus",
+	  "genus": "Ursus",
+	  "asset_filename": "",
+	  "animation_filename": "",
+	  "texture_filename": {
+		"male": "",
+		"female": ""
+	  },
+	  "type": "Mammal",
+	  "invasive_or_native": "Native",
+	  "habitat": ["forests", "mountains"],
+	  "diet": "Omnivore",
+	  "scale": [1, 1, 1],
+	  "description": "A medium-sized bear known for its adaptability and intelligence.",
+	  "default_conservation_status": "Least Concern",
+	  "fun_facts": ["They can run at speeds up to 30 miles per hour.", "Black bears are excellent climbers."],
+	  "average_weight": {"male": 150, "female": 130},
+	  "breeding_info": {
+		"description": "Breeding occurs in summer, with a fascinating delayed implantation process that optimizes timing.",
+		"gestation_time": "7-8 months",
+		"mating_window": "June to July",
+		"pregnancy_recovery_time": "N/A",
+		"litter_size": "1-3 cubs",
+		"childhood_survival_rate": "60%",
+		"mating_behavior": "Males display strength and dominance to attract females.",
+		"nurturing": "Cubs are born blind and helpless, relying entirely on their mother for warmth and nourishment."
+	  }
+	}
   ],
   "plants": [
-    {
-      "name": "Eastern Red Cedar",
-      "scientific_name": "Juniperus virginiana",
-      "genus": "Juniperus",
-      "type": "Tree",
-      "invasive_or_native": "Native",
-      "habitat": ["woodlands", "coastal areas"],
-      "description": "A hardy evergreen tree known for its aromatic wood and vibrant blue berries.",
-      "default_conservation_status": "Least Concern",
-      "fun_facts": ["Its wood is resistant to decay.", "Eastern red cedar can live for over 100 years."],
-      "breeding_info": {
-        "description": "Reproduces through both seed and vegetative propagation, ensuring a wide distribution.",
-        "mating_window": "Pollination occurs in spring.",
-        "seed_dispersal": "Fruits are eaten by birds, helping to spread seeds.",
-        "seed_germination_time": "6-12 weeks after dispersal.",
-        "mating_behavior": "Male trees produce pollen, which is dispersed by wind.",
-        "nurturing": "Seedlings establish in various soil types, adapting to their environment."
-      }
-    },
-    {
-      "name": "Sugar Maple",
-      "scientific_name": "Acer saccharum",
-      "genus": "Acer",
-      "type": "Tree",
-      "invasive_or_native": "Native",
-      "habitat": ["deciduous forests"],
-      "description": "A large tree famous for its brilliant fall colors and sap used to make maple syrup.",
-      "default_conservation_status": "Least Concern",
-      "fun_facts": ["Sugar maples can grow over 100 feet tall.", "The tree can live for 300 years or more."],
-      "breeding_info": {
-        "description": "Reproduces through seeds that are dispersed by wind and water.",
-        "mating_window": "Pollination occurs in spring.",
-        "seed_dispersal": "Seeds are carried by the wind and often germinate in rich soil.",
-        "seed_germination_time": "2-4 weeks after dispersal.",
-        "mating_behavior": "Trees are mostly self-pollinating but can cross-pollinate.",
-        "nurturing": "Seedlings require ample sunlight to thrive and grow."
-      }
-    },
-    {
-      "name": "Black-Eyed Susan",
-      "scientific_name": "Rudbeckia hirta",
-      "genus": "Rudbeckia",
-      "type": "Flower",
-      "invasive_or_native": "Native",
-      "habitat": ["meadows", "gardens"],
-      "description": "A vibrant wildflower known for its yellow petals and dark brown center.",
-      "default_conservation_status": "Least Concern",
-      "fun_facts": ["They attract a variety of pollinators.", "Black-eyed Susans are often used in ornamental gardens."],
-      "breeding_info": {
-        "description": "Reproduces primarily through seeds, with a high germination rate under suitable conditions.",
-        "mating_window": "Blooming occurs in summer.",
-        "seed_dispersal": "Seeds are spread by wind and animals.",
-        "seed_germination_time": "2-3 weeks after dispersal.",
-        "mating_behavior": "Pollination occurs through wind and insect activity.",
-        "nurturing": "Seedlings establish quickly, often competing with other plants for light."
-      }
-    },
-    {
-      "name": "Common Milkweed",
-      "scientific_name": "Asclepias Syriaca",
-      "genus": "Asclepias",
-      "type": "Flower",
-      "invasive_or_native": "Native",
-      "habitat": ["fields", "meadows"],
-      "description": "A perennial plant known for attracting monarch butterflies and producing distinctive pods.",
-      "default_conservation_status": "Least Concern",
-      "fun_facts": ["Milkweed sap can be toxic to some animals.", "It plays a crucial role in the life cycle of monarchs."],
-      "breeding_info": {
-        "description": "Reproduces through seeds and vegetative growth, thriving in disturbed areas.",
-        "mating_window": "Blooming occurs from late spring to summer.",
-        "seed_dispersal": "Seeds are carried by wind due to their fluffy structure.",
-        "seed_germination_time": "3-4 weeks after dispersal.",
-        "mating_behavior": "Pollination occurs primarily through insects, especially bees.",
-        "nurturing": "Plants establish quickly in nutrient-rich soils and tolerate drought."
-      }
-    }
+	{
+	  "name": "Eastern Red Cedar",
+	  "scientific_name": "Juniperus virginiana",
+	  "genus": "Juniperus",
+	  "type": "Tree",
+	  "invasive_or_native": "Native",
+	  "habitat": ["woodlands", "coastal areas"],
+	  "description": "A hardy evergreen tree known for its aromatic wood and vibrant blue berries.",
+	  "default_conservation_status": "Least Concern",
+	  "fun_facts": ["Its wood is resistant to decay.", "Eastern red cedar can live for over 100 years."],
+	  "breeding_info": {
+		"description": "Reproduces through both seed and vegetative propagation, ensuring a wide distribution.",
+		"mating_window": "Pollination occurs in spring.",
+		"seed_dispersal": "Fruits are eaten by birds, helping to spread seeds.",
+		"seed_germination_time": "6-12 weeks after dispersal.",
+		"mating_behavior": "Male trees produce pollen, which is dispersed by wind.",
+		"nurturing": "Seedlings establish in various soil types, adapting to their environment."
+	  }
+	},
+	{
+	  "name": "Sugar Maple",
+	  "scientific_name": "Acer saccharum",
+	  "genus": "Acer",
+	  "type": "Tree",
+	  "invasive_or_native": "Native",
+	  "habitat": ["deciduous forests"],
+	  "description": "A large tree famous for its brilliant fall colors and sap used to make maple syrup.",
+	  "default_conservation_status": "Least Concern",
+	  "fun_facts": ["Sugar maples can grow over 100 feet tall.", "The tree can live for 300 years or more."],
+	  "breeding_info": {
+		"description": "Reproduces through seeds that are dispersed by wind and water.",
+		"mating_window": "Pollination occurs in spring.",
+		"seed_dispersal": "Seeds are carried by the wind and often germinate in rich soil.",
+		"seed_germination_time": "2-4 weeks after dispersal.",
+		"mating_behavior": "Trees are mostly self-pollinating but can cross-pollinate.",
+		"nurturing": "Seedlings require ample sunlight to thrive and grow."
+	  }
+	},
+	{
+	  "name": "Black-Eyed Susan",
+	  "scientific_name": "Rudbeckia hirta",
+	  "genus": "Rudbeckia",
+	  "type": "Flower",
+	  "invasive_or_native": "Native",
+	  "habitat": ["meadows", "gardens"],
+	  "description": "A vibrant wildflower known for its yellow petals and dark brown center.",
+	  "default_conservation_status": "Least Concern",
+	  "fun_facts": ["They attract a variety of pollinators.", "Black-eyed Susans are often used in ornamental gardens."],
+	  "breeding_info": {
+		"description": "Reproduces primarily through seeds, with a high germination rate under suitable conditions.",
+		"mating_window": "Blooming occurs in summer.",
+		"seed_dispersal": "Seeds are spread by wind and animals.",
+		"seed_germination_time": "2-3 weeks after dispersal.",
+		"mating_behavior": "Pollination occurs through wind and insect activity.",
+		"nurturing": "Seedlings establish quickly, often competing with other plants for light."
+	  }
+	},
+	{
+	  "name": "Common Milkweed",
+	  "scientific_name": "Asclepias Syriaca",
+	  "genus": "Asclepias",
+	  "type": "Flower",
+	  "invasive_or_native": "Native",
+	  "habitat": ["fields", "meadows"],
+	  "description": "A perennial plant known for attracting monarch butterflies and producing distinctive pods.",
+	  "default_conservation_status": "Least Concern",
+	  "fun_facts": ["Milkweed sap can be toxic to some animals.", "It plays a crucial role in the life cycle of monarchs."],
+	  "breeding_info": {
+		"description": "Reproduces through seeds and vegetative growth, thriving in disturbed areas.",
+		"mating_window": "Blooming occurs from late spring to summer.",
+		"seed_dispersal": "Seeds are carried by wind due to their fluffy structure.",
+		"seed_germination_time": "3-4 weeks after dispersal.",
+		"mating_behavior": "Pollination occurs primarily through insects, especially bees.",
+		"nurturing": "Plants establish quickly in nutrient-rich soils and tolerate drought."
+	  }
+	}
   ],
   "possible_types": [
 	"Mammal",
