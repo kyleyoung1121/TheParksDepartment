@@ -43,6 +43,50 @@
       "invasive_or_native": "Native",
       "habitat": ["forests", "grasslands"],
       "diet": "Omnivore"
+    },
+    {
+      "name": "Turkey Vulture",
+      "scientific_name": "Cathartes aura",
+      "asset_filename": "",
+      "animation_filename": "",
+      "texture_filename": "",
+      "type": "Bird",
+      "invasive_or_native": "Native",
+      "habitat": ["open_fields", "wooded_areas"],
+      "diet": "Scavenger"
+    },
+    {
+      "name": "Black Vulture",
+      "scientific_name": "Coragyps atratus",
+      "asset_filename": "",
+      "animation_filename": "",
+      "texture_filename": "",
+      "type": "Bird",
+      "invasive_or_native": "Native",
+      "habitat": ["forests", "fields", "urban_areas"],
+      "diet": "Scavenger"
+    },
+    {
+      "name": "Eastern Wolf",
+      "scientific_name": "Canis lycaon",
+      "asset_filename": "",
+      "animation_filename": "",
+      "texture_filename": "",
+      "type": "Mammal",
+      "invasive_or_native": "Native",
+      "habitat": ["forests", "wooded_areas", "national_parks"],
+      "diet": "Carnivore"
+    },
+    {
+      "name": "Black Bear",
+      "scientific_name": "Ursus americanus",
+      "asset_filename": "",
+      "animation_filename": "",
+      "texture_filename": "",
+      "type": "Mammal",
+      "invasive_or_native": "Native",
+      "habitat": ["forests", "mountains", "swamps"],
+      "diet": "Omnivore"
     }
   ],
   "plants": [
@@ -90,7 +134,69 @@
       "habitat": ["fields", "meadows"],
       "growth_form": "Annual"
     }
+  ],
+  "possible_types": [
+    "Mammal",
+    "Bird",
+    "Reptile",
+    "Amphibian",
+    "Fish",
+    "Insect",
+    "Arachnid",
+    "Mollusk",
+    "Crustacean",
+    "Plant",
+    "Tree",
+    "Shrub",
+    "Flower",
+    "Vine"
+  ],
+  "possible_habitats": [
+    "forests",
+    "fields",
+    "meadows",
+    "ponds",
+    "marshes",
+    "riparian_zones",
+    "urban_areas",
+    "parks",
+    "grasslands",
+    "disturbed_areas",
+    "national_parks",
+    "open_fields",
+    "swamps",
+    "mountains",
+    "coastal_areas",
+    "wetlands",
+    "deserts"
+  ],
+  "possible_growth_forms": [
+    "Deciduous",
+    "Evergreen",
+    "Perennial",
+    "Annual",
+    "Biennial",
+    "Succulent",
+    "Climbing",
+    "Ground Cover",
+    "Shrub",
+    "Tree",
+    "Herb"
+  ],
+  "possible_diets": [
+    "Herbivore",
+    "Carnivore",
+    "Omnivore",
+    "Scavenger",
+    "Detritivore",
+    "Frugivore",
+    "Nectarivore",
+    "Insectivore"
+  ],
+  "possible_invasive_or_native": [
+    "Native",
+    "Invasive"
   ]
 }
 
-  
+
