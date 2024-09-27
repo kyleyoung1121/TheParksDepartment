@@ -26,3 +26,10 @@
 23. Test animal predation mechanic.
 24. Validate that animal predation mechanic works correctly.
 25. Refine animal predation mechanic.
+
+## Owen's Tasks
+1. Research commonly used methods for designing a 3D model, along with past examples.
+2. Develop a fully working main menu.
+3. Research the different animals and plants for defining features.
+4. Design 3D models for different animals and plants, all with the same theme and design.
+5. Validate and refine the designs as needed with the team.
