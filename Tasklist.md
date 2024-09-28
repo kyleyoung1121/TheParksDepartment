@@ -27,6 +27,13 @@
 24. Validate that animal predation mechanic works correctly.
 25. Refine animal predation mechanic.
 
+## Kyle's tasks
+1. Develop 'looking' actions. (camera pan/zoom, plant/animal/object selection)
+2. Implement placeable objects.
+3. Design & Test game scaling. How does the user know they are 'winning'?
+4. Connect game data to the user interface. (animal/plant/park data presented to the user)
+5. Research and test optimization methods to improve game performance.
+
 ## Owen's Tasks
 1. Research commonly used methods for designing a 3D model, along with past examples.
 2. Develop a fully working main menu.
