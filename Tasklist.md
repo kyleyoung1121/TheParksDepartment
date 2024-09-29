@@ -1,31 +1,11 @@
 # Task List
 
 ## Nate's tasks
-1. Research historically native animal species to Ohio.
-2. Research historically native plant species to Ohio.
-3. Research invasive plant species currently inhabiting Ohio.
-4. Research invasive animal species currently inhabiting Ohio.
-5. Specify animal species that will be included in game.
-6. Specify plant species that will be included in game.
-7. Investigate animal species and accumualte facts.
-8. Investigate plant species and accumualte facts.
-9. Design how plant spread will be implemented. 
-10. Design how animal reproduction will be implemented. 
-11. Design how plant consumption will be implemented. 
-12. Design how animal predation will be implemented.
-13. Develop algorithms and methods for animal behavior.
-14. Test plant spread mechanic.
-15. Validate that plant spread mechanic works correctly.
-16. Refine plant spread mechanic.
-17. Test animal reproduction mechanic.
-18. Validate that animal reproduction mechanic works correctly.
-19. Refine animal reproduction mechanic.
-20. Test plant consumption mechanic.
-21. Validate that plant consumption mechanic works correctly.
-22. Refine plant consumption mechanic.
-23. Test animal predation mechanic.
-24. Validate that animal predation mechanic works correctly.
-25. Refine animal predation mechanic.
+1. Research historic or extant invasive and native species to Ohio.
+2. Specify species that will be included in game.
+3. Design and implement plant behavior (spread and consumption by animals)
+4. Design and implement animal behavior (reproduction and predation mechanics)
+5. Test the AI of animals and plants, ensuring they interact with each other and the world properly.
 
 ## Kyle's tasks
 1. Develop 'looking' actions. (camera pan/zoom, plant/animal/object selection)
@@ -40,3 +20,10 @@
 3. Research the different animals and plants for defining features.
 4. Design 3D models for different animals and plants, all with the same theme and design.
 5. Validate and refine the designs as needed with the team.
+
+## Ryan's Tasks
+1. Design a 3D model for each genus of animal and plant, able to be repurposed with scaling.
+2. Create a texture map for each species of plant and animal, to apply over their model.
+3. Create a rig and a walking, eating, and special animation for each 3D model.
+4. Find an existing sound effect or create and record sound effects for environment and animals.
+5. Create 3D models for tiles of the game board, covering mountains, plains, lakes, etc.
