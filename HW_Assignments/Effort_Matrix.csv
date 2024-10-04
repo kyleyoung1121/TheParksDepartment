@@ -11,14 +11,14 @@ Kyle, Backend Development, Design & Test game scaling. How does the user know th
 Kyle, Backend Development, Connect game data to the user interface. (animal/plant/park data presented to the user), 
 Kyle, Backend Development, Research and test optimization methods to improve game performance, 
 ,,,
-Ryan, Frontend Development, Design a 3D model for each genus of animal and plant. Be able to be repurposed with scaling, 
-Ryan, Frontend Development, Create a texture map for each species of plant and animal to apply over their model, 
-Ryan, Frontend Development, Create a rig and a walking eating and special animation for each 3D model, 
-Ryan, Frontend Development, Find an existing sound effect or create and record sound effects for environment and animals, 
-Ryan, Frontend Development, Create 3D models for tiles of the game board / covering mountains / plains / lakes / etc., 
+Ryan, Frontend Development, Design a 3D model for each genus of animal and plant. Be able to be repurposed with scaling,25%
+Ryan, Frontend Development, Create a texture map for each species of plant and animal to apply over their model,20%
+Ryan, Frontend Development, Create a rig and a walking eating and special animation for each 3D model,25%
+Ryan, Frontend Development, Find an existing sound effect or create and record sound effects for environment and animals,15%
+Ryan, Frontend Development, Create 3D models for tiles of the game board / covering mountains / plains / lakes / etc.,15%
 ,,,
-Owen, UI Designer, Research commonly used methods for designing a 3D model. Along with past examples, 10%
-Owen, Frontend Development, Develop a fully working main menu, 20%
-Owen, UI Designer, Research the different animals and plants for defining features, 10%
-Owen, Frontend Development, Design 3D models for different animals and plants. All with the same theme and design, 40%
-Owen, UI Designer, Validate and refine the designs as needed with the team, 20%
+Owen, UI Designer, Research commonly used methods for designing a 3D model. Along with past examples,10%
+Owen, Frontend Development, Develop a fully working main menu,20%
+Owen, UI Designer, Research the different animals and plants for defining features,10%
+Owen, Frontend Development, Design 3D models for different animals and plants. All with the same theme and design,40%
+Owen, UI Designer, Validate and refine the designs as needed with the team,20%
