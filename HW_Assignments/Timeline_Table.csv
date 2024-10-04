@@ -5,11 +5,11 @@ Nathan, Backend Development, Design and implement plant behavior (spread and con
 Nathan, Backend Development, Design and implement animal behavior (reproduction and predation mechanics), , 
 Nathan, Backend Development, Test the AI of animals and plants ensuring they interact with each other and the world properly,, 
 ,,,,
-Kyle, Backend Development, Develop 'looking' actions. (camera pan/zoom plant/animal/object selection),, 
-Kyle, Backend Development, Implement placeable objects,,
-Kyle, Backend Development, Design & Test game scaling. How does the user know they are 'winning',,
-Kyle, Backend Development, Connect game data to the user interface. (animal/plant/park data presented to the user),,
-Kyle, Backend Development, Research and test optimization methods to improve game performance,,
+Kyle, Backend Development, Develop 'looking' actions. (camera pan/zoom plant/animal/object selection), 10/4/2024, 11/1/2024 
+Kyle, Backend Development, Implement placeable objects, 11/1/2024, 12/15/2024
+Kyle, Backend Development, Design & Test game scaling. How does the user know they are 'winning', 10/4/2024, 11/1/2024
+Kyle, Backend Development, Connect game data to the user interface. (animal/plant/park data presented to the user), 11/1/2024, 12/15/2024
+Kyle, Backend Development, Research and test optimization methods to improve game performance, 1/1/2025, 2/8/2025
 ,,,,
 Ryan, Frontend Development, Design a 3D model for each genus of animal and plant able to be repurposed with scaling,11/11/2024,2/1/2025
 Ryan, Frontend Development, Create a texture map for each species of plant and animal to apply over their model,10/18/2024,2/1/2025
