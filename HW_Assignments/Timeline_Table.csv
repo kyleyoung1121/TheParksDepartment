@@ -1,9 +1,9 @@
 Person, Role, Task, Start Date, End Date
-Nathan, Backend Development, Research historic or extant invasive and native species to Ohio, ,
-Nathan, Backend Development, Specify species that will be included in game, , 
-Nathan, Backend Development, Design and implement plant behavior (spread and consumption by animals), , 
-Nathan, Backend Development, Design and implement animal behavior (reproduction and predation mechanics), , 
-Nathan, Backend Development, Test the AI of animals and plants ensuring they interact with each other and the world properly,, 
+Nathan, Backend Development, Research historic or extant invasive and native species to Ohio, 10/4/2024, 10/31/2024
+Nathan, Backend Development, Specify species that will be included in game, 10/4/2024, 12/31/2024
+Nathan, Backend Development, Design and implement plant behavior (spread and consumption by animals),11/11/2024,2/1/2025
+Nathan, Backend Development, Design and implement animal behavior (reproduction and predation mechanics),11/11/2024,2/1/2025
+Nathan, Backend Development, Test the AI of animals and plants ensuring they interact with each other and the world properly, 1/1/2025, 2/8/2025
 ,,,,
 Kyle, Backend Development, Develop 'looking' actions. (camera pan/zoom plant/animal/object selection), 10/4/2024, 11/1/2024 
 Kyle, Backend Development, Implement placeable objects, 11/1/2024, 12/15/2024
