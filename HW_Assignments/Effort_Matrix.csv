@@ -1,15 +1,15 @@
 Person, Role, Task, Effort (%)
-Nathan, Backend Development, Research historic or extant invasive and native species to Ohio, 
-Nathan, Backend Development, Specify species that will be included in game, 
-Nathan, Backend Development, Design and implement plant behavior (spread and consumption by animals), 
-Nathan, Backend Development, Design and implement animal behavior (reproduction and predation mechanics), 
-Nathan, Backend Development, Test the AI of animals and plants. ensuring they interact with each other and the world properly, 
+Nathan, Backend Development, Research historic or extant invasive and native species to Ohio,10%
+Nathan, Backend Development, Specify species that will be included in game,10%
+Nathan, Backend Development, Design and implement plant behavior (spread and consumption by animals),30%
+Nathan, Backend Development, Design and implement animal behavior (reproduction and predation mechanics),30%
+Nathan, Backend Development, Test the AI of animals and plants. ensuring they interact with each other and the world properly,20%
 ,,,
-Kyle, Backend Development, Develop 'looking' actions. (camera pan/zoom / plant/animal/object / selection), 
-Kyle, Backend Development, Implement placeable objects, 
-Kyle, Backend Development, Design & Test game scaling. How does the user know they are 'winning', 
-Kyle, Backend Development, Connect game data to the user interface. (animal/plant/park data presented to the user), 
-Kyle, Backend Development, Research and test optimization methods to improve game performance, 
+Kyle, Backend Development, Develop 'looking' actions. (camera pan/zoom / plant/animal/object / selection),20%
+Kyle, Backend Development, Implement placeable objects,30%
+Kyle, Backend Development, Design & Test game scaling. How does the user know they are 'winning',15%
+Kyle, Backend Development, Connect game data to the user interface. (animal/plant/park data presented to the user),25%
+Kyle, Backend Development, Research and test optimization methods to improve game performance,10%
 ,,,
 Ryan, Frontend Development, Design a 3D model for each genus of animal and plant. Be able to be repurposed with scaling,25%
 Ryan, Frontend Development, Create a texture map for each species of plant and animal to apply over their model,20%
