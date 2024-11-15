@@ -45,50 +45,50 @@ You can also use the default github table of contents too!
   - This educational video game focuses on teaching responsible forestry, species management, and invasive species control through an engaging simulation. It combines elements of animal reserve management with strategic decision-making. Players can also manage the reserve to raise funds, conduct expeditions to find and conserve animals, and protect the reserve from poachers.
 
 ## Project Description (Assignment #2)
-[Project Description](HW_Assignments\Project-Description.md)
+[Project Description](HW_Assignments/Project-Description.md)
 
 ## User Stories and Design Diagrams (Assignment #4)
 
 ### User Stories
-[User Stories](HW_Assignments\user-stories.md)
+[User Stories](HW_Assignments/user-stories.md)
 
 ### Design Diagrams: Level 0, Level 1 and Level 2 
-![Design Diagram Level 0](Design_Diagrams\DesignDiagram-D0.png)
-![Design Diagram Level 1](Design_Diagrams\DesignDiagram-D1.png)
-![Design Diagram Level 2](Design_Diagrams\DesignDiagram-D2.png)
+![Design Diagram Level 0](Design_Diagrams/DesignDiagram-D0.png)
+![Design Diagram Level 1](Design_Diagrams/DesignDiagram-D1.png)
+![Design Diagram Level 2](Design_Diagrams/DesignDiagram-D2.png)
 ### Description of the Diagrams: including conventions and a brief description of the purpose of each component.
 TODO
 
 ## Project Tasks and Timeline (Assignment #5-6)
 
 ### Task List
-[Task List](HW_Assignments\Tasklist.md)
+[Task List](HW_Assignments/Tasklist.md)
 
 ### Timeline
-[Timeline](HW_Assignments\Timeline_Table.csv)
+[Timeline](HW_Assignments/Timeline_Table.csv)
 
 ### Effort Matrix
-[Task List](HW_Assignments\Effort_Matrix.csv)
+[Task List](HW_Assignments/Effort_Matrix.csv)
 
 
 ## ABET Concerns Essay (Assignment #7)
-[ABET Concerns Essay](HW_Assignments\ConstraintEssay.txt)
+[ABET Concerns Essay](HW_Assignments/ConstraintEssay.txt)
 
 ## PPT Slideshow (includes ABET Concerns) (Assignment #8)
 [Slide Show](https://docs.google.com/presentation/d/1j2VIWUOZVFvMsKo1UwIQpQx6Llhs67gb/edit#slide=id.p1)
 TODO ( Must include ABET Concerns, which is constraints)
 
 ## Self-Assessment Essays (Assignment #3)
-- [Nathan Suer's Self-Assessment Essay](HW_Assignments\Nathan_Suer_Individual_Capstone_Assessment.md)
-- [Ryan Williams's Self-Assessment Essay](HW_Assignments\Ryan_Williams_Individual_Capstone_Assessment.md)
-- [Kyle Young's Self-Assessment Essay](HW_Assignments\Kyle_Young_Individual_Capstone_Assessment.md)
-- [Owen Richards's Self-Assessment Essay](HW_Assignments\Owen_Richards_Individual_Capstone_Assessment.md)
+- [Nathan Suer's Self-Assessment Essay](HW_Assignments/Nathan_Suer_Individual_Capstone_Assessment.md)
+- [Ryan Williams's Self-Assessment Essay](HW_Assignments/Ryan_Williams_Individual_Capstone_Assessment.md)
+- [Kyle Young's Self-Assessment Essay](HW_Assignments/Kyle_Young_Individual_Capstone_Assessment.md)
+- [Owen Richards's Self-Assessment Essay](HW_Assignments/Owen_Richards_Individual_Capstone_Assessment.md)
 
 ## Professional Biographies  (Assignment #1)
-- [Nathan Suer's Professional Biography](HW_Assignments\Nathan_Suer_Professional_Bio.md)
-- [Ryan Williams's Professional Biography](HW_Assignments\Ryan_Williams_Professional_Bio.md)
-- [Kyle Young's Professional Biography](HW_Assignments\Kyle_Young_Professional_Bio.md)
-- [Owen Richards's Professional Biography](HW_Assignments\Owen_Richards_Professional_Bio.md)
+- [Nathan Suer's Professional Biography](HW_Assignments/Nathan_Suer_Professional_Bio.md)
+- [Ryan Williams's Professional Biography](HW_Assignments/Ryan_Williams_Professional_Bio.md)
+- [Kyle Young's Professional Biography](HW_Assignments/Kyle_Young_Professional_Bio.md)
+- [Owen Richards's Professional Biography](HW_Assignments/Owen_Richards_Professional_Bio.md)
 
 ## Budget 
 ### Expenses to date or statement that there have not been any.
