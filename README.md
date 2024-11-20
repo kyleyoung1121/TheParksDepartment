@@ -1,9 +1,7 @@
 # The Park Department
 
-TODO Remove this
-Hi eveyone, I'm not sure if y'all remeber me saying this but I'll be gone for this weeks meeting because I am going out of town for my brothers wedding and can't do HW. I marked areas with nothing in the with 'TODO'.  They expect that all assignments will be atleast minorly updated since our original submission. I made the table of contents and Linked most of our assignments. I hope that this helps you all and I'm sorry I can't be there with y'all to do the rest of the work.
-
 ## Table of Contents
+You can also use the default github table of contents too!
 - [The Park Department](#the-park-department)
   - [Table of Contents](#table-of-contents)
   - [Team names and Project Abstract](#team-names-and-project-abstract)
@@ -11,7 +9,11 @@ Hi eveyone, I'm not sure if y'all remeber me saying this but I'll be gone for th
   - [User Stories and Design Diagrams (Assignment #4)](#user-stories-and-design-diagrams-assignment-4)
     - [User Stories](#user-stories)
     - [Design Diagrams: Level 0, Level 1 and Level 2](#design-diagrams-level-0-level-1-and-level-2)
-    - [Description of the Diagrams: including conventions and a brief description of the purpose of each component.](#description-of-the-diagrams-including-conventions-and-a-brief-description-of-the-purpose-of-each-component)
+      - [Summary of Design](#summary-of-design)
+      - [**Conventions in the Diagrams**](#conventions-in-the-diagrams)
+      - [**Level D0 (High-Level Design)**](#level-d0-high-level-design)
+      - [**Level D1 (Intermediate Design)**](#level-d1-intermediate-design)
+      - [**Level D2 (Detailed Design)**](#level-d2-detailed-design)
   - [Project Tasks and Timeline (Assignment #5-6)](#project-tasks-and-timeline-assignment-5-6)
     - [Task List](#task-list)
     - [Timeline](#timeline)
@@ -21,13 +23,16 @@ Hi eveyone, I'm not sure if y'all remeber me saying this but I'll be gone for th
   - [Self-Assessment Essays (Assignment #3)](#self-assessment-essays-assignment-3)
   - [Professional Biographies  (Assignment #1)](#professional-biographies--assignment-1)
   - [Budget](#budget)
-    - [Expenses to date or statement that there have not been any.](#expenses-to-date-or-statement-that-there-have-not-been-any)
+    - [Expenses to date](#expenses-to-date)
     - [Show monetary value of donated items and donation sources.](#show-monetary-value-of-donated-items-and-donation-sources)
   - [Appendix](#appendix)
-    - [Include appropriate references, citations, links to code repositories, and meeting notes.](#include-appropriate-references-citations-links-to-code-repositories-and-meeting-notes)
-    - [There should be evidence justifying 45 hours of effort for each team member.](#there-should-be-evidence-justifying-45-hours-of-effort-for-each-team-member)
-
-You can also use the default github table of contents too!
+    - [References, citations, links to code repositories, and meeting notes.](#references-citations-links-to-code-repositories-and-meeting-notes)
+    - [Hours Justification for Team Members](#hours-justification-for-team-members)
+  - [Summary of Effort](#summary-of-effort)
+  - [Meeting Hours](#meeting-hours)
+  - [Additional Assignments](#additional-assignments)
+  - [Project Development](#project-development)
+  - [Total Hours Breakdown](#total-hours-breakdown)
 
 ## Team names and Project Abstract
 - Nathan Suer
@@ -41,8 +46,8 @@ You can also use the default github table of contents too!
 - William Hawkins III (Advisor)
   - Email: hawkinwh@ucmail.uc.edu 
 
-- Project Abstract (TODO double check this, I had to make it less than 400 ascii chars)
-  - This educational video game focuses on teaching responsible forestry, species management, and invasive species control through an engaging simulation. It combines elements of animal reserve management with strategic decision-making. Players can also manage the reserve to raise funds, conduct expeditions to find and conserve animals, and protect the reserve from poachers.
+- Project Abstract
+This educational video game focuses on teaching responsible forestry, species management, and invasive species control through an engaging simulation. It combines elements of animal reserve management with strategic decision-making. Players can also manage the reserve to raise funds, conduct expeditions to find and conserve animals, and protect the reserve from poachers.
 
 ## Project Description (Assignment #2)
 [Project Description](HW_Assignments/Project-Description.md)
@@ -53,11 +58,45 @@ You can also use the default github table of contents too!
 [User Stories](HW_Assignments/user-stories.md)
 
 ### Design Diagrams: Level 0, Level 1 and Level 2 
+
+#### Summary of Design
+The diagrams (D0, D1, and D2) show the structure and gameplay flow for "The Park Department" game:
+1. **D0:** High-level structure with basic menu navigation.
+2. **D1:** Mid-level design focusing on options and pre-game setup.
+3. **D2:** Detailed configuration options and tutorial onboarding.
+
+#### **Conventions in the Diagrams**
+- **Arrows:** Represent user inputs or the flow of interaction.
+- **Text:** Represents outputs, actions, or states.
+- **Goal Statement:** Specifies the game's purpose as a foundation for the design.
+- **Legend:** Clarifies the meaning of symbols used (e.g., arrows = user input).
+
+#### **Level D0 (High-Level Design)**
+- **Purpose:** Provides a broad overview of the main menu structure and basic interactions.
+- **Components:**
+  - **Start:** Leads to the game beginning.
+  - **Options:** Displays settings players can modify.
+  - **Quit:** Ends the game.
 ![Design Diagram Level 0](Design_Diagrams/DesignDiagram-D0.png)
+
+#### **Level D1 (Intermediate Design)**
+- **Purpose:** Expands on D0 by detailing the options menu and pre-game setup process.
+- **Components:**
+  - **Options Menu:** Includes settings like aspect ratio, screen size, volume, graphics, and FPS.
+  - **Game Setup:** Includes steps for selecting a map, naming the preserve, and setting difficulty.
+  - **Quit:** Closes the game, similar to D0.
 ![Design Diagram Level 1](Design_Diagrams/DesignDiagram-D1.png)
+
+#### **Level D2 (Detailed Design)**
+- **Purpose:** Provides the most detailed breakdown, focusing on options and initial gameplay decisions.
+- **Components:**
+  - **Options Menu:**
+    - **Aspect Ratio and Screen Size:** Allows players to specify exact parameters.
+    - **Volume and Graphics Settings:** Adjusted via sliders or presets.
+    - **FPS (Frames Per Second):** Allows specific frame rate values or unlimited FPS.
+  - **Game Start:**
+    - **Tutorial Option:** Gives players the choice to begin with a tutorial or jump straight into gameplay.
 ![Design Diagram Level 2](Design_Diagrams/DesignDiagram-D2.png)
-### Description of the Diagrams: including conventions and a brief description of the purpose of each component.
-TODO
 
 ## Project Tasks and Timeline (Assignment #5-6)
 
@@ -91,14 +130,71 @@ TODO ( Must include ABET Concerns, which is constraints)
 - [Owen Richards's Professional Biography](HW_Assignments/Owen_Richards_Professional_Bio.md)
 
 ## Budget 
-### Expenses to date or statement that there have not been any.
-TODO
-### Show monetary value of donated items and donation sources.
-TODO
 
+### Expenses to date
+There has no been no expenses so far.
+
+### Show monetary value of donated items and donation sources.
+There have been no donations to our project.
 
 ## Appendix
-### Include appropriate references, citations, links to code repositories, and meeting notes.
-TODO
-### There should be evidence justifying 45 hours of effort for each team member.
-TODO
+### References, citations, links to code repositories, and meeting notes.
+We have not used or referenced any other persons work. We are using the Godot engine, which is an open source game engine (https://github.com/godotengine/godot).
+### Hours Justification for Team Members
+
+## Summary of Effort
+Each team member is required to provide evidence of 45 hours of effort. Below is a breakdown of hours logged through meetings, assignments, and project development.
+
+## Meeting Hours
+- **Initial Meeting**:  
+  - Date: Tuesday, August 27, 2024  
+  - Duration: 2 hours (introduction and planning).  
+- **Regular Meetings**:  
+  - Start Date: Friday, September 13, 2024  
+  - Frequency: Weekly on Fridays, 2 hours each  
+  - Total Possible Meetings: 13  
+  - Cancelled Meetings: 2 (due to midterms and scheduling conflicts)  
+  - Total Meetings: 11
+  - Extended Meetings:  
+    - 2 meetings ran 30 minutes late (+1 hour).  
+    - 2 meetings ran 2 hours late (+4 hours).  
+- **Total Meeting Hours**: 29 hours.
+
+## Additional Assignments
+- **Professional Biographies**:  
+  - Time Spent: 1 hour per team member.  
+- **Capstone Assessments**:  
+  - Time Spent: 2 hours per team member.
+
+## Project Development
+**Individual Contributions**:  
+  Each team member has dedicated time to the development of the project to fulfill the remaining 13 required hours. Detailed logs of individual contributions will be provided in the project documentation.
+
+**Nathan Suer**:
+  - Coming up with project ideas and initial project design: 3 hours
+  - Researching project-related technologies/tools: 4 hours
+  - Watching tutorials or reading documentation to improve Godot and game development programming skills: 3 hours
+  - Working on Final Design Report - 5 hours
+  - Total: 15 hours 
+  
+**Owen Richards**:
+  - TODO
+  - Total: ?? hours 
+  
+**Ryan Williams**:
+  - TODO
+  - Total: ?? hours 
+
+**Kyle Young**:
+  - TODO
+  - Total: ?? hours 
+
+
+## Total Hours Breakdown
+| **Category**                 | **Hours**  |
+|-------------------------------|------------|
+| Meetings (incl. overages) | 29 hours   |
+| Professional Biographies      | 1 hour     |
+| Capstone Assessments          | 2 hours    |
+| Project Development (individual) | 13 hours or more  |
+| **Total**                     | **45 hours or more** |
