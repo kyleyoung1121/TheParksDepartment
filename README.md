@@ -186,8 +186,15 @@ Each team member is required to provide evidence of 45 hours of effort. Below is
   - Total: ?? hours 
 
 **Kyle Young**:
-  - TODO
-  - Total: ?? hours 
+  - Ideating gameplay features for our project: 1 hour
+  - Researching similar games on the market: 1 hour
+  - Organizing project into a planned-out file structure: 1 hour
+  - Setting up basic scene with ground and orthogonal camera: 1 hour
+  - Watching tutorials or reading documentation to improve Godot and game development programming skills: 3 hours
+  - Implementing camera panning, rotation, and zoom features: 3 hours
+  - Creating and maintaining several important documentation files in the repository: 2 hours
+  - Working on Final Design Report: 1 hour
+  - Total: 13 hours
 
 
 ## Total Hours Breakdown
