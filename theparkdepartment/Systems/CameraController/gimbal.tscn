@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwp624wmncn58"]
+
+[ext_resource type="Script" path="res://Systems/CameraController/Gimbal.gd" id="1_pwki3"]
+
+[node name="Gimbal" type="Node3D"]
+transform = Transform3D(0.743145, 0, -0.669131, 0, 1, 0, 0.669131, 0, 0.743145, 0, 0, 0)
+script = ExtResource("1_pwki3")
+
+[node name="InnerGimbal" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.835807, 0.549023, 0, -0.549023, 0.835807, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="InnerGimbal"]
+projection = 1
