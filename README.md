@@ -5,23 +5,23 @@ You can also use the default github table of contents too!
 - [The Park Department](#the-park-department)
   - [Table of Contents](#table-of-contents)
   - [Team names and Project Abstract](#team-names-and-project-abstract)
-  - [Project Description (Assignment #2)](#project-description-assignment-2)
+  - [Project Description (Assignment #2) - Kyle TODO](#project-description-assignment-2---kyle-todo)
   - [User Stories and Design Diagrams (Assignment #4)](#user-stories-and-design-diagrams-assignment-4)
-    - [User Stories](#user-stories)
-    - [Design Diagrams: Level 0, Level 1 and Level 2](#design-diagrams-level-0-level-1-and-level-2)
+    - [User Stories - Owen TODO](#user-stories---owen-todo)
+    - [Design Diagrams: Level 0, Level 1 and Level 2 - Nate TODO](#design-diagrams-level-0-level-1-and-level-2---nate-todo)
       - [Summary of Design](#summary-of-design)
       - [**Conventions in the Diagrams**](#conventions-in-the-diagrams)
       - [**Level D0 (High-Level Design)**](#level-d0-high-level-design)
       - [**Level D1 (Intermediate Design)**](#level-d1-intermediate-design)
       - [**Level D2 (Detailed Design)**](#level-d2-detailed-design)
-  - [Project Tasks and Timeline (Assignment #5-6)](#project-tasks-and-timeline-assignment-5-6)
+  - [Project Tasks and Timeline (Assignment #5-6) - Ryan TODO](#project-tasks-and-timeline-assignment-5-6---ryan-todo)
     - [Task List](#task-list)
     - [Timeline](#timeline)
     - [Effort Matrix](#effort-matrix)
-  - [ABET Concerns Essay (Assignment #7)](#abet-concerns-essay-assignment-7)
-  - [PPT Slideshow (includes ABET Concerns) (Assignment #8)](#ppt-slideshow-includes-abet-concerns-assignment-8)
-  - [Self-Assessment Essays (Assignment #3)](#self-assessment-essays-assignment-3)
-  - [Professional Biographies  (Assignment #1)](#professional-biographies--assignment-1)
+  - [ABET Concerns Essay (Assignment #7) - Kyle TODO](#abet-concerns-essay-assignment-7---kyle-todo)
+  - [PPT Slideshow (includes ABET Concerns) (Assignment #8) - Owen TODO](#ppt-slideshow-includes-abet-concerns-assignment-8---owen-todo)
+  - [Self-Assessment Essays (Assignment #3) - Everyone TODO](#self-assessment-essays-assignment-3---everyone-todo)
+  - [Professional Biographies  (Assignment #1) - Everyone TODO](#professional-biographies--assignment-1---everyone-todo)
   - [Budget](#budget)
     - [Expenses to date](#expenses-to-date)
     - [Show monetary value of donated items and donation sources.](#show-monetary-value-of-donated-items-and-donation-sources)
@@ -46,18 +46,18 @@ You can also use the default github table of contents too!
 - William Hawkins III (Advisor)
   - Email: hawkinwh@ucmail.uc.edu 
 
-- Project Abstract
+- Project Abstract - Ryan TODO
 This educational video game focuses on teaching responsible forestry, species management, and invasive species control through an engaging simulation. It combines elements of animal reserve management with strategic decision-making. Players can also manage the reserve to raise funds, conduct expeditions to find and conserve animals, and protect the reserve from poachers.
 
-## Project Description (Assignment #2)
+## Project Description (Assignment #2) - Kyle TODO
 [Project Description](HW_Assignments/Project-Description.md)
 
 ## User Stories and Design Diagrams (Assignment #4)
 
-### User Stories
+### User Stories - Owen TODO
 [User Stories](HW_Assignments/user-stories.md)
 
-### Design Diagrams: Level 0, Level 1 and Level 2 
+### Design Diagrams: Level 0, Level 1 and Level 2 - Nate TODO
 
 #### Summary of Design
 The diagrams (D0, D1, and D2) show the structure and gameplay flow for "The Park Department" game:
@@ -98,7 +98,7 @@ The diagrams (D0, D1, and D2) show the structure and gameplay flow for "The Park
     - **Tutorial Option:** Gives players the choice to begin with a tutorial or jump straight into gameplay.
 ![Design Diagram Level 2](Design_Diagrams/DesignDiagram-D2.png)
 
-## Project Tasks and Timeline (Assignment #5-6)
+## Project Tasks and Timeline (Assignment #5-6) - Ryan TODO
 
 ### Task List
 [Task List](HW_Assignments/Tasklist.md)
@@ -110,20 +110,20 @@ The diagrams (D0, D1, and D2) show the structure and gameplay flow for "The Park
 [Task List](HW_Assignments/Effort_Matrix.csv)
 
 
-## ABET Concerns Essay (Assignment #7)
+## ABET Concerns Essay (Assignment #7) - Kyle TODO
 [ABET Concerns Essay](HW_Assignments/ConstraintEssay.txt)
 
-## PPT Slideshow (includes ABET Concerns) (Assignment #8)
+## PPT Slideshow (includes ABET Concerns) (Assignment #8) - Owen TODO
 [Slide Show](https://docs.google.com/presentation/d/1j2VIWUOZVFvMsKo1UwIQpQx6Llhs67gb/edit#slide=id.p1)
 TODO ( Must include ABET Concerns, which is constraints)
 
-## Self-Assessment Essays (Assignment #3)
+## Self-Assessment Essays (Assignment #3) - Everyone TODO
 - [Nathan Suer's Self-Assessment Essay](HW_Assignments/Nathan_Suer_Individual_Capstone_Assessment.md)
 - [Ryan Williams's Self-Assessment Essay](HW_Assignments/Ryan_Williams_Individual_Capstone_Assessment.md)
 - [Kyle Young's Self-Assessment Essay](HW_Assignments/Kyle_Young_Individual_Capstone_Assessment.md)
 - [Owen Richards's Self-Assessment Essay](HW_Assignments/Owen_Richards_Individual_Capstone_Assessment.md)
 
-## Professional Biographies  (Assignment #1)
+## Professional Biographies  (Assignment #1) - Everyone TODO
 - [Nathan Suer's Professional Biography](HW_Assignments/Nathan_Suer_Professional_Bio.md)
 - [Ryan Williams's Professional Biography](HW_Assignments/Ryan_Williams_Professional_Bio.md)
 - [Kyle Young's Professional Biography](HW_Assignments/Kyle_Young_Professional_Bio.md)
