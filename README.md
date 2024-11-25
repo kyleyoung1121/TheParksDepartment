@@ -79,6 +79,7 @@ The diagrams (D0, D1, and D2) show the structure and gameplay flow for "The Park
   - **Start:** Leads to the game beginning.
   - **Options:** Displays settings players can modify.
   - **Quit:** Ends the game.
+
 ![Design Diagram Level 0](Design_Diagrams/DesignDiagram-D0_Updated.png)
 
 #### **Level D1 (Intermediate Design)**
@@ -87,6 +88,7 @@ The diagrams (D0, D1, and D2) show the structure and gameplay flow for "The Park
   - **Options Menu:** Includes settings like aspect ratio, screen size, volume, graphics, and FPS.
   - **Game Setup:** Includes steps for selecting a map, naming the preserve, and setting difficulty.
   - **Quit:** Closes the game, similar to D0.
+
 ![Design Diagram Level 1](Design_Diagrams/DesignDiagram-D1_Updated.png)
 
 #### **Level D2 (Detailed Design)**
@@ -98,6 +100,7 @@ The diagrams (D0, D1, and D2) show the structure and gameplay flow for "The Park
     - **FPS (Frames Per Second):** Allows specific frame rate values or unlimited FPS.
   - **Game Start:**
     - **Tutorial Option:** Gives players the choice to begin with a tutorial or jump straight into gameplay.
+
 ![Design Diagram Level 2](Design_Diagrams/DesignDiagram-D2_Updated.png)
 
 ## Project Tasks and Timeline (Assignment #5-6) - Ryan TODO
