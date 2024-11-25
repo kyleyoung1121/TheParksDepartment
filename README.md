@@ -8,7 +8,7 @@ You can also use the default github table of contents too!
   - [Project Description (Assignment #2) - Kyle TODO](#project-description-assignment-2---kyle-todo)
   - [User Stories and Design Diagrams (Assignment #4)](#user-stories-and-design-diagrams-assignment-4)
     - [User Stories - Owen TODO](#user-stories---owen-todo)
-    - [Design Diagrams: Level 0, Level 1 and Level 2 - Nate TODO](#design-diagrams-level-0-level-1-and-level-2---nate-todo)
+    - [Design Diagrams: Level 0, Level 1 and Level 2](#design-diagrams-level-0-level-1-and-level-2)
       - [Summary of Design](#summary-of-design)
       - [**Conventions in the Diagrams**](#conventions-in-the-diagrams)
       - [**Level D0 (High-Level Design)**](#level-d0-high-level-design)
@@ -57,7 +57,7 @@ This educational video game focuses on teaching responsible forestry, species ma
 ### User Stories - Owen TODO
 [User Stories](HW_Assignments/user-stories.md)
 
-### Design Diagrams: Level 0, Level 1 and Level 2 - Nate TODO
+### Design Diagrams: Level 0, Level 1 and Level 2
 
 #### Summary of Design
 The diagrams (D0, D1, and D2) show the structure and gameplay flow for "The Park Department" game:
@@ -67,7 +67,9 @@ The diagrams (D0, D1, and D2) show the structure and gameplay flow for "The Park
 
 #### **Conventions in the Diagrams**
 - **Arrows:** Represent user inputs or the flow of interaction.
-- **Text:** Represents outputs, actions, or states.
+- **Red Text:** Represents outputs.
+- **Green Text:** Represents actions.
+- **Blue Text:** Represents states.
 - **Goal Statement:** Specifies the game's purpose as a foundation for the design.
 - **Legend:** Clarifies the meaning of symbols used (e.g., arrows = user input).
 
@@ -77,7 +79,7 @@ The diagrams (D0, D1, and D2) show the structure and gameplay flow for "The Park
   - **Start:** Leads to the game beginning.
   - **Options:** Displays settings players can modify.
   - **Quit:** Ends the game.
-![Design Diagram Level 0](Design_Diagrams/DesignDiagram-D0.png)
+![Design Diagram Level 0](Design_Diagrams/DesignDiagram-D0_Updated.png)
 
 #### **Level D1 (Intermediate Design)**
 - **Purpose:** Expands on D0 by detailing the options menu and pre-game setup process.
@@ -85,7 +87,7 @@ The diagrams (D0, D1, and D2) show the structure and gameplay flow for "The Park
   - **Options Menu:** Includes settings like aspect ratio, screen size, volume, graphics, and FPS.
   - **Game Setup:** Includes steps for selecting a map, naming the preserve, and setting difficulty.
   - **Quit:** Closes the game, similar to D0.
-![Design Diagram Level 1](Design_Diagrams/DesignDiagram-D1.png)
+![Design Diagram Level 1](Design_Diagrams/DesignDiagram-D1_Updated.png)
 
 #### **Level D2 (Detailed Design)**
 - **Purpose:** Provides the most detailed breakdown, focusing on options and initial gameplay decisions.
@@ -96,7 +98,7 @@ The diagrams (D0, D1, and D2) show the structure and gameplay flow for "The Park
     - **FPS (Frames Per Second):** Allows specific frame rate values or unlimited FPS.
   - **Game Start:**
     - **Tutorial Option:** Gives players the choice to begin with a tutorial or jump straight into gameplay.
-![Design Diagram Level 2](Design_Diagrams/DesignDiagram-D2.png)
+![Design Diagram Level 2](Design_Diagrams/DesignDiagram-D2_Updated.png)
 
 ## Project Tasks and Timeline (Assignment #5-6) - Ryan TODO
 
