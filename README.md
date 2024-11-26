@@ -7,7 +7,7 @@ You can also use the default github table of contents too!
   - [Team names and Project Abstract](#team-names-and-project-abstract)
   - [Project Description (Assignment #2) - Kyle TODO](#project-description-assignment-2---kyle-todo)
   - [User Stories and Design Diagrams (Assignment #4)](#user-stories-and-design-diagrams-assignment-4)
-    - [User Stories - Owen TODO](#user-stories---owen-todo)
+    - [User Stories](#user-stories---owen-todo)
     - [Design Diagrams: Level 0, Level 1 and Level 2](#design-diagrams-level-0-level-1-and-level-2)
       - [Summary of Design](#summary-of-design)
       - [**Conventions in the Diagrams**](#conventions-in-the-diagrams)
@@ -19,7 +19,7 @@ You can also use the default github table of contents too!
     - [Timeline](#timeline)
     - [Effort Matrix](#effort-matrix)
   - [ABET Concerns Essay (Assignment #7) - Kyle TODO](#abet-concerns-essay-assignment-7---kyle-todo)
-  - [PPT Slideshow (includes ABET Concerns) (Assignment #8) - Owen TODO](#ppt-slideshow-includes-abet-concerns-assignment-8---owen-todo)
+  - [PPT Slideshow (includes ABET Concerns) (Assignment #8)](#ppt-slideshow-includes-abet-concerns-assignment-8---owen-todo)
   - [Self-Assessment Essays (Assignment #3) - Everyone TODO](#self-assessment-essays-assignment-3---everyone-todo)
   - [Professional Biographies  (Assignment #1) - Everyone TODO](#professional-biographies--assignment-1---everyone-todo)
   - [Budget](#budget)
@@ -54,7 +54,7 @@ This educational video game focuses on teaching responsible forestry, species ma
 
 ## User Stories and Design Diagrams (Assignment #4)
 
-### User Stories - Owen TODO
+### User Stories
 [User Stories](HW_Assignments/user-stories.md)
 
 ### Design Diagrams: Level 0, Level 1 and Level 2
@@ -118,7 +118,7 @@ The diagrams (D0, D1, and D2) show the structure and gameplay flow for "The Park
 ## ABET Concerns Essay (Assignment #7) - Kyle TODO
 [ABET Concerns Essay](HW_Assignments/ConstraintEssay.txt)
 
-## PPT Slideshow (includes ABET Concerns) (Assignment #8) - Owen TODO
+## PPT Slideshow (includes ABET Concerns) (Assignment #8)
 [Slide Show](https://docs.google.com/presentation/d/1j2VIWUOZVFvMsKo1UwIQpQx6Llhs67gb/edit#slide=id.p1)
 TODO ( Must include ABET Concerns, which is constraints)
 
