@@ -183,9 +183,13 @@ Each team member is required to provide evidence of 45 hours of effort. Below is
   - Total: 15 hours 
   
 **Owen Richards**:
-  - TODO
-  - Total: ?? hours 
-  
+  - Researching Godot/Blender usage, when not working directly in Godot or Blender: 2 hours
+  - General work in Godot: 4 hours
+  - Creating blender designs including a basic house, pens, animals, people, etc. 4 hours
+  - Main Menu design and settings configuration: 3 hours
+  - Animal pathfinding/wandering movement: 2 hours
+  - Total: 15 hours
+    
 **Ryan Williams**:
   - TODO
   - Total: ?? hours 
