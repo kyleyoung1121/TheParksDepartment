@@ -106,7 +106,7 @@ The diagrams (D0, D1, and D2) show the structure and gameplay flow for "The Park
 
 ![Design Diagram Level 2](Design_Diagrams/DesignDiagram-D2_Updated.png)
 
-## Project Tasks and Timeline (Assignment #5-6) - Ryan TODO
+## Project Tasks and Timeline (Assignment #5-6)
 
 ### Task List
 [Task List](HW_Assignments/Tasklist.md)
