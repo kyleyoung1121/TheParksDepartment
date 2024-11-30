@@ -120,7 +120,6 @@ The diagrams (D0, D1, and D2) show the structure and gameplay flow for "The Park
 
 ## PPT Slideshow (includes ABET Concerns) (Assignment #8)
 [Slide Show](https://docs.google.com/presentation/d/1j2VIWUOZVFvMsKo1UwIQpQx6Llhs67gb/edit#slide=id.p1)
-TODO ( Must include ABET Concerns, which is constraints)
 
 ## Self-Assessment Essays (Assignment #3) - Everyone TODO
 - [Nathan Suer's Self-Assessment Essay](HW_Assignments/Nathan_Suer_Individual_Capstone_Assessment.md)
