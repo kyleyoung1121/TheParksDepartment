@@ -49,8 +49,8 @@ You can also use the default github table of contents too!
 - William Hawkins III (Advisor)
   - Email: hawkinwh@ucmail.uc.edu
 
-### Project Abstract - Ryan TODO
-This educational video game teaches responsible forestry, species identification, and invasive species control through an engaging simulation. The game combines the task of growing and maintaining a wildlife reserve with protecting native species, while defusing threats like wildfires or invasive species. Key ecological questions are confronted by the player organically through gameplay, such as the need to build infrastructure and raise funds while staying true to their mission of safeguarding the wilds. These grander ideas are grounded by the roster of animals and plants pulled from Ohio's history, complete with unlockable facts and low-poly models conveying the vital traits to spot them in the real world.
+### Project Abstract
+This educational video game teaches responsible forestry, species identification, and invasive species control through an engaging simulation. The game combines the task of growing and maintaining a wildlife reserve with protecting native species, while defusing threats like wildfires or invasive species. Players also grapple with key questions through play, such as raising funds while preserving their mission. 
 
 ## Project Description (Assignment #2) - Kyle TODO
 [Project Description](HW_Assignments/Project-Description.md)
