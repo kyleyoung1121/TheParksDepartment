@@ -4,7 +4,7 @@
 ## <ins>Professional Biography</ins>
 
 I am a fifth year at the University of Cincinnati, majoring in Computer Science. I have worked at Siemens Digital Industries Software for four co-op rotations in their
-Stragetic Student Program. I hope to be hired directly into the services track in the Genesis Program after graduation, I'm currently still in the interview process.
+Stragetic Student Program. I hope to find a position with the Technical Marketing team post graduation to do further work with Software Engineering and general work in AWS.
 
 ## <ins>Co-op Work Experience</ins> 
 
