@@ -56,7 +56,7 @@ programming our video game.
 
 I was assigned the primary role of frontend developer along with Ryan Williams. As a 
 very basic description, we are “in charge of how we interact with the game, 3D models, and 
-animations. Basically, anything visual.”. During my past classes like Software Engineering and 
+animations. Basically, anything visual." During my past classes like Software Engineering and 
 during my co-ops, I’ve created and learned a lot about designing an easy and efficient UI, and I 
 hope to use that knowledge during our project. If I can successfully create and design all of the 
 different 3D animals, buildings, animal pens, etc., I will be more than happy with my 
