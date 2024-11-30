@@ -4,7 +4,9 @@
 You can also use the default github table of contents too!
 - [The Park Department](#the-park-department)
   - [Table of Contents](#table-of-contents)
-  - [Team names and Project Abstract](#team-names-and-project-abstract)
+  - [Core Information](#core-information)
+    - [Team Members](#team-members)
+    - [Project Abstract](#project-abstract)
   - [Project Description (Assignment #2) - Kyle TODO](#project-description-assignment-2---kyle-todo)
   - [User Stories and Design Diagrams (Assignment #4)](#user-stories-and-design-diagrams-assignment-4)
     - [User Stories](#user-stories)
@@ -34,7 +36,8 @@ You can also use the default github table of contents too!
   - [Project Development](#project-development)
   - [Total Hours Breakdown](#total-hours-breakdown)
 
-## Team names and Project Abstract
+## Core Information
+### Team Members
 - Nathan Suer
   - Email: natesuer@gmail.com, suerns@mail.uc.edu 
 - Ryan Williams
@@ -44,10 +47,10 @@ You can also use the default github table of contents too!
 - Owen Richards
   - Email: richaroc@mail.uc.edu 
 - William Hawkins III (Advisor)
-  - Email: hawkinwh@ucmail.uc.edu 
+  - Email: hawkinwh@ucmail.uc.edu
 
-- Project Abstract - Ryan TODO
-This educational video game focuses on teaching responsible forestry, species management, and invasive species control through an engaging simulation. It combines elements of animal reserve management with strategic decision-making. Players can also manage the reserve to raise funds, conduct expeditions to find and conserve animals, and protect the reserve from poachers.
+### Project Abstract - Ryan TODO
+This educational video game teaches responsible forestry, species identification, and invasive species control through an engaging simulation. The game combines the task of growing and maintaining a wildlife reserve with protecting native species, while defusing threats like wildfires or invasive species. Key ecological questions are confronted by the player organically through gameplay, such as the need to build infrastructure and raise funds while staying true to their mission of safeguarding the wilds. These grander ideas are grounded by the roster of animals and plants pulled from Ohio's history, complete with unlockable facts and low-poly models conveying the vital traits to spot them in the real world.
 
 ## Project Description (Assignment #2) - Kyle TODO
 [Project Description](HW_Assignments/Project-Description.md)
