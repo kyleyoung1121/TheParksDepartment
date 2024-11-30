@@ -193,8 +193,12 @@ Each team member is required to provide evidence of 45 hours of effort. Below is
   - Total: 15 hours
     
 **Ryan Williams**:
-  - TODO
-  - Total: ?? hours 
+  - Blender research for keybinds, tools, etc.: 3 hours
+  - Blender design time for emplacements (power plant, basic station, campfire): 4 hours
+  - Blender design time for natural tiles (forest and variants): 3 hours
+  - Animal research, study of forms, artstyle definition: 2 hours
+  - Working on final design report: 1 hour
+  - Total: 13 hours 
 
 **Kyle Young**:
   - Ideating gameplay features for our project: 1 hour
