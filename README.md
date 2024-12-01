@@ -52,7 +52,7 @@ You can also use the default github table of contents too!
 ### Project Abstract
 This educational video game teaches responsible forestry, species identification, and invasive species control through an engaging simulation. The game combines the task of growing and maintaining a wildlife reserve with protecting native species, while defusing threats like wildfires or invasive species. Players also grapple with key questions through play, such as raising funds while preserving their mission. 
 
-## Project Description (Assignment #2) - Kyle TODO
+## Project Description (Assignment #2)
 [Project Description](HW_Assignments/Project-Description.md)
 
 ## User Stories and Design Diagrams (Assignment #4)
@@ -118,19 +118,19 @@ The diagrams (D0, D1, and D2) show the structure and gameplay flow for "The Park
 [Task List](HW_Assignments/Effort_Matrix.csv)
 
 
-## ABET Concerns Essay (Assignment #7) - Kyle TODO
+## ABET Concerns Essay (Assignment #7)
 [ABET Concerns Essay](HW_Assignments/ConstraintEssay.txt)
 
 ## PPT Slideshow (includes ABET Concerns) (Assignment #8)
 [Slide Show](https://docs.google.com/presentation/d/1j2VIWUOZVFvMsKo1UwIQpQx6Llhs67gb/edit#slide=id.p1)
 
-## Self-Assessment Essays (Assignment #3) - Everyone TODO
+## Self-Assessment Essays (Assignment #3)
 - [Nathan Suer's Self-Assessment Essay](HW_Assignments/Nathan_Suer_Individual_Capstone_Assessment.md)
 - [Ryan Williams's Self-Assessment Essay](HW_Assignments/Ryan_Williams_Individual_Capstone_Assessment.md)
 - [Kyle Young's Self-Assessment Essay](HW_Assignments/Kyle_Young_Individual_Capstone_Assessment.md)
 - [Owen Richards's Self-Assessment Essay](HW_Assignments/Owen_Richards_Individual_Capstone_Assessment.md)
 
-## Professional Biographies  (Assignment #1) - Everyone TODO
+## Professional Biographies  (Assignment #1)
 - [Nathan Suer's Professional Biography](HW_Assignments/Nathan_Suer_Professional_Bio.md)
 - [Ryan Williams's Professional Biography](HW_Assignments/Ryan_Williams_Professional_Bio.md)
 - [Kyle Young's Professional Biography](HW_Assignments/Kyle_Young_Professional_Bio.md)
