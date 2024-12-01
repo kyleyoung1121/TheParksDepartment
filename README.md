@@ -16,7 +16,7 @@ You can also use the default github table of contents too!
       - [**Level D0 (High-Level Design)**](#level-d0-high-level-design)
       - [**Level D1 (Intermediate Design)**](#level-d1-intermediate-design)
       - [**Level D2 (Detailed Design)**](#level-d2-detailed-design)
-  - [Project Tasks and Timeline (Assignment #5-6) - Ryan TODO](#project-tasks-and-timeline-assignment-5-6---ryan-todo)
+  - [Project Tasks and Timeline (Assignment #5-6)](#project-tasks-and-timeline-assignment-5-6)
     - [Task List](#task-list)
     - [Timeline](#timeline)
     - [Effort Matrix](#effort-matrix)
