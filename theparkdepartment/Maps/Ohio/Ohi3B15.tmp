@@ -620,3 +620,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 416, 0, -416)
 
 [node name="Camera" parent="." instance=ExtResource("2_ar074")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25.5013, 0)
+pitch_min = 0
+pitch_max = 75
