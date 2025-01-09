@@ -5,6 +5,8 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ouo3c"]
 albedo_color = Color(0.0867957, 0.247525, 0.0234103, 1)
 albedo_texture = ExtResource("1_5g2ac")
+metallic_specular = 0.2
+roughness = 0.95
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ptvc5"]
 material = SubResource("StandardMaterial3D_ouo3c")

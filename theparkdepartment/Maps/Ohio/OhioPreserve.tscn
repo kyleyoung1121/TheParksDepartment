@@ -2,33 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://bajcno73354v1" path="res://Maps/MapParts/Tile.tscn" id="1_2ewd0"]
 [ext_resource type="PackedScene" uid="uid://dwp624wmncn58" path="res://Systems/CameraController/camera.tscn" id="2_ar074"]
+[ext_resource type="PackedScene" uid="uid://c446bf6cmnsx6" path="res://Systems/DayNightCycle/DayNightCycle.tscn" id="3_naupw"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f4a83"]
-sky_top_color = Color(0.32399, 0.556766, 0.773561, 1)
-sky_horizon_color = Color(0.630998, 0.681441, 0.72664, 1)
-ground_horizon_color = Color(0.630998, 0.681441, 0.72664, 1)
+[sub_resource type="Gradient" id="Gradient_kbrg6"]
+offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
+colors = PackedColorArray(0.92, 0.55154, 0.1012, 1, 0.92, 0.86618, 0.8004, 1, 0.921569, 0.866667, 0.8, 1, 0.921569, 0.552941, 0.101961, 1)
 
-[sub_resource type="Sky" id="Sky_l6310"]
-sky_material = SubResource("ProceduralSkyMaterial_f4a83")
-
-[sub_resource type="Environment" id="Environment_gy5ru"]
-background_mode = 2
-sky = SubResource("Sky_l6310")
-tonemap_mode = 2
-glow_enabled = true
+[sub_resource type="Curve" id="Curve_0dxvu"]
+_data = [Vector2(0.1, 0), 0.0, 0.0, 0, 0, Vector2(0.347368, 1), 0.0, 0.0, 0, 0, Vector2(0.653, 1), 0.0, 0.0, 0, 0, Vector2(0.9, 0), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [node name="OhioPreserve" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_gy5ru")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 360.972, 0)
-light_color = Color(1, 0.878934, 0.188684, 1)
-light_energy = 2.455
-shadow_enabled = true
-
 [node name="Tiles" type="Node3D" parent="."]
+metadata/_edit_group_ = true
 
 [node name="Tile1" parent="Tiles" instance=ExtResource("1_2ewd0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -416, 0, 416)
@@ -620,3 +607,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 416, 0, -416)
 
 [node name="Camera" parent="." instance=ExtResource("2_ar074")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25.5013, 0)
+
+[node name="DayNightCycle" parent="." instance=ExtResource("3_naupw")]
+sun_color = SubResource("Gradient_kbrg6")
+sun_intensity = SubResource("Curve_0dxvu")
