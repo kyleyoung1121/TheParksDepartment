@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://usgvliaqivul"]
+[gd_scene load_steps=3 format=3 uid="uid://usgvliaqivul"]
 
-[node name="EasternWolf" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mhcje"]
+albedo_color = Color(0.756863, 0.0705882, 0.129412, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_jshqc"]
+material = SubResource("StandardMaterial3D_mhcje")
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+mesh = SubResource("SphereMesh_jshqc")
