@@ -14,6 +14,10 @@ config/name="TheParkDepartment"
 run/main_scene="res://Maps/Ohio/OhioPreserve.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
+[autoload]
+
+OhioEcosystemData="*res://Maps/Ohio/OhioEcosystemData.gd"
+
 [input]
 
 camera_zoom_in={
