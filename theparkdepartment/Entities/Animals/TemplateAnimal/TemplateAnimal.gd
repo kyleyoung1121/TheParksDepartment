@@ -44,21 +44,22 @@ var age: int
 # TODO: Work out how to handle reproduction. Do we just spawn another copy of this scene?
 @export var self_scene = null
 
+var desired_position = Vector3()
+
 func eat(data):
-	# TODO: Leave comment here
+	# If we are already full, don't eat anything nearby
 	if hunger >= max_hunger:
 		return false
 	
 	# If this animal is a herbivore, check for nearby plants
 	if diet_type == "Herbivore":
-		for key in data["plants"].keys():
-			var plant = data["plants"][key]
-			# TODO: Check if any nodes in group "Plants" are nearby.
+		for plant in get_tree().get_nodes_in_group("plants"):
 			# TODO: Might need to attach an area3d to check "close enough"
 			if plant.position == position:
-				# If a nearby plant is found
-				data["plants"].erase(key)
-				hunger = min(hunger + nutrition, max_hunger)
+				# If a plant is in range, eat it!
+				# TODO: Make sure that the plant has a type variable
+				hunger = min(hunger + OhioEcosystemData.plant_species_data[plant.type]["nutrition"], max_hunger)
+				plant.consumed()
 				return true
 	
 	# If this animal is a carnivore, check for nearby animals
@@ -115,7 +116,7 @@ func search_for_need(data):
 				if position.distance_to(other.position) <= eye_sight:
 					var direction = (other.position - position).normalized()
 					# TODO: Update code to use physics_process for movement
-					position += Vector2(sign(direction.x), sign(direction.y))
+					desired_position += Vector2(sign(direction.x), sign(direction.y))
 					return
 	
 	else:
@@ -127,7 +128,7 @@ func search_for_need(data):
 				if prey.position.distance_to(position) <= eye_sight and prey.species in prey_organisms:
 					var direction = (prey.position - position).normalized()
 					# TODO: Update code to use physics_process for movement
-					position += Vector2(sign(direction.x), sign(direction.y))
+					desired_position += Vector2(sign(direction.x), sign(direction.y))
 					return
 					
 		if diet_type == "Herbivore":
@@ -137,7 +138,7 @@ func search_for_need(data):
 				if plant.position.distance_to(position) <= eye_sight:
 					var direction = (plant.position - position).normalized()
 					# TODO: Update code to use physics_process for movement
-					position += Vector2(sign(direction.x), sign(direction.y))
+					desired_position += Vector2(sign(direction.x), sign(direction.y))
 					return
 		else:
 			# if omnivore, search for both
@@ -146,14 +147,14 @@ func search_for_need(data):
 				if plant.position.distance_to(position) <= eye_sight:
 					var direction = (plant.position - position).normalized()
 					# TODO: Update code to use physics_process for movement
-					position += Vector2(sign(direction.x), sign(direction.y))
+					desired_position += Vector2(sign(direction.x), sign(direction.y))
 					return
 			for key in data["animals"].keys():
 				var prey = data["animals"][key]
 				if prey.position.distance_to(position) <= eye_sight and prey.species in ["Deer", "Rabbit"]:
 					var direction = (prey.position - position).normalized()
 					# TODO: Update code to use physics_process for movement
-					position += Vector2(sign(direction.x), sign(direction.y))
+					desired_position += Vector2(sign(direction.x), sign(direction.y))
 					return
 
 func move(data):
