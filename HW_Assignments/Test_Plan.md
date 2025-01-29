@@ -201,7 +201,7 @@ Note that some of these categories may be inappropriate for your project and may
     - Functional Test Indication
     - Unit Test Indication
 
-# Part III. Test Case Matrix: summarizes the test case coverage (items 1, 6-9 in a tabular format)
+# Part III. Test Case Matrix:
 
 | Test Case Identifier | Normal/Abnormal/Boundary Case | Blackbox/Whitebox Test | Functional/Performance Test | Unit/Integration Test |
 |----------------------|-------------------------------|------------------------|-----------------------------|-----------------------|
