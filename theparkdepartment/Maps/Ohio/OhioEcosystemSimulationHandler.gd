@@ -17,8 +17,8 @@ func initialize_ecosystem():
 			var new_plant = grass_scene.new(Vector2(i, j))
 			OhioEcosystemData.plant_species_data["Grass"]["count"] += 1
 			# Set a name that includes the count
-			# TODO: Make sure the plant scene is expecting this id variable!
-			new_plant.id = "grass_" + str(OhioEcosystemData.plant_species_data["Grass"]["count"])
+			# TODO: Make sure the plant scene is expecting this name variable!
+			new_plant.name = "grass_" + str(OhioEcosystemData.plant_species_data["Grass"]["count"])
 	
 	# Add 5 deer
 	for i in range(5):

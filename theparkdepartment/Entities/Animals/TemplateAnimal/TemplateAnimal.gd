@@ -1,18 +1,45 @@
 extends CharacterBody3D
 
 
-# TODO: Update starter code
-# TODO: Move this code to a more intuitive spot in this file (below variables)
-# This controls movement. It's mostly starter code for now
+# Animal variables; export the ones that we want to tweak in the editor
+@export var animal_name: String
+@export var speed = 5.0
+@export var movement_chance: float
+@export var movement_random_variation: float
+@export var max_hunger: int
+@export var max_age: int
+@export var eye_sight: int
+@export var gender: String
+@export var reproduction_cooldown: int
+@export var nutrition: int
+@export var diet_type: String
+@export var eating_distance: float = 5.0
+@export var prey_organisms: Array
+# TODO: Work out how to handle reproduction. Do we just spawn another copy of this scene?
+@export var self_scene = null
+
+var species: String
+var age: int
+var animal_position: Vector2
+var hunger: int
+var reproduction_timer: int
+var desired_position = Vector3()
+
+
+func _ready():
+	if gender == null:
+		gender = "Male" if randi() % 2 == 0 else "Female"
+
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# TODO: Redo starter code to choose a direction programatically
-	# This starter code is trying to connect keyboard input to movement
-	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	# TODO: Verify that the following code moves the animal towards its desired location
+	# Determine what direction the animal wants to move in
+	var direction = (desired_position - position).normalized()
+	# Move in the x and z directions as needed (y is height, so ignore it for now)
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
@@ -20,165 +47,126 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 	
-	# This applies our new velocity
+	# Apply the new velocity
 	move_and_slide()
 
 
-# Animal variables; export the ones that we want to tweak in the editor
-@export var speed = 5.0
-var animal_position: Vector2 # Changed var name to avoid keyword "position"
-var hunger: int
-var reproduction_timer: int
-@export var reproduction_cooldown: int
-@export var max_hunger: int
-@export var animal_name: String # Changed var name to avoid keyword "name"
-var species: String
-@export var gender: String
-@export var eye_sight: int
-@export var movement_chance: float
-var age: int
-@export var max_age: int
-@export var nutrition: int
-@export var diet_type: String
-@export var prey_organisms: Array # Made plural
-# TODO: Work out how to handle reproduction. Do we just spawn another copy of this scene?
-@export var self_scene = null
+# Update where the animal is trying to walk (include some randomness)
+func set_desired_position(input_position):
+	desired_position = input_position
+	var change_x = randf_range(-movement_random_variation, movement_random_variation)
+	var change_y = randf_range(-movement_random_variation, movement_random_variation)
+	var change_z = randf_range(-movement_random_variation, movement_random_variation)
+	desired_position += Vector3(change_x, change_y, change_z)
 
-var desired_position = Vector3()
 
-func eat(data):
+# Figure out if the animal will move now
+func decide_to_move():
+	return randf() < movement_chance
+
+
+func eat():
 	# If we are already full, don't eat anything nearby
 	if hunger >= max_hunger:
 		return false
 	
-	# If this animal is a herbivore, check for nearby plants
-	if diet_type == "Herbivore":
+	# If this animal eats plants, check for nearby plants
+	if diet_type == "Herbivore" or diet_type == "Omnivore":
 		for plant in get_tree().get_nodes_in_group("plants"):
-			# TODO: Might need to attach an area3d to check "close enough"
-			if plant.position == position:
+			if position.distance_to(plant.position) <= eating_distance:
 				# If a plant is in range, eat it!
-				# TODO: Make sure that the plant has a type variable
-				hunger = min(hunger + OhioEcosystemData.plant_species_data[plant.type]["nutrition"], max_hunger)
+				# TODO: Make sure that the plant has consumed()
+				hunger = min(hunger + OhioEcosystemData.plant_species_data[plant.species]["nutrition"], max_hunger)
 				plant.consumed()
 				return true
 	
-	# If this animal is a carnivore, check for nearby animals
-	elif diet_type == "Carnivore":
-		for key in data["animals"].keys():
-			var prey = data["animals"][key]
-			# TODO: Check if any nodes in group "Animals" are nearby.
-			# TODO: Might need to attach an area3d to check "close enough"
-			if prey.position == position and prey.species in prey_organisms:
-				hunger = min(hunger + prey["nutrition"], max_hunger)
-				data["animals"].erase(key)
-				print(name, " ate ", prey.name)
-				return true
-	
-	# TODO: Explain what situation is tied to this else statement
-	# Omnivore?
-	else:
-		for key in data["plants"].keys():
-			var plant = data["plants"][key]
-			if plant.position == position:
-				data["plants"].erase(key)
-				hunger = min(hunger + nutrition, max_hunger)
-				return true
-		for key in data["animals"].keys():
-			var prey = data["animals"][key]
-			if prey.position == position and prey.species in prey_organisms:
-				hunger = min(hunger + prey["nutrition"], max_hunger)
-				data["animals"].erase(key)
-				return true
+	# If this animal eats meat, check for nearby animals
+	elif diet_type == "Carnivore" or diet_type == "Omnivore":
+		for animal in get_tree().get_nodes_in_group("animals"):
+			# Only consider eating known prey_organisms
+			if animal.species in prey_organisms:
+				# If the animal is in range, eat it!
+				# TODO: Make sure that the animal has consumed()
+				if position.distance_to(animal.position) <= eating_distance:
+					hunger = min(hunger + OhioEcosystemData.animal_species_data[animal.species]["nutrition"], max_hunger)
+					animal.consumed()
+					print(name, " ate ", animal.name)
+					return true
 
-func check_if_moving():
-	return randf() < movement_chance
 
 func decrease_hunger(amount):
 	hunger -= amount
 
+
 func is_starved() -> bool:
 	return hunger <= 0
+
 
 func is_old() -> bool:
 	return age >= max_age
 
-func reproduce(count: int, data):
+
+func consumed():
+	queue_free()
+
+
+func reproduce(count: int):
 	var baby_organism = self_scene
-	baby_organism.init(position, species.to_lower() + "_" + str(count), data)
+	baby_organism.init(position, species.to_lower() + "_" + str(count))
 	print("Baby ", species, " created with name: ", baby_organism.name)
 	return baby_organism
 
-func search_for_need(data):
+
+func search_for_need():
 	if gender == "Male" and hunger > max_hunger * 0.5:
-		for key in data["animals"].keys():
-			var other = data["animals"][key]
-			if other.species == species and other.gender == "Female" and other.reproduction_timer <= 2:
-				if position.distance_to(other.position) <= eye_sight:
-					var direction = (other.position - position).normalized()
-					# TODO: Update code to use physics_process for movement
-					desired_position += Vector2(sign(direction.x), sign(direction.y))
+		for animal in get_tree().get_nodes_in_group("animals"):
+			if animal.species == species and animal.gender == "Female" and animal.reproduction_timer <= 2:
+				if position.distance_to(animal.position) <= eye_sight:
+					set_desired_position(animal.position)
 					return
 	
 	else:
 		# Search for food
-		# if carnivore, search for prey
-		if diet_type == "Carnivore":
-			for key in data["animals"].keys():
-				var prey = data["animals"][key]
-				if prey.position.distance_to(position) <= eye_sight and prey.species in prey_organisms:
-					var direction = (prey.position - position).normalized()
-					# TODO: Update code to use physics_process for movement
-					desired_position += Vector2(sign(direction.x), sign(direction.y))
+		# If this animal eats meat, look for animals
+		if diet_type == "Carnivore" or diet_type == "Omnivore":
+			for animal in get_tree().get_nodes_in_group("animals"):
+				if animal.position.distance_to(position) <= eye_sight and animal.species in prey_organisms:
+					set_desired_position(animal.position)
 					return
-					
-		if diet_type == "Herbivore":
-			# if herbivore, search for plants
-			for key in data["plants"].keys():
-				var plant = data["plants"][key]
+		
+		# If this animal eats plants, look for plants
+		if diet_type == "Herbivore" or diet_type == "Omnivore":
+			for plant in get_tree().get_nodes_in_group("plants"):
 				if plant.position.distance_to(position) <= eye_sight:
-					var direction = (plant.position - position).normalized()
-					# TODO: Update code to use physics_process for movement
-					desired_position += Vector2(sign(direction.x), sign(direction.y))
-					return
-		else:
-			# if omnivore, search for both
-			for key in data["plants"].keys():
-				var plant = data["plants"][key]
-				if plant.position.distance_to(position) <= eye_sight:
-					var direction = (plant.position - position).normalized()
-					# TODO: Update code to use physics_process for movement
-					desired_position += Vector2(sign(direction.x), sign(direction.y))
-					return
-			for key in data["animals"].keys():
-				var prey = data["animals"][key]
-				if prey.position.distance_to(position) <= eye_sight and prey.species in ["Deer", "Rabbit"]:
-					var direction = (prey.position - position).normalized()
-					# TODO: Update code to use physics_process for movement
-					desired_position += Vector2(sign(direction.x), sign(direction.y))
+					set_desired_position(plant.position)
 					return
 
-func move(data):
-	if check_if_moving():
-		search_for_need(data)
 
-func update(data):
-	move(data)
+func move():
+	if decide_to_move():
+		search_for_need()
+
+
+func update():
+	move()
 	age += 1
 	reproduction_timer -= 1
 	hunger -= 1
 
-	# Get the organism to eat
-	eat(data)
+	# Eat if possible/needed
+	eat()
 	
+	# If the animal needs removed, remove it!
 	if is_starved() or is_old():
 		print(name, " died of starvation at ", position)
-		data["animals"].erase(name)
+		consumed()
+		
+	# Reproduce if conditions are right
 	elif gender == "Female" and reproduction_timer <= 0:
-		for key in data["animals"].keys():
-			var other = data["animals"][key]
-			if other.species == species and other.position == position and other.gender != gender:
-				print(name, " and ", other.name, " reproducing at ", position)
+		for animal in get_tree().get_nodes_in_group("animals"):
+			if animal.species == species and animal.position == position and animal.gender != gender:
+				print(name, " and ", animal.name, " reproducing at ", position)
 				reproduction_timer = reproduction_cooldown
-				var new_animal = reproduce(data["animal_species_data"][species]["count"], data)
-				data["animal_species_data"][species]["count"] += 1
-				data["animals"][new_animal.name] = new_animal
+				var new_animal = reproduce(OhioEcosystemData.animal_species_data[species]["count"])
+				OhioEcosystemData.animal_species_data[species]["count"] += 1
+				# TODO: add the new animal to the scene
