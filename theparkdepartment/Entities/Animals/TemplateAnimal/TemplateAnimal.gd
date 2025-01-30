@@ -3,6 +3,7 @@ extends CharacterBody3D
 
 # Animal variables; export the ones that we want to tweak in the editor
 @export var animal_name: String
+@export var species: String
 @export var speed = 5.0
 @export var movement_chance: float
 @export var movement_random_variation: float
@@ -18,7 +19,6 @@ extends CharacterBody3D
 # TODO: Work out how to handle reproduction. Do we just spawn another copy of this scene?
 @export var self_scene = null
 
-var species: String
 var age: int
 var animal_position: Vector2
 var hunger: int
@@ -70,28 +70,19 @@ func eat():
 	if hunger >= max_hunger:
 		return false
 	
-	# If this animal eats plants, check for nearby plants
-	if diet_type == "Herbivore" or diet_type == "Omnivore":
-		for plant in get_tree().get_nodes_in_group("plants"):
-			if position.distance_to(plant.position) <= eating_distance:
-				# If a plant is in range, eat it!
-				# TODO: Make sure that the plant has consumed()
-				hunger = min(hunger + OhioEcosystemData.plant_species_data[plant.species]["nutrition"], max_hunger)
-				plant.consumed()
+	# Consider all plants and animals. If they are prey and it range, eat them
+	var all_animals = get_tree().get_nodes_in_group("animals")
+	var all_plants = get_tree().get_nodes_in_group("plants")
+	var all_plants_and_animals = all_animals + all_plants
+	for food_consideration in all_plants_and_animals:
+		# Only consider eating known prey_organisms
+		if food_consideration.species in prey_organisms:
+			# If the food is in range, eat it!
+			if position.distance_to(food_consideration.position) <= eating_distance:
+				hunger = min(hunger + OhioEcosystemData.animal_species_data[food_consideration.species]["nutrition"], max_hunger)
+				food_consideration.consumed()
+				print(name, " ate ", food_consideration.name)
 				return true
-	
-	# If this animal eats meat, check for nearby animals
-	elif diet_type == "Carnivore" or diet_type == "Omnivore":
-		for animal in get_tree().get_nodes_in_group("animals"):
-			# Only consider eating known prey_organisms
-			if animal.species in prey_organisms:
-				# If the animal is in range, eat it!
-				# TODO: Make sure that the animal has consumed()
-				if position.distance_to(animal.position) <= eating_distance:
-					hunger = min(hunger + OhioEcosystemData.animal_species_data[animal.species]["nutrition"], max_hunger)
-					animal.consumed()
-					print(name, " ate ", animal.name)
-					return true
 
 
 func decrease_hunger(amount):
@@ -137,7 +128,7 @@ func search_for_need():
 		# If this animal eats plants, look for plants
 		if diet_type == "Herbivore" or diet_type == "Omnivore":
 			for plant in get_tree().get_nodes_in_group("plants"):
-				if plant.position.distance_to(position) <= eye_sight:
+				if plant.position.distance_to(position) <= eye_sight and plant.species in prey_organisms:
 					set_desired_position(plant.position)
 					return
 
