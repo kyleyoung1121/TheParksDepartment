@@ -32,7 +32,7 @@ func consumed():
 func reproduce(count: int):
 	var baby_organism = self_scene
 	baby_organism.init(position, species.to_lower() + "_" + str(count))
-	print("Baby ", species, " created with name: ", baby_organism.name)
+	print("Baby ", species, " created with name: ", baby_organism.plant_name)
 	return baby_organism
 
 
@@ -42,14 +42,15 @@ func update():
 	
 	# If the plant needs removed, remove it!
 	if is_old():
-		print(name, " died of starvation at ", position)
+		print(plant_name, " died of starvation at ", position)
 		consumed()
-		
+	
+	# TODO: Plant reproduction should act differently right? Like based on available space?
 	# Reproduce if conditions are right
 	elif gender == "Female" and reproduction_timer <= 0:
 		for plant in get_tree().get_nodes_in_group("plants"):
 			if plant.species == species and plant.position == position and plant.gender != gender:
-				print(name, " and ", plant.name, " reproducing at ", position)
+				print(plant_name, " and ", plant.plant_name, " reproducing at ", position)
 				reproduction_timer = reproduction_cooldown
 				var new_plant = reproduce(OhioEcosystemData.plant_species_data[species]["count"])
 				OhioEcosystemData.plant_species_data[species]["count"] += 1

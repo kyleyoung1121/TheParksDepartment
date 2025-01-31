@@ -6,7 +6,7 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_kmb3t"]
 
-[node name="TemplatePlant" type="CharacterBody3D"]
+[node name="TemplatePlant" type="CharacterBody3D" groups=["plants"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("1_vil0x")
 

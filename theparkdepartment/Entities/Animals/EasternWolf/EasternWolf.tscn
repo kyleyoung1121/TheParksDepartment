@@ -4,9 +4,3 @@
 
 [node name="EasternWolf" instance=ExtResource("1_uch52")]
 species = "EasternWolf"
-movement_chance = 1.0
-max_hunger = 5
-max_age = 20
-eye_sight = 6
-reproduction_cooldown = 12
-nutrition = 1

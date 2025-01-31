@@ -3,11 +3,4 @@
 [ext_resource type="PackedScene" uid="uid://djuod3fskf5cl" path="res://Entities/Animals/TemplateAnimal/TemplateAnimal.tscn" id="1_4cxpb"]
 
 [node name="Deer" instance=ExtResource("1_4cxpb")]
-movement_chance = 0.5
-max_hunger = 5
-max_age = 15
-eye_sight = 4
-reproduction_cooldown = 10
-nutrition = 5
-diet_type = "Herbivore"
-prey_organisms = ["Grass"]
+species = "Deer"
