@@ -14,10 +14,10 @@ func initialize_ecosystem():
 			# Create a new instance of our grass scene.
 			var new_plant = grass_scene.instantiate()
 			new_plant.set_grid_position(Vector2(i,j))
-			new_plant.plant_name = "grass_" + str(OhioEcosystemData.plant_species_data["Grass"]["count"])
+			new_plant.plant_name = "grass_" + str(OhioEcosystemData.plants_species_data["Grass"]["count"])
 			add_child(new_plant)
 			# Keep track of population in the global Ohio data
-			OhioEcosystemData.plant_species_data["Grass"]["count"] += 1
+			OhioEcosystemData.plants_species_data["Grass"]["count"] += 1
 	
 	# Add 5 deer
 	for i in range(5):

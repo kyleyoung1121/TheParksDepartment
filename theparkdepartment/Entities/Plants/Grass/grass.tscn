@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bppcoqbsaofmh" path="res://Entities/Plants/TemplatePlant/TemplatePlant.tscn" id="1_25pk6"]
 
 [node name="Grass" instance=ExtResource("1_25pk6")]
-species = "grass"
+species = "Grass"
 max_age = 30
 reproduction_cooldown = 15
 nutrition = 3

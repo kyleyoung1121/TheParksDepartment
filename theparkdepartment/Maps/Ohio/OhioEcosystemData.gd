@@ -43,7 +43,7 @@ var animals_species_data = {
 	}
 }
 
-var plant_species_data = {
+var plants_species_data = {
 	"Grass": {
 		"count": 0,
 		"nutrition": 1,
