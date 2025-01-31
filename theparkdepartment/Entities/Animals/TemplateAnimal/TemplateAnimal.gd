@@ -98,10 +98,16 @@ func eat():
 		return false
 	
 	# Consider all plants and animals. If they are prey and it range, eat them
-	var all_animals = get_tree().get_nodes_in_group("animals")
-	var all_plants = get_tree().get_nodes_in_group("plants")
-	var all_plants_and_animals = all_animals + all_plants
-	for food_consideration in all_plants_and_animals:
+	for food_consideration in get_tree().get_nodes_in_group("plants"):
+		# Only consider eating known prey_organisms
+		if food_consideration.species in prey_organisms:
+			# If the food is in range, eat it!
+			if position.distance_to(food_consideration.position) <= adjusted_eating_distance:
+				hunger = min(hunger + OhioEcosystemData.plants_species_data[food_consideration.species]["nutrition"], max_hunger)
+				food_consideration.consumed()
+				print(animal_name, " ate ", food_consideration.plant_name)
+				return true
+	for food_consideration in get_tree().get_nodes_in_group("animals"):
 		# Only consider eating known prey_organisms
 		if food_consideration.species in prey_organisms:
 			# If the food is in range, eat it!
@@ -110,6 +116,7 @@ func eat():
 				food_consideration.consumed()
 				print(animal_name, " ate ", food_consideration.animal_name)
 				return true
+	
 
 
 func decrease_hunger(amount):

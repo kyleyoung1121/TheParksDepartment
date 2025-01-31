@@ -320,11 +320,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 144, -8, 144)
 
 [node name="Camera" parent="." instance=ExtResource("2_ar074")]
 transform = Transform3D(0.707107, -0.00123413, 0.707106, 0, 0.999999, 0.00174533, -0.707107, -0.00123413, 0.707106, 20, 0, 20)
-max_zoom = 150.0
-min_zoom = 25.0
-zoom_speed = 20.0
-speed = 12.0
-drag_speed = 0.18
 
 [node name="DayNightCycle" parent="." instance=ExtResource("3_naupw")]
 sun_color = SubResource("Gradient_kbrg6")
