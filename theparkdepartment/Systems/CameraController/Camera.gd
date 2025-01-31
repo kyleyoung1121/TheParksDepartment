@@ -53,7 +53,7 @@ func _ready():
 
 func _process(delta):
 	# Smoothly adjust zoom
-	spring_arm.position.z = lerp(spring_arm.position.z, -zoom, delta * 10)
+	spring_arm.position.z = lerp(spring_arm.position.z, -zoom + 50, delta * 10)
 
 	# Smoothly move the camera target (for panning)
 	move_camera(delta)
