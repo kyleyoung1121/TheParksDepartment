@@ -8,22 +8,19 @@ albedo_texture = ExtResource("1_b5yvb")
 metallic_specular = 0.2
 roughness = 0.95
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_ptvc5"]
-material = SubResource("StandardMaterial3D_ouo3c")
-size = Vector2(16, 16)
-
 [sub_resource type="BoxMesh" id="BoxMesh_tlrax"]
 material = SubResource("StandardMaterial3D_ouo3c")
 size = Vector3(16, 16, 16)
 
-[node name="Tile" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_3paca"]
+size = Vector3(16, 16, 16)
 
-[node name="TilePlane" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("PlaneMesh_ptvc5")
-skeleton = NodePath("../..")
+[node name="Tile" type="StaticBody3D"]
 
 [node name="TileCube" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.998769, 0, 0, 0, 0.998769, 0, 0, 0, 0.998769, 0, 0, 0)
 mesh = SubResource("BoxMesh_tlrax")
 skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_3paca")

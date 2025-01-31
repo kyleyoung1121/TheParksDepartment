@@ -25,11 +25,23 @@ var hunger: int
 var reproduction_timer: int
 var desired_position = Vector3()
 
+# TODO: Should we just set the original variable, or separate like this?
+var adjusted_eye_sight: float
+var adjusted_eating_distance: float
+
 
 func _ready():
+	# Unless explicitly set, randomly assign gender
 	if gender == null:
 		gender = "Male" if randi() % 2 == 0 else "Female"
-
+	# Set initial conditions
+	hunger = max_hunger
+	reproduction_timer = reproduction_cooldown
+	age = 0
+	# TODO: Determine how distance works. Maybe 1 eye_sight = 1/4 grid?
+	adjusted_eye_sight = eye_sight * OhioEcosystemData.grid_scale * 0.25
+	adjusted_eating_distance = eating_distance * OhioEcosystemData.grid_scale * 0.25
+	
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -81,7 +93,7 @@ func eat():
 			if position.distance_to(food_consideration.position) <= eating_distance:
 				hunger = min(hunger + OhioEcosystemData.animal_species_data[food_consideration.species]["nutrition"], max_hunger)
 				food_consideration.consumed()
-				print(name, " ate ", food_consideration.name)
+				print(animal_name, " ate ", food_consideration.animal_name)
 				return true
 
 
@@ -98,14 +110,14 @@ func is_old() -> bool:
 
 
 func consumed():
-	print(name + " was deleted!!")
+	print(animal_name + " was deleted!!")
 	queue_free()
 
 
 func reproduce(count: int):
 	var baby_organism = self_scene
 	baby_organism.init(position, species.to_lower() + "_" + str(count))
-	print("Baby ", species, " created with name: ", baby_organism.name)
+	print("Baby ", species, " created with name: ", baby_organism.animal_name)
 	return baby_organism
 
 
@@ -113,7 +125,7 @@ func search_for_need():
 	if gender == "Male" and hunger > max_hunger * 0.5:
 		for animal in get_tree().get_nodes_in_group("animals"):
 			if animal.species == species and animal.gender == "Female" and animal.reproduction_timer <= 2:
-				if position.distance_to(animal.position) <= eye_sight:
+				if position.distance_to(animal.position) <= adjusted_eye_sight:
 					set_desired_position(animal.position)
 					return
 	
@@ -122,14 +134,14 @@ func search_for_need():
 		# If this animal eats meat, look for animals
 		if diet_type == "Carnivore" or diet_type == "Omnivore":
 			for animal in get_tree().get_nodes_in_group("animals"):
-				if animal.position.distance_to(position) <= eye_sight and animal.species in prey_organisms:
+				if animal.position.distance_to(position) <= adjusted_eye_sight and animal.species in prey_organisms:
 					set_desired_position(animal.position)
 					return
 		
 		# If this animal eats plants, look for plants
 		if diet_type == "Herbivore" or diet_type == "Omnivore":
 			for plant in get_tree().get_nodes_in_group("plants"):
-				if plant.position.distance_to(position) <= eye_sight and plant.species in prey_organisms:
+				if plant.position.distance_to(position) <= adjusted_eye_sight and plant.species in prey_organisms:
 					set_desired_position(plant.position)
 					return
 
@@ -140,6 +152,7 @@ func move():
 
 
 func update():
+	print("Before move, ", animal_name, " at pos: ", position)
 	move()
 	age += 1
 	reproduction_timer -= 1
@@ -150,14 +163,14 @@ func update():
 	
 	# If the animal needs removed, remove it!
 	if is_starved() or is_old():
-		print(name, " died of starvation at ", position)
+		print(animal_name, " died of starvation at ", position)
 		consumed()
 		
 	# Reproduce if conditions are right
 	elif gender == "Female" and reproduction_timer <= 0:
 		for animal in get_tree().get_nodes_in_group("animals"):
 			if animal.species == species and animal.position == position and animal.gender != gender:
-				print(name, " and ", animal.name, " reproducing at ", position)
+				print(animal_name, " and ", animal.animal_name, " reproducing at ", position)
 				reproduction_timer = reproduction_cooldown
 				var new_animal = reproduce(OhioEcosystemData.animal_species_data[species]["count"])
 				OhioEcosystemData.animal_species_data[species]["count"] += 1

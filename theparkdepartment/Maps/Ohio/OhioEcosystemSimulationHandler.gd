@@ -24,6 +24,7 @@ func initialize_ecosystem():
 		var new_deer = deer_scene.instantiate()
 		new_deer.set_grid_position(Vector2(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size))
 		new_deer.animal_name = "deer_" + str(OhioEcosystemData.animals_species_data["Deer"]["count"])
+		add_child(new_deer)
 		OhioEcosystemData.animals_species_data["Deer"]["count"] += 1
 
 	# Add 5 rabbits
@@ -31,6 +32,7 @@ func initialize_ecosystem():
 		var new_rabbit = rabbit_scene.instantiate()
 		new_rabbit.set_grid_position(Vector2(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size))
 		new_rabbit.animal_name = "rabbit_" + str(OhioEcosystemData.animals_species_data["Rabbit"]["count"])
+		add_child(new_rabbit)
 		OhioEcosystemData.animals_species_data["Rabbit"]["count"] += 1
 	
 	# Add 5 wolves
@@ -38,6 +40,7 @@ func initialize_ecosystem():
 		var new_wolf = wolf_scene.instantiate()
 		new_wolf.set_grid_position(Vector2(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size))
 		new_wolf.animal_name = "wolf_" + str(OhioEcosystemData.animals_species_data["EasternWolf"]["count"])
+		add_child(new_wolf)
 		OhioEcosystemData.animals_species_data["EasternWolf"]["count"] += 1
 
 

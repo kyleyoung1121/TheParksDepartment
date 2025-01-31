@@ -10,7 +10,7 @@ albedo_color = Color(0.497474, 0.497474, 0.497474, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pql27"]
 material = SubResource("StandardMaterial3D_rsnr7")
 
-[node name="TemplateAnimal" type="CharacterBody3D"]
+[node name="TemplateAnimal" type="CharacterBody3D" groups=["animals"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_nv8li")
 movement_random_variation = 10.0
