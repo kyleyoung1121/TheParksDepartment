@@ -16,8 +16,8 @@ var animals_species_data = {
 		"movement_chance": 1,
 		"max_age": 15,
 		"nutrition" : 5,
-		"type": "Herbivore",
-		"prey_organism": ["Grass"],
+		"diet_type": "Herbivore",
+		"prey_organisms": ["Grass"],
 	},
 	"Rabbit": {
 		"count": 0,
@@ -27,8 +27,8 @@ var animals_species_data = {
 		"movement_chance": 1,
 		"max_age": 10,
 		"nutrition" : 3,
-		"type": "Herbivore",
-		"prey_organism": ["Grass"],
+		"diet_type": "Herbivore",
+		"prey_organisms": ["Grass"],
 	},
 	"EasternWolf": {
 		"count": 0,
@@ -38,8 +38,8 @@ var animals_species_data = {
 		"movement_chance": 1,
 		"max_age": 20,
 		"nutrition" : 1,
-		"type": "Carnivore",
-		"prey_organism": ["Deer", "Rabbit"],
+		"diet_type": "Carnivore",
+		"prey_organisms": ["Deer", "Rabbit"],
 	}
 }
 

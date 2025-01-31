@@ -5,23 +5,23 @@ extends CharacterBody3D
 @export var animal_name: String
 @export var species: String
 @export var speed = 5.0
-@export var movement_chance: float
 @export var movement_random_variation: float
-@export var max_hunger: int
-@export var max_age: int
-@export var eye_sight: int
 @export var gender: String
-@export var reproduction_cooldown: int
-@export var nutrition: int
-@export var diet_type: String
 @export var eating_distance: float = 5.0
-@export var prey_organisms: Array
 # TODO: Work out how to handle reproduction. Do we just spawn another copy of this scene?
 @export var self_scene = null
 
 var age: int
 var animal_position: Vector2
+var max_hunger: int
 var hunger: int
+var diet_type: String
+var nutrition: int
+var prey_organisms: Array
+var max_age: int
+var eye_sight: int
+var movement_chance: float
+var reproduction_cooldown: int
 var reproduction_timer: int
 var desired_position = Vector3()
 
@@ -31,17 +31,32 @@ var adjusted_eating_distance: float
 
 
 func _ready():
-	# Unless explicitly set, randomly assign gender
-	if gender == null:
-		gender = "Male" if randi() % 2 == 0 else "Female"
+	# Make sure species is set on this animal! (from the editor)
+	assert(not species == null)
+	
+	# Fetch settings for this particular animal
+	max_hunger = OhioEcosystemData.animals_species_data[species]["max_hunger"]
+	reproduction_cooldown = OhioEcosystemData.animals_species_data[species]["reproduction_cooldown"]
+	max_age = OhioEcosystemData.animals_species_data[species]["max_age"]
+	eye_sight = OhioEcosystemData.animals_species_data[species]["eye_sight"]
+	movement_chance = OhioEcosystemData.animals_species_data[species]["movement_chance"]
+	nutrition = OhioEcosystemData.animals_species_data[species]["nutrition"]
+	diet_type = OhioEcosystemData.animals_species_data[species]["diet_type"]
+	prey_organisms = OhioEcosystemData.animals_species_data[species]["prey_organisms"]
+	
 	# Set initial conditions
 	hunger = max_hunger
 	reproduction_timer = reproduction_cooldown
 	age = 0
+	
+	# Unless explicitly set, randomly assign gender
+	if gender == null:
+		gender = "Male" if randi() % 2 == 0 else "Female"
+	
 	# TODO: Determine how distance works. Maybe 1 eye_sight = 1/4 grid?
 	adjusted_eye_sight = eye_sight * OhioEcosystemData.grid_scale * 0.25
 	adjusted_eating_distance = eating_distance * OhioEcosystemData.grid_scale * 0.25
-	
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -90,8 +105,8 @@ func eat():
 		# Only consider eating known prey_organisms
 		if food_consideration.species in prey_organisms:
 			# If the food is in range, eat it!
-			if position.distance_to(food_consideration.position) <= eating_distance:
-				hunger = min(hunger + OhioEcosystemData.animal_species_data[food_consideration.species]["nutrition"], max_hunger)
+			if position.distance_to(food_consideration.position) <= adjusted_eating_distance:
+				hunger = min(hunger + OhioEcosystemData.animals_species_data[food_consideration.species]["nutrition"], max_hunger)
 				food_consideration.consumed()
 				print(animal_name, " ate ", food_consideration.animal_name)
 				return true
@@ -152,7 +167,6 @@ func move():
 
 
 func update():
-	print("Before move, ", animal_name, " at pos: ", position)
 	move()
 	age += 1
 	reproduction_timer -= 1
