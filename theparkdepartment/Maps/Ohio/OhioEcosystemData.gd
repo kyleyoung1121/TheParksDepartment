@@ -2,6 +2,7 @@ extends Node
 
 
 var grid_size: int = 10
+var grid_scale: int = 16
 var plants = []
 var animals = []
 var days = 0
@@ -29,7 +30,7 @@ var animals_species_data = {
 		"type": "Herbivore",
 		"prey_organism": ["Grass"],
 	},
-	"Wolf": {
+	"EasternWolf": {
 		"count": 0,
 		"reproduction_cooldown": 12,
 		"max_hunger": 5,

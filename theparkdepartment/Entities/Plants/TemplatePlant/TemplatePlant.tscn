@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bppcoqbsaofmh"]
+
+[ext_resource type="Script" path="res://Entities/Plants/TemplatePlant/TemplatePlant.gd" id="1_vil0x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l3hka"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kmb3t"]
+
+[node name="TemplatePlant" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("1_vil0x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_l3hka")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_kmb3t")

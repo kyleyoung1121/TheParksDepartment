@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://gu78jvll56xh"]
+[gd_scene load_steps=2 format=3 uid="uid://gol04457fdh6"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lmrk7"]
-albedo_color = Color(0.467743, 0.377958, 0.140144, 1)
+[ext_resource type="PackedScene" uid="uid://djuod3fskf5cl" path="res://Entities/Animals/TemplateAnimal/TemplateAnimal.tscn" id="1_4cxpb"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_eq8bs"]
-material = SubResource("StandardMaterial3D_lmrk7")
-
-[node name="MeshInstance3D" type="MeshInstance3D"]
-mesh = SubResource("SphereMesh_eq8bs")
+[node name="Deer" instance=ExtResource("1_4cxpb")]
+movement_chance = 0.5
+max_hunger = 5
+max_age = 15
+eye_sight = 4
+reproduction_cooldown = 10
+nutrition = 5
+diet_type = "Herbivore"
+prey_organisms = ["Grass"]
