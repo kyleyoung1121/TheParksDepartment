@@ -98,6 +98,7 @@ func is_old() -> bool:
 
 
 func consumed():
+	print(name + " was deleted!!")
 	queue_free()
 
 
@@ -161,3 +162,10 @@ func update():
 				var new_animal = reproduce(OhioEcosystemData.animal_species_data[species]["count"])
 				OhioEcosystemData.animal_species_data[species]["count"] += 1
 				# TODO: add the new animal to the scene
+
+
+# Position the entity based on a 2d grid
+# Note: we set position.z because in 3d, y refers to up/down
+func set_grid_position(grid_position: Vector2):
+	position.x = grid_position.x * OhioEcosystemData.grid_scale
+	position.z = grid_position.y * OhioEcosystemData.grid_scale

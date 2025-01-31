@@ -2,6 +2,7 @@ extends Node
 
 
 var grid_size: int = 10
+var grid_scale: int = 16
 var plants = []
 var animals = []
 var days = 0

@@ -1,11 +1,10 @@
 extends Node
 
 
-# TODO: make a grass scene and link it here OR make this export and do it in editor
-var grass_scene
-var deer_scene
-var rabbit_scene
-var wolf_scene
+var grass_scene = load("res://Entities/Plants/Grass/grass.tscn")
+var deer_scene = load("res://Entities/Animals/Deer/Deer.tscn")
+var rabbit_scene = load("res://Entities/Animals/Rabbit/Rabbit.tscn")
+var wolf_scene = load("res://Entities/Animals/EasternWolf/EasternWolf.tscn")
 
 
 func initialize_ecosystem():
@@ -13,33 +12,33 @@ func initialize_ecosystem():
 	for i in range(OhioEcosystemData.grid_size):
 		for j in range(OhioEcosystemData.grid_size):
 			# Create a new instance of our grass scene.
-			# TODO: Does passing the coord in the new() function work?
-			var new_plant = grass_scene.new(Vector2(i, j))
+			var new_plant = grass_scene.instantiate()
+			new_plant.set_grid_position(Vector2(i,j))
+			new_plant.plant_name = "grass_" + str(OhioEcosystemData.plant_species_data["Grass"]["count"])
+			add_child(new_plant)
+			# Keep track of population in the global Ohio data
 			OhioEcosystemData.plant_species_data["Grass"]["count"] += 1
-			# Set a name that includes the count
-			# TODO: Make sure the plant scene is expecting this name variable!
-			new_plant.name = "grass_" + str(OhioEcosystemData.plant_species_data["Grass"]["count"])
 	
 	# Add 5 deer
 	for i in range(5):
-		var new_deer = deer_scene.new()
+		var new_deer = deer_scene.instantiate()
+		new_deer.set_grid_position(Vector2(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size))
+		new_deer.animal_name = "deer_" + str(OhioEcosystemData.animals_species_data["Deer"]["count"])
 		OhioEcosystemData.animals_species_data["Deer"]["count"] += 1
-		# TODO: Make sure the animal scene is expecting the spawn coords and name
-		new_deer.init(Vector2(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size), "deer_" + str(OhioEcosystemData.animals_species_data["Deer"]["count"]))
 
 	# Add 5 rabbits
 	for i in range(5):
-		var new_rabbit = rabbit_scene.new()
+		var new_rabbit = rabbit_scene.instantiate()
+		new_rabbit.set_grid_position(Vector2(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size))
+		new_rabbit.animal_name = "rabbit_" + str(OhioEcosystemData.animals_species_data["Rabbit"]["count"])
 		OhioEcosystemData.animals_species_data["Rabbit"]["count"] += 1
-		# TODO: Make sure the animal scene is expecting the spawn coords and name
-		new_rabbit.init(Vector2(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size), "rabbit_" + str(OhioEcosystemData.animals_species_data["Rabbit"]["count"]))
-
+	
 	# Add 5 wolves
 	for i in range(5):
-		var new_wolf = wolf_scene.new()
-		OhioEcosystemData.animals_species_data["Wolf"]["count"] += 1
-		# TODO: Make sure the animal scene is expecting the spawn coords and name
-		new_wolf.init(Vector2(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size), "wolf_" + str(OhioEcosystemData.animals_species_data["Wolf"]["count"]))
+		var new_wolf = wolf_scene.instantiate()
+		new_wolf.set_grid_position(Vector2(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size))
+		new_wolf.animal_name = "wolf_" + str(OhioEcosystemData.animals_species_data["EasternWolf"]["count"])
+		OhioEcosystemData.animals_species_data["EasternWolf"]["count"] += 1
 
 
 func simulate_day():

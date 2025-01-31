@@ -1,19 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://bajcno73354v1"]
+[gd_scene load_steps=5 format=3 uid="uid://bajcno73354v1"]
 
-[ext_resource type="Texture2D" uid="uid://bfax6vmncto75" path="res://Maps/MapParts/grass_texture.png" id="1_5g2ac"]
+[ext_resource type="Texture2D" uid="uid://f5rgl5l5qql2" path="res://Maps/MapParts/grass_texture_cube.png" id="1_b5yvb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ouo3c"]
 albedo_color = Color(0.0867957, 0.247525, 0.0234103, 1)
-albedo_texture = ExtResource("1_5g2ac")
+albedo_texture = ExtResource("1_b5yvb")
 metallic_specular = 0.2
 roughness = 0.95
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ptvc5"]
 material = SubResource("StandardMaterial3D_ouo3c")
-size = Vector2(64, 64)
+size = Vector2(16, 16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tlrax"]
+material = SubResource("StandardMaterial3D_ouo3c")
+size = Vector3(16, 16, 16)
 
 [node name="Tile" type="Node3D"]
 
 [node name="TilePlane" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("PlaneMesh_ptvc5")
+skeleton = NodePath("../..")
+
+[node name="TileCube" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.998769, 0, 0, 0, 0.998769, 0, 0, 0, 0.998769, 0, 0, 0)
+mesh = SubResource("BoxMesh_tlrax")
 skeleton = NodePath("../..")
