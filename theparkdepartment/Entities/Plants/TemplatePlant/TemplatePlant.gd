@@ -1,8 +1,7 @@
-extends CharacterBody3D
+extends MeshInstance3D
 
 
 # Plant variables; export the ones that we want to tweak in the editor
-@export var plant_name: String
 @export var species: String
 @export var max_age: int
 @export var gender: String
@@ -11,6 +10,7 @@ extends CharacterBody3D
 # TODO: Work out how to handle reproduction. Do we just spawn another copy of this scene?
 @export var self_scene = null
 
+var plant_name: String
 var age: int
 var plant_position: Vector2
 var reproduction_timer: int
@@ -61,4 +61,6 @@ func update():
 # Note: we set position.z because in 3d, y refers to up/down
 func set_grid_position(grid_position: Vector2):
 	position.x = grid_position.x * OhioEcosystemData.grid_scale
+	position.x += randf_range(-5, 5)
 	position.z = grid_position.y * OhioEcosystemData.grid_scale
+	position.z += randf_range(-5, 5)

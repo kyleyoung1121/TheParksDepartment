@@ -7,20 +7,30 @@ var rabbit_scene = load("res://Entities/Animals/Rabbit/Rabbit.tscn")
 var wolf_scene = load("res://Entities/Animals/EasternWolf/EasternWolf.tscn")
 
 
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):  # Default "Escape" action
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  # Release the mouse
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Recapture the mouse
+
+
 func initialize_ecosystem():
 	# Add 1 plant in every spot in our grid
 	for i in range(OhioEcosystemData.grid_size):
 		for j in range(OhioEcosystemData.grid_size):
-			# Create a new instance of our grass scene.
-			var new_plant = grass_scene.instantiate()
-			new_plant.set_grid_position(Vector2(i,j))
-			new_plant.plant_name = "grass_" + str(OhioEcosystemData.plants_species_data["Grass"]["count"])
-			add_child(new_plant)
-			# Keep track of population in the global Ohio data
-			OhioEcosystemData.plants_species_data["Grass"]["count"] += 1
+			var plant_quantity = randi_range(3,10)
+			for k in range(plant_quantity):
+				# Create a new instance of our grass scene.
+				var new_plant = grass_scene.instantiate()
+				new_plant.set_grid_position(Vector2(i,j))
+				new_plant.plant_name = "grass_" + str(OhioEcosystemData.plants_species_data["Grass"]["count"])
+				add_child(new_plant)
+				# Keep track of population in the global Ohio data
+				OhioEcosystemData.plants_species_data["Grass"]["count"] += 1
 	
 	# Add 5 deer
-	for i in range(5):
+	for i in range(15):
 		var new_deer = deer_scene.instantiate()
 		new_deer.set_grid_position(Vector2(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size))
 		new_deer.animal_name = "deer_" + str(OhioEcosystemData.animals_species_data["Deer"]["count"])
@@ -28,7 +38,7 @@ func initialize_ecosystem():
 		OhioEcosystemData.animals_species_data["Deer"]["count"] += 1
 
 	# Add 5 rabbits
-	for i in range(5):
+	for i in range(15):
 		var new_rabbit = rabbit_scene.instantiate()
 		new_rabbit.set_grid_position(Vector2(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size))
 		new_rabbit.animal_name = "rabbit_" + str(OhioEcosystemData.animals_species_data["Rabbit"]["count"])

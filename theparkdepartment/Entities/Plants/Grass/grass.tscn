@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1cqu5275prmf"]
+[gd_scene load_steps=4 format=3 uid="uid://d1cqu5275prmf"]
 
-[ext_resource type="PackedScene" uid="uid://bppcoqbsaofmh" path="res://Entities/Plants/TemplatePlant/TemplatePlant.tscn" id="1_25pk6"]
+[ext_resource type="PackedScene" uid="uid://bppcoqbsaofmh" path="res://Entities/Plants/TemplatePlant/TemplatePlant.tscn" id="1_tdtwy"]
 
-[node name="Grass" instance=ExtResource("1_25pk6")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vqyaw"]
+albedo_color = Color(0.10362, 0.3703, 0.0611114, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eh8cm"]
+material = SubResource("StandardMaterial3D_vqyaw")
+
+[node name="Grass" instance=ExtResource("1_tdtwy")]
+mesh = SubResource("BoxMesh_eh8cm")
 species = "Grass"
 max_age = 30
 reproduction_cooldown = 15
