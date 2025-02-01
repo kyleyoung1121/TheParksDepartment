@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcp1t20xuqpug"]
+[gd_scene load_steps=4 format=3 uid="uid://bcp1t20xuqpug"]
 
 [ext_resource type="PackedScene" uid="uid://djuod3fskf5cl" path="res://Entities/Animals/TemplateAnimal/TemplateAnimal.tscn" id="1_vnkou"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64obp"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_cdagf"]
+material = SubResource("StandardMaterial3D_64obp")
+
 [node name="Rabbit" instance=ExtResource("1_vnkou")]
 species = "Rabbit"
+self_scene_path = "res://Entities/Animals/Rabbit/Rabbit.tscn"
+
+[node name="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("CapsuleMesh_cdagf")

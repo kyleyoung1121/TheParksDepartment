@@ -2,16 +2,16 @@ extends CharacterBody3D
 
 
 # Animal variables; export the ones that we want to tweak in the editor
-@export var animal_name: String
 @export var species: String
 @export var speed = 5.0
 @export var movement_random_variation: float
-@export var gender: String
-@export var eating_distance: float = 5.0
+@export var eating_distance: float = 2.0
 # TODO: Work out how to handle reproduction. Do we just spawn another copy of this scene?
-@export var self_scene = null
+@export var self_scene_path: String
 
+var animal_name: String
 var age: int
+var gender: String
 var animal_position: Vector2
 var max_hunger: int
 var hunger: int
@@ -45,23 +45,35 @@ func _ready():
 	prey_organisms = OhioEcosystemData.animals_species_data[species]["prey_organisms"]
 	
 	# Set initial conditions
-	hunger = max_hunger
-	reproduction_timer = reproduction_cooldown
-	age = 0
+	hunger = get_random_portion(max_hunger, "majority")
+	reproduction_timer = get_random_portion(reproduction_cooldown, "majority") 
+	age = 0 + get_random_portion(max_age, "minority")
+	speed *= randf_range(0.8, 1.2)
 	
-	# Unless explicitly set, randomly assign gender
-	if gender == null:
-		gender = "Male" if randi() % 2 == 0 else "Female"
+	# Randomly assign gender
+	gender = "Male" if randi() % 2 == 0 else "Female"
 	
 	# TODO: Determine how distance works. Maybe 1 eye_sight = 1/4 grid?
 	adjusted_eye_sight = eye_sight * OhioEcosystemData.grid_scale * 0.25
 	adjusted_eating_distance = eating_distance * OhioEcosystemData.grid_scale * 0.25
 
 
+func get_random_portion(value, setting):
+	var rough_forth = int(reproduction_cooldown/4)
+	if rough_forth == 0:
+		rough_forth = 1
+	
+	if setting == "majority":
+		# Return somewhere between 100% and 75% of the original value
+		return value - (randi() % rough_forth)
+	else:
+		# Return somewhere between 0% and 25%
+		return (randi() % rough_forth)
+
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	#if not is_on_floor():
+		#velocity += get_gravity() * delta
 
 	# TODO: Verify that the following code moves the animal towards its desired location
 	# Determine what direction the animal wants to move in
@@ -105,7 +117,7 @@ func eat():
 			if position.distance_to(food_consideration.position) <= adjusted_eating_distance:
 				hunger = min(hunger + OhioEcosystemData.plants_species_data[food_consideration.species]["nutrition"], max_hunger)
 				food_consideration.consumed()
-				print(animal_name, " ate ", food_consideration.plant_name)
+				#print(animal_name, " ate ", food_consideration.plant_name)
 				return true
 	for food_consideration in get_tree().get_nodes_in_group("animals"):
 		# Only consider eating known prey_organisms
@@ -114,7 +126,7 @@ func eat():
 			if position.distance_to(food_consideration.position) <= adjusted_eating_distance:
 				hunger = min(hunger + OhioEcosystemData.animals_species_data[food_consideration.species]["nutrition"], max_hunger)
 				food_consideration.consumed()
-				print(animal_name, " ate ", food_consideration.animal_name)
+				#print(animal_name, " ate ", food_consideration.animal_name)
 				return true
 	
 
@@ -132,41 +144,58 @@ func is_old() -> bool:
 
 
 func consumed():
-	print(animal_name + " was deleted!!")
 	queue_free()
 
 
-func reproduce(count: int):
-	var baby_organism = self_scene
-	baby_organism.init(position, species.to_lower() + "_" + str(count))
-	print("Baby ", species, " created with name: ", baby_organism.animal_name)
-	return baby_organism
+func reproduce(count):
+	# Get the parent scene so we can add the new instance to it
+	var parent = get_parent()
+	assert(not parent == null)
+
+	# Create a new instance of the current scene
+	var new_animal = load(self_scene_path).instantiate()
+
+	# Set position near the original animal
+	new_animal.position = position + Vector3(randf_range(-1, 1), 0, randf_range(-1, 1))
+
+	# Add the new instance to the scene
+	parent.add_child(new_animal)
 
 
 func search_for_need():
 	if gender == "Male" and hunger > max_hunger * 0.5:
 		for animal in get_tree().get_nodes_in_group("animals"):
-			if animal.species == species and animal.gender == "Female" and animal.reproduction_timer <= 2:
+			if animal.species == species and animal.gender == "Female" and animal.reproduction_timer <= 1:
 				if position.distance_to(animal.position) <= adjusted_eye_sight:
 					set_desired_position(animal.position)
 					return
 	
+	# Otherwise, search for food
+	# If this animal eats meat, look for animals
+	if diet_type == "Carnivore" or diet_type == "Omnivore":
+		for animal in get_tree().get_nodes_in_group("animals"):
+			if animal.position.distance_to(position) <= adjusted_eye_sight and animal.species in prey_organisms:
+				set_desired_position(animal.position)
+				return
+	
+	# If this animal eats plants, look for plants
+	if diet_type == "Herbivore" or diet_type == "Omnivore":
+		for plant in get_tree().get_nodes_in_group("plants"):
+			if plant.position.distance_to(position) <= adjusted_eye_sight and plant.species in prey_organisms:
+				set_desired_position(plant.position)
+				return
+	
+	# If no mate or food is found, choose randomly
+	var pathing_choice = randi() % 3
+	# 1/3 of the time, go somewhere random
+	if pathing_choice == 0:
+		set_random_destination()
+	# 1/3 of the time, stay put
+	elif pathing_choice == 1:
+		desired_position = position
+	# 1/3 of the time, continue towards last desired position
 	else:
-		# Search for food
-		# If this animal eats meat, look for animals
-		if diet_type == "Carnivore" or diet_type == "Omnivore":
-			for animal in get_tree().get_nodes_in_group("animals"):
-				if animal.position.distance_to(position) <= adjusted_eye_sight and animal.species in prey_organisms:
-					set_desired_position(animal.position)
-					return
-		
-		# If this animal eats plants, look for plants
-		if diet_type == "Herbivore" or diet_type == "Omnivore":
-			for plant in get_tree().get_nodes_in_group("plants"):
-				if plant.position.distance_to(position) <= adjusted_eye_sight and plant.species in prey_organisms:
-					set_desired_position(plant.position)
-					return
-
+		pass
 
 func move():
 	if decide_to_move():
@@ -190,16 +219,27 @@ func update():
 	# Reproduce if conditions are right
 	elif gender == "Female" and reproduction_timer <= 0:
 		for animal in get_tree().get_nodes_in_group("animals"):
-			if animal.species == species and animal.position == position and animal.gender != gender:
+			if animal.species == species and position.distance_to(animal.position) and animal.gender != gender:
 				print(animal_name, " and ", animal.animal_name, " reproducing at ", position)
 				reproduction_timer = reproduction_cooldown
-				var new_animal = reproduce(OhioEcosystemData.animal_species_data[species]["count"])
-				OhioEcosystemData.animal_species_data[species]["count"] += 1
-				# TODO: add the new animal to the scene
+				reproduce(OhioEcosystemData.animals_species_data[species]["count"])
+				OhioEcosystemData.animals_species_data[species]["count"] += 1
+				break
+
+
+func set_random_destination():
+	var desired_x = (randi() % OhioEcosystemData.grid_size) * OhioEcosystemData.grid_scale
+	var desired_z = (randi() % OhioEcosystemData.grid_size) * OhioEcosystemData.grid_scale
+	desired_x += randf_range(-8, 8)
+	desired_z += randf_range(-8, 8)
+	desired_position = Vector3(desired_x, 0, desired_z)
 
 
 # Position the entity based on a 2d grid
 # Note: we set position.z because in 3d, y refers to up/down
 func set_grid_position(grid_position: Vector2):
 	position.x = grid_position.x * OhioEcosystemData.grid_scale
+	position.x += randf_range(-5, 5)
 	position.z = grid_position.y * OhioEcosystemData.grid_scale
+	position.z += randf_range(-5, 5)
+	set_random_destination()

@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 
 OhioEcosystemData="*res://Maps/Ohio/OhioEcosystemData.gd"
 
+[display]
+
+window/size/mode=2
+
 [input]
 
 camera_zoom_in={
