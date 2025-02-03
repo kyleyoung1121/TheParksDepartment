@@ -8,3 +8,11 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("BoxMesh_0bmws")
 script = ExtResource("1_vil0x")
+
+[node name="ClusterDetection" type="Area3D" parent="."]
+
+[node name="ClusterDetectionCollision" type="CollisionShape3D" parent="ClusterDetection"]
+
+[node name="PlantArea" type="Area3D" parent="." groups=["plants_area"]]
+
+[node name="PlantCollision" type="CollisionShape3D" parent="PlantArea"]
