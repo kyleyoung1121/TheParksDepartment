@@ -6,7 +6,6 @@ extends CharacterBody3D
 @export var speed = 5.0
 @export var movement_random_variation: float
 @export var eating_distance: float = 2.0
-# TODO: Work out how to handle reproduction. Do we just spawn another copy of this scene?
 @export var self_scene_path: String
 
 var animal_name: String
@@ -59,7 +58,7 @@ func _ready():
 
 
 func get_random_portion(value, setting):
-	var rough_forth = int(reproduction_cooldown/4)
+	var rough_forth = int(value/4)
 	if rough_forth == 0:
 		rough_forth = 1
 	
@@ -69,6 +68,7 @@ func get_random_portion(value, setting):
 	else:
 		# Return somewhere between 0% and 25%
 		return (randi() % rough_forth)
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -110,24 +110,31 @@ func eat():
 		return false
 	
 	# Consider all plants and animals. If they are prey and it range, eat them
-	for food_consideration in get_tree().get_nodes_in_group("plants"):
-		# Only consider eating known prey_organisms
-		if food_consideration.species in prey_organisms:
-			# If the food is in range, eat it!
-			if position.distance_to(food_consideration.position) <= adjusted_eating_distance:
-				hunger = min(hunger + OhioEcosystemData.plants_species_data[food_consideration.species]["nutrition"], max_hunger)
-				food_consideration.consumed()
-				#print(animal_name, " ate ", food_consideration.plant_name)
-				return true
-	for food_consideration in get_tree().get_nodes_in_group("animals"):
-		# Only consider eating known prey_organisms
-		if food_consideration.species in prey_organisms:
-			# If the food is in range, eat it!
-			if position.distance_to(food_consideration.position) <= adjusted_eating_distance:
-				hunger = min(hunger + OhioEcosystemData.animals_species_data[food_consideration.species]["nutrition"], max_hunger)
-				food_consideration.consumed()
-				#print(animal_name, " ate ", food_consideration.animal_name)
-				return true
+	if diet_type == "Herbavore" or diet_type == "Omnivore":
+		var all_plants = get_tree().get_nodes_in_group("plants")
+		all_plants.shuffle()
+		for food_consideration in all_plants:
+			# Only consider eating known prey_organisms
+			if food_consideration.species in prey_organisms:
+				# If the food is in range, eat it!
+				if position.distance_to(food_consideration.position) <= adjusted_eating_distance:
+					hunger = min(hunger + OhioEcosystemData.plants_species_data[food_consideration.species]["nutrition"], max_hunger)
+					food_consideration.consumed()
+					#print(animal_name, " ate ", food_consideration.plant_name)
+					return true
+	
+	if diet_type == "Carnivore" or diet_type == "Omnivore":
+		var all_animals = get_tree().get_nodes_in_group("animals")
+		all_animals.shuffle()
+		for food_consideration in all_animals:
+			# Only consider eating known prey_organisms
+			if food_consideration.species in prey_organisms:
+				# If the food is in range, eat it!
+				if position.distance_to(food_consideration.position) <= adjusted_eating_distance:
+					hunger = min(hunger + OhioEcosystemData.animals_species_data[food_consideration.species]["nutrition"], max_hunger)
+					food_consideration.consumed()
+					#print(animal_name, " ate ", food_consideration.animal_name)
+					return true
 	
 
 
@@ -151,20 +158,30 @@ func reproduce(count):
 	# Get the parent scene so we can add the new instance to it
 	var parent = get_parent()
 	assert(not parent == null)
-
+	
+	# Check that this species hasn't hit its limit
+	var population_limit = OhioEcosystemData.animals_species_data[species]["population_limit"]
+	if OhioEcosystemData.animals_species_data[species]["count"] >= population_limit:
+		print("flag 1")
+		return
+	
 	# Create a new instance of the current scene
 	var new_animal = load(self_scene_path).instantiate()
-
-	# Set position near the original animal
 	new_animal.position = position + Vector3(randf_range(-1, 1), 0, randf_range(-1, 1))
-
+	new_animal.animal_name = species.to_lower() + "_" + str(OhioEcosystemData.animals_species_data[species]["count"])
+	new_animal.set_random_destination()
+	
 	# Add the new instance to the scene
 	parent.add_child(new_animal)
+	print("New " + species + " has been born: " + animal_name)
+	OhioEcosystemData.animals_species_data[species]["count"] += 1
 
 
 func search_for_need():
 	if gender == "Male" and hunger > max_hunger * 0.5:
-		for animal in get_tree().get_nodes_in_group("animals"):
+		var all_animals = get_tree().get_nodes_in_group("animals")
+		all_animals.shuffle()
+		for animal in all_animals:
 			if animal.species == species and animal.gender == "Female" and animal.reproduction_timer <= 1:
 				if position.distance_to(animal.position) <= adjusted_eye_sight:
 					set_desired_position(animal.position)
@@ -173,14 +190,18 @@ func search_for_need():
 	# Otherwise, search for food
 	# If this animal eats meat, look for animals
 	if diet_type == "Carnivore" or diet_type == "Omnivore":
-		for animal in get_tree().get_nodes_in_group("animals"):
+		var all_animals = get_tree().get_nodes_in_group("animals")
+		all_animals.shuffle()
+		for animal in all_animals:
 			if animal.position.distance_to(position) <= adjusted_eye_sight and animal.species in prey_organisms:
 				set_desired_position(animal.position)
 				return
 	
 	# If this animal eats plants, look for plants
 	if diet_type == "Herbivore" or diet_type == "Omnivore":
-		for plant in get_tree().get_nodes_in_group("plants"):
+		var all_plants = get_tree().get_nodes_in_group("plants")
+		all_plants.shuffle()
+		for plant in all_plants:
 			if plant.position.distance_to(position) <= adjusted_eye_sight and plant.species in prey_organisms:
 				set_desired_position(plant.position)
 				return
@@ -218,12 +239,12 @@ func update():
 		
 	# Reproduce if conditions are right
 	elif gender == "Female" and reproduction_timer <= 0:
-		for animal in get_tree().get_nodes_in_group("animals"):
+		var all_animals = get_tree().get_nodes_in_group("animals")
+		all_animals.shuffle()
+		for animal in all_animals:
 			if animal.species == species and position.distance_to(animal.position) and animal.gender != gender:
-				print(animal_name, " and ", animal.animal_name, " reproducing at ", position)
 				reproduction_timer = reproduction_cooldown
 				reproduce(OhioEcosystemData.animals_species_data[species]["count"])
-				OhioEcosystemData.animals_species_data[species]["count"] += 1
 				break
 
 
