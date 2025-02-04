@@ -5,6 +5,7 @@ var grass_scene = load("res://Entities/Plants/Grass/grass.tscn")
 var deer_scene = load("res://Entities/Animals/Deer/Deer.tscn")
 var rabbit_scene = load("res://Entities/Animals/Rabbit/Rabbit.tscn")
 var wolf_scene = load("res://Entities/Animals/EasternWolf/EasternWolf.tscn")
+var americanGoldfinch_scene = load("res://Entities/Animals/AmericanGoldfinch/AmericanGoldfinch.tscn")
 
 
 func _input(event):
@@ -52,6 +53,14 @@ func initialize_ecosystem():
 		new_wolf.animal_name = "wolf_" + str(OhioEcosystemData.animals_species_data["EasternWolf"]["count"])
 		add_child(new_wolf)
 		OhioEcosystemData.animals_species_data["EasternWolf"]["count"] += 1
+
+	# add 5 american goldfinch
+	for i in range(5):
+		var new_americanGoldfinch = americanGoldfinch_scene.instantiate()
+		new_americanGoldfinch.set_grid_position(Vector2(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size))
+		new_americanGoldfinch.animal_name = "americanGoldfinch_" + str(OhioEcosystemData.animals_species_data["AmericanGoldfinch"]["count"])
+		add_child(new_americanGoldfinch)
+		OhioEcosystemData.animals_species_data["AmericanGoldfinch"]["count"] += 1
 
 
 func simulate_day():

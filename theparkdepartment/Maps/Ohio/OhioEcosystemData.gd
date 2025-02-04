@@ -43,7 +43,19 @@ var animals_species_data = {
 		"diet_type": "Carnivore",
 		"prey_organisms": ["Deer", "Rabbit"],
 		"population_limit": 100,
-	}
+	},
+	"AmericanGoldfinch": {
+		"count": 0,
+		"reproduction_cooldown": 3,
+		"max_hunger": 10,
+		"eye_sight": 6,
+		"movement_chance": 0.8,
+		"max_age": 10,
+		"nutrition" : 7,
+		"diet_type": "Herbivore",
+		"prey_organisms": ["Grass"],
+		"population_limit": 100,
+	},
 }
 
 var plants_species_data = {
