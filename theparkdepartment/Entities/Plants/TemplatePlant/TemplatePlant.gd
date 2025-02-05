@@ -64,7 +64,6 @@ func reproduce(count):
 	# Check that this species hasn't hit its limit
 	var population_limit = OhioEcosystemData.plants_species_data[species]["population_limit"]
 	if OhioEcosystemData.plants_species_data[species]["count"] >= population_limit:
-		print("flag 2")
 		return
 	
 	# Create a new instance of the current scene

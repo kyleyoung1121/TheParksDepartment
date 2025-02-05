@@ -12,5 +12,5 @@ material = SubResource("StandardMaterial3D_fh28u")
 species = "EasternWolf"
 self_scene_path = "res://Entities/Animals/EasternWolf/EasternWolf.tscn"
 
-[node name="MeshInstance3D" parent="." index="1"]
+[node name="MeshInstance3D" parent="." index="0"]
 mesh = SubResource("CapsuleMesh_8q1xo")
