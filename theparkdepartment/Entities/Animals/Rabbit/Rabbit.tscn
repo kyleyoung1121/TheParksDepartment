@@ -11,5 +11,5 @@ material = SubResource("StandardMaterial3D_64obp")
 species = "Rabbit"
 self_scene_path = "res://Entities/Animals/Rabbit/Rabbit.tscn"
 
-[node name="MeshInstance3D" parent="." index="1"]
+[node name="MeshInstance3D" parent="." index="0"]
 mesh = SubResource("CapsuleMesh_cdagf")

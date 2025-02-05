@@ -23,6 +23,7 @@ var movement_chance: float
 var reproduction_cooldown: int
 var reproduction_timer: int
 var desired_position = Vector3()
+var animation_action: String = "idle"
 
 # TODO: Should we just set the original variable, or separate like this?
 var adjusted_eye_sight: float
@@ -57,32 +58,19 @@ func _ready():
 	adjusted_eating_distance = eating_distance * OhioEcosystemData.grid_scale * 0.25
 
 
-func get_random_portion(value, setting):
-	var rough_forth = int(value/4)
-	if rough_forth == 0:
-		rough_forth = 1
-	
-	if setting == "majority":
-		# Return somewhere between 100% and 75% of the original value
-		return value - (randi() % rough_forth)
-	else:
-		# Return somewhere between 0% and 25%
-		return (randi() % rough_forth)
-
-
 func _physics_process(delta):
-	# Add the gravity.
-	#if not is_on_floor():
-		#velocity += get_gravity() * delta
-
-	# TODO: Verify that the following code moves the animal towards its desired location
 	# Determine what direction the animal wants to move in
 	var direction = (desired_position - position).normalized()
+	
 	# Move in the x and z directions as needed (y is height, so ignore it for now)
-	if direction:
+	if direction and direction > Vector3(0.1,0.1,0.1):
+		animation_action = "walking"
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
+		# Set y rotation based on movement direction
+		rotation.y = atan2(-direction.x, -direction.z)
 	else:
+		animation_action = "idle"
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 	
@@ -104,6 +92,19 @@ func decide_to_move():
 	return randf() < movement_chance
 
 
+func get_random_portion(value, setting):
+	var rough_forth = int(value/4)
+	if rough_forth == 0:
+		rough_forth = 1
+	
+	if setting == "majority":
+		# Return somewhere between 100% and 75% of the original value
+		return value - (randi() % rough_forth)
+	else:
+		# Return somewhere between 0% and 25%
+		return (randi() % rough_forth)
+
+
 func eat():
 	# If we are already full, don't eat anything nearby
 	if hunger >= max_hunger:
@@ -120,6 +121,7 @@ func eat():
 				if position.distance_to(food_consideration.position) <= adjusted_eating_distance:
 					hunger = min(hunger + OhioEcosystemData.plants_species_data[food_consideration.species]["nutrition"], max_hunger)
 					food_consideration.consumed()
+					animation_action = "eating"
 					#print(animal_name, " ate ", food_consideration.plant_name)
 					return true
 	
@@ -133,6 +135,7 @@ func eat():
 				if position.distance_to(food_consideration.position) <= adjusted_eating_distance:
 					hunger = min(hunger + OhioEcosystemData.animals_species_data[food_consideration.species]["nutrition"], max_hunger)
 					food_consideration.consumed()
+					animation_action = "eating"
 					#print(animal_name, " ate ", food_consideration.animal_name)
 					return true
 	
@@ -162,7 +165,6 @@ func reproduce(count):
 	# Check that this species hasn't hit its limit
 	var population_limit = OhioEcosystemData.animals_species_data[species]["population_limit"]
 	if OhioEcosystemData.animals_species_data[species]["count"] >= population_limit:
-		print("flag 1")
 		return
 	
 	# Create a new instance of the current scene

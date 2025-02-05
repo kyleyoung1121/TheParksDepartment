@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://2nmsflan7iar"]
+[gd_scene load_steps=3 format=3 uid="uid://bi0m2e38b3o6s"]
 
 [ext_resource type="Script" path="res://Entities/Animals/TemplateAnimal/TemplateAnimal.gd" id="1_tkmgo"]
 [ext_resource type="PackedScene" uid="uid://5xva3k6ai24u" path="res://Entities/Animals/AmericanGoldfinch/Assets/exported-goldfinch.glb" id="2_6icyy"]
@@ -11,6 +11,7 @@ movement_random_variation = 3.0
 self_scene_path = "res://Entities/Animals/AmericanGoldfinch/AmericanGoldfinch.tscn"
 
 [node name="exported-goldfinch" parent="." instance=ExtResource("2_6icyy")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
 [node name="Skeleton3D" parent="exported-goldfinch/Armature" index="0"]
 bones/0/rotation = Quaternion(-0.595745, 9.57458e-08, -7.10183e-08, 0.803174)

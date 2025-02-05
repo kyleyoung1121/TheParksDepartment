@@ -5,7 +5,7 @@ var grass_scene = load("res://Entities/Plants/Grass/grass.tscn")
 var deer_scene = load("res://Entities/Animals/Deer/Deer.tscn")
 var rabbit_scene = load("res://Entities/Animals/Rabbit/Rabbit.tscn")
 var wolf_scene = load("res://Entities/Animals/EasternWolf/EasternWolf.tscn")
-var americanGoldfinch_scene = load("res://Entities/Animals/AmericanGoldfinch/AmericanGoldfinch.tscn")
+var american_goldfinch_scene = load("res://Entities/Animals/AmericanGoldfinch/AmericanGoldfinch.tscn")
 
 
 func _input(event):
@@ -20,7 +20,7 @@ func initialize_ecosystem():
 	# Add 1 plant in every spot in our grid
 	for i in range(OhioEcosystemData.grid_size):
 		for j in range(OhioEcosystemData.grid_size):
-			var plant_quantity = randi_range(3,7)
+			var plant_quantity = randi_range(6,13)
 			for k in range(plant_quantity):
 				# Create a new instance of our grass scene.
 				var new_plant = grass_scene.instantiate()
@@ -56,10 +56,10 @@ func initialize_ecosystem():
 
 	# add 5 american goldfinch
 	for i in range(5):
-		var new_americanGoldfinch = americanGoldfinch_scene.instantiate()
-		new_americanGoldfinch.set_grid_position(Vector2(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size))
-		new_americanGoldfinch.animal_name = "americanGoldfinch_" + str(OhioEcosystemData.animals_species_data["AmericanGoldfinch"]["count"])
-		add_child(new_americanGoldfinch)
+		var new_american_goldfinch = american_goldfinch_scene.instantiate()
+		new_american_goldfinch.set_grid_position(Vector2(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size))
+		new_american_goldfinch.animal_name = "americanGoldfinch_" + str(OhioEcosystemData.animals_species_data["AmericanGoldfinch"]["count"])
+		add_child(new_american_goldfinch)
 		OhioEcosystemData.animals_species_data["AmericanGoldfinch"]["count"] += 1
 
 
