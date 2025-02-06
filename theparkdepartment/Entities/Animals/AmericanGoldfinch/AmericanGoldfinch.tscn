@@ -15,10 +15,11 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
 [node name="Skeleton3D" parent="exported-goldfinch/Armature" index="0"]
 bones/0/rotation = Quaternion(-0.595745, 9.57458e-08, -7.10183e-08, 0.803174)
-bones/2/rotation = Quaternion(-0.108334, 0.0839997, 0.492147, 0.859651)
-bones/2/scale = Vector3(1, 1, 1)
+bones/1/rotation = Quaternion(-0.124161, -0.0396441, -0.488235, 0.862925)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/rotation = Quaternion(-0.151094, 0.0137739, 0.479264, 0.864458)
 bones/3/rotation = Quaternion(3.13883e-07, 0.0146017, 0.999893, 8.065e-09)
-bones/4/rotation = Quaternion(-0.0832117, -2.76027e-15, 7.20822e-08, 0.996532)
+bones/4/rotation = Quaternion(-0.110941, -9.22156e-05, 0.00650948, 0.993806)
 
 [node name="AnimationPlayer" parent="exported-goldfinch" index="1"]
 autoplay = "basic-flap"

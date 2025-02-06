@@ -18,6 +18,9 @@ var diet_type: String
 var nutrition: int
 var prey_organisms: Array
 var max_age: int
+var max_social: int
+var social: int
+var social_group_size: int
 var eye_sight: int
 var movement_chance: float
 var reproduction_cooldown: int
@@ -28,6 +31,8 @@ var animation_action: String = "idle"
 # TODO: Should we just set the original variable, or separate like this?
 var adjusted_eye_sight: float
 var adjusted_eating_distance: float
+var reproduction_range: float
+var social_range: float
 
 
 func _ready():
@@ -43,12 +48,15 @@ func _ready():
 	nutrition = OhioEcosystemData.animals_species_data[species]["nutrition"]
 	diet_type = OhioEcosystemData.animals_species_data[species]["diet_type"]
 	prey_organisms = OhioEcosystemData.animals_species_data[species]["prey_organisms"]
+	max_social = OhioEcosystemData.animals_species_data[species]["max_social"]
+	social_group_size = OhioEcosystemData.animals_species_data[species]["social_group_size"]
 	
 	# Set initial conditions
 	hunger = get_random_portion(max_hunger, "majority")
 	reproduction_timer = get_random_portion(reproduction_cooldown, "majority") 
 	age = 0 + get_random_portion(max_age, "minority")
 	speed *= randf_range(0.8, 1.2)
+	social = get_random_portion(max_social, "majority")
 	
 	# Randomly assign gender
 	gender = "Male" if randi() % 2 == 0 else "Female"
@@ -56,6 +64,8 @@ func _ready():
 	# TODO: Determine how distance works. Maybe 1 eye_sight = 1/4 grid?
 	adjusted_eye_sight = eye_sight * OhioEcosystemData.grid_scale * 0.25
 	adjusted_eating_distance = eating_distance * OhioEcosystemData.grid_scale * 0.25
+	reproduction_range = adjusted_eating_distance
+	social_range = adjusted_eye_sight / 4
 
 
 func _physics_process(delta):
@@ -102,10 +112,144 @@ func get_random_portion(value, setting):
 		return value - (randi() % rough_forth)
 	else:
 		# Return somewhere between 0% and 25%
-		return (randi() % rough_forth)
+		return (randi() % rough_forth)	
+
+func decrease_hunger(amount):
+	hunger -= amount
 
 
-func eat():
+func is_starved() -> bool:
+	return hunger <= 0
+
+
+func is_old() -> bool:
+	return age >= max_age
+
+
+func consumed():
+	queue_free()
+
+
+func reproduce():
+	# Get the parent scene so we can add the new instance to it
+	var parent = get_parent()
+	assert(not parent == null)
+	
+	# Check that this species hasn't hit its limit
+	var population_limit = OhioEcosystemData.animals_species_data[species]["population_limit"]
+	if OhioEcosystemData.animals_species_data[species]["count"] >= population_limit:
+		return
+	
+	# Create a new instance of the current scene
+	var new_animal = load(self_scene_path).instantiate()
+	new_animal.position = position + Vector3(randf_range(-1, 1), 0, randf_range(-1, 1))
+	new_animal.animal_name = species.to_lower() + "_" + str(OhioEcosystemData.animals_species_data[species]["count"])
+	new_animal.set_random_destination()
+	
+	# Add the new instance to the scene
+	parent.add_child(new_animal)
+	print("New " + species + " has been born: " + animal_name)
+	OhioEcosystemData.animals_species_data[species]["count"] += 1
+
+
+func decide_movement():
+
+	# Define Weighting for each type of movement
+	# This should make it so that we can easily adjust the likelihood of each type of movement
+	var weight_food = 0.4
+	var weight_social = 0.3
+
+	# get all needs and find out their current percentage
+	var hunger_percent = float(hunger) / float(max_hunger)
+	var social_percent = float(social) / float(max_social)
+
+	
+	# if the percent is lower than the weight, then we will move towards that need
+
+	# Find all nrarby entities, make a list of them, and score them based on their distance
+	# Don't forget about predators and max social group size
+	var all_entities = get_tree().get_nodes_in_group("animals") + get_tree().get_nodes_in_group("plants")
+
+	# Find all predators that eat this animal, store their positions
+	var predator_locations = []
+	for entity in all_entities:
+		if entity.species in prey_organisms:
+			predator_locations.append(entity.position)
+
+	# Find all entities that are in range
+	var in_range = []
+	for entity in all_entities:
+		if position.distance_to(entity.position) <= adjusted_eye_sight:
+			in_range.append(entity)
+
+	# Score each entity based on their distance, if a predator is nearby (negative score), and if there are too many animals of the same species nearby (negative score)
+	var scored_entities = []
+	var score = 0
+	for entity in in_range:
+		if entity.species in prey_organisms:
+			# make sure there arw no predators nearby, if there are, give a negative score
+			for predator in predator_locations:
+				if entity.position.distance_to(predator) <= adjusted_eye_sight:
+					score = -100
+			# make sure there are not too many of the same species nearby, if there are, give a negative score
+			var same_species_count = 0
+			for other_entity in in_range:
+				if other_entity.species == entity.species:
+					same_species_count += 1
+			if same_species_count >= social_group_size:
+				score = -100
+			# give a score based on distance
+			score = position.distance_to(entity.position)
+			scored_entities.append({"entity": entity, "score": score})
+
+	var temp
+	# Sort the scored entities by their score
+	for i in range(scored_entities.size()):
+		for j in range(scored_entities.size() - 1):
+			if scored_entities[j].score > scored_entities[j+1].score:
+				temp = scored_entities[j]
+				scored_entities[j] = scored_entities[j+1]
+				scored_entities[j+1] = temp
+			
+
+	# If the animal is hungry, move towards food
+	if hunger_percent < weight_food:
+		for entity in scored_entities:
+			entity = entity.entity
+			if entity.species in prey_organisms:
+				set_desired_position(entity.position)
+				return
+	# If the animal is lonely, move towards social
+	elif social_percent < weight_social:
+		for entity in scored_entities:
+			entity = entity.entity
+			if entity.species == species:
+				set_desired_position(entity.position)
+				return
+	# If the animal is neither hungry nor lonely
+	else:
+		for entity in scored_entities:
+			entity = entity.entity
+			if entity.species == species and entity.gender == "Female" and entity.reproduction_timer <= 1 and entity.score > 0: # move towards mate
+				set_desired_position(entity.position)
+				return
+			set_random_destination()
+			
+
+
+func move():
+	if decide_to_move():
+		decide_movement()
+
+
+func update():
+	move()
+	age += 1
+	reproduction_timer -= 1
+	hunger -= 1
+	social -= 1
+
+	# Eat if possible/needed
 	# If we are already full, don't eat anything nearby
 	if hunger >= max_hunger:
 		return false
@@ -138,101 +282,12 @@ func eat():
 					animation_action = "eating"
 					#print(animal_name, " ate ", food_consideration.animal_name)
 					return true
-	
 
-
-func decrease_hunger(amount):
-	hunger -= amount
-
-
-func is_starved() -> bool:
-	return hunger <= 0
-
-
-func is_old() -> bool:
-	return age >= max_age
-
-
-func consumed():
-	queue_free()
-
-
-func reproduce(count):
-	# Get the parent scene so we can add the new instance to it
-	var parent = get_parent()
-	assert(not parent == null)
-	
-	# Check that this species hasn't hit its limit
-	var population_limit = OhioEcosystemData.animals_species_data[species]["population_limit"]
-	if OhioEcosystemData.animals_species_data[species]["count"] >= population_limit:
-		return
-	
-	# Create a new instance of the current scene
-	var new_animal = load(self_scene_path).instantiate()
-	new_animal.position = position + Vector3(randf_range(-1, 1), 0, randf_range(-1, 1))
-	new_animal.animal_name = species.to_lower() + "_" + str(OhioEcosystemData.animals_species_data[species]["count"])
-	new_animal.set_random_destination()
-	
-	# Add the new instance to the scene
-	parent.add_child(new_animal)
-	print("New " + species + " has been born: " + animal_name)
-	OhioEcosystemData.animals_species_data[species]["count"] += 1
-
-
-func search_for_need():
-	if gender == "Male" and hunger > max_hunger * 0.5:
-		var all_animals = get_tree().get_nodes_in_group("animals")
-		all_animals.shuffle()
-		for animal in all_animals:
-			if animal.species == species and animal.gender == "Female" and animal.reproduction_timer <= 1:
-				if position.distance_to(animal.position) <= adjusted_eye_sight:
-					set_desired_position(animal.position)
-					return
-	
-	# Otherwise, search for food
-	# If this animal eats meat, look for animals
-	if diet_type == "Carnivore" or diet_type == "Omnivore":
-		var all_animals = get_tree().get_nodes_in_group("animals")
-		all_animals.shuffle()
-		for animal in all_animals:
-			if animal.position.distance_to(position) <= adjusted_eye_sight and animal.species in prey_organisms:
-				set_desired_position(animal.position)
-				return
-	
-	# If this animal eats plants, look for plants
-	if diet_type == "Herbivore" or diet_type == "Omnivore":
-		var all_plants = get_tree().get_nodes_in_group("plants")
-		all_plants.shuffle()
-		for plant in all_plants:
-			if plant.position.distance_to(position) <= adjusted_eye_sight and plant.species in prey_organisms:
-				set_desired_position(plant.position)
-				return
-	
-	# If no mate or food is found, choose randomly
-	var pathing_choice = randi() % 3
-	# 1/3 of the time, go somewhere random
-	if pathing_choice == 0:
-		set_random_destination()
-	# 1/3 of the time, stay put
-	elif pathing_choice == 1:
-		desired_position = position
-	# 1/3 of the time, continue towards last desired position
-	else:
-		pass
-
-func move():
-	if decide_to_move():
-		search_for_need()
-
-
-func update():
-	move()
-	age += 1
-	reproduction_timer -= 1
-	hunger -= 1
-
-	# Eat if possible/needed
-	eat()
+	# For every entity of same species in range, increase social
+	var all_entities = get_tree().get_nodes_in_group("animals")
+	for entity in all_entities:
+		if entity.species == species and position.distance_to(entity.position) <= social_range:
+			social += 1
 	
 	# If the animal needs removed, remove it!
 	if is_starved() or is_old():
@@ -244,9 +299,9 @@ func update():
 		var all_animals = get_tree().get_nodes_in_group("animals")
 		all_animals.shuffle()
 		for animal in all_animals:
-			if animal.species == species and position.distance_to(animal.position) and animal.gender != gender:
+			if animal.species == species and position.distance_to(animal.position) <= reproduction_range and animal.gender != gender:
 				reproduction_timer = reproduction_cooldown
-				reproduce(OhioEcosystemData.animals_species_data[species]["count"])
+				reproduce()
 				break
 
 
