@@ -180,7 +180,7 @@ func decide_movement2():
 	
 	var nearby_entities = eye_sight_area.get_overlapping_areas()
 	
-	# Orgnaize nearby entities into predators, friends, or prey
+	# Organize nearby entities into predators, friends, or prey
 	var nearby_prey: Array
 	var nearby_predators: Array
 	var nearby_friends: Array
@@ -205,7 +205,7 @@ func decide_movement2():
 		var flee_direction = threat_direction.normalized()
 		var flee_target_position = position + (flee_direction * adjusted_eye_sight)
 		telepathy_print("Predators nearby, running away!")
-		set_desired_position(flee_target_position)
+		set_desired_position(clamp_position(flee_target_position))
 		# No other locations should be considered when predators are nearby
 		return
 	
@@ -220,7 +220,7 @@ func decide_movement2():
 		# Determine which prey to target (should be close, but need not be the closest)
 		var i = get_random_portion(len(nearby_prey), "minority")
 		telepathy_print("Found prey! " + nearby_prey[i].species)
-		set_desired_position(nearby_prey[i].position)
+		set_desired_position(clamp_position(nearby_prey[i].position))
 		return
 	
 	## SOCIAL INTERACTION
@@ -234,7 +234,7 @@ func decide_movement2():
 		for friend in nearby_friends:
 			if friend.gender == "Female" and friend.reproduction_timer <= 1:
 				telepathy_print("Moving to a nearby mate")
-				set_desired_position(friend.position)
+				set_desired_position(clamp_position(friend.position))
 				return
 
 	# If the animal is lonely, look for the nearest friend and target a close one
@@ -242,7 +242,7 @@ func decide_movement2():
 		# Determine which friend to target (should be close, but need not be the closest)
 		var i = get_random_portion(len(nearby_friends), "minority")
 		telepathy_print("Moving towards some friends!")
-		set_desired_position(nearby_friends[i].position)
+		set_desired_position(clamp_position(nearby_friends[i].position))
 		return
 	
 	## RANDOM BEHAVIOR
@@ -260,6 +260,13 @@ func decide_movement2():
 	if random_choice >= 3:
 		telepathy_print("Nothing to do... Going somewhere random!")
 		set_random_destination()
+
+
+func clamp_position(target_position: Vector3) -> Vector3:
+	var clamped_position = target_position
+	clamped_position.x = clamp(clamped_position.x, 0, OhioEcosystemData.grid_size * OhioEcosystemData.grid_scale)
+	clamped_position.z = clamp(clamped_position.z, 0, OhioEcosystemData.grid_size * OhioEcosystemData.grid_scale)
+	return clamped_position
 
 
 func decide_movement():
@@ -333,7 +340,7 @@ func decide_movement():
 		for entity in scored_entities:
 			entity = entity.entity
 			if entity.species in prey_organisms:
-				set_desired_position(entity.position)
+				set_desired_position(clamp_position((entity.position)))
 				return
 	
 	# If the animal is lonely, move towards social
@@ -341,7 +348,7 @@ func decide_movement():
 		for entity in scored_entities:
 			entity = entity.entity
 			if entity.species == species:
-				set_desired_position(entity.position)
+				set_desired_position(clamp_position((entity.position)))
 				return
 	
 	# If the animal is neither hungry nor lonely
@@ -351,14 +358,14 @@ func decide_movement():
 				continue
 			entity = entity.entity
 			if entity.species == species and entity.gender == "Female" and entity.reproduction_timer <= 1: # move towards mate
-				set_desired_position(entity.position)
+				set_desired_position(clamp_position((entity.position)))
 				return
 		set_random_destination()
 
 
 func move():
 	if decide_to_move():
-		decide_movement()
+		decide_movement2()
 
 
 func update():
@@ -383,6 +390,7 @@ func update():
 						hunger = min(hunger + OhioEcosystemData.plants_species_data[food_consideration.species]["nutrition"], max_hunger)
 						food_consideration.consumed()
 						animation_action = "eating"
+						print(animal_name, " ate a ", food_consideration.species, " at ", position)
 						break
 		
 		if diet_type == "Carnivore" or diet_type == "Omnivore":
@@ -396,6 +404,7 @@ func update():
 						hunger = min(hunger + OhioEcosystemData.animals_species_data[food_consideration.species]["nutrition"], max_hunger)
 						food_consideration.consumed()
 						animation_action = "eating"
+						print(animal_name, " ate a ", food_consideration.species, " at ", position)
 						break
 
 	# For every entity of same species in range, increase social
@@ -410,10 +419,10 @@ func update():
 	
 	# If the animal needs removed, remove it!
 	if is_starved():
-		#print(animal_name, " died of starvation at ", position)
+		print(animal_name, " died of starvation at ", position)
 		consumed()
 	if is_old():
-		#print(animal_name, " died of old age at ", position)
+		print(animal_name, " died of old age at ", position)
 		consumed()
 		
 	# Reproduce if conditions are right
@@ -424,6 +433,7 @@ func update():
 			if animal.species == species and position.distance_to(animal.position) <= reproduction_range and animal.gender != gender:
 				reproduction_timer = reproduction_cooldown
 				reproduce()
+				print(animal_name, " reproduced with ", animal.animal_name, " at ", position)
 				break
 
 

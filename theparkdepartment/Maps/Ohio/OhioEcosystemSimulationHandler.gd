@@ -31,7 +31,7 @@ func initialize_ecosystem():
 				OhioEcosystemData.plants_species_data["Grass"]["count"] += 1
 	
 	# Add 5 deer
-	for i in range(15):
+	for i in range(50):
 		var new_deer = deer_scene.instantiate()
 		new_deer.set_grid_position(Vector2(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size))
 		new_deer.animal_name = "deer_" + str(OhioEcosystemData.animals_species_data["Deer"]["count"])
@@ -39,7 +39,7 @@ func initialize_ecosystem():
 		OhioEcosystemData.animals_species_data["Deer"]["count"] += 1
 
 	# Add 5 rabbits
-	for i in range(15):
+	for i in range(50):
 		var new_rabbit = rabbit_scene.instantiate()
 		new_rabbit.set_grid_position(Vector2(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size))
 		new_rabbit.animal_name = "rabbit_" + str(OhioEcosystemData.animals_species_data["Rabbit"]["count"])
@@ -55,7 +55,7 @@ func initialize_ecosystem():
 		OhioEcosystemData.animals_species_data["EasternWolf"]["count"] += 1
 
 	# add 5 american goldfinch
-	for i in range(5):
+	for i in range(50):
 		var new_american_goldfinch = american_goldfinch_scene.instantiate()
 		new_american_goldfinch.set_grid_position(Vector2(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size))
 		new_american_goldfinch.animal_name = "americanGoldfinch_" + str(OhioEcosystemData.animals_species_data["AmericanGoldfinch"]["count"])
