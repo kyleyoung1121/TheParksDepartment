@@ -51,7 +51,7 @@ func _ready():
 	max_social = OhioEcosystemData.animals_species_data[species]["max_social"]
 	social_group_size = OhioEcosystemData.animals_species_data[species]["social_group_size"]
 	
-	# Set initial conditions
+	# Set initial conditions (slightly random)
 	hunger = get_random_portion(max_hunger, "majority")
 	reproduction_timer = get_random_portion(reproduction_cooldown, "majority") 
 	age = 0 + get_random_portion(max_age, "minority")
@@ -114,6 +114,7 @@ func get_random_portion(value, setting):
 		# Return somewhere between 0% and 25%
 		return (randi() % rough_forth)	
 
+
 func decrease_hunger(amount):
 	hunger -= amount
 
@@ -127,6 +128,8 @@ func is_old() -> bool:
 
 
 func consumed():
+	animation_action = "dying"
+	# TODO: Add some delay to allow the animation to complete
 	queue_free()
 
 
@@ -210,7 +213,6 @@ func decide_movement():
 				temp = scored_entities[j]
 				scored_entities[j] = scored_entities[j+1]
 				scored_entities[j+1] = temp
-			
 
 	# If the animal is hungry, move towards food
 	if hunger_percent < weight_food:
@@ -234,7 +236,6 @@ func decide_movement():
 				set_desired_position(entity.position)
 				return
 			set_random_destination()
-			
 
 
 func move():
@@ -255,7 +256,7 @@ func update():
 		return false
 	
 	# Consider all plants and animals. If they are prey and it range, eat them
-	if diet_type == "Herbavore" or diet_type == "Omnivore":
+	if diet_type == "Herbivore" or diet_type == "Omnivore":
 		var all_plants = get_tree().get_nodes_in_group("plants")
 		all_plants.shuffle()
 		for food_consideration in all_plants:
