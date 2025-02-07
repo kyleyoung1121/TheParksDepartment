@@ -247,7 +247,7 @@ func decide_movement2():
 	
 	## RANDOM BEHAVIOR
 	# At this point, the animal should just do something random.
-	var random_choice = randi_range(1, 4)  # Generate a number from 1 to 4
+	var random_choice = 4
 	# 1/4 chance to stand still
 	if random_choice == 1:
 		telepathy_print("Nothing to do... Standing still")
@@ -365,7 +365,7 @@ func decide_movement():
 
 func move():
 	if decide_to_move():
-		decide_movement2()
+		decide_movement()
 
 
 func update():
@@ -438,10 +438,15 @@ func update():
 
 
 func set_random_destination():
-	var desired_x = (randi() % OhioEcosystemData.grid_size) * OhioEcosystemData.grid_scale
-	var desired_z = (randi() % OhioEcosystemData.grid_size) * OhioEcosystemData.grid_scale
-	desired_x += randf_range(-8, 8)
-	desired_z += randf_range(-8, 8)
+	var grid_margin = 10
+	var max_x = OhioEcosystemData.grid_size * OhioEcosystemData.grid_scale - grid_margin
+	var max_z = OhioEcosystemData.grid_size * OhioEcosystemData.grid_scale - grid_margin
+
+	var min_x = grid_margin
+	var min_z = grid_margin
+
+	var desired_x = clamp(position.x + randf_range(-adjusted_eye_sight, adjusted_eye_sight), min_x, max_x)
+	var desired_z = clamp(position.z + randf_range(-adjusted_eye_sight, adjusted_eye_sight), min_z, max_z)
 	set_desired_position(Vector3(desired_x, 0, desired_z))
 
 
