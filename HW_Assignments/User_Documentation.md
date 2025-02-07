@@ -23,24 +23,23 @@ The main menu of the game provides options to start a new game, load a saved gam
 - To load a saved game, click on the "Load Game" button and select the saved game file.
 - To access settings, click on the "Settings" button to adjust game options such as sound, graphics, and controls.
 - To exit the game, click on the "Exit" button.
-![Main Menu](HW_Assignments/Photos/main-menu.png)
+![Main Menu](Photos/main-menu.png)
 
 HW_Assignments/Photos
 
 ### Gameplay
 The gameplay involves managing a virtual forest, planting trees, and protecting the forest from invasive species. Players can interact with various elements in the game using the mouse and keyboard.
 - To place a builidng, click on the building icon and then click on the desired location in the forest.
-![Building Menu](HW_Assignments/Photos/building-menu.png)
+![Building Menu](Photos/building-menu.png)
 - To release a species, click on the species icon and then click on the target location in the forest.
-![Menu Popup](HW_Assignments/Photos/menu-popup.png)
+![Menu Popup](Photos/menu-popup.png)
 - To navigate the forest, use the arrow keys on the keyboard.
 
 
 ## FAQ <a name="faq"></a>
 - How do I save my progress in the game?
     - To save your progress, press the "ESC" button on the keyboard, this will take you to the pause screen. From here click on the "Save Game" button in the main menu. You can then choose a location to save the game file.
-![Escape Menu](HW_Assignments/Photos/escape-menu.png)
-
+![Escape Menu](Photos/escape-menu.png)
 - How do I access the game settings?
     - To access the game settings, you can either click on the "Settings" button in the main menu or press the "ESC" button on the keyboard, this will take you to the pause screen, you can then press the settings button. This will open a window where you can adjust various game options.
 - How do I exit the game?
