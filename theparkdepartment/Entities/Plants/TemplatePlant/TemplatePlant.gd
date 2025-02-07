@@ -77,7 +77,7 @@ func reproduce(count):
 
 	# Add the new instance to the scene
 	parent.add_child(new_plant)
-	print("New plant has been born: " + plant_name)
+	#print("New plant has been born: " + plant_name)
 	OhioEcosystemData.plants_species_data[species]["count"] += 1
 
 
@@ -88,7 +88,7 @@ func update():
 	
 	# If the plant needs removed, remove it!
 	if is_old():
-		print(plant_name, " died of starvation at ", position)
+		#print(plant_name, " died of starvation at ", position)
 		consumed()
 	
 	# TODO: Plant reproduction should act differently right? Like based on available space?

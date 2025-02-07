@@ -8,3 +8,7 @@ script = ExtResource("1_nv8li")
 movement_random_variation = 3.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="EyeSightArea" type="Area3D" parent="."]
+
+[node name="EyeSightCollision" type="CollisionShape3D" parent="EyeSightArea"]

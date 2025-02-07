@@ -11,7 +11,7 @@ var animals_species_data = {
 	"Deer": {
 		"count": 0,
 		"reproduction_cooldown": 4,
-		"max_hunger": 10,
+		"max_hunger": 20,
 		"eye_sight": 8,
 		"movement_chance": 1,
 		"max_age": 15,
@@ -25,7 +25,7 @@ var animals_species_data = {
 	"Rabbit": {
 		"count": 0,
 		"reproduction_cooldown": 3,
-		"max_hunger": 10,
+		"max_hunger": 20,
 		"eye_sight": 6,
 		"movement_chance": 1,
 		"max_age": 10,
@@ -39,7 +39,7 @@ var animals_species_data = {
 	"EasternWolf": {
 		"count": 0,
 		"reproduction_cooldown": 6,
-		"max_hunger": 8,
+		"max_hunger": 16,
 		"eye_sight": 8,
 		"movement_chance": 1,
 		"max_age": 20,
@@ -53,7 +53,7 @@ var animals_species_data = {
 	"AmericanGoldfinch": {
 		"count": 0,
 		"reproduction_cooldown": 3,
-		"max_hunger": 10,
+		"max_hunger": 20,
 		"eye_sight": 6,
 		"movement_chance": 1,
 		"max_age": 10,
@@ -73,7 +73,7 @@ var plants_species_data = {
 		"max_age": 15,
 		"nutrition": 5,
 		"cluster_range": 5,
-		"max_cluster_neighbors": 30,
-		"population_limit": 1000,
+		"max_cluster_neighbors": 10,
+		"population_limit": 300,
 	}
 }

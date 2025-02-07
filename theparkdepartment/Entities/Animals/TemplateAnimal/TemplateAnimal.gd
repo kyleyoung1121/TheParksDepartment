@@ -8,6 +8,9 @@ extends CharacterBody3D
 @export var eating_distance: float = 2.0
 @export var self_scene_path: String
 
+@onready var eye_sight_area = $EyeSightArea
+@onready var eye_sight_collision = $EyeSightArea/EyeSightCollision
+
 var animal_name: String
 var age: int
 var gender: String
@@ -34,6 +37,7 @@ var adjusted_eating_distance: float
 var reproduction_range: float
 var social_range: float
 
+var debug_telepathy_target = "deer_0"
 
 func _ready():
 	# Make sure species is set on this animal! (from the editor)
@@ -63,9 +67,19 @@ func _ready():
 	
 	# TODO: Determine how distance works. Maybe 1 eye_sight = 1/4 grid?
 	adjusted_eye_sight = eye_sight * OhioEcosystemData.grid_scale * 0.25
+	eye_sight_collision.shape = CylinderShape3D.new()
+	eye_sight_collision.shape.height = 10
+	eye_sight_collision.shape.radius = adjusted_eye_sight
+	
 	adjusted_eating_distance = eating_distance * OhioEcosystemData.grid_scale * 0.25
 	reproduction_range = adjusted_eating_distance
 	social_range = adjusted_eye_sight / 4
+	
+	if animal_name == debug_telepathy_target:
+		print("DEBUG: Telepathy target found!")
+		$MeshInstance3D.mesh = CapsuleMesh.new()
+		$MeshInstance3D.mesh.material = StandardMaterial3D.new()
+		$MeshInstance3D.mesh.material.albedo_color = Color(1, 0, 0)
 
 
 func _physics_process(delta):
@@ -151,8 +165,101 @@ func reproduce():
 	
 	# Add the new instance to the scene
 	parent.add_child(new_animal)
-	print("New " + species + " has been born: " + animal_name)
+	#print("New " + species + " has been born: " + animal_name)
 	OhioEcosystemData.animals_species_data[species]["count"] += 1
+
+
+func decide_movement2():
+	# Set a value to help animals decide when to seek food / friends
+	var hunger_threshold = 0.4
+	var social_threshold = 0.3
+	
+	# Find current percentage of all needs
+	var is_hungry = (float(hunger) / float(max_hunger)) < hunger_threshold
+	var is_lonely = (float(social) / float(max_social)) < social_threshold
+	
+	var nearby_entities = eye_sight_area.get_overlapping_areas()
+	
+	# Orgnaize nearby entities into predators, friends, or prey
+	var nearby_prey: Array
+	var nearby_predators: Array
+	var nearby_friends: Array
+	for entity_area3d in nearby_entities:
+		var entity = entity_area3d.get_parent()
+		if entity.species in prey_organisms:
+			nearby_prey.append(entity)
+		elif "prey_organisms" in entity and species in entity.prey_organisms:
+			nearby_predators.append(entity)
+		elif entity.species == species:
+			nearby_friends.append(entity)
+	
+	## PREDATOR AWARENESS
+	# Scan for nearby predators. If any are dangerously close, flee away
+	var threat_direction = Vector3()
+	for predator in nearby_predators:
+		if position.distance_to(predator.position) >= (0.125 * adjusted_eye_sight):
+			# Add the vectors, so that an animal can flee from multiple predators at once
+			threat_direction += (position - predator.position).normalized()
+	# If there are predators nearby, flee in the opposite direction
+	if threat_direction.length() > 0:
+		var flee_direction = threat_direction.normalized()
+		var flee_target_position = position + (flee_direction * adjusted_eye_sight)
+		telepathy_print("Predators nearby, running away!")
+		set_desired_position(flee_target_position)
+		# No other locations should be considered when predators are nearby
+		return
+	
+	## FOOD SEARCH
+	# If the animal is hungry, look for the nearest prey and target a close one
+	if is_hungry and len(nearby_prey) > 0:
+		# Sort the prey options by distance to help decide
+		nearby_prey.sort_custom(func(a, b):
+			return position.distance_to(a.position) < position.distance_to(b.position)
+		)
+		
+		# Determine which prey to target (should be close, but need not be the closest)
+		var i = get_random_portion(len(nearby_prey), "minority")
+		telepathy_print("Found prey! " + nearby_prey[i].species)
+		set_desired_position(nearby_prey[i].position)
+		return
+	
+	## SOCIAL INTERACTION
+	# Sort the animals of the same species by distance
+	nearby_friends.sort_custom(func(a, b):
+		return position.distance_to(a.position) < position.distance_to(b.position)
+	)
+	
+	# Check if this animal should move towards a mate
+	if gender == "Male":
+		for friend in nearby_friends:
+			if friend.gender == "Female" and friend.reproduction_timer <= 1:
+				telepathy_print("Moving to a nearby mate")
+				set_desired_position(friend.position)
+				return
+
+	# If the animal is lonely, look for the nearest friend and target a close one
+	if is_lonely:
+		# Determine which friend to target (should be close, but need not be the closest)
+		var i = get_random_portion(len(nearby_friends), "minority")
+		telepathy_print("Moving towards some friends!")
+		set_desired_position(nearby_friends[i].position)
+		return
+	
+	## RANDOM BEHAVIOR
+	# At this point, the animal should just do something random.
+	var random_choice = randi_range(1, 4)  # Generate a number from 1 to 4
+	# 1/4 chance to stand still
+	if random_choice == 1:
+		telepathy_print("Nothing to do... Standing still")
+		set_desired_position(position)
+	# 1/4 chance to continue towards previous destination
+	if random_choice == 2:
+		telepathy_print("Nothing to do... Moving towards desired position")
+		pass
+	# 2/4 chance to go somewhere random
+	if random_choice >= 3:
+		telepathy_print("Nothing to do... Going somewhere random!")
+		set_random_destination()
 
 
 func decide_movement():
@@ -303,10 +410,10 @@ func update():
 	
 	# If the animal needs removed, remove it!
 	if is_starved():
-		print(animal_name, " died of starvation at ", position)
+		#print(animal_name, " died of starvation at ", position)
 		consumed()
 	if is_old():
-		print(animal_name, " died of old age at ", position)
+		#print(animal_name, " died of old age at ", position)
 		consumed()
 		
 	# Reproduce if conditions are right
@@ -325,7 +432,7 @@ func set_random_destination():
 	var desired_z = (randi() % OhioEcosystemData.grid_size) * OhioEcosystemData.grid_scale
 	desired_x += randf_range(-8, 8)
 	desired_z += randf_range(-8, 8)
-	desired_position = Vector3(desired_x, 0, desired_z)
+	set_desired_position(Vector3(desired_x, 0, desired_z))
 
 
 # Position the entity based on a 2d grid
@@ -336,3 +443,8 @@ func set_grid_position(grid_position: Vector2):
 	position.z = grid_position.y * OhioEcosystemData.grid_scale
 	position.z += randf_range(-5, 5)
 	set_random_destination()
+
+
+func telepathy_print(text):
+	if animal_name == debug_telepathy_target:
+		print(text)

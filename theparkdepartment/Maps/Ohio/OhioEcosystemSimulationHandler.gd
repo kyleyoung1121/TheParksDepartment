@@ -20,7 +20,7 @@ func initialize_ecosystem():
 	# Add 1 plant in every spot in our grid
 	for i in range(OhioEcosystemData.grid_size):
 		for j in range(OhioEcosystemData.grid_size):
-			var plant_quantity = randi_range(6,13)
+			var plant_quantity = randi_range(3,7)
 			for k in range(plant_quantity):
 				# Create a new instance of our grass scene.
 				var new_plant = grass_scene.instantiate()
@@ -74,7 +74,7 @@ func start_simulation():
 	while OhioEcosystemData.days < 300:
 		simulate_day()
 		# Wait between days
-		await get_tree().create_timer(2.5).timeout
+		await get_tree().create_timer(5).timeout
 		OhioEcosystemData.days += 1
 
 func _ready():
