@@ -51,7 +51,7 @@ func _ready():
 	max_social = OhioEcosystemData.animals_species_data[species]["max_social"]
 	social_group_size = OhioEcosystemData.animals_species_data[species]["social_group_size"]
 	
-	# Set initial conditions
+	# Set initial conditions (slightly random)
 	hunger = get_random_portion(max_hunger, "majority")
 	reproduction_timer = get_random_portion(reproduction_cooldown, "majority") 
 	age = 0 + get_random_portion(max_age, "minority")
@@ -114,6 +114,7 @@ func get_random_portion(value, setting):
 		# Return somewhere between 0% and 25%
 		return (randi() % rough_forth)	
 
+
 func decrease_hunger(amount):
 	hunger -= amount
 
@@ -127,6 +128,8 @@ func is_old() -> bool:
 
 
 func consumed():
+	animation_action = "dying"
+	# TODO: Add some delay to allow the animation to complete
 	queue_free()
 
 
@@ -154,54 +157,61 @@ func reproduce():
 
 func decide_movement():
 
-	# Define Weighting for each type of movement
-	# This should make it so that we can easily adjust the likelihood of each type of movement
-	var weight_food = 0.4
-	var weight_social = 0.3
-
-	# get all needs and find out their current percentage
+	# Set a value to help animals decide when to seek food / friends
+	var hunger_threshold = 0.4
+	var social_threshold = 0.3
+	
+	# Find current percentage of all needs
 	var hunger_percent = float(hunger) / float(max_hunger)
 	var social_percent = float(social) / float(max_social)
-
 	
-	# if the percent is lower than the weight, then we will move towards that need
-
-	# Find all nrarby entities, make a list of them, and score them based on their distance
+	# The animal will move towards needs with a percentage lower than its threshold
+	
+	# Find all nearby entities, make a list of them, and score them based on their distance
 	# Don't forget about predators and max social group size
 	var all_entities = get_tree().get_nodes_in_group("animals") + get_tree().get_nodes_in_group("plants")
-
+	
 	# Find all predators that eat this animal, store their positions
 	var predator_locations = []
 	for entity in all_entities:
-		if entity.species in prey_organisms:
+		# Check if this entity has prey, and if this animal is included!
+		if "prey_organisms" in entity and species in entity.prey_organisms:
 			predator_locations.append(entity.position)
-
+	
 	# Find all entities that are in range
-	var in_range = []
+	var entities_in_range = []
 	for entity in all_entities:
 		if position.distance_to(entity.position) <= adjusted_eye_sight:
-			in_range.append(entity)
-
-	# Score each entity based on their distance, if a predator is nearby (negative score), and if there are too many animals of the same species nearby (negative score)
+			entities_in_range.append(entity)
+	
+	# Score each entity based on their distance
+	# If a predator is nearby, set a negative score
+	# If there are too many of this animal nearby, set a negative score
 	var scored_entities = []
-	var score = 0
-	for entity in in_range:
-		if entity.species in prey_organisms:
-			# make sure there arw no predators nearby, if there are, give a negative score
+	var score
+	for entity in entities_in_range:
+		if entity.species == species or entity.species in prey_organisms:
+			# Score this entity based on distance
+			score = position.distance_to(entity.position)
+			
+			# If there are predators close to this entity, give it a negative score
 			for predator in predator_locations:
 				if entity.position.distance_to(predator) <= adjusted_eye_sight:
 					score = -100
-			# make sure there are not too many of the same species nearby, if there are, give a negative score
+			
+			# If there are too many of this species nearby, give this entity a negative score
+			# TODO: Should a deer avoid large groups of deer, or is it avoiding large groups of grass?
 			var same_species_count = 0
-			for other_entity in in_range:
-				if other_entity.species == entity.species:
+			for other_entity in entities_in_range:
+				if other_entity.species == species:
 					same_species_count += 1
 			if same_species_count >= social_group_size:
 				score = -100
-			# give a score based on distance
-			score = position.distance_to(entity.position)
-			scored_entities.append({"entity": entity, "score": score})
-
+			
+			# Finally, save this entity and its score
+			if score >= 0:
+				scored_entities.append({"entity": entity, "score": score})
+	
 	var temp
 	# Sort the scored entities by their score
 	for i in range(scored_entities.size()):
@@ -210,31 +220,33 @@ func decide_movement():
 				temp = scored_entities[j]
 				scored_entities[j] = scored_entities[j+1]
 				scored_entities[j+1] = temp
-			
 
 	# If the animal is hungry, move towards food
-	if hunger_percent < weight_food:
+	if hunger_percent < hunger_threshold:
 		for entity in scored_entities:
 			entity = entity.entity
 			if entity.species in prey_organisms:
 				set_desired_position(entity.position)
 				return
+	
 	# If the animal is lonely, move towards social
-	elif social_percent < weight_social:
+	elif social_percent < social_threshold:
 		for entity in scored_entities:
 			entity = entity.entity
 			if entity.species == species:
 				set_desired_position(entity.position)
 				return
+	
 	# If the animal is neither hungry nor lonely
 	else:
 		for entity in scored_entities:
+			if entity.score <= 0:
+				continue
 			entity = entity.entity
-			if entity.species == species and entity.gender == "Female" and entity.reproduction_timer <= 1 and entity.score > 0: # move towards mate
+			if entity.species == species and entity.gender == "Female" and entity.reproduction_timer <= 1: # move towards mate
 				set_desired_position(entity.position)
 				return
-			set_random_destination()
-			
+		set_random_destination()
 
 
 func move():
@@ -248,50 +260,53 @@ func update():
 	reproduction_timer -= 1
 	hunger -= 1
 	social -= 1
-
+	
+	# TODO: I think it is possible for an Omnivore to eat twice. One plant, one animal. Correct this!
 	# Eat if possible/needed
-	# If we are already full, don't eat anything nearby
-	if hunger >= max_hunger:
-		return false
-	
-	# Consider all plants and animals. If they are prey and it range, eat them
-	if diet_type == "Herbavore" or diet_type == "Omnivore":
-		var all_plants = get_tree().get_nodes_in_group("plants")
-		all_plants.shuffle()
-		for food_consideration in all_plants:
-			# Only consider eating known prey_organisms
-			if food_consideration.species in prey_organisms:
-				# If the food is in range, eat it!
-				if position.distance_to(food_consideration.position) <= adjusted_eating_distance:
-					hunger = min(hunger + OhioEcosystemData.plants_species_data[food_consideration.species]["nutrition"], max_hunger)
-					food_consideration.consumed()
-					animation_action = "eating"
-					#print(animal_name, " ate ", food_consideration.plant_name)
-					return true
-	
-	if diet_type == "Carnivore" or diet_type == "Omnivore":
-		var all_animals = get_tree().get_nodes_in_group("animals")
-		all_animals.shuffle()
-		for food_consideration in all_animals:
-			# Only consider eating known prey_organisms
-			if food_consideration.species in prey_organisms:
-				# If the food is in range, eat it!
-				if position.distance_to(food_consideration.position) <= adjusted_eating_distance:
-					hunger = min(hunger + OhioEcosystemData.animals_species_data[food_consideration.species]["nutrition"], max_hunger)
-					food_consideration.consumed()
-					animation_action = "eating"
-					#print(animal_name, " ate ", food_consideration.animal_name)
-					return true
+	if hunger < max_hunger:
+		# Consider all plants and animals. If they are prey and it range, eat them
+		if diet_type == "Herbivore" or diet_type == "Omnivore":
+			var all_plants = get_tree().get_nodes_in_group("plants")
+			all_plants.shuffle()
+			for food_consideration in all_plants:
+				# Only consider eating known prey_organisms
+				if food_consideration.species in prey_organisms:
+					# If the food is in range, eat it!
+					if position.distance_to(food_consideration.position) <= adjusted_eating_distance:
+						hunger = min(hunger + OhioEcosystemData.plants_species_data[food_consideration.species]["nutrition"], max_hunger)
+						food_consideration.consumed()
+						animation_action = "eating"
+						break
+		
+		if diet_type == "Carnivore" or diet_type == "Omnivore":
+			var all_animals = get_tree().get_nodes_in_group("animals")
+			all_animals.shuffle()
+			for food_consideration in all_animals:
+				# Only consider eating known prey_organisms
+				if food_consideration.species in prey_organisms:
+					# If the food is in range, eat it!
+					if position.distance_to(food_consideration.position) <= adjusted_eating_distance:
+						hunger = min(hunger + OhioEcosystemData.animals_species_data[food_consideration.species]["nutrition"], max_hunger)
+						food_consideration.consumed()
+						animation_action = "eating"
+						break
 
 	# For every entity of same species in range, increase social
 	var all_entities = get_tree().get_nodes_in_group("animals")
 	for entity in all_entities:
 		if entity.species == species and position.distance_to(entity.position) <= social_range:
 			social += 1
+		# If this animal meets or exceeds it's social max, we can stop searching
+		if social >= max_social:
+			social = max_social
+			break
 	
 	# If the animal needs removed, remove it!
-	if is_starved() or is_old():
+	if is_starved():
 		print(animal_name, " died of starvation at ", position)
+		consumed()
+	if is_old():
+		print(animal_name, " died of old age at ", position)
 		consumed()
 		
 	# Reproduce if conditions are right
