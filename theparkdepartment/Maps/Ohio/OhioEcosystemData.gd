@@ -74,7 +74,7 @@ var plants_species_data = {
 	"Grass": {
 		"count": 0,
 		"reproduction_cooldown": 2,
-		"max_age": 15,
+		"max_age": 1000,
 		"nutrition": 5,
 		"cluster_range": 5,
 		"max_cluster_neighbors": 10,

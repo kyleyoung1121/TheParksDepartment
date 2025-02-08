@@ -1,0 +1,293 @@
+[gd_scene load_steps=21 format=3 uid="uid://o27yt3k5ogk7"]
+
+[ext_resource type="Texture2D" uid="uid://whds044mdj1d" path="res://UserInterface/GUI/New Overlay.png" id="1_hp8tr"]
+[ext_resource type="Script" path="res://UserInterface/GUI/UI_menu.gd" id="1_kghvm"]
+[ext_resource type="Texture2D" uid="uid://v6usvo2pm56d" path="res://UserInterface/GUI/button-31222_1280.png" id="2_yxgyg"]
+[ext_resource type="Texture2D" uid="uid://bxks00xlvbrg" path="res://UserInterface/GUI/Pause-Button.png" id="3_7b4hm"]
+[ext_resource type="Texture2D" uid="uid://bq32a0rta5hnu" path="res://UserInterface/GUI/fence.png" id="3_mx6ld"]
+[ext_resource type="Texture2D" uid="uid://bo7huaw1h7fmv" path="res://UserInterface/GUI/Play-Button.png" id="4_l7rqp"]
+[ext_resource type="Texture2D" uid="uid://osshoqpr5ue8" path="res://UserInterface/GUI/house.png" id="4_w11jk"]
+[ext_resource type="Texture2D" uid="uid://tdcg8bou4t83" path="res://UserInterface/GUI/trees.png" id="5_1785s"]
+[ext_resource type="Texture2D" uid="uid://rcytj0lcokuc" path="res://UserInterface/GUI/fast-forward.png" id="5_egt7s"]
+[ext_resource type="Texture2D" uid="uid://dp2brrosvsoma" path="res://UserInterface/GUI/Untitled_design-removebg-preview.png" id="6_34nur"]
+[ext_resource type="Texture2D" uid="uid://bd7n7r3by4g7a" path="res://UserInterface/GUI/Untitled_design__1_-removebg-preview.png" id="7_n6heh"]
+
+[sub_resource type="Theme" id="Theme_qlupe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3y8l7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3p8rj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s0lec"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7owar"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mph3l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1kts1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ysiku"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a0dom"]
+
+[node name="ExampleMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -21.0
+offset_right = -1.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00372, 1.00372)
+script = ExtResource("1_kghvm")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = 875.0
+offset_right = 289.0
+offset_bottom = 1075.0
+theme = SubResource("Theme_qlupe")
+
+[node name="ListHeader" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 10.9518
+offset_top = 5.72364
+offset_right = 118.952
+offset_bottom = 28.7236
+theme_override_colors/font_color = Color(0.443137, 0.917647, 0.364706, 1)
+theme_override_font_sizes/font_size = 30
+text = "Animal Count"
+
+[node name="ListItem1" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 10.9518
+offset_top = 51.5531
+offset_right = 204.952
+offset_bottom = 79.5531
+theme_override_font_sizes/font_size = 20
+text = "White Tailed Deer: 0"
+
+[node name="ListItem2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 11.9481
+offset_top = 83.4345
+offset_right = 78.9481
+offset_bottom = 111.435
+theme_override_font_sizes/font_size = 20
+text = "Wolf: 0"
+
+[node name="ListItem3" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 11.9481
+offset_top = 115.316
+offset_right = 73.9481
+offset_bottom = 143.316
+theme_override_font_sizes/font_size = 20
+text = "Bird: 0"
+
+[node name="ExitMenu" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 256.04
+offset_top = 8.71253
+offset_right = 1536.04
+offset_bottom = 1277.71
+scale = Vector2(0.0155357, 0.0155357)
+texture_normal = ExtResource("2_yxgyg")
+
+[node name="BuildMenu" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 854.0
+offset_right = 823.0
+offset_bottom = 1039.0
+
+[node name="Item1" type="TextureButton" parent="BuildMenu"]
+layout_mode = 0
+offset_left = 19.9259
+offset_top = 51.631
+offset_right = 59.9259
+offset_bottom = 91.631
+scale = Vector2(0.14729, 0.14729)
+texture_normal = ExtResource("3_mx6ld")
+
+[node name="Item2" type="TextureButton" parent="BuildMenu"]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 53.0
+offset_right = 1094.0
+offset_bottom = 647.0
+scale = Vector2(0.158552, 0.158552)
+texture_normal = ExtResource("4_w11jk")
+
+[node name="Item3" type="TextureButton" parent="BuildMenu"]
+layout_mode = 0
+offset_left = 370.621
+offset_top = 54.6199
+offset_right = 1282.62
+offset_bottom = 621.62
+scale = Vector2(0.161308, 0.161308)
+texture_normal = ExtResource("5_1785s")
+
+[node name="Item4" type="TextureButton" parent="BuildMenu"]
+layout_mode = 0
+offset_left = 581.836
+offset_top = 53.6236
+offset_right = 621.836
+offset_bottom = 93.6236
+
+[node name="Item5" type="TextureButton" parent="BuildMenu"]
+layout_mode = 0
+offset_left = 719.324
+offset_top = 51.631
+offset_right = 759.324
+offset_bottom = 91.631
+
+[node name="Label" type="Label" parent="BuildMenu"]
+layout_mode = 0
+offset_left = 17.9333
+offset_top = 10.7829
+offset_right = 116.933
+offset_bottom = 45.7829
+theme_override_font_sizes/font_size = 25
+text = "Building"
+
+[node name="NewOverlay" type="Sprite2D" parent="."]
+position = Vector2(956, 538)
+scale = Vector2(0.996266, 0.996266)
+texture = ExtResource("1_hp8tr")
+
+[node name="DayCount" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 1235.0
+offset_top = 1035.0
+offset_right = 1299.0
+offset_bottom = 1078.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3y8l7")
+text = "Day 0"
+
+[node name="Clock" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 1304.0
+offset_top = 1035.0
+offset_right = 1395.0
+offset_bottom = 1078.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3p8rj")
+text = "8:00am"
+
+[node name="EnergyBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 108.0
+offset_right = 298.0
+offset_bottom = 179.0
+
+[node name="PauseButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1798.0
+offset_top = 1037.0
+offset_right = 2298.0
+offset_bottom = 1537.0
+scale = Vector2(0.0709795, 0.0727017)
+texture_normal = ExtResource("3_7b4hm")
+
+[node name="PlayButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1832.0
+offset_top = 1040.0
+offset_right = 2332.0
+offset_bottom = 1540.0
+scale = Vector2(0.0606412, 0.0606412)
+texture_normal = ExtResource("4_l7rqp")
+
+[node name="FastForwardButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1868.0
+offset_top = 1042.0
+offset_right = 2380.0
+offset_bottom = 1554.0
+scale = Vector2(0.0504482, 0.0504482)
+texture_normal = ExtResource("5_egt7s")
+
+[node name="BuildingButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 1028.0
+offset_right = 202.0
+offset_bottom = 1072.0
+scale = Vector2(1.01224, 1.01224)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.788235, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_s0lec")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7owar")
+text = "Building"
+
+[node name="AnimalStatusButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 1029.0
+offset_right = 411.0
+offset_bottom = 1073.0
+theme_override_colors/font_hover_color = Color(0.443137, 0.917647, 0.364706, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mph3l")
+text = "Animal Status"
+
+[node name="PlantStatusButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 414.0
+offset_top = 1028.0
+offset_right = 617.0
+offset_bottom = 1073.0
+theme_override_colors/font_hover_color = Color(0, 0.788235, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1kts1")
+text = "Plant Status"
+
+[node name="ReleasingButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 621.0
+offset_top = 1029.0
+offset_right = 823.0
+offset_bottom = 1073.0
+theme_override_colors/font_hover_color = Color(0, 0.788235, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ysiku")
+text = "Releasing"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 1594.08
+offset_top = 1039.14
+offset_right = 1894.08
+offset_bottom = 1114.14
+scale = Vector2(0.39584, 0.39584)
+texture_under = ExtResource("6_34nur")
+texture_over = ExtResource("7_n6heh")
+texture_progress = ExtResource("7_n6heh")
+
+[node name="EnergyLabel" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 1517.36
+offset_top = 1034.15
+offset_right = 1593.36
+offset_bottom = 1073.15
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_a0dom")
+text = "Energy:"
+
+[connection signal="pressed" from="Panel/ExitMenu" to="." method="_on_exit_menu_pressed"]
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="FastForwardButton" to="." method="_on_fast_forward_button_pressed"]
+[connection signal="pressed" from="BuildingButton" to="." method="_on_building_button_pressed"]
+[connection signal="pressed" from="AnimalStatusButton" to="." method="_on_animal_status_button_pressed"]
+[connection signal="pressed" from="PlantStatusButton" to="." method="_on_plant_status_button_pressed"]

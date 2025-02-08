@@ -192,7 +192,7 @@ func decide_movement():
 	
 	var nearby_entities = eye_sight_area.get_overlapping_areas()
 	
-	# Orgnaize nearby entities into predators, friends, or prey
+	# Organize nearby entities into predators, friends, or prey
 	var nearby_prey: Array
 	var nearby_predators: Array
 	var nearby_friends: Array
@@ -259,7 +259,7 @@ func decide_movement():
 	
 	## RANDOM BEHAVIOR
 	# At this point, the animal should just do something random.
-	var random_choice = randi_range(1, 4)  # Generate a number from 1 to 4
+	var random_choice = 4
 	# 1/4 chance to stand still
 	if random_choice == 1:
 		telepathy_print("Nothing to do... Standing still")
@@ -396,6 +396,7 @@ func update():
 						food_consideration.consumed()
 						print(animal_name, " ate a ", food_consideration.species, " at ", position)
 						animation_action = "eating"
+						print(animal_name, " ate a ", food_consideration.species, " at ", position)
 						break
 		
 		if diet_type == "Carnivore" or diet_type == "Omnivore":
@@ -410,6 +411,7 @@ func update():
 						food_consideration.consumed()
 						print(animal_name, " ate a ", food_consideration.species, " at ", position)
 						animation_action = "eating"
+						print(animal_name, " ate a ", food_consideration.species, " at ", position)
 						break
 
 	# For every entity of same species in range, increase social
@@ -443,10 +445,17 @@ func update():
 
 
 func set_random_destination():
-	var desired_x = (randi() % OhioEcosystemData.grid_size) * OhioEcosystemData.grid_scale
-	var desired_z = (randi() % OhioEcosystemData.grid_size) * OhioEcosystemData.grid_scale
+	var bias_factor = 0.2  # Adjusts how much we punish edge positions (0 = uniform, 1 = hard bias)
+	var grid_size = OhioEcosystemData.grid_size
+	
+	# Generate a random position, but reduce the chance of selecting borders
+	var desired_x = int(pow(randf(), bias_factor) * grid_size) * OhioEcosystemData.grid_scale
+	var desired_z = int(pow(randf(), bias_factor) * grid_size) * OhioEcosystemData.grid_scale
+
+	# Add small variation
 	desired_x += randf_range(-8, 8)
 	desired_z += randf_range(-8, 8)
+
 	#telepathy_print("Random destination: " + str(Vector3(desired_x, 0, desired_z)))
 	set_desired_position(clamp_position(Vector3(desired_x, 0, desired_z)))
 
