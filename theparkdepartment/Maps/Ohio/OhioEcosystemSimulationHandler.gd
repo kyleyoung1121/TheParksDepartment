@@ -74,7 +74,7 @@ func start_simulation():
 	while OhioEcosystemData.days < 300:
 		simulate_day()
 		# Wait between days
-		await get_tree().create_timer(5).timeout
+		await get_tree().create_timer(3).timeout
 		OhioEcosystemData.days += 1
 
 func _ready():

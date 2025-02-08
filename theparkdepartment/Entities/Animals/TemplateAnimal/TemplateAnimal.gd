@@ -3,7 +3,6 @@ extends CharacterBody3D
 
 # Animal variables; export the ones that we want to tweak in the editor
 @export var species: String
-@export var speed = 5.0
 @export var movement_random_variation: float
 @export var eating_distance: float = 2.0
 @export var self_scene_path: String
@@ -13,6 +12,8 @@ extends CharacterBody3D
 
 var animal_name: String
 var age: int
+var speed: float
+var speed_modifier = 1
 var gender: String
 var animal_position: Vector2
 var max_hunger: int
@@ -37,13 +38,14 @@ var adjusted_eating_distance: float
 var reproduction_range: float
 var social_range: float
 
-var debug_telepathy_target = "deer_0"
+var debug_telepathy_target = "deer_7"
 
 func _ready():
 	# Make sure species is set on this animal! (from the editor)
 	assert(not species == null)
 	
 	# Fetch settings for this particular animal
+	speed = OhioEcosystemData.animals_species_data[species]["speed"] * speed_modifier
 	max_hunger = OhioEcosystemData.animals_species_data[species]["max_hunger"]
 	reproduction_cooldown = OhioEcosystemData.animals_species_data[species]["reproduction_cooldown"]
 	max_age = OhioEcosystemData.animals_species_data[species]["max_age"]
@@ -87,7 +89,7 @@ func _physics_process(delta):
 	var direction = (desired_position - position).normalized()
 	
 	# Move in the x and z directions as needed (y is height, so ignore it for now)
-	if direction and direction > Vector3(0.1,0.1,0.1):
+	if direction and position.distance_to(desired_position) > 1:
 		animation_action = "walking"
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
@@ -109,6 +111,8 @@ func set_desired_position(input_position):
 	var change_y = randf_range(-movement_random_variation, movement_random_variation)
 	var change_z = randf_range(-movement_random_variation, movement_random_variation)
 	desired_position += Vector3(change_x, change_y, change_z)
+	#telepathy_print("Desired position is now " + str(desired_position))
+	#telepathy_print("My current location is at " + str(position))
 
 
 # Figure out if the animal will move now
@@ -142,6 +146,7 @@ func is_old() -> bool:
 
 
 func consumed():
+	telepathy_print("Oops! Dying...")
 	animation_action = "dying"
 	# TODO: Add some delay to allow the animation to complete
 	queue_free()
@@ -165,11 +170,18 @@ func reproduce():
 	
 	# Add the new instance to the scene
 	parent.add_child(new_animal)
-	#print("New " + species + " has been born: " + animal_name)
+	print("New " + species + " has been born: " + animal_name)
 	OhioEcosystemData.animals_species_data[species]["count"] += 1
 
 
-func decide_movement2():
+func clamp_position(target_position: Vector3) -> Vector3:
+	var clamped_position = target_position
+	clamped_position.x = clamp(clamped_position.x, 0, OhioEcosystemData.grid_size * OhioEcosystemData.grid_scale)
+	clamped_position.z = clamp(clamped_position.z, 0, OhioEcosystemData.grid_size * OhioEcosystemData.grid_scale)
+	return clamped_position
+
+
+func decide_movement():
 	# Set a value to help animals decide when to seek food / friends
 	var hunger_threshold = 0.4
 	var social_threshold = 0.3
@@ -197,7 +209,7 @@ func decide_movement2():
 	# Scan for nearby predators. If any are dangerously close, flee away
 	var threat_direction = Vector3()
 	for predator in nearby_predators:
-		if position.distance_to(predator.position) >= (0.125 * adjusted_eye_sight):
+		if position.distance_to(predator.position) <= (0.5 * adjusted_eye_sight):
 			# Add the vectors, so that an animal can flee from multiple predators at once
 			threat_direction += (position - predator.position).normalized()
 	# If there are predators nearby, flee in the opposite direction
@@ -251,7 +263,7 @@ func decide_movement2():
 	# 1/4 chance to stand still
 	if random_choice == 1:
 		telepathy_print("Nothing to do... Standing still")
-		set_desired_position(position)
+		set_desired_position(clamp_position(position))
 	# 1/4 chance to continue towards previous destination
 	if random_choice == 2:
 		telepathy_print("Nothing to do... Moving towards desired position")
@@ -262,14 +274,7 @@ func decide_movement2():
 		set_random_destination()
 
 
-func clamp_position(target_position: Vector3) -> Vector3:
-	var clamped_position = target_position
-	clamped_position.x = clamp(clamped_position.x, 0, OhioEcosystemData.grid_size * OhioEcosystemData.grid_scale)
-	clamped_position.z = clamp(clamped_position.z, 0, OhioEcosystemData.grid_size * OhioEcosystemData.grid_scale)
-	return clamped_position
-
-
-func decide_movement():
+func decide_movement_OLD():
 
 	# Set a value to help animals decide when to seek food / friends
 	var hunger_threshold = 0.4
@@ -340,7 +345,7 @@ func decide_movement():
 		for entity in scored_entities:
 			entity = entity.entity
 			if entity.species in prey_organisms:
-				set_desired_position(clamp_position((entity.position)))
+				set_desired_position(clamp_position(entity.position))
 				return
 	
 	# If the animal is lonely, move towards social
@@ -348,7 +353,7 @@ func decide_movement():
 		for entity in scored_entities:
 			entity = entity.entity
 			if entity.species == species:
-				set_desired_position(clamp_position((entity.position)))
+				set_desired_position(clamp_position(entity.position))
 				return
 	
 	# If the animal is neither hungry nor lonely
@@ -358,7 +363,7 @@ func decide_movement():
 				continue
 			entity = entity.entity
 			if entity.species == species and entity.gender == "Female" and entity.reproduction_timer <= 1: # move towards mate
-				set_desired_position(clamp_position((entity.position)))
+				set_desired_position(clamp_position(entity.position))
 				return
 		set_random_destination()
 
@@ -389,6 +394,7 @@ func update():
 					if position.distance_to(food_consideration.position) <= adjusted_eating_distance:
 						hunger = min(hunger + OhioEcosystemData.plants_species_data[food_consideration.species]["nutrition"], max_hunger)
 						food_consideration.consumed()
+						print(animal_name, " ate a ", food_consideration.species, " at ", position)
 						animation_action = "eating"
 						print(animal_name, " ate a ", food_consideration.species, " at ", position)
 						break
@@ -403,6 +409,7 @@ func update():
 					if position.distance_to(food_consideration.position) <= adjusted_eating_distance:
 						hunger = min(hunger + OhioEcosystemData.animals_species_data[food_consideration.species]["nutrition"], max_hunger)
 						food_consideration.consumed()
+						print(animal_name, " ate a ", food_consideration.species, " at ", position)
 						animation_action = "eating"
 						print(animal_name, " ate a ", food_consideration.species, " at ", position)
 						break
@@ -438,16 +445,19 @@ func update():
 
 
 func set_random_destination():
-	var grid_margin = 10
-	var max_x = OhioEcosystemData.grid_size * OhioEcosystemData.grid_scale - grid_margin
-	var max_z = OhioEcosystemData.grid_size * OhioEcosystemData.grid_scale - grid_margin
+	var bias_factor = 0.2  # Adjusts how much we punish edge positions (0 = uniform, 1 = hard bias)
+	var grid_size = OhioEcosystemData.grid_size
+	
+	# Generate a random position, but reduce the chance of selecting borders
+	var desired_x = int(pow(randf(), bias_factor) * grid_size) * OhioEcosystemData.grid_scale
+	var desired_z = int(pow(randf(), bias_factor) * grid_size) * OhioEcosystemData.grid_scale
 
-	var min_x = grid_margin
-	var min_z = grid_margin
+	# Add small variation
+	desired_x += randf_range(-8, 8)
+	desired_z += randf_range(-8, 8)
 
-	var desired_x = clamp(position.x + randf_range(-adjusted_eye_sight, adjusted_eye_sight), min_x, max_x)
-	var desired_z = clamp(position.z + randf_range(-adjusted_eye_sight, adjusted_eye_sight), min_z, max_z)
-	set_desired_position(Vector3(desired_x, 0, desired_z))
+	#telepathy_print("Random destination: " + str(Vector3(desired_x, 0, desired_z)))
+	set_desired_position(clamp_position(Vector3(desired_x, 0, desired_z)))
 
 
 # Position the entity based on a 2d grid
