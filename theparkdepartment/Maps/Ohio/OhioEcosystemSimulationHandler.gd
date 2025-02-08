@@ -20,7 +20,7 @@ func initialize_ecosystem():
 	# Add 1 plant in every spot in our grid
 	for i in range(OhioEcosystemData.grid_size):
 		for j in range(OhioEcosystemData.grid_size):
-			var plant_quantity = randi_range(6,13)
+			var plant_quantity = randi_range(3,7)
 			for k in range(plant_quantity):
 				# Create a new instance of our grass scene.
 				var new_plant = grass_scene.instantiate()
@@ -31,7 +31,7 @@ func initialize_ecosystem():
 				OhioEcosystemData.plants_species_data["Grass"]["count"] += 1
 	
 	# Add 5 deer
-	for i in range(15):
+	for i in range(50):
 		var new_deer = deer_scene.instantiate()
 		new_deer.set_grid_position(Vector2(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size))
 		new_deer.animal_name = "deer_" + str(OhioEcosystemData.animals_species_data["Deer"]["count"])
@@ -39,7 +39,7 @@ func initialize_ecosystem():
 		OhioEcosystemData.animals_species_data["Deer"]["count"] += 1
 
 	# Add 5 rabbits
-	for i in range(15):
+	for i in range(50):
 		var new_rabbit = rabbit_scene.instantiate()
 		new_rabbit.set_grid_position(Vector2(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size))
 		new_rabbit.animal_name = "rabbit_" + str(OhioEcosystemData.animals_species_data["Rabbit"]["count"])
@@ -55,7 +55,7 @@ func initialize_ecosystem():
 		OhioEcosystemData.animals_species_data["EasternWolf"]["count"] += 1
 
 	# add 5 american goldfinch
-	for i in range(5):
+	for i in range(50):
 		var new_american_goldfinch = american_goldfinch_scene.instantiate()
 		new_american_goldfinch.set_grid_position(Vector2(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size))
 		new_american_goldfinch.animal_name = "americanGoldfinch_" + str(OhioEcosystemData.animals_species_data["AmericanGoldfinch"]["count"])
@@ -74,7 +74,7 @@ func start_simulation():
 	while OhioEcosystemData.days < 300:
 		simulate_day()
 		# Wait between days
-		await get_tree().create_timer(2.5).timeout
+		await get_tree().create_timer(5).timeout
 		OhioEcosystemData.days += 1
 
 func _ready():

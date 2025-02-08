@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://3820i3ew3cu8"]
+[gd_scene load_steps=3 format=3 uid="uid://bi0m2e38b3o6s"]
 
-[ext_resource type="PackedScene" uid="uid://djuod3fskf5cl" path="res://Entities/Animals/TemplateAnimal/TemplateAnimal.tscn" id="1_wc2cl"]
-[ext_resource type="PackedScene" uid="uid://5xva3k6ai24u" path="res://Entities/Animals/AmericanGoldfinch/Assets/exported-goldfinch.glb" id="2_6icyy"]
+[ext_resource type="Script" path="res://Entities/Animals/TemplateAnimal/TemplateAnimal.gd" id="1_mue3p"]
+[ext_resource type="PackedScene" uid="uid://5xva3k6ai24u" path="res://Entities/Animals/AmericanGoldfinch/Assets/exported-goldfinch.glb" id="2_fa7u7"]
 
-[node name="AmericanGoldfinch" instance=ExtResource("1_wc2cl")]
+[node name="AmericanGoldfinch" type="CharacterBody3D" groups=["animals"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_mue3p")
 species = "AmericanGoldfinch"
+movement_random_variation = 3.0
 self_scene_path = "res://Entities/Animals/AmericanGoldfinch/AmericanGoldfinch.tscn"
 
-[node name="exported-goldfinch" parent="." index="2" instance=ExtResource("2_6icyy")]
+[node name="exported-goldfinch" parent="." instance=ExtResource("2_fa7u7")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
 [node name="Skeleton3D" parent="exported-goldfinch/Armature" index="0"]
