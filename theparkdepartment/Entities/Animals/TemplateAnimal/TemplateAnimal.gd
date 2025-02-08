@@ -111,8 +111,8 @@ func set_desired_position(input_position):
 	var change_y = randf_range(-movement_random_variation, movement_random_variation)
 	var change_z = randf_range(-movement_random_variation, movement_random_variation)
 	desired_position += Vector3(change_x, change_y, change_z)
-	#telepathy_print("Desired position is now " + str(desired_position))
-	#telepathy_print("My current location is at " + str(position))
+	telepathy_print("Desired position is now " + str(desired_position))
+	telepathy_print("My current location is at " + str(position))
 
 
 # Figure out if the animal will move now
@@ -445,18 +445,11 @@ func update():
 
 
 func set_random_destination():
-	var bias_factor = 0.2  # Adjusts how much we punish edge positions (0 = uniform, 1 = hard bias)
-	var grid_size = OhioEcosystemData.grid_size
-	
-	# Generate a random position, but reduce the chance of selecting borders
-	var desired_x = int(pow(randf(), bias_factor) * grid_size) * OhioEcosystemData.grid_scale
-	var desired_z = int(pow(randf(), bias_factor) * grid_size) * OhioEcosystemData.grid_scale
-
-	# Add small variation
+	var desired_x = (randi() % OhioEcosystemData.grid_size) * OhioEcosystemData.grid_scale
+	var desired_z = (randi() % OhioEcosystemData.grid_size) * OhioEcosystemData.grid_scale
 	desired_x += randf_range(-8, 8)
 	desired_z += randf_range(-8, 8)
-
-	#telepathy_print("Random destination: " + str(Vector3(desired_x, 0, desired_z)))
+	telepathy_print("Random destination: " + str(Vector3(desired_x, 0, desired_z)))
 	set_desired_position(clamp_position(Vector3(desired_x, 0, desired_z)))
 
 
@@ -472,4 +465,4 @@ func set_grid_position(grid_position: Vector2):
 
 func telepathy_print(text):
 	if animal_name == debug_telepathy_target:
-		print(text)
+		print("DEBUG TELEPATHY: ", text)
