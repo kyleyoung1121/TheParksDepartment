@@ -1,13 +1,12 @@
 extends Control
 
 func _on_continue_pressed() -> void:
-	$PanelContainer.visible = false;
-	$VBoxContainer.visible = false;
-	$Options.visible = false;
+	visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Recapture the mouse
 
 func _on_settings_pressed() -> void:
-	$Options.visible = true;
-	$VBoxContainer.visible = false;
+	$Options.visible = true
+	$VBoxContainer.visible = false
 
 func _on_quit_to_menu_pressed() -> void:
 	pass # not sure how we're going to redirect back to main menu
@@ -36,11 +35,21 @@ const RES_DICT = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Options.visible = false;
+	visible = false
+	$Options.visible = false
 
 func _on_close_button_pressed() -> void:
-	$Options.visible = false;
-	$VBoxContainer.visible = true;
+	$Options.visible = false
+	$VBoxContainer.visible = true
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):  # Default "Escape" action
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  # Release the mouse
+			visible = true
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Recapture the mouse
+			visible = false
 
 func _on_h_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(master_bus, value)

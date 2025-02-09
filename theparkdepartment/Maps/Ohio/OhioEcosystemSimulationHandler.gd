@@ -14,14 +14,6 @@ func _ready():
 	start_simulation()
 
 
-func _input(event):
-	if event.is_action_pressed("ui_cancel"):  # Default "Escape" action
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  # Release the mouse
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Recapture the mouse
-
-
 func initialize_ecosystem():
 	# Add plants in every grid spot
 	for i in range(OhioEcosystemData.grid_size):
