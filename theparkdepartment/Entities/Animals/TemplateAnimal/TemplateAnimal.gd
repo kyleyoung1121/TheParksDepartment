@@ -3,12 +3,11 @@ extends CharacterBody3D
 
 # Animal variables; export the ones that we want to tweak in the editor
 @export var species: String
-@export var movement_random_variation: float
-@export var eating_distance: float = 2.0
 @export var self_scene_path: String
 
 @onready var eye_sight_area = $EyeSightArea
 @onready var eye_sight_collision = $EyeSightArea/EyeSightCollision
+@onready var mesh_instance = $MeshInstance3D
 
 var animal_name: String
 var age: int
@@ -32,13 +31,17 @@ var reproduction_timer: int
 var desired_position = Vector3()
 var animation_action: String = "idle"
 
-# TODO: Should we just set the original variable, or separate like this?
 var adjusted_eye_sight: float
 var adjusted_eating_distance: float
 var reproduction_range: float
 var social_range: float
 
+var half_tile = OhioEcosystemData.grid_scale * 0.5
+var grid_bounds_min = -0.5 * OhioEcosystemData.grid_scale
+var grid_bounds_max = (OhioEcosystemData.grid_scale) * (OhioEcosystemData.grid_size - 0.5)
+
 var debug_telepathy_target = "deer_7"
+
 
 func _ready():
 	# Make sure species is set on this animal! (from the editor)
@@ -58,21 +61,21 @@ func _ready():
 	social_group_size = OhioEcosystemData.animals_species_data[species]["social_group_size"]
 	
 	# Set initial conditions (slightly random)
-	hunger = get_random_portion(max_hunger, "majority")
-	reproduction_timer = get_random_portion(reproduction_cooldown, "majority") 
-	age = 0 + get_random_portion(max_age, "minority")
-	speed *= randf_range(0.8, 1.2)
-	social = get_random_portion(max_social, "majority")
+	hunger = get_random_portion(max_hunger, 0.75, 1)
+	reproduction_timer = get_random_portion(reproduction_cooldown, 0.75, 1) 
+	age = get_random_portion(max_age, 0, 0.25)
+	speed = get_random_portion(speed, 0.8, 1.2)
+	social = get_random_portion(max_social, 0.75, 1)
 	
 	# Randomly assign gender
 	gender = "Male" if randi() % 2 == 0 else "Female"
 	
-	# TODO: Determine how distance works. Maybe 1 eye_sight = 1/4 grid?
 	adjusted_eye_sight = eye_sight * OhioEcosystemData.grid_scale * 0.25
 	eye_sight_collision.shape = CylinderShape3D.new()
 	eye_sight_collision.shape.height = 10
 	eye_sight_collision.shape.radius = adjusted_eye_sight
 	
+	var eating_distance = 2.0
 	adjusted_eating_distance = eating_distance * OhioEcosystemData.grid_scale * 0.25
 	reproduction_range = adjusted_eating_distance
 	social_range = adjusted_eye_sight / 4
@@ -81,7 +84,7 @@ func _ready():
 		print("DEBUG: Telepathy target found!")
 		$MeshInstance3D.mesh = CapsuleMesh.new()
 		$MeshInstance3D.mesh.material = StandardMaterial3D.new()
-		$MeshInstance3D.mesh.material.albedo_color = Color(1, 0, 0)
+		$MeshInstance3D.mesh.material.albedo_color = Color(0.96, 1, 0)
 
 
 func _physics_process(delta):
@@ -104,52 +107,79 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-# Update where the animal is trying to walk (include some randomness)
-func set_desired_position(input_position):
-	desired_position = input_position
-	var change_x = randf_range(-movement_random_variation, movement_random_variation)
-	var change_y = randf_range(-movement_random_variation, movement_random_variation)
-	var change_z = randf_range(-movement_random_variation, movement_random_variation)
-	desired_position += Vector3(change_x, change_y, change_z)
-	telepathy_print("Desired position is now " + str(desired_position))
-	telepathy_print("My current location is at " + str(position))
-
-
-# Figure out if the animal will move now
-func decide_to_move():
-	return randf() < movement_chance
-
-
-func get_random_portion(value, setting):
-	var rough_forth = int(value/4)
-	if rough_forth == 0:
-		rough_forth = 1
+func update():
+	# Chance to move
+	if randf() < movement_chance:
+		decide_movement()
 	
-	if setting == "majority":
-		# Return somewhere between 100% and 75% of the original value
-		return value - (randi() % rough_forth)
-	else:
-		# Return somewhere between 0% and 25%
-		return (randi() % rough_forth)	
+	# Update needs
+	age += 1
+	reproduction_timer -= 1
+	hunger -= 1
+	social -= 1
+	
+	# Eat if possible/needed
+	if hunger < max_hunger:
+		# Consider all plants and animals. If they are prey and it range, eat them
+		var has_eaten = false
+		if diet_type == "Herbivore" or diet_type == "Omnivore":
+			var all_plants = get_tree().get_nodes_in_group("plants")
+			all_plants.shuffle()
+			for food_consideration in all_plants:
+				# Only consider eating known prey_organisms
+				if food_consideration.species in prey_organisms:
+					# If the food is in range, eat it!
+					if position.distance_to(food_consideration.position) <= adjusted_eating_distance:
+						hunger = min(hunger + OhioEcosystemData.plants_species_data[food_consideration.species]["nutrition"], max_hunger)
+						food_consideration.consumed()
+						has_eaten = true
+						print(animal_name, " ate a ", food_consideration.species, " at ", position)
+						animation_action = "eating"
+						break
+		
+		if (diet_type == "Carnivore" or diet_type == "Omnivore") and not has_eaten:
+			var all_animals = get_tree().get_nodes_in_group("animals")
+			all_animals.shuffle()
+			for food_consideration in all_animals:
+				# Only consider eating known prey_organisms
+				if food_consideration.species in prey_organisms:
+					# If the food is in range, eat it!
+					if position.distance_to(food_consideration.position) <= adjusted_eating_distance:
+						hunger = min(hunger + OhioEcosystemData.animals_species_data[food_consideration.species]["nutrition"], max_hunger)
+						food_consideration.consumed()
+						has_eaten = true
+						print(animal_name, " ate a ", food_consideration.species, " at ", position)
+						animation_action = "eating"
+						break
 
-
-func decrease_hunger(amount):
-	hunger -= amount
-
-
-func is_starved() -> bool:
-	return hunger <= 0
-
-
-func is_old() -> bool:
-	return age >= max_age
-
-
-func consumed():
-	telepathy_print("Oops! Dying...")
-	animation_action = "dying"
-	# TODO: Add some delay to allow the animation to complete
-	queue_free()
+	# For every entity of same species in range, increase social
+	var all_entities = get_tree().get_nodes_in_group("animals")
+	for entity in all_entities:
+		if entity.species == species and position.distance_to(entity.position) <= social_range:
+			social += 1
+		# If this animal meets or exceeds it's social max, we can stop searching
+		if social >= max_social:
+			social = max_social
+			break
+	
+	# If the animal needs removed, remove it!
+	if is_starved():
+		print(animal_name, " died of starvation at ", position)
+		consumed()
+	if is_old():
+		print(animal_name, " died of old age at ", position)
+		consumed()
+		
+	# Reproduce if conditions are right
+	elif gender == "Female" and reproduction_timer <= 0:
+		var all_animals = get_tree().get_nodes_in_group("animals")
+		all_animals.shuffle()
+		for animal in all_animals:
+			if animal.species == species and position.distance_to(animal.position) <= reproduction_range and animal.gender != gender:
+				reproduction_timer = reproduction_cooldown
+				reproduce()
+				print(animal_name, " reproduced with ", animal.animal_name, " at ", position)
+				break
 
 
 func reproduce():
@@ -172,13 +202,6 @@ func reproduce():
 	parent.add_child(new_animal)
 	print("New " + species + " has been born: " + animal_name)
 	OhioEcosystemData.animals_species_data[species]["count"] += 1
-
-
-func clamp_position(target_position: Vector3) -> Vector3:
-	var clamped_position = target_position
-	clamped_position.x = clamp(clamped_position.x, 0, OhioEcosystemData.grid_size * OhioEcosystemData.grid_scale)
-	clamped_position.z = clamp(clamped_position.z, 0, OhioEcosystemData.grid_size * OhioEcosystemData.grid_scale)
-	return clamped_position
 
 
 func decide_movement():
@@ -230,7 +253,7 @@ func decide_movement():
 		)
 		
 		# Determine which prey to target (should be close, but need not be the closest)
-		var i = get_random_portion(len(nearby_prey), "minority")
+		var i = get_random_portion(len(nearby_prey), 0, 0.25)
 		telepathy_print("Found prey! " + nearby_prey[i].species)
 		set_desired_position(clamp_position(nearby_prey[i].position))
 		return
@@ -252,26 +275,26 @@ func decide_movement():
 	# If the animal is lonely, look for the nearest friend and target a close one
 	if is_lonely:
 		# Determine which friend to target (should be close, but need not be the closest)
-		var i = get_random_portion(len(nearby_friends), "minority")
+		var i = get_random_portion(len(nearby_friends), 0, 0.25)
 		telepathy_print("Moving towards some friends!")
 		set_desired_position(clamp_position(nearby_friends[i].position))
 		return
 	
 	## RANDOM BEHAVIOR
 	# At this point, the animal should just do something random.
-	var random_choice = 4
-	# 1/4 chance to stand still
+	var random_choice = randi_range(1, 5)
+	# Chance to stand still
 	if random_choice == 1:
 		telepathy_print("Nothing to do... Standing still")
 		set_desired_position(clamp_position(position))
-	# 1/4 chance to continue towards previous destination
+	# Chance to go somewhere random
 	if random_choice == 2:
-		telepathy_print("Nothing to do... Moving towards desired position")
-		pass
-	# 2/4 chance to go somewhere random
-	if random_choice >= 3:
 		telepathy_print("Nothing to do... Going somewhere random!")
 		set_random_destination()
+	# Chance to continue towards previous destination
+	if random_choice >= 3:
+		telepathy_print("Nothing to do... Moving towards desired position")
+		pass
 
 
 func decide_movement_OLD():
@@ -368,99 +391,72 @@ func decide_movement_OLD():
 		set_random_destination()
 
 
-func move():
-	if decide_to_move():
-		decide_movement()
+func consumed():
+	telepathy_print("Oops! Dying...")
+	animation_action = "dying"
+	# TODO: Add some delay to allow the animation to complete
+	# TODO: Placeholder 'effect' and timeout
+	mesh_instance.mesh = CapsuleMesh.new()
+	mesh_instance.mesh.material = StandardMaterial3D.new()
+	mesh_instance.mesh.material.albedo_color = Color(0.45, 0.05, 0.05)
+	await get_tree().create_timer(0.5).timeout
+	queue_free()
 
 
-func update():
-	move()
-	age += 1
-	reproduction_timer -= 1
-	hunger -= 1
-	social -= 1
-	
-	# TODO: I think it is possible for an Omnivore to eat twice. One plant, one animal. Correct this!
-	# Eat if possible/needed
-	if hunger < max_hunger:
-		# Consider all plants and animals. If they are prey and it range, eat them
-		if diet_type == "Herbivore" or diet_type == "Omnivore":
-			var all_plants = get_tree().get_nodes_in_group("plants")
-			all_plants.shuffle()
-			for food_consideration in all_plants:
-				# Only consider eating known prey_organisms
-				if food_consideration.species in prey_organisms:
-					# If the food is in range, eat it!
-					if position.distance_to(food_consideration.position) <= adjusted_eating_distance:
-						hunger = min(hunger + OhioEcosystemData.plants_species_data[food_consideration.species]["nutrition"], max_hunger)
-						food_consideration.consumed()
-						print(animal_name, " ate a ", food_consideration.species, " at ", position)
-						animation_action = "eating"
-						print(animal_name, " ate a ", food_consideration.species, " at ", position)
-						break
-		
-		if diet_type == "Carnivore" or diet_type == "Omnivore":
-			var all_animals = get_tree().get_nodes_in_group("animals")
-			all_animals.shuffle()
-			for food_consideration in all_animals:
-				# Only consider eating known prey_organisms
-				if food_consideration.species in prey_organisms:
-					# If the food is in range, eat it!
-					if position.distance_to(food_consideration.position) <= adjusted_eating_distance:
-						hunger = min(hunger + OhioEcosystemData.animals_species_data[food_consideration.species]["nutrition"], max_hunger)
-						food_consideration.consumed()
-						print(animal_name, " ate a ", food_consideration.species, " at ", position)
-						animation_action = "eating"
-						print(animal_name, " ate a ", food_consideration.species, " at ", position)
-						break
+func decrease_hunger(amount):
+	hunger -= amount
 
-	# For every entity of same species in range, increase social
-	var all_entities = get_tree().get_nodes_in_group("animals")
-	for entity in all_entities:
-		if entity.species == species and position.distance_to(entity.position) <= social_range:
-			social += 1
-		# If this animal meets or exceeds it's social max, we can stop searching
-		if social >= max_social:
-			social = max_social
-			break
-	
-	# If the animal needs removed, remove it!
-	if is_starved():
-		print(animal_name, " died of starvation at ", position)
-		consumed()
-	if is_old():
-		print(animal_name, " died of old age at ", position)
-		consumed()
-		
-	# Reproduce if conditions are right
-	elif gender == "Female" and reproduction_timer <= 0:
-		var all_animals = get_tree().get_nodes_in_group("animals")
-		all_animals.shuffle()
-		for animal in all_animals:
-			if animal.species == species and position.distance_to(animal.position) <= reproduction_range and animal.gender != gender:
-				reproduction_timer = reproduction_cooldown
-				reproduce()
-				print(animal_name, " reproduced with ", animal.animal_name, " at ", position)
-				break
+
+func is_starved() -> bool:
+	return hunger <= 0
+
+
+func is_old() -> bool:
+	return age >= max_age
+
+
+func get_random_portion(value, low, high):
+	var random_portion = randf_range(low, high)
+	return value * random_portion
+
+
+func clamp_position(target_position):
+	var clamped_position = target_position
+	clamped_position.x = clampf(clamped_position.x, grid_bounds_min, grid_bounds_max)
+	clamped_position.z = clampf(clamped_position.z, grid_bounds_min, grid_bounds_max)
+	return clamped_position
+
+
+# Position the entity based on a 2d grid
+# Note: we set position.z because in 3d, y refers to up/down
+func set_grid_position(grid_x, grid_y):
+	position.x = grid_x * OhioEcosystemData.grid_scale
+	position.z = grid_y * OhioEcosystemData.grid_scale
+	position.x += randf_range(-half_tile, half_tile)
+	position.z += randf_range(-half_tile, half_tile)
+	set_random_destination()
+
+
+# Update where the animal is trying to walk (include some randomness)
+func set_desired_position(input_position):
+	desired_position = input_position
+	var movement_random_variation = 2
+	var change_x = randf_range(-movement_random_variation, movement_random_variation)
+	var change_y = randf_range(-movement_random_variation, movement_random_variation)
+	var change_z = randf_range(-movement_random_variation, movement_random_variation)
+	desired_position += Vector3(change_x, change_y, change_z)
+	desired_position = clamp_position(desired_position)
+	telepathy_print("Desired position is now " + str(desired_position))
+	telepathy_print("My current location is at " + str(position))
 
 
 func set_random_destination():
 	var desired_x = (randi() % OhioEcosystemData.grid_size) * OhioEcosystemData.grid_scale
 	var desired_z = (randi() % OhioEcosystemData.grid_size) * OhioEcosystemData.grid_scale
-	desired_x += randf_range(-8, 8)
-	desired_z += randf_range(-8, 8)
+	desired_x += randf_range(-half_tile, half_tile)
+	desired_z += randf_range(-half_tile, half_tile)
 	telepathy_print("Random destination: " + str(Vector3(desired_x, 0, desired_z)))
 	set_desired_position(clamp_position(Vector3(desired_x, 0, desired_z)))
-
-
-# Position the entity based on a 2d grid
-# Note: we set position.z because in 3d, y refers to up/down
-func set_grid_position(grid_position: Vector2):
-	position.x = grid_position.x * OhioEcosystemData.grid_scale
-	position.x += randf_range(-5, 5)
-	position.z = grid_position.y * OhioEcosystemData.grid_scale
-	position.z += randf_range(-5, 5)
-	set_random_destination()
 
 
 func telepathy_print(text):
