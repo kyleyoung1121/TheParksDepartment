@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://biryhebi3vfjo"]
+[gd_scene load_steps=8 format=3 uid="uid://biryhebi3vfjo"]
 
 [ext_resource type="PackedScene" uid="uid://bajcno73354v1" path="res://Maps/MapParts/Tile.tscn" id="1_2ewd0"]
 [ext_resource type="Script" path="res://Maps/Ohio/OhioEcosystemSimulationHandler.gd" id="1_eab4o"]
 [ext_resource type="PackedScene" uid="uid://dwp624wmncn58" path="res://Systems/CameraController/camera.tscn" id="2_ar074"]
 [ext_resource type="PackedScene" uid="uid://c446bf6cmnsx6" path="res://Systems/DayNightCycle/DayNightCycle.tscn" id="3_naupw"]
+[ext_resource type="PackedScene" uid="uid://dp4umc3lj5fhc" path="res://UserInterface/ESC-Menu/esc-menu.tscn" id="5_880vd"]
 
 [sub_resource type="Gradient" id="Gradient_kbrg6"]
 offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
@@ -325,4 +326,4 @@ transform = Transform3D(0.707107, -0.00123413, 0.707106, 0, 0.999999, 0.00174533
 sun_color = SubResource("Gradient_kbrg6")
 sun_intensity = SubResource("Curve_0dxvu")
 
-[node name="EcosystemSim" type="Node" parent="."]
+[node name="EscMenu" parent="." instance=ExtResource("5_880vd")]
