@@ -58,10 +58,10 @@ func update():
 	age += 1
 	reproduction_timer -= 1
 	
-	# Competition for Space (Crowding increases, health decreases)
-	current_neighbors = cluster_area.get_overlapping_areas().size()
-	if current_neighbors > space_competition_threshold:
-		health -= (current_neighbors - space_competition_threshold) * 0.2  # damage for overcrowding
+	# # Competition for Space (Crowding increases, health decreases)
+	# current_neighbors = cluster_area.get_overlapping_areas().size()
+	# if current_neighbors > space_competition_threshold:
+	# 	health -= (current_neighbors - space_competition_threshold) * 0.2  # damage for overcrowding
 
 	# Overcrowding (Performance reduction)
 	nearby_plants_count = cluster_area.get_overlapping_areas().size()

@@ -54,7 +54,7 @@ var animals_species_data = {
 		"nutrition" : 20,
 		"diet_type": "Carnivore",
 		"prey_organisms": ["Deer", "Rabbit"],
-		"population_limit": 100,
+		"population_limit": 30,
 		"social_group_size": 10,
 		"max_social": 10,
 		"litter_size": 2,
