@@ -123,6 +123,8 @@ func _on_pause_button_pressed() -> void:
 	mult = 0;
 
 func _on_animal_status_button_pressed() -> void:
+	if ($BuildMenu.visible == true):
+		$BuildMenu.visible = false
 	if ($Panel.visible == true and $Panel/ListHeader.text == "Animal Count"):
 		$Panel.visible = false
 	elif ($Panel/ListHeader.text == "Plant Count" and $Panel.visible == true):
@@ -136,6 +138,8 @@ func _on_animal_status_button_pressed() -> void:
 	$Panel/ListItem3.text = "Bird: " + str(BirdCount)
 
 func _on_plant_status_button_pressed() -> void:
+	if ($BuildMenu.visible == true):
+		$BuildMenu.visible = false
 	if ($Panel.visible == true and $Panel/ListHeader.text == "Plant Count"):
 		$Panel.visible = false
 	elif ($Panel/ListHeader.text == "Animal Count" and $Panel.visible == true):
@@ -151,8 +155,13 @@ func _on_plant_status_button_pressed() -> void:
 func _on_exit_menu_pressed() -> void:
 	$Panel.visible = false
 
+
 func _on_building_button_pressed() -> void:
 	if ($Panel.visible == true):
 		$Panel.visible = false
 	
 	$BuildMenu.visible = true
+
+
+func _on_exit_menu_2_pressed() -> void:
+	$BuildMenu.visible = false
