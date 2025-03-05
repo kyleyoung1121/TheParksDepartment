@@ -45,9 +45,6 @@ func create_fence_segment(start_pos: Vector3, end_pos: Vector3) -> Node3D:
 			var rotation_angle = direction.angle_to(Vector3.FORWARD)  # Angle between the line and the forward direction
 			segment.rotation_degrees = Vector3(0, rotation_angle * 180 / PI, 0)  # Convert radians to degrees
 
-			# Alternatively, if you want to apply the rotation using a quaternion:
-			# segment.rotation = Quat(Vector3(0, 1, 0), rotation_angle)  # Using Quaternions for smooth rotation
-
 		segment_container.add_child(segment)  # Add the segment to the container
 
 
