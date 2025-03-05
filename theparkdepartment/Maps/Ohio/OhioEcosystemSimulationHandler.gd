@@ -7,12 +7,31 @@ var rabbit_scene = load("res://Entities/Animals/Rabbit/Rabbit.tscn")
 var wolf_scene = load("res://Entities/Animals/EasternWolf/EasternWolf.tscn")
 var american_goldfinch_scene = load("res://Entities/Animals/AmericanGoldfinch/AmericanGoldfinch.tscn")
 
+var fence_scene = load("res://Props/Artificial/Fence/Fence.tscn")  # Load the fence scene
+
+
+
 
 func _ready():
+	# Print size of whole grid
+	var grid_bounds_min = -0.5 * OhioEcosystemData.grid_scale
+	var grid_bounds_max = (OhioEcosystemData.grid_scale) * (OhioEcosystemData.grid_size - 0.5)
+	print("Grid bounds min: ", grid_bounds_min)
+	print("Grid bounds max: ", grid_bounds_max)
+	# Initialize fences
+	for fence in OhioEcosystemData.fences:
+		create_fence(fence)
+	
+	# Proceed with the ecosystem setup
 	randomize()
 	initialize_ecosystem()
 	start_simulation()
 
+
+func create_fence(edges: Array):
+	var new_fence = fence_scene.instantiate()
+	new_fence.edges = edges
+	add_child(new_fence)
 
 func initialize_ecosystem():
 	# Add plants in every grid spot

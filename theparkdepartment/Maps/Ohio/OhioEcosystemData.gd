@@ -17,7 +17,7 @@ var animals_species_data = {
 		"eye_sight": 8,
 		"movement_chance": 1,
 		"max_age": 60,
-		"nutrition" : 30,
+		"nutrition": 30,
 		"diet_type": "Herbivore",
 		"prey_organisms": ["Grass"],
 		"population_limit": 100,
@@ -34,7 +34,7 @@ var animals_species_data = {
 		"eye_sight": 6,
 		"movement_chance": 1,
 		"max_age": 40,
-		"nutrition" : 25,
+		"nutrition": 25,
 		"diet_type": "Herbivore",
 		"prey_organisms": ["Grass"],
 		"population_limit": 100,
@@ -51,7 +51,7 @@ var animals_species_data = {
 		"eye_sight": 8,
 		"movement_chance": 1,
 		"max_age": 80,
-		"nutrition" : 20,
+		"nutrition": 20,
 		"diet_type": "Carnivore",
 		"prey_organisms": ["Deer", "Rabbit"],
 		"population_limit": 30,
@@ -68,7 +68,7 @@ var animals_species_data = {
 		"eye_sight": 6,
 		"movement_chance": 1,
 		"max_age": 50,
-		"nutrition" : 20,
+		"nutrition": 20,
 		"diet_type": "Herbivore",
 		"prey_organisms": ["Grass"],
 		"population_limit": 100,
@@ -90,3 +90,18 @@ var plants_species_data = {
 		"extra_resilience": 0.4,
 	}
 }
+
+# 2D array for fences and their edges 
+#  The size is currently -8 to 152
+var fences = [
+	[
+		Vector3(128, -1, 10), Vector3(128, -1, 128)
+	],
+	[
+		Vector3(10, -1, 100), Vector3(100, -1, 100)
+	],
+	[
+		Vector3(50, -1, 50), Vector3(70, -1, 70)
+	],
+
+]
