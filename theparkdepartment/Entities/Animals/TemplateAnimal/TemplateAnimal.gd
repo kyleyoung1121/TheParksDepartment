@@ -47,6 +47,8 @@ var grid_bounds_max = (OhioEcosystemData.grid_scale) * (OhioEcosystemData.grid_s
 
 var debug_telepathy_target = "deer_7"
 
+var fences = OhioEcosystemData.fences
+
 
 func _ready():
 	# Make sure species is set on this animal! (from the editor)
@@ -119,7 +121,7 @@ func _physics_process(delta):
 func update():
 	# Chance to move
 	if randf() < movement_chance:
-		decide_movement_new()
+		decide_movement()
 	
 	# Update needs
 	age += 1
@@ -227,7 +229,7 @@ func reproduce():
 
 
 
-func decide_movement_new():
+func decide_movement():
 	# Set a value to help animals decide when to seek food / friends
 	var hunger_threshold = 0.4
 	var social_threshold = 0.3
@@ -267,7 +269,11 @@ func decide_movement_new():
 			var flee_direction = threat_direction.normalized()
 			var flee_target_position = position + (flee_direction * adjusted_eye_sight)
 			telepathy_print("Predators nearby, running away!")
-			set_desired_position(clamp_position(flee_target_position))
+			if fence_collision(flee_target_position):
+				telepathy_print("Fence collision detected, adjusting")
+				set_random_destination()
+			else:
+				set_desired_position(clamp_position(flee_target_position))
 			# No other locations should be considered when predators are nearby
 			return
 		else: 
@@ -290,11 +296,16 @@ func decide_movement_new():
 			return position.distance_to(a.position) < position.distance_to(b.position)
 		)
 		
-		# Determine which prey to target (should be close, but need not be the closest)
-		var i = get_random_portion(len(nearby_prey), 0, 0.25)
-		telepathy_print("Found prey! " + nearby_prey[i].species)
-		set_desired_position(clamp_position(nearby_prey[i].position))
-		return
+		# Determine which prey to target, should be closest, if fence in way, target next closest
+		var i = 0
+		while i < len(nearby_prey):
+			if fence_collision(nearby_prey[i].position):
+				i += 1
+			else:
+				telepathy_print("Moving towards some prey!")
+				set_desired_position(clamp_position(nearby_prey[i].position))
+				return
+		
 	
 	## SOCIAL INTERACTION
 	# Sort the animals of the same species by distance
@@ -302,10 +313,13 @@ func decide_movement_new():
 		return position.distance_to(a.position) < position.distance_to(b.position)
 	)
 	
-	# Check if this animal should move towards a mate
+	# Check if this animal should move towards a mate, if fence in way, target the next closest
 	if gender == "Male":
 		for friend in nearby_friends:
 			if friend.gender == "Female" and friend.reproduction_timer <= 1:
+				if fence_collision(friend.position):
+					telepathy_print("Fence collision detected, adjusting")
+					continue
 				telepathy_print("Moving to a nearby mate")
 				set_desired_position(clamp_position(friend.position))
 				return
@@ -317,22 +331,29 @@ func decide_movement_new():
 			if position.distance_to(friend.position) <= social_range:
 				# Add the vectors, so that an animal can flee from multiple predators at once
 				leave_group_direction += (position - friend.position).normalized()
-		# If there are predators nearby, flee in the opposite direction
+		# If the group is too large, flee in the opposite direction
 		if leave_group_direction.length() > 0:
 			var flee_direction = leave_group_direction.normalized()
 			var flee_target_position = position + (flee_direction * adjusted_eye_sight)
 			telepathy_print("Predators nearby, running away!")
-			set_desired_position(clamp_position(flee_target_position))
+			if fence_collision(flee_target_position):
+				telepathy_print("Fence collision detected, adjusting")
+				set_random_destination()
+			else:
+				set_desired_position(clamp_position(flee_target_position))
 			return
-	elif is_lonely and len(nearby_friends) > 0: # If the animal is lonely, look for the nearest friend and target a close one
-		# Determine which friend to target (should be close, but need not be the closest)
-		var i = get_random_portion(len(nearby_friends), 0, 0.25)
-		telepathy_print("Moving towards some friends!")
-		set_desired_position(clamp_position(nearby_friends[i].position))
-		return
+	elif is_lonely and len(nearby_friends) > 0: # If the animal is lonely, look for the nearest friend, if fence in way target next closest
+		var c = 0
+		while c < len(nearby_friends):
+			if fence_collision(nearby_friends[c].position):
+				c += 1
+			else:
+				telepathy_print("Moving towards a friend!")
+				set_desired_position(clamp_position(nearby_friends[c].position))
+				return
 	
 	## RANDOM BEHAVIOR
-	# At this point, the animal should just do something random.
+	# At this point, the animal should just do something random. But not go over a fence
 	var random_choice = randi_range(1, 5)
 	# Chance to stand still
 	if random_choice == 1:
@@ -346,193 +367,6 @@ func decide_movement_new():
 	if random_choice >= 3:
 		telepathy_print("Nothing to do... Moving towards desired position")
 		pass
-
-
-func decide_movement():
-	# Set a value to help animals decide when to seek food / friends
-	var hunger_threshold = 0.4
-	var social_threshold = 0.3
-	
-	# Find current percentage of all needs
-	var is_hungry = (float(hunger) / float(max_hunger)) < hunger_threshold
-	var is_lonely = (float(social) / float(max_social)) < social_threshold
-	
-	var nearby_entities = eye_sight_area.get_overlapping_areas()
-	
-	# Organize nearby entities into predators, friends, or prey
-	var nearby_prey: Array
-	var nearby_predators: Array
-	var nearby_friends: Array
-	for entity_area3d in nearby_entities:
-		var entity = entity_area3d.get_parent()
-		if entity.species in prey_organisms:
-			nearby_prey.append(entity)
-		elif "prey_organisms" in entity and species in entity.prey_organisms:
-			nearby_predators.append(entity)
-		elif entity.species == species:
-			nearby_friends.append(entity)
-	
-	## PREDATOR AWARENESS
-	# Scan for nearby predators. If any are dangerously close, flee away
-	var threat_direction = Vector3()
-	for predator in nearby_predators:
-		if position.distance_to(predator.position) <= (0.5 * adjusted_eye_sight):
-			# Add the vectors, so that an animal can flee from multiple predators at once
-			threat_direction += (position - predator.position).normalized()
-	# If there are predators nearby, flee in the opposite direction
-	if threat_direction.length() > 0:
-		var flee_direction = threat_direction.normalized()
-		var flee_target_position = position + (flee_direction * adjusted_eye_sight)
-		telepathy_print("Predators nearby, running away!")
-		set_desired_position(clamp_position(flee_target_position))
-		# No other locations should be considered when predators are nearby
-		return
-	
-	## FOOD SEARCH
-	# If the animal is hungry, look for the nearest prey and target a close one
-	if is_hungry and len(nearby_prey) > 0:
-		# Sort the prey options by distance to help decide
-		nearby_prey.sort_custom(func(a, b):
-			return position.distance_to(a.position) < position.distance_to(b.position)
-		)
-		
-		# Determine which prey to target (should be close, but need not be the closest)
-		var i = get_random_portion(len(nearby_prey), 0, 0.25)
-		telepathy_print("Found prey! " + nearby_prey[i].species)
-		set_desired_position(clamp_position(nearby_prey[i].position))
-		return
-	
-	## SOCIAL INTERACTION
-	# Sort the animals of the same species by distance
-	nearby_friends.sort_custom(func(a, b):
-		return position.distance_to(a.position) < position.distance_to(b.position)
-	)
-	
-	# Check if this animal should move towards a mate
-	if gender == "Male":
-		for friend in nearby_friends:
-			if friend.gender == "Female" and friend.reproduction_timer <= 1:
-				telepathy_print("Moving to a nearby mate")
-				set_desired_position(clamp_position(friend.position))
-				return
-
-	# If the animal is lonely, look for the nearest friend and target a close one
-	if is_lonely and len(nearby_friends) > 0:
-		# Determine which friend to target (should be close, but need not be the closest)
-		var i = get_random_portion(len(nearby_friends), 0, 0.25)
-		telepathy_print("Moving towards some friends!")
-		set_desired_position(clamp_position(nearby_friends[i].position))
-		return
-	
-	## RANDOM BEHAVIOR
-	# At this point, the animal should just do something random.
-	var random_choice = randi_range(1, 5)
-	# Chance to stand still
-	if random_choice == 1:
-		telepathy_print("Nothing to do... Standing still")
-		set_desired_position(clamp_position(position))
-	# Chance to go somewhere random
-	if random_choice == 2:
-		telepathy_print("Nothing to do... Going somewhere random!")
-		set_random_destination()
-	# Chance to continue towards previous destination
-	if random_choice >= 3:
-		telepathy_print("Nothing to do... Moving towards desired position")
-		pass
-
-
-func decide_movement_OLD():
-
-	# Set a value to help animals decide when to seek food / friends
-	var hunger_threshold = 0.4
-	var social_threshold = 0.3
-	
-	# Find current percentage of all needs
-	var hunger_percent = float(hunger) / float(max_hunger)
-	var social_percent = float(social) / float(max_social)
-	
-	# The animal will move towards needs with a percentage lower than its threshold
-	
-	# Find all nearby entities, make a list of them, and score them based on their distance
-	# Don't forget about predators and max social group size
-	var all_entities = get_tree().get_nodes_in_group("animals") + get_tree().get_nodes_in_group("plants")
-	
-	# Find all predators that eat this animal, store their positions
-	var predator_locations = []
-	for entity in all_entities:
-		# Check if this entity has prey, and if this animal is included!
-		if "prey_organisms" in entity and species in entity.prey_organisms:
-			predator_locations.append(entity.position)
-	
-	# Find all entities that are in range
-	var entities_in_range = []
-	for entity in all_entities:
-		if position.distance_to(entity.position) <= adjusted_eye_sight:
-			entities_in_range.append(entity)
-	
-	# Score each entity based on their distance
-	# If a predator is nearby, set a negative score
-	# If there are too many of this animal nearby, set a negative score
-	var scored_entities = []
-	var score
-	for entity in entities_in_range:
-		if entity.species == species or entity.species in prey_organisms:
-			# Score this entity based on distance
-			score = position.distance_to(entity.position)
-			
-			# If there are predators close to this entity, give it a negative score
-			for predator in predator_locations:
-				if entity.position.distance_to(predator) <= adjusted_eye_sight:
-					score = -100
-			
-			# If there are too many of this species nearby, give this entity a negative score
-			# TODO: Should a deer avoid large groups of deer, or is it avoiding large groups of grass?
-			var same_species_count = 0
-			for other_entity in entities_in_range:
-				if other_entity.species == species:
-					same_species_count += 1
-			if same_species_count >= social_group_size:
-				score = -100
-			
-			# Finally, save this entity and its score
-			if score >= 0:
-				scored_entities.append({"entity": entity, "score": score})
-	
-	var temp
-	# Sort the scored entities by their score
-	for i in range(scored_entities.size()):
-		for j in range(scored_entities.size() - 1):
-			if scored_entities[j].score > scored_entities[j+1].score:
-				temp = scored_entities[j]
-				scored_entities[j] = scored_entities[j+1]
-				scored_entities[j+1] = temp
-
-	# If the animal is hungry, move towards food
-	if hunger_percent < hunger_threshold:
-		for entity in scored_entities:
-			entity = entity.entity
-			if entity.species in prey_organisms:
-				set_desired_position(clamp_position(entity.position))
-				return
-	
-	# If the animal is lonely, move towards social
-	elif social_percent < social_threshold:
-		for entity in scored_entities:
-			entity = entity.entity
-			if entity.species == species:
-				set_desired_position(clamp_position(entity.position))
-				return
-	
-	# If the animal is neither hungry nor lonely
-	else:
-		for entity in scored_entities:
-			if entity.score <= 0:
-				continue
-			entity = entity.entity
-			if entity.species == species and entity.gender == "Female" and entity.reproduction_timer <= 1: # move towards mate
-				set_desired_position(clamp_position(entity.position))
-				return
-		set_random_destination()
 
 
 func consumed():
@@ -599,6 +433,11 @@ func set_random_destination():
 	var desired_z = (randi() % OhioEcosystemData.grid_size) * OhioEcosystemData.grid_scale
 	desired_x += randf_range(-half_tile, half_tile)
 	desired_z += randf_range(-half_tile, half_tile)
+	while fence_collision(Vector3(desired_x, 0, desired_z)):
+		desired_x = (randi() % OhioEcosystemData.grid_size) * OhioEcosystemData.grid_scale
+		desired_z = (randi() % OhioEcosystemData.grid_size) * OhioEcosystemData.grid_scale
+		desired_x += randf_range(-half_tile, half_tile)
+		desired_z += randf_range(-half_tile, half_tile)
 	telepathy_print("Random destination: " + str(Vector3(desired_x, 0, desired_z)))
 	set_desired_position(clamp_position(Vector3(desired_x, 0, desired_z)))
 
@@ -606,3 +445,33 @@ func set_random_destination():
 func telepathy_print(text):
 	if animal_name == debug_telepathy_target:
 		print("DEBUG TELEPATHY: ", text)
+
+func fence_collision(target_position):
+	
+	for fence in fences:
+		for i in range(0, fence.size(), 2):
+			var start_pos = fence[i]
+			var end_pos = fence[i + 1]
+			if is_point_on_line(position, target_position, start_pos, end_pos):
+				return true
+	return false
+
+func is_point_on_line(point, target, start, end):
+	# Calculate the direction vectors
+	var dir1 = target - point
+	var dir2 = end - start
+	
+	# Calculate the cross product to check if lines are parallel
+	var cross = dir1.x * dir2.z - dir1.z * dir2.x
+	if abs(cross) < 0.0001:
+		return false  # Lines are parallel and cannot intersect
+	
+	# Calculate the intersection point using parametric equations
+	var t = ((start.x - point.x) * dir2.z - (start.z - point.z) * dir2.x) / cross
+	var u = ((start.x - point.x) * dir1.z - (start.z - point.z) * dir1.x) / cross
+	
+	# Check if the intersection point is within the line segments
+	if t >= 0 and t <= 1 and u >= 0 and u <= 1:
+		return true
+	
+	return false
