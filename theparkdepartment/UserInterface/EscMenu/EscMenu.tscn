@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dp4umc3lj5fhc"]
 
-[ext_resource type="Script" path="res://UserInterface/ESC-Menu/esc_menu.gd" id="1_87fm5"]
+[ext_resource type="Script" path="res://UserInterface/EscMenu/EscMenu.gd" id="1_87fm5"]
 
 [sub_resource type="Theme" id="Theme_ajrv6"]
 

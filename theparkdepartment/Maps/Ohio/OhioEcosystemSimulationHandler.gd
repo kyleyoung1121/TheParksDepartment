@@ -9,10 +9,14 @@ var american_goldfinch_scene = load("res://Entities/Animals/AmericanGoldfinch/Am
 
 var fence_scene = load("res://Props/Artificial/Fence/Fence.tscn")  # Load the fence scene
 
-
+@onready var esc_menu = $EscMenu
+@onready var camera = $Camera
 
 
 func _ready():
+	# Allow the esc menu to talk to the camera, so we know when to block mouse movement
+	esc_menu.menu_toggled.connect(_on_esc_menu_toggled)
+
 	# Print size of whole grid
 	var grid_bounds_min = -0.5 * OhioEcosystemData.grid_scale
 	var grid_bounds_max = (OhioEcosystemData.grid_scale) * (OhioEcosystemData.grid_size - 0.5)
@@ -48,7 +52,7 @@ func initialize_ecosystem():
 				OhioEcosystemData.plants_species_data["Grass"]["count"] += 1
 	
 	# Add deer
-	for i in range(15):
+	for i in range(35):
 		var new_deer = deer_scene.instantiate()
 		new_deer.set_grid_position(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size)
 		new_deer.animal_name = "deer_" + str(OhioEcosystemData.animals_species_data["Deer"]["count"])
@@ -56,7 +60,7 @@ func initialize_ecosystem():
 		OhioEcosystemData.animals_species_data["Deer"]["count"] += 1
 
 	# Add rabbits
-	for i in range(15):
+	for i in range(35):
 		var new_rabbit = rabbit_scene.instantiate()
 		new_rabbit.set_grid_position(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size)
 		new_rabbit.animal_name = "rabbit_" + str(OhioEcosystemData.animals_species_data["Rabbit"]["count"])
@@ -64,7 +68,7 @@ func initialize_ecosystem():
 		OhioEcosystemData.animals_species_data["Rabbit"]["count"] += 1
 	
 	# Add 5 wolves
-	for i in range(10):
+	for i in range(30):
 		var new_wolf = wolf_scene.instantiate()
 		new_wolf.set_grid_position(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size)
 		new_wolf.animal_name = "wolf_" + str(OhioEcosystemData.animals_species_data["EasternWolf"]["count"])
@@ -72,7 +76,7 @@ func initialize_ecosystem():
 		OhioEcosystemData.animals_species_data["EasternWolf"]["count"] += 1
 
 	# Add 5 american goldfinches
-	for i in range(15):
+	for i in range(35):
 		var new_american_goldfinch = american_goldfinch_scene.instantiate()
 		new_american_goldfinch.set_grid_position(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size)
 		new_american_goldfinch.animal_name = "americanGoldfinch_" + str(OhioEcosystemData.animals_species_data["AmericanGoldfinch"]["count"])
@@ -84,12 +88,15 @@ func simulate_day():
 	print("Day: ", OhioEcosystemData.days)
 	get_tree().call_group("plants", "update")
 	get_tree().call_group("animals", "update")
-	print("End of Day: ", OhioEcosystemData.days)
 
 
 func start_simulation():
-	while OhioEcosystemData.days < 300:
+	while OhioEcosystemData.days < 1000:
 		simulate_day()
-		# Wait between days
-		await get_tree().create_timer(2).timeout
-		OhioEcosystemData.days += 1
+		# 50 cycles = 1 day = 4 real life minutes
+		await get_tree().create_timer(4.8).timeout
+		OhioEcosystemData.days += 0.02
+
+
+func _on_esc_menu_toggled(is_open: bool):
+	camera.block_camera_movement = is_open

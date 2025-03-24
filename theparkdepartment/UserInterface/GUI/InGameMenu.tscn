@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://o27yt3k5ogk7"]
+[gd_scene load_steps=26 format=3 uid="uid://o27yt3k5ogk7"]
 
 [ext_resource type="Texture2D" uid="uid://whds044mdj1d" path="res://UserInterface/GUI/New Overlay.png" id="1_hp8tr"]
 [ext_resource type="Script" path="res://UserInterface/GUI/UI_menu.gd" id="1_kghvm"]
@@ -9,11 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://c0lmj72jjla3c" path="res://UserInterface/GUI/Log-Cabin.png" id="4_j3yyc"]
 [ext_resource type="Texture2D" uid="uid://bo7huaw1h7fmv" path="res://UserInterface/GUI/Play-Button.png" id="4_l7rqp"]
 [ext_resource type="Texture2D" uid="uid://rcytj0lcokuc" path="res://UserInterface/GUI/fast-forward.png" id="5_egt7s"]
-[ext_resource type="Texture2D" uid="uid://cuxiskryqirwl" path="res://UserInterface/GUI/watchtower.png" id="5_vayug"]
-[ext_resource type="Texture2D" uid="uid://dp2brrosvsoma" path="res://UserInterface/GUI/Untitled_design-removebg-preview.png" id="6_34nur"]
+[ext_resource type="Texture2D" uid="uid://cuxiskryqirwl" path="res://UserInterface/GUI/Watchtower.png" id="5_vayug"]
 [ext_resource type="Texture2D" uid="uid://c06f11ke8dgt6" path="res://UserInterface/GUI/Selected-Log-Cabin.png" id="6_rhcgh"]
 [ext_resource type="Texture2D" uid="uid://ycncb2u3pd71" path="res://UserInterface/GUI/trees (1).png" id="6_t888u"]
-[ext_resource type="Texture2D" uid="uid://bd7n7r3by4g7a" path="res://UserInterface/GUI/Untitled_design__1_-removebg-preview.png" id="7_n6heh"]
 [ext_resource type="Texture2D" uid="uid://btpvunh6sy2k" path="res://UserInterface/GUI/Porta-Potty.png" id="7_uggg2"]
 [ext_resource type="Texture2D" uid="uid://d0pfvxehthufs" path="res://UserInterface/GUI/Selected-Watchtower.png" id="8_d05rn"]
 [ext_resource type="Texture2D" uid="uid://lrxelx2ewbtn" path="res://UserInterface/GUI/Selected-Tres.png" id="10_ja5u5"]
@@ -37,7 +35,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a0dom"]
 
-[node name="ExampleMenu" type="Control"]
+[node name="InGameMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -177,6 +175,7 @@ theme_override_font_sizes/font_size = 25
 text = "Building"
 
 [node name="ExitMenu2" type="TextureButton" parent="BuildMenu"]
+layout_mode = 0
 offset_left = 789.065
 offset_top = 14.7681
 offset_right = 2069.06
@@ -185,16 +184,16 @@ scale = Vector2(0.0155357, 0.0155357)
 texture_normal = ExtResource("2_yxgyg")
 
 [node name="NewOverlay" type="Sprite2D" parent="."]
-position = Vector2(956, 538)
+position = Vector2(956, 558.922)
 scale = Vector2(0.996266, 0.996266)
 texture = ExtResource("1_hp8tr")
 
 [node name="DayCount" type="TextEdit" parent="."]
 layout_mode = 0
 offset_left = 1235.0
-offset_top = 1035.0
+offset_top = 1054.93
 offset_right = 1299.0
-offset_bottom = 1078.0
+offset_bottom = 1097.93
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3y8l7")
@@ -203,9 +202,9 @@ text = "Day 0"
 [node name="Clock" type="TextEdit" parent="."]
 layout_mode = 0
 offset_left = 1304.0
-offset_top = 1035.0
+offset_top = 1054.93
 offset_right = 1395.0
-offset_bottom = 1078.0
+offset_bottom = 1097.93
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3p8rj")
@@ -221,36 +220,36 @@ offset_bottom = 179.0
 [node name="PauseButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 1798.0
-offset_top = 1037.0
+offset_top = 1056.93
 offset_right = 2298.0
-offset_bottom = 1537.0
+offset_bottom = 1556.93
 scale = Vector2(0.0709795, 0.0727017)
 texture_normal = ExtResource("3_7b4hm")
 
 [node name="PlayButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 1832.0
-offset_top = 1040.0
+offset_top = 1059.93
 offset_right = 2332.0
-offset_bottom = 1540.0
+offset_bottom = 1559.93
 scale = Vector2(0.0606412, 0.0606412)
 texture_normal = ExtResource("4_l7rqp")
 
 [node name="FastForwardButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 1868.0
-offset_top = 1042.0
+offset_top = 1061.93
 offset_right = 2380.0
-offset_bottom = 1554.0
+offset_bottom = 1573.93
 scale = Vector2(0.0504482, 0.0504482)
 texture_normal = ExtResource("5_egt7s")
 
 [node name="BuildingButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 3.0
-offset_top = 1028.0
+offset_top = 1047.93
 offset_right = 202.0
-offset_bottom = 1072.0
+offset_bottom = 1091.93
 scale = Vector2(1.01224, 1.01224)
 theme_override_colors/font_hover_pressed_color = Color(0, 0.788235, 0, 1)
 theme_override_font_sizes/font_size = 25
@@ -261,9 +260,9 @@ text = "Building"
 [node name="AnimalStatusButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 208.0
-offset_top = 1029.0
+offset_top = 1048.93
 offset_right = 411.0
-offset_bottom = 1073.0
+offset_bottom = 1092.93
 theme_override_colors/font_hover_color = Color(0.443137, 0.917647, 0.364706, 1)
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mph3l")
@@ -272,9 +271,9 @@ text = "Animal Status"
 [node name="PlantStatusButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 414.0
-offset_top = 1028.0
+offset_top = 1047.93
 offset_right = 617.0
-offset_bottom = 1073.0
+offset_bottom = 1092.93
 theme_override_colors/font_hover_color = Color(0, 0.788235, 0, 1)
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1kts1")
@@ -283,9 +282,9 @@ text = "Plant Status"
 [node name="ReleasingButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 621.0
-offset_top = 1029.0
+offset_top = 1048.93
 offset_right = 823.0
-offset_bottom = 1073.0
+offset_bottom = 1092.93
 theme_override_colors/font_hover_color = Color(0, 0.788235, 0, 1)
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ysiku")
@@ -294,20 +293,17 @@ text = "Releasing"
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 layout_mode = 0
 offset_left = 1594.08
-offset_top = 1039.14
+offset_top = 1059.07
 offset_right = 1894.08
-offset_bottom = 1114.14
+offset_bottom = 1134.07
 scale = Vector2(0.39584, 0.39584)
-texture_under = ExtResource("6_34nur")
-texture_over = ExtResource("7_n6heh")
-texture_progress = ExtResource("7_n6heh")
 
 [node name="EnergyLabel" type="TextEdit" parent="."]
 layout_mode = 0
 offset_left = 1517.36
-offset_top = 1034.15
+offset_top = 1054.08
 offset_right = 1593.36
-offset_bottom = 1073.15
+offset_bottom = 1093.08
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxEmpty_a0dom")

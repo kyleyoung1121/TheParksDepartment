@@ -3,8 +3,8 @@ extends Node3D
 
 var time: float
 var time_rate : float
-@export var day_length = 20.0
-@export var start_time = 0.3
+@export var day_length = 240.0
+@export var start_time = 0
 
 var sun : DirectionalLight3D
 @export var sun_color : Gradient

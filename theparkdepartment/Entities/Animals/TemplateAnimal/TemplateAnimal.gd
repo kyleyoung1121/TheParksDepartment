@@ -45,7 +45,7 @@ var half_tile = OhioEcosystemData.grid_scale * 0.5
 var grid_bounds_min = -0.5 * OhioEcosystemData.grid_scale
 var grid_bounds_max = (OhioEcosystemData.grid_scale) * (OhioEcosystemData.grid_size - 0.5)
 
-var debug_telepathy_target = "deer_7"
+var debug_telepathy_target = "no animal selected!" # e.g. deer_7
 
 var fences = OhioEcosystemData.fences
 
