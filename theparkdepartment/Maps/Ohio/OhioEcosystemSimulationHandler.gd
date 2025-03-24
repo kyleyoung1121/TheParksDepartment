@@ -26,6 +26,8 @@ func _ready():
 	randomize()
 	initialize_ecosystem()
 	start_simulation()
+	
+	guest_system()
 
 
 func create_fence(edges: Array):
@@ -93,3 +95,63 @@ func start_simulation():
 		# Wait between days
 		await get_tree().create_timer(2).timeout
 		OhioEcosystemData.days += 1
+
+func guest_system():
+	# Seven sets of movement for each straight section of the path
+	var i = 1
+	# max of 5 guests for now
+	while i < 6:
+		guest_movement(i)
+		print(i, " is moving")
+		await get_tree().create_timer(15).timeout
+		i += 1
+		if i == 6:
+			i = 1
+	
+	print("out-of-loop is moving")
+
+
+func give_money():
+	# link money variable to UI
+	emit_signal("update_funds")
+
+func guest_movement(guestNum):
+	give_money()
+	
+	#1
+	for i in range(585):
+		get_node("Guest" + str(guestNum)).position.x += 0.1
+		await get_tree().create_timer(0.01).timeout
+	
+	#2
+	for i in range(700):
+		get_node("Guest" + str(guestNum)).position.z += 0.1
+		await get_tree().create_timer(0.01).timeout
+	
+	#3
+	for i in range(393):
+		get_node("Guest" + str(guestNum)).position.x -= 0.1
+		await get_tree().create_timer(0.01).timeout
+	
+	#4
+	for i in range(482):
+		get_node("Guest" + str(guestNum)).position.z += 0.1
+		await get_tree().create_timer(0.01).timeout
+	
+	#5
+	for i in range(1137):
+		get_node("Guest" + str(guestNum)).position.x += 0.1
+		await get_tree().create_timer(0.01).timeout
+		
+	#6
+	for i in range(1315):
+		get_node("Guest" + str(guestNum)).position.z -= 0.1
+		await get_tree().create_timer(0.01).timeout
+		
+	#7
+	for i in range(400):
+		get_node("Guest" + str(guestNum)).position.x += 0.1
+		await get_tree().create_timer(0.01).timeout
+	
+	get_node("Guest" + str(guestNum)).position.x = -14
+	get_node("Guest" + str(guestNum)).position.z = 18.3
