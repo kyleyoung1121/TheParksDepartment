@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://fchbevtkemsv"]
 
-[ext_resource type="Script" path="res://UserInterface/Main Menu/main_menu.gd" id="1_csg2m"]
+[ext_resource type="Script" path="res://UserInterface/Main Menu/MainMenu.gd" id="1_csg2m"]
 [ext_resource type="Texture2D" uid="uid://i6wxgjhffusr" path="res://UserInterface/Main Menu/Cows-San-Diego-Animal-Farm-Sanctuary.jpg" id="2_7kc3e"]
 [ext_resource type="AudioStream" uid="uid://tv1l3wfrdbh1" path="res://UserInterface/Main Menu/448807-AMB_Nature_Forest_Coniferous_Quiet_Insects.wav" id="3_0xcya"]
 

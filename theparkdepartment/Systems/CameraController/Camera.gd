@@ -26,21 +26,40 @@ var drag_velocity = Vector3.ZERO
 var yaw = float()
 var pitch = deg_to_rad(50.0)
 
+var block_camera_movement = false
+var last_mouse_position = Vector2.ZERO
 
 func _input(event):
+	if block_camera_movement:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		return
+	
+	# Check if the mouse is hovering over UI elements before capturing input
+	
 	# Camera rotation input (orbiting system)
-	if Input.is_action_pressed("camera_rotate") and event is InputEventMouseMotion and Input.get_mouse_mode() != 0:
+	if Input.is_action_pressed("camera_rotate") and event is InputEventMouseMotion and not block_camera_movement:
+		if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
+			last_mouse_position = event.position  # Save mouse position before capturing
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		yaw += -event.relative.x * yaw_sensitivity
 		pitch += event.relative.y * pitch_sensitivity
 
 	# Camera panning input (drag feature)
 	if Input.is_action_pressed("camera_move") and event is InputEventMouseMotion:
+		if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
+			last_mouse_position = event.position  # Save mouse position before capturing
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		var forward = Vector3(-sin(camera_target.rotation.y), 0, -cos(camera_target.rotation.y))
 		var right = Vector3(cos(camera_target.rotation.y), 0, -sin(camera_target.rotation.y))
 		drag_velocity -= forward * event.relative.y * drag_speed * -1
 		drag_velocity -= right * event.relative.x * drag_speed
-
-
+	
+	# Release mouse when user stops interacting
+	if event is InputEventMouseButton and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		if not (Input.is_action_pressed("camera_rotate") or Input.is_action_pressed("camera_move")):
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			Input.warp_mouse(last_mouse_position)  # Restore mouse to original position
+	
 	# Zoom input
 	if event.is_action_pressed("camera_zoom_in"):
 		zoom -= zoom_speed * (zoom / max_zoom)
@@ -52,7 +71,7 @@ func _input(event):
 
 func _ready():
 	# Initialize camera zoom and position
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func _process(delta):

@@ -15,7 +15,7 @@ offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.269653, 0.2432, 0.64, 1)
 
 [sub_resource type="Curve" id="Curve_6eweg"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.25, 0), 0.0, 0.0, 0, 0, Vector2(0.75, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.494505), 0.0, 0.0, 0, 0, Vector2(0.25, 0), 0.0, 0.0, 0, 0, Vector2(0.75, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.494505), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="Gradient" id="Gradient_ua5yh"]
@@ -39,7 +39,7 @@ sky = SubResource("Sky_5x27k")
 
 [node name="DayNightCycle" type="Node3D"]
 script = ExtResource("1_1p3qe")
-day_length = 80.0
+start_time = 32.0
 sun_color = SubResource("Gradient_wxbai")
 sun_intensity = SubResource("Curve_lnnnn")
 moon_color = SubResource("Gradient_tr0ge")
