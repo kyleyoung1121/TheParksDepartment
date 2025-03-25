@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rcytj0lcokuc"
-path="res://.godot/imported/fast-forward.png-afcfac838ce92c67fcd4e27014376826.ctex"
+uid="uid://mehetnher8x7"
+path="res://.godot/imported/Overlay-Template.png-de8be47bb4fd46edabe042c9a49d8298.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UserInterface/GUI/fast-forward.png"
-dest_files=["res://.godot/imported/fast-forward.png-afcfac838ce92c67fcd4e27014376826.ctex"]
+source_file="res://UserInterface/GUI/Overlay-Template.png"
+dest_files=["res://.godot/imported/Overlay-Template.png-de8be47bb4fd46edabe042c9a49d8298.ctex"]
 
 [params]
 

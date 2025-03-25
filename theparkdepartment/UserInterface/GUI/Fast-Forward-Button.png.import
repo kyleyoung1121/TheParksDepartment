@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpmu34fflwxxe"
-path="res://.godot/imported/Watchtower.png-438463539c3818abc1a04b231cdcbda2.ctex"
+uid="uid://b5g471ol8boj4"
+path="res://.godot/imported/Fast-Forward-Button.png-a1d750480c9fbc5970b4061bfb0c4e19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UserInterface/GUI/Watchtower.png"
-dest_files=["res://.godot/imported/Watchtower.png-438463539c3818abc1a04b231cdcbda2.ctex"]
+source_file="res://UserInterface/GUI/Fast-Forward-Button.png"
+dest_files=["res://.godot/imported/Fast-Forward-Button.png-a1d750480c9fbc5970b4061bfb0c4e19.ctex"]
 
 [params]
 

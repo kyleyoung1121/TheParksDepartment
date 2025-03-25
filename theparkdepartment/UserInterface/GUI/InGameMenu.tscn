@@ -1,35 +1,54 @@
-[gd_scene load_steps=26 format=3 uid="uid://o27yt3k5ogk7"]
+[gd_scene load_steps=37 format=3 uid="uid://o27yt3k5ogk7"]
 
-[ext_resource type="Texture2D" uid="uid://whds044mdj1d" path="res://UserInterface/GUI/New Overlay.png" id="1_hp8tr"]
 [ext_resource type="Script" path="res://UserInterface/GUI/UI_menu.gd" id="1_kghvm"]
-[ext_resource type="Texture2D" uid="uid://v6usvo2pm56d" path="res://UserInterface/GUI/button-31222_1280.png" id="2_yxgyg"]
-[ext_resource type="Texture2D" uid="uid://bxks00xlvbrg" path="res://UserInterface/GUI/Pause-Button.png" id="3_7b4hm"]
+[ext_resource type="Texture2D" uid="uid://s2hs631h504h" path="res://UserInterface/GUI/red-cross-icon-button-png.webp" id="2_8mkx1"]
 [ext_resource type="Texture2D" uid="uid://dne4poa2g5uvf" path="res://UserInterface/GUI/Fence (1).png" id="3_bmyla"]
 [ext_resource type="Texture2D" uid="uid://c3c37gp4u62jp" path="res://UserInterface/GUI/Selected-Fence.png" id="4_hggqf"]
 [ext_resource type="Texture2D" uid="uid://c0lmj72jjla3c" path="res://UserInterface/GUI/Log-Cabin.png" id="4_j3yyc"]
-[ext_resource type="Texture2D" uid="uid://bo7huaw1h7fmv" path="res://UserInterface/GUI/Play-Button.png" id="4_l7rqp"]
-[ext_resource type="Texture2D" uid="uid://rcytj0lcokuc" path="res://UserInterface/GUI/fast-forward.png" id="5_egt7s"]
-[ext_resource type="Texture2D" uid="uid://cuxiskryqirwl" path="res://UserInterface/GUI/Watchtower.png" id="5_vayug"]
 [ext_resource type="Texture2D" uid="uid://c06f11ke8dgt6" path="res://UserInterface/GUI/Selected-Log-Cabin.png" id="6_rhcgh"]
 [ext_resource type="Texture2D" uid="uid://ycncb2u3pd71" path="res://UserInterface/GUI/trees (1).png" id="6_t888u"]
 [ext_resource type="Texture2D" uid="uid://btpvunh6sy2k" path="res://UserInterface/GUI/Porta-Potty.png" id="7_uggg2"]
-[ext_resource type="Texture2D" uid="uid://d0pfvxehthufs" path="res://UserInterface/GUI/Selected-Watchtower.png" id="8_d05rn"]
+[ext_resource type="Texture2D" uid="uid://xacnwbj0f34b" path="res://UserInterface/GUI/Selected-Watchtower.png" id="8_d05rn"]
 [ext_resource type="Texture2D" uid="uid://lrxelx2ewbtn" path="res://UserInterface/GUI/Selected-Tres.png" id="10_ja5u5"]
 [ext_resource type="Texture2D" uid="uid://c0vcaxyrjpt0r" path="res://UserInterface/GUI/Selected-Porta-Potty.png" id="12_xjaxx"]
+[ext_resource type="Texture2D" uid="uid://dsx01wbxoky6o" path="res://UserInterface/GUI/checkbox.png" id="13_08dqm"]
+[ext_resource type="Texture2D" uid="uid://mehetnher8x7" path="res://UserInterface/GUI/Overlay-Template.png" id="13_oxat6"]
+[ext_resource type="Texture2D" uid="uid://b44k10jwdl234" path="res://UserInterface/GUI/EnergyBarBack.png" id="15_v3neo"]
+[ext_resource type="Texture2D" uid="uid://5cqu6vnh42mj" path="res://UserInterface/GUI/Pause-Button (1).png" id="16_t1a4d"]
+[ext_resource type="Texture2D" uid="uid://cgxh76kuxyn3w" path="res://UserInterface/GUI/EnergyBarFront.png" id="16_yg8c1"]
+[ext_resource type="Texture2D" uid="uid://cvtumu03fm4ga" path="res://UserInterface/GUI/Play-Button (1).png" id="17_3inxt"]
+[ext_resource type="Texture2D" uid="uid://d08k5rv0rgmuf" path="res://UserInterface/GUI/Pause-Button-Selected.png" id="17_meo5g"]
+[ext_resource type="Texture2D" uid="uid://b5g471ol8boj4" path="res://UserInterface/GUI/Fast-Forward-Button.png" id="18_tg00r"]
+[ext_resource type="Texture2D" uid="uid://0q0mc4hppv8v" path="res://UserInterface/GUI/Play-Button-Selected.png" id="19_6j45w"]
+[ext_resource type="Texture2D" uid="uid://d4gu110v6t3fv" path="res://UserInterface/GUI/Fast-Forward-Button-Selected.png" id="21_paxs6"]
 
 [sub_resource type="Theme" id="Theme_qlupe"]
+
+[sub_resource type="Theme" id="Theme_2ouy6"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pfpw7"]
+load_path = "res://.godot/imported/Watchtower.png-438463539c3818abc1a04b231cdcbda2.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_636kd"]
+load_path = "res://.godot/imported/Selected-Watchtower.png-062277eaedfbd58b2e46c83185a8bde6.ctex"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3y8l7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3p8rj"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s0lec"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_olpng"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7owar"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_haaoa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_viw8b"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mph3l"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_367cx"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1kts1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pv4xe"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ysiku"]
 
@@ -37,12 +56,11 @@
 
 [node name="InGameMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 1.669
+anchor_bottom = 1.662
 offset_top = -21.0
-offset_right = -1.0
-offset_bottom = -21.0
+offset_right = -15.688
+offset_bottom = -3.97595
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.00372, 1.00372)
@@ -96,19 +114,19 @@ text = "Bird: 0"
 
 [node name="ExitMenu" type="TextureButton" parent="Panel"]
 layout_mode = 0
-offset_left = 256.04
-offset_top = 8.71253
-offset_right = 1536.04
-offset_bottom = 1277.71
-scale = Vector2(0.0155357, 0.0155357)
-texture_normal = ExtResource("2_yxgyg")
+offset_left = 248.07
+offset_top = 4.72754
+offset_right = 648.07
+offset_bottom = 404.728
+scale = Vector2(0.0873505, 0.0873505)
+texture_normal = ExtResource("2_8mkx1")
 
 [node name="BuildMenu" type="Panel" parent="."]
 visible = false
 layout_mode = 0
 offset_top = 854.0
 offset_right = 823.0
-offset_bottom = 1039.0
+offset_bottom = 1054.0
 
 [node name="Item1" type="TextureButton" parent="BuildMenu"]
 layout_mode = 0
@@ -121,6 +139,16 @@ texture_normal = ExtResource("3_bmyla")
 texture_pressed = ExtResource("4_hggqf")
 texture_hover = ExtResource("4_hggqf")
 
+[node name="Item1Label" type="Label" parent="BuildMenu"]
+layout_mode = 0
+offset_left = 55.7924
+offset_top = 159.231
+offset_right = 110.792
+offset_bottom = 182.231
+theme = SubResource("Theme_2ouy6")
+text = "$25"
+horizontal_alignment = 1
+
 [node name="Item2" type="TextureButton" parent="BuildMenu"]
 layout_mode = 0
 offset_left = 180.329
@@ -132,16 +160,36 @@ texture_normal = ExtResource("4_j3yyc")
 texture_pressed = ExtResource("6_rhcgh")
 texture_hover = ExtResource("6_rhcgh")
 
+[node name="Item2Label" type="Label" parent="BuildMenu"]
+layout_mode = 0
+offset_left = 216.196
+offset_top = 159.231
+offset_right = 271.196
+offset_bottom = 182.231
+theme = SubResource("Theme_2ouy6")
+text = "$125"
+horizontal_alignment = 1
+
 [node name="Item3" type="TextureButton" parent="BuildMenu"]
 layout_mode = 0
-offset_left = 341.729
-offset_top = 50.635
-offset_right = 941.729
-offset_bottom = 550.635
-scale = Vector2(0.218105, 0.218105)
-texture_normal = ExtResource("5_vayug")
+offset_left = 342.0
+offset_top = 51.0
+offset_right = 942.0
+offset_bottom = 551.0
+scale = Vector2(0.216995, 0.216995)
+texture_normal = SubResource("CompressedTexture2D_pfpw7")
 texture_pressed = ExtResource("8_d05rn")
-texture_hover = ExtResource("8_d05rn")
+texture_hover = SubResource("CompressedTexture2D_636kd")
+
+[node name="Item3Label" type="Label" parent="BuildMenu"]
+layout_mode = 0
+offset_left = 375.603
+offset_top = 159.231
+offset_right = 430.603
+offset_bottom = 182.231
+theme = SubResource("Theme_2ouy6")
+text = "$150"
+horizontal_alignment = 1
 
 [node name="Item4" type="TextureButton" parent="BuildMenu"]
 layout_mode = 0
@@ -154,6 +202,16 @@ texture_normal = ExtResource("6_t888u")
 texture_pressed = ExtResource("10_ja5u5")
 texture_hover = ExtResource("10_ja5u5")
 
+[node name="Item4Label" type="Label" parent="BuildMenu"]
+layout_mode = 0
+offset_left = 538.995
+offset_top = 160.227
+offset_right = 593.995
+offset_bottom = 183.227
+theme = SubResource("Theme_2ouy6")
+text = "$10"
+horizontal_alignment = 1
+
 [node name="Item5" type="TextureButton" parent="BuildMenu"]
 layout_mode = 0
 offset_left = 665.525
@@ -164,6 +222,16 @@ scale = Vector2(0.220264, 0.220264)
 texture_normal = ExtResource("7_uggg2")
 texture_pressed = ExtResource("12_xjaxx")
 texture_hover = ExtResource("12_xjaxx")
+
+[node name="Item5Label" type="Label" parent="BuildMenu"]
+layout_mode = 0
+offset_left = 705.376
+offset_top = 160.227
+offset_right = 760.376
+offset_bottom = 183.227
+theme = SubResource("Theme_2ouy6")
+text = "$50"
+horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="BuildMenu"]
 layout_mode = 0
@@ -176,129 +244,185 @@ text = "Building"
 
 [node name="ExitMenu2" type="TextureButton" parent="BuildMenu"]
 layout_mode = 0
-offset_left = 789.065
-offset_top = 14.7681
-offset_right = 2069.06
-offset_bottom = 1283.77
-scale = Vector2(0.0155357, 0.0155357)
-texture_normal = ExtResource("2_yxgyg")
+offset_left = 786.076
+offset_top = 3.80859
+offset_right = 1186.08
+offset_bottom = 403.809
+scale = Vector2(0.0819891, 0.0819891)
+texture_normal = ExtResource("2_8mkx1")
 
-[node name="NewOverlay" type="Sprite2D" parent="."]
-position = Vector2(956, 558.922)
-scale = Vector2(0.996266, 0.996266)
-texture = ExtResource("1_hp8tr")
+[node name="BuildConfirmation" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1685.0
+offset_top = 894.0
+offset_right = 1881.0
+offset_bottom = 1030.0
+
+[node name="Label" type="Label" parent="BuildConfirmation"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = 7.0
+offset_right = 209.0
+offset_bottom = 62.0
+text = "Click the checkbox to 
+confirm your build!"
+horizontal_alignment = 1
+
+[node name="BuildCost" type="Label" parent="BuildConfirmation"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 0
+offset_left = 59.5103
+offset_top = 106.279
+offset_right = 139.51
+offset_bottom = 129.279
+text = "Cost: $125"
+
+[node name="CofirmBuild" type="TextureButton" parent="BuildConfirmation"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 44.5659
+offset_top = 61.4457
+offset_right = 404.566
+offset_bottom = 421.446
+scale = Vector2(0.130964, 0.130964)
+texture_normal = ExtResource("13_08dqm")
+
+[node name="CancelBuild" type="TextureButton" parent="BuildConfirmation"]
+layout_mode = 0
+offset_left = 105.34
+offset_top = 61.4468
+offset_right = 505.34
+offset_bottom = 461.447
+scale = Vector2(0.111866, 0.111866)
+texture_normal = ExtResource("2_8mkx1")
+
+[node name="NewOverlay2" type="Sprite2D" parent="."]
+position = Vector2(957.438, 559.917)
+scale = Vector2(0.997896, 0.990529)
+texture = ExtResource("13_oxat6")
 
 [node name="DayCount" type="TextEdit" parent="."]
 layout_mode = 0
-offset_left = 1235.0
-offset_top = 1054.93
-offset_right = 1299.0
-offset_bottom = 1097.93
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
+offset_left = 893.676
+offset_top = 1059.06
+offset_right = 956.676
+offset_bottom = 1099.06
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3y8l7")
 text = "Day 0"
 
 [node name="Clock" type="TextEdit" parent="."]
 layout_mode = 0
-offset_left = 1304.0
-offset_top = 1054.93
-offset_right = 1395.0
-offset_bottom = 1097.93
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
+offset_left = 953.453
+offset_top = 1059.14
+offset_right = 1044.45
+offset_bottom = 1102.14
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3p8rj")
 text = "8:00am"
 
 [node name="EnergyBar" type="TextureProgressBar" parent="."]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 108.0
-offset_right = 298.0
-offset_bottom = 179.0
+offset_left = 1756.98
+offset_top = 1058.99
+offset_right = 2056.98
+offset_bottom = 1133.99
+scale = Vector2(0.34438, 0.34438)
+texture_under = ExtResource("15_v3neo")
+texture_over = ExtResource("16_yg8c1")
+texture_progress = ExtResource("16_yg8c1")
 
 [node name="PauseButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 1798.0
-offset_top = 1056.93
-offset_right = 2298.0
-offset_bottom = 1556.93
-scale = Vector2(0.0709795, 0.0727017)
-texture_normal = ExtResource("3_7b4hm")
+offset_left = 901.646
+offset_top = 1032.16
+offset_right = 1101.65
+offset_bottom = 1232.16
+scale = Vector2(0.10603, 0.108602)
+texture_normal = ExtResource("16_t1a4d")
+texture_pressed = ExtResource("17_meo5g")
+texture_focused = ExtResource("17_meo5g")
 
 [node name="PlayButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 1832.0
-offset_top = 1059.93
-offset_right = 2332.0
-offset_bottom = 1559.93
-scale = Vector2(0.0606412, 0.0606412)
-texture_normal = ExtResource("4_l7rqp")
+offset_left = 941.498
+offset_top = 1032.16
+offset_right = 1141.5
+offset_bottom = 1232.16
+scale = Vector2(0.102359, 0.102359)
+texture_normal = ExtResource("17_3inxt")
+texture_pressed = ExtResource("19_6j45w")
+texture_focused = ExtResource("19_6j45w")
 
 [node name="FastForwardButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 1868.0
-offset_top = 1061.93
-offset_right = 2380.0
-offset_bottom = 1573.93
-scale = Vector2(0.0504482, 0.0504482)
-texture_normal = ExtResource("5_egt7s")
+offset_left = 977.364
+offset_top = 1031.16
+offset_right = 1177.36
+offset_bottom = 1231.16
+scale = Vector2(0.111723, 0.104573)
+texture_normal = ExtResource("18_tg00r")
+texture_pressed = ExtResource("21_paxs6")
+texture_focused = ExtResource("21_paxs6")
 
 [node name="BuildingButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 1047.93
-offset_right = 202.0
-offset_bottom = 1091.93
+offset_left = 47.8221
+offset_top = 1056.07
+offset_right = 164.822
+offset_bottom = 1092.07
 scale = Vector2(1.01224, 1.01224)
-theme_override_colors/font_hover_pressed_color = Color(0, 0.788235, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.788235, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0.788235, 0, 1)
 theme_override_font_sizes/font_size = 25
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_s0lec")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_7owar")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_olpng")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_haaoa")
 text = "Building"
 
 [node name="AnimalStatusButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 208.0
-offset_top = 1048.93
-offset_right = 411.0
-offset_bottom = 1092.93
+offset_left = 228.151
+offset_top = 1056.07
+offset_right = 410.151
+offset_bottom = 1091.07
 theme_override_colors/font_hover_color = Color(0.443137, 0.917647, 0.364706, 1)
+theme_override_colors/font_focus_color = Color(0, 0.788235, 0, 1)
 theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_viw8b")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mph3l")
 text = "Animal Status"
 
 [node name="PlantStatusButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 414.0
-offset_top = 1047.93
-offset_right = 617.0
-offset_bottom = 1092.93
+offset_left = 459.292
+offset_top = 1056.07
+offset_right = 621.292
+offset_bottom = 1091.07
 theme_override_colors/font_hover_color = Color(0, 0.788235, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0.788235, 0, 1)
 theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_367cx")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1kts1")
 text = "Plant Status"
 
 [node name="ReleasingButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 621.0
-offset_top = 1048.93
-offset_right = 823.0
-offset_bottom = 1092.93
+offset_left = 624.676
+offset_top = 1055.08
+offset_right = 761.676
+offset_bottom = 1090.08
 theme_override_colors/font_hover_color = Color(0, 0.788235, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0.788235, 0, 1)
 theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pv4xe")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ysiku")
 text = "Releasing"
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-layout_mode = 0
-offset_left = 1594.08
-offset_top = 1059.07
-offset_right = 1894.08
-offset_bottom = 1134.07
-scale = Vector2(0.39584, 0.39584)
-
 [node name="EnergyLabel" type="TextEdit" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 1517.36
 offset_top = 1054.08
@@ -310,7 +434,14 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_a0dom")
 text = "Energy:"
 
 [connection signal="pressed" from="Panel/ExitMenu" to="." method="_on_exit_menu_pressed"]
+[connection signal="pressed" from="BuildMenu/Item1" to="." method="_on_item_1_pressed"]
+[connection signal="pressed" from="BuildMenu/Item2" to="." method="_on_item_2_pressed"]
+[connection signal="pressed" from="BuildMenu/Item3" to="." method="_on_item_3_pressed"]
+[connection signal="pressed" from="BuildMenu/Item4" to="." method="_on_item_4_pressed"]
+[connection signal="pressed" from="BuildMenu/Item5" to="." method="_on_item_5_pressed"]
 [connection signal="pressed" from="BuildMenu/ExitMenu2" to="." method="_on_exit_menu_2_pressed"]
+[connection signal="pressed" from="BuildConfirmation/CofirmBuild" to="." method="_on_cofirm_build_pressed"]
+[connection signal="pressed" from="BuildConfirmation/CancelBuild" to="." method="_on_cancel_build_pressed"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="FastForwardButton" to="." method="_on_fast_forward_button_pressed"]

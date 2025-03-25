@@ -50,6 +50,16 @@ var Plant1Count
 var Plant2Count
 var Plant3Count
 
+# Object Prices
+var fence_cost = 25 
+var log_cabin_cost = 125
+var watchtower_cost = 150
+var tree_cost = 10
+var bathroom_cost = 50
+
+#Object Determination
+var selectedObj = ""
+
 func _process(delta: float) -> void:
 	#for i in animalStats:
 		#i.hunger = i.hunger - 0.025
@@ -84,7 +94,8 @@ func _process(delta: float) -> void:
 	
 	$Clock.text = str(hour) + ":" + str(minutes) + meridiem
 
-#func _ready() -> void:
+func _ready() -> void:
+	$BuildMenu/Item1Label.add_theme_color_override("bg_color", Color.WEB_GREEN)
 	#var menu = get_node("MenuButton")
 	#menu.get_popup().add_item("Deer")
 	#menu.get_popup().add_item("Wolf")
@@ -165,3 +176,46 @@ func _on_building_button_pressed() -> void:
 
 func _on_exit_menu_2_pressed() -> void:
 	$BuildMenu.visible = false
+
+
+
+func _on_item_1_pressed() -> void:
+	selectedObj = "Fence"
+	building_check()
+
+func _on_item_2_pressed() -> void:
+	selectedObj = "Log Cabin"
+	building_check()
+
+func _on_item_3_pressed() -> void:
+	selectedObj = "Watchtower"
+	building_check()
+
+func _on_item_4_pressed() -> void:
+	selectedObj = "Trees"
+	building_check()
+
+func _on_item_5_pressed() -> void:
+	selectedObj = "Bathroom"
+	building_check()
+
+func building_check() -> void:
+	if (selectedObj == "Fence"):
+		$BuildConfirmation/BuildCost.text = "Cost: $25"
+	elif (selectedObj == "Log Cabin"):
+		$BuildConfirmation/BuildCost.text = "Cost: $125"
+	elif (selectedObj == "Watchtower"):
+		$BuildConfirmation/BuildCost.text = "Cost: $150"
+	elif (selectedObj == "Trees"):
+		$BuildConfirmation/BuildCost.text = "Cost: $10"
+	elif (selectedObj == "Bathroom"):
+		$BuildConfirmation/BuildCost.text = "Cost: $50"
+	
+	$BuildConfirmation.visible = true
+
+func _on_cofirm_build_pressed() -> void:
+	pass # Place the Selected Object
+
+func _on_cancel_build_pressed() -> void:
+	$BuildConfirmation.visible = false
+	selectedObj = ""

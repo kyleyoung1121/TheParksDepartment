@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpmu34fflwxxe"
-path="res://.godot/imported/Watchtower.png-438463539c3818abc1a04b231cdcbda2.ctex"
+uid="uid://bfc8fqomt8vk2"
+path="res://.godot/imported/plant (2).png-01f78d43519aa72f5777d6a11c1ec664.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UserInterface/GUI/Watchtower.png"
-dest_files=["res://.godot/imported/Watchtower.png-438463539c3818abc1a04b231cdcbda2.ctex"]
+source_file="res://UserInterface/GUI/plant (2).png"
+dest_files=["res://.godot/imported/plant (2).png-01f78d43519aa72f5777d6a11c1ec664.ctex"]
 
 [params]
 

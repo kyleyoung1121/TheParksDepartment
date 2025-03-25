@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://Maps/Ohio/OhioEcosystemSimulationHandler.gd" id="1_eab4o"]
 [ext_resource type="PackedScene" uid="uid://dwp624wmncn58" path="res://Systems/CameraController/camera.tscn" id="2_ar074"]
 [ext_resource type="PackedScene" uid="uid://c446bf6cmnsx6" path="res://Systems/DayNightCycle/DayNightCycle.tscn" id="3_naupw"]
-[ext_resource type="PackedScene" uid="uid://dp4umc3lj5fhc" path="res://UserInterface/ESC-Menu/esc-menu.tscn" id="5_880vd"]
-[ext_resource type="PackedScene" uid="uid://c4ltvt4po4ntd" path="res://Props/Natural/Landscape/Landscape.blend" id="6_o01yp"]
+[ext_resource type="PackedScene" uid="uid://dp4umc3lj5fhc" path="res://UserInterface/EscMenu/EscMenu.tscn" id="5_880vd"]
+[ext_resource type="PackedScene" uid="uid://gjvq348elioi" path="res://Props/Natural/Landscape/Landscape.blend" id="6_o01yp"]
 
 [sub_resource type="Gradient" id="Gradient_kbrg6"]
 offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
