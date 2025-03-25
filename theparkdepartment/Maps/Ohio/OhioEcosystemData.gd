@@ -5,7 +5,7 @@ var grid_size: int = 10
 var grid_scale: int = 16
 var plants = []
 var animals = []
-var days = 1
+var days = 1.2
 
 var animals_species_data = {
 	"Deer": {
