@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://whds044mdj1d"
-path="res://.godot/imported/New Overlay.png-c06f2bd1be9497e4ca973c2c7aac7c14.ctex"
+uid="uid://5cqu6vnh42mj"
+path="res://.godot/imported/Pause-Button (1).png-9deddaf3ce7234f5ef999d2d7ffeb4db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UserInterface/GUI/New Overlay.png"
-dest_files=["res://.godot/imported/New Overlay.png-c06f2bd1be9497e4ca973c2c7aac7c14.ctex"]
+source_file="res://UserInterface/GUI/Pause-Button (1).png"
+dest_files=["res://.godot/imported/Pause-Button (1).png-9deddaf3ce7234f5ef999d2d7ffeb4db.ctex"]
 
 [params]
 

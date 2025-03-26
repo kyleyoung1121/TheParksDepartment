@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo7huaw1h7fmv"
-path="res://.godot/imported/Play-Button.png-91ae024001f1d6d98814f2baec7af9de.ctex"
+uid="uid://bt5fdytrvshoh"
+path="res://.godot/imported/wolf.png-21802e4a2d8f0f52cdb58b67aff406d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UserInterface/GUI/Play-Button.png"
-dest_files=["res://.godot/imported/Play-Button.png-91ae024001f1d6d98814f2baec7af9de.ctex"]
+source_file="res://UserInterface/GUI/wolf.png"
+dest_files=["res://.godot/imported/wolf.png-21802e4a2d8f0f52cdb58b67aff406d5.ctex"]
 
 [params]
 
