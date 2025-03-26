@@ -17,7 +17,7 @@ radius = 10.0
 [node name="Grass" instance=ExtResource("1_tdtwy")]
 mesh = SubResource("BoxMesh_eh8cm")
 species = "Grass"
-self_scene_path = "res://Entities/Plants/Grass/Grass.tscn"
+self_scene_path = "res://Entities/Plants/Grass/grass.tscn"
 
 [node name="ClusterDetectionCollision" parent="ClusterDetection" index="0"]
 shape = SubResource("CylinderShape3D_4g0u7")

@@ -1,16 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://usgvliaqivul"]
+[gd_scene load_steps=3 format=3 uid="uid://usgvliaqivul"]
 
 [ext_resource type="PackedScene" uid="uid://djuod3fskf5cl" path="res://Entities/Animals/TemplateAnimal/TemplateAnimal.tscn" id="1_uch52"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fh28u"]
-albedo_color = Color(0.366595, 0.366595, 0.366595, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_8q1xo"]
-material = SubResource("StandardMaterial3D_fh28u")
+[ext_resource type="PackedScene" uid="uid://dkevvwlggxjpd" path="res://Entities/Animals/EasternWolf/Assets/eastern-wolf.blend" id="2_ltghp"]
 
 [node name="EasternWolf" instance=ExtResource("1_uch52")]
 species = "EasternWolf"
 self_scene_path = "res://Entities/Animals/EasternWolf/EasternWolf.tscn"
 
-[node name="MeshInstance3D" parent="." index="0"]
-mesh = SubResource("CapsuleMesh_8q1xo")
+[node name="EasternWolf_skin" parent="." index="2" instance=ExtResource("2_ltghp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
