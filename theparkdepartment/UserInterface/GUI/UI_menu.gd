@@ -1,5 +1,7 @@
 extends Control
 
+signal start_object_placement(structure_type)
+
 var animalStats = [{
 	"name": "Deer",
 	"hunger": 80,
@@ -128,25 +130,48 @@ func _ready() -> void:
 
 
 func _on_place_fence_button_pressed():
-	pass
-	#var building_scene = preload("res://path_to_building.tscn")
-	#get_tree().get_first_node_in_group("building_placer").start_placing(building_scene)
+	selectedObj = "Fence"
+	emit_signal("start_object_placement", selectedObj)
+	building_check()
 
 
 func _on_place_cabin_button_pressed():
-	pass # Replace with function body.
+	selectedObj = "Log Cabin"
+	emit_signal("start_object_placement", selectedObj)
+	building_check()
 
 
 func _on_place_watchtower_button_pressed():
-	pass # Replace with function body.
+	selectedObj = "Watchtower"
+	emit_signal("start_object_placement", selectedObj)
+	building_check()
 
 
 func _on_place_trees_button_pressed():
-	pass # Replace with function body.
+	selectedObj = "Trees"
+	emit_signal("start_object_placement", selectedObj)
+	building_check()
 
 
 func _on_place_bathroom_button_pressed():
-	pass # Replace with function body.
+	selectedObj = "Bathroom"
+	emit_signal("start_object_placement", selectedObj)
+	building_check()
+
+
+func building_check() -> void:
+	if (selectedObj == "Fence"):
+		$BuildConfirmation/BuildCost.text = "Cost: $25"
+	elif (selectedObj == "Log Cabin"):
+		$BuildConfirmation/BuildCost.text = "Cost: $125"
+	elif (selectedObj == "Watchtower"):
+		$BuildConfirmation/BuildCost.text = "Cost: $150"
+	elif (selectedObj == "Trees"):
+		$BuildConfirmation/BuildCost.text = "Cost: $10"
+	elif (selectedObj == "Bathroom"):
+		$BuildConfirmation/BuildCost.text = "Cost: $50"
+	
+	$BuildConfirmation.visible = true
 
 
 func _on_fast_forward_button_pressed() -> void:
@@ -203,41 +228,6 @@ func _on_building_button_pressed() -> void:
 func _on_exit_menu_2_pressed() -> void:
 	$BuildMenu.visible = false
 
-
-
-func _on_item_1_pressed() -> void:
-	selectedObj = "Fence"
-	building_check()
-
-func _on_item_2_pressed() -> void:
-	selectedObj = "Log Cabin"
-	building_check()
-
-func _on_item_3_pressed() -> void:
-	selectedObj = "Watchtower"
-	building_check()
-
-func _on_item_4_pressed() -> void:
-	selectedObj = "Trees"
-	building_check()
-
-func _on_item_5_pressed() -> void:
-	selectedObj = "Bathroom"
-	building_check()
-
-func building_check() -> void:
-	if (selectedObj == "Fence"):
-		$BuildConfirmation/BuildCost.text = "Cost: $25"
-	elif (selectedObj == "Log Cabin"):
-		$BuildConfirmation/BuildCost.text = "Cost: $125"
-	elif (selectedObj == "Watchtower"):
-		$BuildConfirmation/BuildCost.text = "Cost: $150"
-	elif (selectedObj == "Trees"):
-		$BuildConfirmation/BuildCost.text = "Cost: $10"
-	elif (selectedObj == "Bathroom"):
-		$BuildConfirmation/BuildCost.text = "Cost: $50"
-	
-	$BuildConfirmation.visible = true
 
 func _on_cofirm_build_pressed() -> void:
 	pass # Place the Selected Object
