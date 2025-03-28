@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhq2yek7ukgx8"]
+
+[ext_resource type="PackedScene" uid="uid://c2y4buf57of4g" path="res://Props/Artificial/Watchtower/Watchtower.blend" id="1_qj8ns"]
+
+[node name="Watchtower" type="Node3D"]
+
+[node name="Watchtower" parent="." instance=ExtResource("1_qj8ns")]
+transform = Transform3D(0.418863, 0, 0, 0, 0.418863, 0, 0, 0, 0.418863, 0, -0.045655, 0)

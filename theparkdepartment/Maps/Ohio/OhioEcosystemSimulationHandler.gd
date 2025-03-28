@@ -10,8 +10,8 @@ var coopers_hawk_scene = load("res://Entities/Animals/CoopersHawk/CoopersHawk.ts
 
 var fence_scene = load("res://Props/Artificial/Fence/Fence.tscn")  # Load the fence scene
 
-
-
+@onready var in_game_menu = $InGameMenu
+@onready var object_placement = $ObjectPlacement
 
 func _ready():
 	# Print size of whole grid
@@ -19,6 +19,9 @@ func _ready():
 	var grid_bounds_max = (OhioEcosystemData.grid_scale) * (OhioEcosystemData.grid_size - 0.5)
 	print("Grid bounds min: ", grid_bounds_min)
 	print("Grid bounds max: ", grid_bounds_max)
+	
+	in_game_menu.start_object_placement.connect(_on_start_object_placement)
+	
 	# Initialize fences
 	for fence in OhioEcosystemData.fences:
 		create_fence(fence)
@@ -105,6 +108,11 @@ func start_simulation():
 		await get_tree().create_timer(2).timeout
 		OhioEcosystemData.days += 1
 
+
+func _on_start_object_placement(structure_type):
+	object_placement.start_placing(structure_type)
+
+
 func guest_system():
 	# Seven sets of movement for each straight section of the path
 	var i = 1
@@ -129,38 +137,38 @@ func guest_movement(guestNum):
 	
 	#1
 	for i in range(585):
-		get_node("Guest" + str(guestNum)).position.x += 0.1
+		get_node("Guests/Guest" + str(guestNum)).position.x += 0.1
 		await get_tree().create_timer(0.01).timeout
 	
 	#2
 	for i in range(700):
-		get_node("Guest" + str(guestNum)).position.z += 0.1
+		get_node("Guests/Guest" + str(guestNum)).position.z += 0.1
 		await get_tree().create_timer(0.01).timeout
 	
 	#3
 	for i in range(393):
-		get_node("Guest" + str(guestNum)).position.x -= 0.1
+		get_node("Guests/Guest" + str(guestNum)).position.x -= 0.1
 		await get_tree().create_timer(0.01).timeout
 	
 	#4
 	for i in range(482):
-		get_node("Guest" + str(guestNum)).position.z += 0.1
+		get_node("Guests/Guest" + str(guestNum)).position.z += 0.1
 		await get_tree().create_timer(0.01).timeout
 	
 	#5
 	for i in range(1137):
-		get_node("Guest" + str(guestNum)).position.x += 0.1
+		get_node("Guests/Guest" + str(guestNum)).position.x += 0.1
 		await get_tree().create_timer(0.01).timeout
 		
 	#6
 	for i in range(1315):
-		get_node("Guest" + str(guestNum)).position.z -= 0.1
+		get_node("Guests/Guest" + str(guestNum)).position.z -= 0.1
 		await get_tree().create_timer(0.01).timeout
 		
 	#7
 	for i in range(400):
-		get_node("Guest" + str(guestNum)).position.x += 0.1
+		get_node("Guests/Guest" + str(guestNum)).position.x += 0.1
 		await get_tree().create_timer(0.01).timeout
 	
-	get_node("Guest" + str(guestNum)).position.x = -14
-	get_node("Guest" + str(guestNum)).position.z = 18.3
+	get_node("Guests/Guest" + str(guestNum)).position.x = -14
+	get_node("Guests/Guest" + str(guestNum)).position.z = 18.3
