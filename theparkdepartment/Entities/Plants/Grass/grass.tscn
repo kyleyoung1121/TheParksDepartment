@@ -12,7 +12,7 @@ radius = 10.0
 [node name="Grass" instance=ExtResource("1_tdtwy")]
 mesh = null
 species = "Grass"
-self_scene_path = "res://Entities/Plants/Grass/Grass.tscn"
+self_scene_path = "res://Entities/Plants/Grass/grass.tscn"
 
 [node name="GrassTexture" parent="." index="0" instance=ExtResource("2_ctnaq")]
 transform = Transform3D(1.33227, 0, 0, 0, 0.655464, 0, 0, 0, 1.62106, 0, -0.478498, 0)

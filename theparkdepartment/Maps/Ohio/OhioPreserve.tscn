@@ -6,12 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c446bf6cmnsx6" path="res://Systems/DayNightCycle/DayNightCycle.tscn" id="3_naupw"]
 [ext_resource type="PackedScene" uid="uid://dp4umc3lj5fhc" path="res://UserInterface/EscMenu/EscMenu.tscn" id="5_880vd"]
 [ext_resource type="PackedScene" uid="uid://o27yt3k5ogk7" path="res://UserInterface/GUI/InGameMenu.tscn" id="6_s33f6"]
-<<<<<<< Updated upstream
-[ext_resource type="PackedScene" uid="uid://hrjeqvpsu0mh" path="res://Props/Natural/Landscape/Landscape.blend" id="7_fs004"]
-=======
-[ext_resource type="PackedScene" uid="uid://gjvq348elioi" path="res://Props/Natural/Landscape/Landscape.blend" id="7_fs004"]
+[ext_resource type="PackedScene" uid="uid://gjvq348elioi" path="res://Props/Natural/Landscape/Landscape.blend" id="6_o01yp"]
 [ext_resource type="PackedScene" uid="uid://brqwabpysnu8v" path="res://Systems/ObjectPlacement/ObjectPlacement.tscn" id="8_2mw8q"]
->>>>>>> Stashed changes
 
 [sub_resource type="Gradient" id="Gradient_kbrg6"]
 offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
@@ -20,6 +16,12 @@ colors = PackedColorArray(0.92, 0.55154, 0.1012, 1, 0.92, 0.86618, 0.8004, 1, 0.
 [sub_resource type="Curve" id="Curve_0dxvu"]
 _data = [Vector2(0.1, 0), 0.0, 0.0, 0, 0, Vector2(0.347368, 1), 0.0, 0.0, 0, 0, Vector2(0.653, 1), 0.0, 0.0, 0, 0, Vector2(0.9, 0), 0.0, 0.0, 0, 0]
 point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64obp"]
+albedo_color = Color(0.356863, 1, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2yfkx"]
+material = SubResource("StandardMaterial3D_64obp")
 
 [node name="OhioPreserve" type="Node3D"]
 script = ExtResource("1_eab4o")
@@ -333,15 +335,27 @@ transform = Transform3D(0.707107, -0.00123413, 0.707106, 0, 0.999999, 0.00174533
 sun_color = SubResource("Gradient_kbrg6")
 sun_intensity = SubResource("Curve_0dxvu")
 
-[node name="InGameMenu" parent="." instance=ExtResource("6_s33f6")]
-
 [node name="EscMenu" parent="." instance=ExtResource("5_880vd")]
-visible = false
 
-[node name="Landscape" parent="." instance=ExtResource("7_fs004")]
-transform = Transform3D(32, 0, 0, 0, 32, 0, 0, 0, 32, 71, 0, 71)
-<<<<<<< Updated upstream
-=======
+[node name="Landscape" parent="." instance=ExtResource("6_o01yp")]
+transform = Transform3D(35, 0, 0, 0, 35, 0, 0, 0, 35, 73, 0, 73)
 
-[node name="ObjectPlacement" parent="." instance=ExtResource("8_2mw8q")]
->>>>>>> Stashed changes
+[node name="Guest1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 1.5, 18.3)
+mesh = SubResource("CapsuleMesh_2yfkx")
+
+[node name="Guest2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 1.5, 18.3)
+mesh = SubResource("CapsuleMesh_2yfkx")
+
+[node name="Guest3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 1.5, 18.3)
+mesh = SubResource("CapsuleMesh_2yfkx")
+
+[node name="Guest4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 1.5, 18.3)
+mesh = SubResource("CapsuleMesh_2yfkx")
+
+[node name="Guest5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 1.5, 18.3)
+mesh = SubResource("CapsuleMesh_2yfkx")

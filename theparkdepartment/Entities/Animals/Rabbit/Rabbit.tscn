@@ -13,3 +13,5 @@ self_scene_path = "res://Entities/Animals/Rabbit/Rabbit.tscn"
 
 [node name="MeshInstance3D" parent="." index="0"]
 mesh = SubResource("CapsuleMesh_cdagf")
+
+[node name="Node3D" type="Node3D" parent="." index="2"]

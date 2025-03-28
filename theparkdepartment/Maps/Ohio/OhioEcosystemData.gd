@@ -76,6 +76,23 @@ var animals_species_data = {
 		"max_social": 10,
 		"litter_size": 2,
 	},
+	"CoopersHawk": {
+		"count": 0,
+		"speed": 1.5,
+		"max_stamina": 5,
+		"reproduction_cooldown": 40,
+		"max_hunger": 80,
+		"eye_sight": 8,
+		"movement_chance": 1,
+		"max_age": 80,
+		"nutrition": 30,
+		"diet_type": "Carnivore",
+		"prey_organisms": ["AmericanGoldfinch", "Rabbit"],
+		"population_limit": 30,
+		"social_group_size": 10,
+		"max_social": 10,
+		"litter_size": 2,
+	}
 }
 
 var plants_species_data = {
