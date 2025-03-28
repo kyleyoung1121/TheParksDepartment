@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cey0ktfit05p3"]
+
+[ext_resource type="PackedScene" uid="uid://crneb6e4ao16h" path="res://Props/Artificial/Log House/Log House.blend" id="1_ojeoe"]
+
+[node name="LogHouse" type="Node3D"]
+
+[node name="Log House" parent="." instance=ExtResource("1_ojeoe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0686376, 0)
