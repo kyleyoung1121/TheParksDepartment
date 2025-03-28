@@ -104,13 +104,12 @@ scale = Vector2(0.0155357, 0.0155357)
 texture_normal = ExtResource("2_yxgyg")
 
 [node name="BuildMenu" type="Panel" parent="."]
-visible = false
 layout_mode = 0
 offset_top = 854.0
 offset_right = 823.0
 offset_bottom = 1039.0
 
-[node name="Item1" type="TextureButton" parent="BuildMenu"]
+[node name="PlaceFenceButton" type="TextureButton" parent="BuildMenu"]
 layout_mode = 0
 offset_left = 19.9259
 offset_top = 50.6347
@@ -121,7 +120,7 @@ texture_normal = ExtResource("3_bmyla")
 texture_pressed = ExtResource("4_hggqf")
 texture_hover = ExtResource("4_hggqf")
 
-[node name="Item2" type="TextureButton" parent="BuildMenu"]
+[node name="PlaceCabinButton" type="TextureButton" parent="BuildMenu"]
 layout_mode = 0
 offset_left = 180.329
 offset_top = 50.6348
@@ -132,7 +131,7 @@ texture_normal = ExtResource("4_j3yyc")
 texture_pressed = ExtResource("6_rhcgh")
 texture_hover = ExtResource("6_rhcgh")
 
-[node name="Item3" type="TextureButton" parent="BuildMenu"]
+[node name="PlaceWatchtowerButton" type="TextureButton" parent="BuildMenu"]
 layout_mode = 0
 offset_left = 341.729
 offset_top = 50.635
@@ -143,7 +142,7 @@ texture_normal = ExtResource("5_vayug")
 texture_pressed = ExtResource("8_d05rn")
 texture_hover = ExtResource("8_d05rn")
 
-[node name="Item4" type="TextureButton" parent="BuildMenu"]
+[node name="PlaceTreesButton" type="TextureButton" parent="BuildMenu"]
 layout_mode = 0
 offset_left = 504.815
 offset_top = 50.0073
@@ -154,7 +153,7 @@ texture_normal = ExtResource("6_t888u")
 texture_pressed = ExtResource("10_ja5u5")
 texture_hover = ExtResource("10_ja5u5")
 
-[node name="Item5" type="TextureButton" parent="BuildMenu"]
+[node name="PlaceBathroomButton" type="TextureButton" parent="BuildMenu"]
 layout_mode = 0
 offset_left = 665.525
 offset_top = 50.6348
@@ -310,6 +309,11 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_a0dom")
 text = "Energy:"
 
 [connection signal="pressed" from="Panel/ExitMenu" to="." method="_on_exit_menu_pressed"]
+[connection signal="pressed" from="BuildMenu/PlaceFenceButton" to="." method="_on_place_fence_button_pressed"]
+[connection signal="pressed" from="BuildMenu/PlaceCabinButton" to="." method="_on_place_cabin_button_pressed"]
+[connection signal="pressed" from="BuildMenu/PlaceWatchtowerButton" to="." method="_on_place_watchtower_button_pressed"]
+[connection signal="pressed" from="BuildMenu/PlaceTreesButton" to="." method="_on_place_trees_button_pressed"]
+[connection signal="pressed" from="BuildMenu/PlaceBathroomButton" to="." method="_on_place_bathroom_button_pressed"]
 [connection signal="pressed" from="BuildMenu/ExitMenu2" to="." method="_on_exit_menu_2_pressed"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
