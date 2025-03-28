@@ -1,12 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://3cg46xn1c7x8"]
+[gd_scene load_steps=5 format=3 uid="uid://3cg46xn1c7x8"]
 
 [ext_resource type="PackedScene" uid="uid://bppcoqbsaofmh" path="res://Entities/Plants/TemplatePlant/TemplatePlant.tscn" id="1_tdtwy"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vqyaw"]
-albedo_color = Color(0.10362, 0.3703, 0.0611114, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_eh8cm"]
-material = SubResource("StandardMaterial3D_vqyaw")
+[ext_resource type="PackedScene" uid="uid://dm30os5hira18" path="res://Props/Natural/Grass/Grass.blend" id="2_ctnaq"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4g0u7"]
 height = 10.0
@@ -15,9 +10,12 @@ radius = 10.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_fdqwo"]
 
 [node name="Grass" instance=ExtResource("1_tdtwy")]
-mesh = SubResource("BoxMesh_eh8cm")
+mesh = null
 species = "Grass"
 self_scene_path = "res://Entities/Plants/Grass/grass.tscn"
+
+[node name="GrassTexture" parent="." index="0" instance=ExtResource("2_ctnaq")]
+transform = Transform3D(1.33227, 0, 0, 0, 0.655464, 0, 0, 0, 1.62106, 0, -0.478498, 0)
 
 [node name="ClusterDetectionCollision" parent="ClusterDetection" index="0"]
 shape = SubResource("CylinderShape3D_4g0u7")

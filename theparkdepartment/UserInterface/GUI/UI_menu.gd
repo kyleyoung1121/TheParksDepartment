@@ -38,8 +38,8 @@ var index
 
 # CLOCK
 var meridiem
-var clock = 480 # 8 AM
-var day = 0;
+var clock = 288 # 4:48 AM
+var day = 1;
 var mult = 1;
 var check = 0;
 
@@ -69,7 +69,7 @@ func _process(delta: float) -> void:
 		#$HungerBar.value = animalStats[index].hunger
 		#$ThirstBar.value = animalStats[index].thirst
 	
-	if (check == 10):
+	if (check == 20):
 		clock = clock + mult;
 		check = 0
 	check = check + 1
@@ -126,12 +126,36 @@ func _ready() -> void:
 	#index = id
 	#tracking = true;
 
+
+func _on_place_fence_button_pressed():
+	pass
+	#var building_scene = preload("res://path_to_building.tscn")
+	#get_tree().get_first_node_in_group("building_placer").start_placing(building_scene)
+
+
+func _on_place_cabin_button_pressed():
+	pass # Replace with function body.
+
+
+func _on_place_watchtower_button_pressed():
+	pass # Replace with function body.
+
+
+func _on_place_trees_button_pressed():
+	pass # Replace with function body.
+
+
+func _on_place_bathroom_button_pressed():
+	pass # Replace with function body.
+
+
 func _on_fast_forward_button_pressed() -> void:
 	mult = 2;
 func _on_play_button_pressed() -> void:
 	mult = 1;
 func _on_pause_button_pressed() -> void:
 	mult = 0;
+
 
 func _on_animal_status_button_pressed() -> void:
 	if ($BuildMenu.visible == true):
@@ -148,6 +172,7 @@ func _on_animal_status_button_pressed() -> void:
 	$Panel/ListItem2.text = "Wolf: " + str(WolfCount)
 	$Panel/ListItem3.text = "Bird: " + str(BirdCount)
 
+
 func _on_plant_status_button_pressed() -> void:
 	if ($BuildMenu.visible == true):
 		$BuildMenu.visible = false
@@ -162,6 +187,7 @@ func _on_plant_status_button_pressed() -> void:
 	$Panel/ListItem1.text = "Plant1: " + str(Plant1Count)
 	$Panel/ListItem2.text = "Plant2: " + str(Plant2Count)
 	$Panel/ListItem3.text = "Plant3: " + str(Plant3Count)
+
 
 func _on_exit_menu_pressed() -> void:
 	$Panel.visible = false
