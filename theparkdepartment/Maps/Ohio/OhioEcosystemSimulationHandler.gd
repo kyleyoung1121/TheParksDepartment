@@ -119,22 +119,16 @@ func guest_system():
 	# max of 5 guests for now
 	while i < 6:
 		guest_movement(i)
-		print(i, " is moving")
 		await get_tree().create_timer(15).timeout
 		i += 1
 		if i == 6:
 			i = 1
-	
-	print("out-of-loop is moving")
 
 
 func give_money():
-	# link money variable to UI
-	emit_signal("update_funds")
+	OhioEcosystemData.funds += 20
 
 func guest_movement(guestNum):
-	give_money()
-	
 	#1
 	for i in range(585):
 		get_node("Guests/Guest" + str(guestNum)).position.x += 0.1
@@ -172,3 +166,5 @@ func guest_movement(guestNum):
 	
 	get_node("Guests/Guest" + str(guestNum)).position.x = -14
 	get_node("Guests/Guest" + str(guestNum)).position.z = 18.3
+	
+	give_money()

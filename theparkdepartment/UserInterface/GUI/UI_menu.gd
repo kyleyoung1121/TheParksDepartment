@@ -70,6 +70,7 @@ func _process(delta: float) -> void:
 	#if (tracking == true && index != null):
 		#$HungerBar.value = animalStats[index].hunger
 		#$ThirstBar.value = animalStats[index].thirst
+	$Panel2/Funds.text = "$" + str(OhioEcosystemData.funds)
 	
 	if (check == 20):
 		clock = clock + mult;
