@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://btwhkfateu604"]
+
+[ext_resource type="PackedScene" uid="uid://djuod3fskf5cl" path="res://Entities/Animals/TemplateAnimal/TemplateAnimal.tscn" id="1_nuqd5"]
+[ext_resource type="PackedScene" uid="uid://bp4pc10qlplwq" path="res://Entities/Animals/CoopersHawk/Assets/coopers-hawk.blend" id="2_f2t6d"]
+
+[node name="CoopersHawk" instance=ExtResource("1_nuqd5")]
+species = "CoopersHawk"
+self_scene_path = "res://Entities/Animals/CoopersHawk/CoopersHawk.tscn"
+
+[node name="CoopersHawk_skin" parent="." index="2" instance=ExtResource("2_f2t6d")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 1.90395)

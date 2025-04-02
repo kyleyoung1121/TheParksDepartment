@@ -6,6 +6,7 @@ extends MeshInstance3D
 
 @onready var cluster_area = $ClusterDetection
 @onready var cluster_collision = $ClusterDetection/ClusterDetectionCollision
+@onready var grass_texture = $GrassTexture
 
 var plant_name: String
 var max_age: int
@@ -49,6 +50,12 @@ func _ready():
 	health = get_random_portion(max_health, 0.5, 1)
 	cluster_collision.shape.height = cluster_range
 	cluster_collision.shape.radius = cluster_range
+	
+	# Set a random appearance
+	var height_mod = randf_range(0.8, 1.2)
+	var width_mod = randf_range(0.8, 1.2)
+	grass_texture.scale = Vector3(1.5 * width_mod, 0.65 * height_mod, 1.5 * width_mod)
+	grass_texture.rotation.y = randf_range(0,360)
 
 func update():
 	# Don't do anything else if in the growing stage

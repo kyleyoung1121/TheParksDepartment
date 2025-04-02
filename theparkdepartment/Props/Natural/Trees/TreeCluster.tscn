@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://s8pa4u2qqfqd"]
+
+[ext_resource type="PackedScene" uid="uid://dj68fd3ryt7a5" path="res://Props/Natural/Trees/TreeCluster.blend" id="1_ceobc"]
+
+[node name="TreeCluster" type="Node3D"]
+
+[node name="TreeCluster" parent="." instance=ExtResource("1_ceobc")]
+transform = Transform3D(0.63, 0, 0, 0, 0.63, 0, 0, 0, 0.63, 0, 0, 0)

@@ -1,16 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://gol04457fdh6"]
+[gd_scene load_steps=3 format=3 uid="uid://gol04457fdh6"]
 
 [ext_resource type="PackedScene" uid="uid://djuod3fskf5cl" path="res://Entities/Animals/TemplateAnimal/TemplateAnimal.tscn" id="1_4cxpb"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5dima"]
-albedo_color = Color(0.523609, 0.314305, 0.0905729, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_y53uu"]
-material = SubResource("StandardMaterial3D_5dima")
+[ext_resource type="PackedScene" uid="uid://wmerghdvplqu" path="res://Entities/Animals/Deer/Assets/deer.blend" id="2_iasi4"]
 
 [node name="Deer" instance=ExtResource("1_4cxpb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.856144)
 species = "Deer"
 self_scene_path = "res://Entities/Animals/Deer/Deer.tscn"
 
-[node name="MeshInstance3D" parent="." index="0"]
-mesh = SubResource("CapsuleMesh_y53uu")
+[node name="Deer_skin" parent="." index="2" instance=ExtResource("2_iasi4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.2, -1.57552)

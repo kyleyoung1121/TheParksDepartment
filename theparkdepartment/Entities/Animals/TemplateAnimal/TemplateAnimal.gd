@@ -9,6 +9,10 @@ extends CharacterBody3D
 @onready var eye_sight_collision = $EyeSightArea/EyeSightCollision
 @onready var mesh_instance = $MeshInstance3D
 
+# Get the animation player
+var animation_player: AnimationPlayer
+var has_animation_player = false
+
 var animal_name: String
 var age: int
 var speed: float
@@ -32,7 +36,6 @@ var movement_chance: float
 var reproduction_cooldown: int
 var reproduction_timer: int
 var desired_position = Vector3()
-var animation_action: String = "idle"
 var default_litter_size: int
 var litter_size: int
 
@@ -51,6 +54,15 @@ var fences = OhioEcosystemData.fences
 
 
 func _ready():
+	# Try finding the AnimationPlayer in the scene hierarchy
+	animation_player = find_child("AnimationPlayer", true)  # Recursive search	
+	if animation_player == null:
+		print("AnimationPlayer not found in ", self.name)
+		has_animation_player = false
+	else:
+		print("AnimationPlayer found in ", self.name)
+		has_animation_player = true
+
 	# Make sure species is set on this animal! (from the editor)
 	assert(not species == null)
 	
@@ -104,13 +116,13 @@ func _physics_process(delta):
 	
 	# Move in the x and z directions as needed (y is height, so ignore it for now)
 	if direction and position.distance_to(desired_position) > 1:
-		animation_action = "walking"
+		play_animation("move")
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 		# Set y rotation based on movement direction
 		rotation.y = atan2(-direction.x, -direction.z)
 	else:
-		animation_action = "idle"
+		play_animation("idle")
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 	
@@ -119,6 +131,8 @@ func _physics_process(delta):
 
 
 func update():
+	# Play idle animation by default	
+	play_animation("idle")
 	# Chance to move
 	if randf() < movement_chance:
 		decide_movement()
@@ -145,7 +159,7 @@ func update():
 						food_consideration.consumed()
 						has_eaten = true
 						print(animal_name, " ate a ", food_consideration.species, " at ", position)
-						animation_action = "eating"
+						play_animation("eat")
 						break
 		
 		if (diet_type == "Carnivore" or diet_type == "Omnivore") and not has_eaten:
@@ -160,7 +174,7 @@ func update():
 						food_consideration.consumed()
 						has_eaten = true
 						print(animal_name, " ate a ", food_consideration.species, " at ", position)
-						animation_action = "eating"
+						play_animation("eat")
 						break
 
 	# For every entity of same species in range, increase social
@@ -371,7 +385,8 @@ func decide_movement():
 
 func consumed():
 	telepathy_print("Oops! Dying...")
-	animation_action = "dying"
+	# Flip the animal upside down to indicate death
+	rotation_degrees = Vector3(0, 180, 0)
 	# TODO: Add some delay to allow the animation to complete
 	# TODO: Placeholder 'effect' and timeout
 	mesh_instance.mesh = CapsuleMesh.new()
@@ -475,3 +490,32 @@ func is_point_on_line(point, target, start, end):
 		return true
 	
 	return false
+
+func play_animation(animation_name):
+	if not has_animation_player or animation_player == null:
+		print("AnimationPlayer is not initialized or missing.")
+		return
+	
+	var animation_dictionary = {
+		"idle": ["idle", "perched-idle", "special"],
+		"move": ["move-slow", "basic-flap", "fast-move"],
+		"eat": ["eat"],
+	}
+
+	if animation_name in animation_dictionary:
+		var animation_list = animation_dictionary[animation_name]
+		# Keep only the animations that are available
+		animation_list = animation_list.filter(func(animation):
+			return animation_player.has_animation(animation)
+		)
+		print("DEBUG Animation list: ", animation_list)
+		# Shuffle the list to add some variety
+		animation_list.shuffle()
+		for animation in animation_list:
+			if animation_player.has_animation(animation):
+				animation_player.play(animation)
+				return
+			else:
+				print("DEBUG Animation not found: ", animation)
+	else:
+		print("Animation category not found: ", animation_name)
