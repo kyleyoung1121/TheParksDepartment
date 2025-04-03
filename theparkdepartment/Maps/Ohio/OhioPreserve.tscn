@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://Systems/ObjectPlacement/ObjectPlacement.gd" id="1_1crrr"]
 [ext_resource type="PackedScene" uid="uid://bajcno73354v1" path="res://Maps/MapParts/Tile.tscn" id="1_2ewd0"]
 [ext_resource type="Script" path="res://Maps/Ohio/OhioEcosystemSimulationHandler.gd" id="1_eab4o"]
-[ext_resource type="PackedScene" uid="uid://dwp624wmncn58" path="res://Systems/CameraController/Camera.tscn" id="2_ar074"]
+[ext_resource type="PackedScene" uid="uid://dwp624wmncn58" path="res://Systems/CameraController/camera.tscn" id="2_ar074"]
 [ext_resource type="PackedScene" uid="uid://c446bf6cmnsx6" path="res://Systems/DayNightCycle/DayNightCycle.tscn" id="3_naupw"]
 [ext_resource type="PackedScene" uid="uid://dp4umc3lj5fhc" path="res://UserInterface/EscMenu/EscMenu.tscn" id="5_880vd"]
 [ext_resource type="PackedScene" uid="uid://gjvq348elioi" path="res://Props/Natural/Landscape/Landscape.blend" id="6_o01yp"]
-[ext_resource type="PackedScene" uid="uid://o27yt3k5ogk7" path="res://UserInterface/GUI/InGameMenu.tscn" id="7_tnkxy"]
+[ext_resource type="PackedScene" uid="uid://o27yt3k5ogk7" path="res://UserInterface/example_menu.tscn" id="7_tnkxy"]
 
 [sub_resource type="Gradient" id="Gradient_kbrg6"]
 offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
