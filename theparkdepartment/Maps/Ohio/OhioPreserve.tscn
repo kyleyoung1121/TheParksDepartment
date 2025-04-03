@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://biryhebi3vfjo"]
+[gd_scene load_steps=14 format=3 uid="uid://biryhebi3vfjo"]
 
 [ext_resource type="Script" path="res://Systems/ObjectPlacement/ObjectPlacement.gd" id="1_1crrr"]
 [ext_resource type="PackedScene" uid="uid://bajcno73354v1" path="res://Maps/MapParts/Tile.tscn" id="1_2ewd0"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dp4umc3lj5fhc" path="res://UserInterface/EscMenu/EscMenu.tscn" id="5_880vd"]
 [ext_resource type="PackedScene" uid="uid://gjvq348elioi" path="res://Props/Natural/Landscape/Landscape.blend" id="6_o01yp"]
 [ext_resource type="PackedScene" uid="uid://o27yt3k5ogk7" path="res://UserInterface/example_menu.tscn" id="7_tnkxy"]
+[ext_resource type="PackedScene" uid="uid://dj68fd3ryt7a5" path="res://Props/Natural/Trees/TreeCluster.blend" id="9_6ig1u"]
 
 [sub_resource type="Gradient" id="Gradient_kbrg6"]
 offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
@@ -371,3 +372,33 @@ skeleton = NodePath("../..")
 
 [node name="ObjectPlacement" type="Node" parent="."]
 script = ExtResource("1_1crrr")
+
+[node name="TreeCluster" parent="." instance=ExtResource("9_6ig1u")]
+transform = Transform3D(1.42263, 0, 0, 0, 1.42263, 0, 0, 0, 1.42263, 62.0097, 0, 0.0448709)
+
+[node name="TreeCluster2" parent="." instance=ExtResource("9_6ig1u")]
+transform = Transform3D(1.42263, 0, 0, 0, 1.42263, 0, 0, 0, 1.42263, 27.5391, 0, 108.825)
+
+[node name="TreeCluster3" parent="." instance=ExtResource("9_6ig1u")]
+transform = Transform3D(1.42263, 0, 0, 0, 1.42263, 0, 0, 0, 1.42263, 96.0511, 0, 38.5025)
+
+[node name="TreeCluster4" parent="." instance=ExtResource("9_6ig1u")]
+transform = Transform3D(1.42263, 0, 0, 0, 1.42263, 0, 0, 0, 1.42263, 147.143, 0, 118.719)
+
+[node name="TreeCluster5" parent="." instance=ExtResource("9_6ig1u")]
+transform = Transform3D(1.42263, 0, 0, 0, 1.42263, 0, 0, 0, 1.42263, 73.4853, 0, 76.982)
+
+[node name="TreeCluster6" parent="." instance=ExtResource("9_6ig1u")]
+transform = Transform3D(1.42263, 0, 0, 0, 1.42263, 0, 0, 0, 1.42263, 26.4331, 0, 52.9446)
+
+[node name="TreeCluster7" parent="." instance=ExtResource("9_6ig1u")]
+transform = Transform3D(1.42263, 0, 0, 0, 1.42263, 0, 0, 0, 1.42263, 7.3896, 0, 0.0448709)
+
+[node name="TreeCluster8" parent="." instance=ExtResource("9_6ig1u")]
+transform = Transform3D(1.42263, 0, 0, 0, 1.42263, 0, 0, 0, 1.42263, 87.0232, 0, 147.005)
+
+[node name="TreeCluster9" parent="." instance=ExtResource("9_6ig1u")]
+transform = Transform3D(1.42263, 0, 0, 0, 1.42263, 0, 0, 0, 1.42263, -3.48089, 0, 107.779)
+
+[node name="TreeCluster10" parent="." instance=ExtResource("9_6ig1u")]
+transform = Transform3D(1.42263, 0, 0, 0, 1.42263, 0, 0, 0, 1.42263, 150.41, 0, 26.4851)

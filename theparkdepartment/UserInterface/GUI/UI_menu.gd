@@ -2,38 +2,6 @@ extends Control
 
 signal start_object_placement(structure_type)
 
-var animalStats = [{
-	"name": "Deer",
-	"hunger": 80,
-	"thirst": 80,
-	"max-hunger": 80,
-	"max-thirst": 80
-},{
-	"name": "Wolf",
-	"hunger": 100,
-	"thirst": 100,
-	"max-hunger": 100,
-	"max-thirst": 100
-},{
-	"name": "Bird",
-	"hunger": 50,
-	"thirst": 50,
-	"max-hunger": 50,
-	"max-thirst": 50
-},{
-	"name": "Fox",
-	"hunger": 75,
-	"thirst": 75,
-	"max-hunger": 75,
-	"max-thirst": 75
-},{
-	"name": "Squirrel",
-	"hunger": 50,
-	"thirst": 50,
-	"max-hunger": 50,
-	"max-thirst": 50
-}]
-
 # ANIMAL STATS
 var tracking = false
 var index
@@ -46,11 +14,12 @@ var mult = 1;
 var check = 0;
 
 var DeerCount
-var WolfCount
-var BirdCount
-var Plant1Count
-var Plant2Count
-var Plant3Count
+var RabbitCount
+var EasternWolfCount
+var CoyoteCount
+var AmericanGoldfinchCount
+var CoopersHawkCount
+var PlantCount
 
 # Object Prices
 var fence_cost = 25 
@@ -71,6 +40,16 @@ func _process(delta: float) -> void:
 		#$HungerBar.value = animalStats[index].hunger
 		#$ThirstBar.value = animalStats[index].thirst
 	$Panel2/Funds.text = "$" + str(OhioEcosystemData.funds)
+	
+	if ($Panel/ListHeader.text == "Animal Count"):
+		$Panel/ScrollContainer/VBoxContainer/ListItem1.text = "White Tailed Deer: " + str(OhioEcosystemData.animals_species_data["Deer"]["count"])
+		$Panel/ScrollContainer/VBoxContainer/ListItem2.text = "Rabbit: " + str(OhioEcosystemData.animals_species_data["Rabbit"]["count"])
+		$Panel/ScrollContainer/VBoxContainer/ListItem3.text = "Eastern Wolf: " + str(OhioEcosystemData.animals_species_data["EasternWolf"]["count"])
+		$Panel/ScrollContainer/VBoxContainer/ListItem4.text = "Coyote: " +  str(OhioEcosystemData.animals_species_data["Coyote"]["count"])
+		$Panel/ScrollContainer/VBoxContainer/ListItem5.text = "American Goldfinch: " + str(OhioEcosystemData.animals_species_data["AmericanGoldfinch"]["count"])
+		$Panel/ScrollContainer/VBoxContainer/ListItem6.text = "Cooper's Hawk: " + str(OhioEcosystemData.animals_species_data["CoopersHawk"]["count"])
+	elif ($Panel/ListHeader.text == "Plant Count"):
+		$Panel/ScrollContainer/VBoxContainer/ListItem1.text = "Grass: " + str(OhioEcosystemData.plants_species_data["Grass"]["count"])
 	
 	if (check == 20):
 		clock = clock + mult;
@@ -176,11 +155,11 @@ func building_check() -> void:
 
 
 func _on_fast_forward_button_pressed() -> void:
-	mult = 2;
+	OhioEcosystemData.speedMult = 0.2
 func _on_play_button_pressed() -> void:
-	mult = 1;
+	OhioEcosystemData.speedMult = 0.1
 func _on_pause_button_pressed() -> void:
-	mult = 0;
+	OhioEcosystemData.speedMult = 0
 
 
 func _on_animal_status_button_pressed() -> void:
@@ -194,10 +173,12 @@ func _on_animal_status_button_pressed() -> void:
 		$Panel.visible = true
 		
 	$Panel/ListHeader.text = "Animal Count"
-	$Panel/ListItem1.text = "White Tailed Deer: " + str(DeerCount)
-	$Panel/ListItem2.text = "Wolf: " + str(WolfCount)
-	$Panel/ListItem3.text = "Bird: " + str(BirdCount)
-
+	$Panel/ScrollContainer/VBoxContainer/ListItem1.visible = true
+	$Panel/ScrollContainer/VBoxContainer/ListItem2.visible = true
+	$Panel/ScrollContainer/VBoxContainer/ListItem3.visible = true
+	$Panel/ScrollContainer/VBoxContainer/ListItem4.visible = true
+	$Panel/ScrollContainer/VBoxContainer/ListItem5.visible = true
+	$Panel/ScrollContainer/VBoxContainer/ListItem6.visible = true
 
 func _on_plant_status_button_pressed() -> void:
 	if ($BuildMenu.visible == true):
@@ -210,9 +191,12 @@ func _on_plant_status_button_pressed() -> void:
 		$Panel.visible = true
 	
 	$Panel/ListHeader.text = "Plant Count"
-	$Panel/ListItem1.text = "Plant1: " + str(Plant1Count)
-	$Panel/ListItem2.text = "Plant2: " + str(Plant2Count)
-	$Panel/ListItem3.text = "Plant3: " + str(Plant3Count)
+	$Panel/ScrollContainer/VBoxContainer/ListItem1.visible = true
+	$Panel/ScrollContainer/VBoxContainer/ListItem2.visible = false
+	$Panel/ScrollContainer/VBoxContainer/ListItem3.visible = false
+	$Panel/ScrollContainer/VBoxContainer/ListItem4.visible = false
+	$Panel/ScrollContainer/VBoxContainer/ListItem5.visible = false
+	$Panel/ScrollContainer/VBoxContainer/ListItem6.visible = false
 
 
 func _on_exit_menu_pressed() -> void:

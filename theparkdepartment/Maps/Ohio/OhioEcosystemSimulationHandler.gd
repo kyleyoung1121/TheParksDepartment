@@ -139,38 +139,52 @@ func give_money():
 
 func guest_movement(guestNum):
 	#1
-	for i in range(585):
-		get_node("Guests/Guest" + str(guestNum)).position.x += 0.1
+	# for i in range(585):
+	var currpos = get_node("Guests/Guest" + str(guestNum)).position.x
+	while (currpos + (585*0.1) > get_node("Guests/Guest" + str(guestNum)).position.x):
+		get_node("Guests/Guest" + str(guestNum)).position.x += OhioEcosystemData.speedMult
 		await get_tree().create_timer(0.01).timeout
 	
 	#2
-	for i in range(700):
-		get_node("Guests/Guest" + str(guestNum)).position.z += 0.1
+	#for i in range(700):
+	currpos = get_node("Guests/Guest" + str(guestNum)).position.z
+	while (currpos + (700*0.1) > get_node("Guests/Guest" + str(guestNum)).position.z):
+		get_node("Guests/Guest" + str(guestNum)).position.z += OhioEcosystemData.speedMult
 		await get_tree().create_timer(0.01).timeout
 	
 	#3
-	for i in range(393):
-		get_node("Guests/Guest" + str(guestNum)).position.x -= 0.1
+	#for i in range(393):
+	currpos = get_node("Guests/Guest" + str(guestNum)).position.x
+	while (currpos - (393*0.1) < get_node("Guests/Guest" + str(guestNum)).position.x):
+		get_node("Guests/Guest" + str(guestNum)).position.x -= OhioEcosystemData.speedMult
 		await get_tree().create_timer(0.01).timeout
 	
 	#4
-	for i in range(482):
-		get_node("Guests/Guest" + str(guestNum)).position.z += 0.1
+	#for i in range(482):
+	currpos = get_node("Guests/Guest" + str(guestNum)).position.z
+	while (currpos + (482*0.1) > get_node("Guests/Guest" + str(guestNum)).position.z):
+		get_node("Guests/Guest" + str(guestNum)).position.z += OhioEcosystemData.speedMult
 		await get_tree().create_timer(0.01).timeout
 	
 	#5
-	for i in range(1137):
-		get_node("Guests/Guest" + str(guestNum)).position.x += 0.1
+	#for i in range(1137):
+	currpos = get_node("Guests/Guest" + str(guestNum)).position.x
+	while (currpos + (1137*0.1) > get_node("Guests/Guest" + str(guestNum)).position.x):
+		get_node("Guests/Guest" + str(guestNum)).position.x += OhioEcosystemData.speedMult
 		await get_tree().create_timer(0.01).timeout
 		
 	#6
-	for i in range(1315):
-		get_node("Guests/Guest" + str(guestNum)).position.z -= 0.1
+	#for i in range(1315):
+	currpos = get_node("Guests/Guest" + str(guestNum)).position.z
+	while (currpos - (1315*0.1) < get_node("Guests/Guest" + str(guestNum)).position.z):
+		get_node("Guests/Guest" + str(guestNum)).position.z -= OhioEcosystemData.speedMult
 		await get_tree().create_timer(0.01).timeout
 		
 	#7
-	for i in range(400):
-		get_node("Guests/Guest" + str(guestNum)).position.x += 0.1
+	#for i in range(400):
+	currpos = get_node("Guests/Guest" + str(guestNum)).position.x
+	while (currpos + (400*0.1) > get_node("Guests/Guest" + str(guestNum)).position.x):
+		get_node("Guests/Guest" + str(guestNum)).position.x += OhioEcosystemData.speedMult
 		await get_tree().create_timer(0.01).timeout
 	
 	get_node("Guests/Guest" + str(guestNum)).position.x = -14

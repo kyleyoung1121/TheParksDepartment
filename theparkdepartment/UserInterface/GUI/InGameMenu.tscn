@@ -71,9 +71,9 @@ script = ExtResource("1_kghvm")
 [node name="Panel" type="Panel" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 2.0
+offset_left = 0.00741237
 offset_top = 875.0
-offset_right = 289.0
+offset_right = 287.007
 offset_bottom = 1075.0
 theme = SubResource("Theme_qlupe")
 
@@ -87,32 +87,45 @@ theme_override_colors/font_color = Color(0.443137, 0.917647, 0.364706, 1)
 theme_override_font_sizes/font_size = 30
 text = "Animal Count"
 
-[node name="ListItem1" type="Label" parent="Panel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
 layout_mode = 0
-offset_left = 10.9518
-offset_top = 51.5531
-offset_right = 204.952
-offset_bottom = 79.5531
-theme_override_font_sizes/font_size = 20
-text = "White Tailed Deer: 0"
+offset_left = 14.0
+offset_top = 47.0
+offset_right = 279.0
+offset_bottom = 169.0
 
-[node name="ListItem2" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 11.9481
-offset_top = 83.4345
-offset_right = 78.9481
-offset_bottom = 111.435
-theme_override_font_sizes/font_size = 20
-text = "Wolf: 0"
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
 
-[node name="ListItem3" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 11.9481
-offset_top = 115.316
-offset_right = 73.9481
-offset_bottom = 143.316
+[node name="ListItem1" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Bird: 0"
+text = "White Tailed Deer: "
+
+[node name="ListItem2" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Rabbit: "
+
+[node name="ListItem3" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Eastern Wolf:"
+
+[node name="ListItem4" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Coyote: "
+
+[node name="ListItem5" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "American Goldfinch: "
+
+[node name="ListItem6" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Cooper's Hawk: "
 
 [node name="ExitMenu" type="TextureButton" parent="Panel"]
 layout_mode = 0
@@ -339,9 +352,9 @@ texture_progress = ExtResource("16_yg8c1")
 
 [node name="PauseButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 901.646
+offset_left = 908.62
 offset_top = 1032.16
-offset_right = 1101.65
+offset_right = 1108.62
 offset_bottom = 1232.16
 scale = Vector2(0.10603, 0.108602)
 texture_normal = ExtResource("16_t1a4d")
@@ -350,9 +363,9 @@ texture_focused = ExtResource("17_meo5g")
 
 [node name="PlayButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 941.498
+offset_left = 948.472
 offset_top = 1032.16
-offset_right = 1141.5
+offset_right = 1148.47
 offset_bottom = 1232.16
 scale = Vector2(0.102359, 0.102359)
 texture_normal = ExtResource("17_3inxt")
@@ -361,9 +374,9 @@ texture_focused = ExtResource("19_6j45w")
 
 [node name="FastForwardButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 977.364
+offset_left = 984.338
 offset_top = 1031.16
-offset_right = 1177.36
+offset_right = 1184.34
 offset_bottom = 1231.16
 scale = Vector2(0.111723, 0.104573)
 texture_normal = ExtResource("18_tg00r")
