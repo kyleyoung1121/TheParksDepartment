@@ -12,6 +12,7 @@ extends CharacterBody3D
 # Get the animation player
 var animation_player: AnimationPlayer
 var has_animation_player = false
+var prev_animation: String = ""
 
 var animal_name: String
 var age: int
@@ -496,6 +497,10 @@ func play_animation(animation_name):
 		print("AnimationPlayer is not initialized or missing.")
 		return
 	
+	# Check if the animation is already playing, if it's the same as the previous one, do nothing
+	if animation_player.is_playing() and prev_animation == animation_name:
+		return
+	
 	var animation_dictionary = {
 		"idle": ["idle", "perched-idle", "special"],
 		"move": ["move-slow", "basic-flap", "fast-move"],
@@ -508,14 +513,14 @@ func play_animation(animation_name):
 		animation_list = animation_list.filter(func(animation):
 			return animation_player.has_animation(animation)
 		)
-		print("DEBUG Animation list: ", animation_list)
 		# Shuffle the list to add some variety
 		animation_list.shuffle()
 		for animation in animation_list:
 			if animation_player.has_animation(animation):
 				animation_player.play(animation)
+				prev_animation = animation_name
 				return
 			else:
-				print("DEBUG Animation not found: ", animation)
+				print("Animation not found: ", animation)
 	else:
 		print("Animation category not found: ", animation_name)

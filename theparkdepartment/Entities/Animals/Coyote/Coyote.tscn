@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://chb22i88pb8bk"]
+
+[ext_resource type="PackedScene" uid="uid://djuod3fskf5cl" path="res://Entities/Animals/TemplateAnimal/TemplateAnimal.tscn" id="1_u062p"]
+[ext_resource type="PackedScene" uid="uid://b0vxvxg8a7d8c" path="res://Entities/Animals/Coyote/Assets/coyote.blend" id="2_7rjva"]
+
+[node name="EasternWolf" instance=ExtResource("1_u062p")]
+species = "Coyote"
+self_scene_path = "res://Entities/Animals/Coyote/Coyote.tscn"
+
+[node name="coyote" parent="." index="2" instance=ExtResource("2_7rjva")]
+transform = Transform3D(-0.6, 0, -5.24537e-08, 0, 0.6, 0, 5.24537e-08, 0, -0.6, 0, -0.4, 0)
