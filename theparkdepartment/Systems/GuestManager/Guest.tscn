@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkedw85k2vwo8"]
+
+[ext_resource type="Script" path="res://Systems/GuestManager/Guest.gd" id="1_mgawi"]
+[ext_resource type="PackedScene" uid="uid://x0kmcwau1n38" path="res://Systems/GuestManager/Guest.blend" id="1_s1qwb"]
+
+[node name="Guest" type="Node3D"]
+script = ExtResource("1_mgawi")
+
+[node name="Guest" parent="." instance=ExtResource("1_s1qwb")]
