@@ -1,11 +1,13 @@
 extends Node
 
-signal RequestToPlace
+signal request_to_place(structure_type)
 
 @export var confirmation_window: ConfirmationDialog  # Drag your confirmation window here
 @onready var current_building: Node3D = null
 
+var placement_in_progress = false
 var follow_mouse = true
+var selected_structure_type
 
 # Store available building scenes
 var building_scenes = {
@@ -25,15 +27,19 @@ func _process(delta):
 		current_building.global_transform.origin = get_mouse_world_position()
 		# Check if the user is placing the structure
 		if Input.is_action_just_pressed("place_structure"):
-			emit_signal("RequestToPlace")
+			emit_signal("request_to_place", selected_structure_type)
 			follow_mouse = false
-	else:
-		current_building = null
 
 
-func start_placing(selected_object: String):
+func start_placing(structure_type: String):
+	# Do not start a new placement if one is in progress
+	if placement_in_progress:
+		return
+	
 	print("Object Placement: start_placing() called!")
 	follow_mouse = true
+	placement_in_progress = true
+	selected_structure_type = structure_type
 	
 	# Remove any previous preview
 	if current_building:
@@ -41,8 +47,8 @@ func start_placing(selected_object: String):
 		current_building = null
 	
 	# Set the appropriate packed scene
-	if building_scenes.has(selected_object):
-		selected_building_scene = building_scenes[selected_object]
+	if building_scenes.has(structure_type):
+		selected_building_scene = building_scenes[structure_type]
 	else:
 		selected_building_scene = null
 
@@ -58,19 +64,16 @@ func start_placing(selected_object: String):
 					mat.albedo_color.a = 0.5  # 50% transparency
 
 
-
-func place_building():
-	if current_building:
-		emit_signal("RequestToPlace", current_building)
-
-
 func confirm_placement():
+	print("placement: going to confirm building")
 	if current_building:
+		print("placement: confirmed building")
 		# Permanently place the building
 		var final_building = selected_building_scene.instantiate()
 		final_building.global_transform.origin = current_building.global_transform.origin
 		get_parent().add_child(final_building)
-
+		placement_in_progress = false
+		
 		# Remove preview
 		current_building.queue_free()
 		current_building = null
@@ -80,6 +83,7 @@ func cancel_placement():
 	if current_building:
 		current_building.queue_free()
 		current_building = null
+		placement_in_progress = false
 
 
 func get_mouse_world_position() -> Vector3:

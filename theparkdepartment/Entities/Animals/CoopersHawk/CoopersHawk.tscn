@@ -8,4 +8,4 @@ species = "CoopersHawk"
 self_scene_path = "res://Entities/Animals/CoopersHawk/CoopersHawk.tscn"
 
 [node name="CoopersHawk_skin" parent="." index="2" instance=ExtResource("2_f2t6d")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 1.90395)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.00518751, 0.403592, 0.467392)

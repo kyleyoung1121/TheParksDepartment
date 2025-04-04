@@ -5,4 +5,4 @@
 [node name="Watchtower" type="Node3D"]
 
 [node name="Watchtower" parent="." instance=ExtResource("1_qj8ns")]
-transform = Transform3D(0.418863, 0, 0, 0, 0.418863, 0, 0, 0, 0.418863, 0, -0.045655, 0)
+transform = Transform3D(0.539, 0, 0, 0, 0.539, 0, 0, 0, 0.539, 0, -0.045655, 0)

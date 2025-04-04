@@ -22,6 +22,9 @@ func _ready():
 	print("Grid bounds max: ", grid_bounds_max)
 	
 	in_game_menu.start_object_placement.connect(_on_start_object_placement)
+	object_placement.request_to_place.connect(_on_request_to_place)
+	in_game_menu.confirm_object_placement.connect(_on_confirm_placement)
+	in_game_menu.cancel_object_placement.connect(_on_cancel_placement)
 	
 	# Initialize fences
 	for fence in OhioEcosystemData.fences:
@@ -120,6 +123,20 @@ func start_simulation():
 
 func _on_start_object_placement(structure_type):
 	object_placement.start_placing(structure_type)
+
+
+func _on_request_to_place(structure_type):
+	in_game_menu.placement_requested(structure_type)
+
+
+func _on_confirm_placement():
+	print("placement: flag 1")
+	object_placement.confirm_placement()
+
+
+func _on_cancel_placement():
+	print("placement: cancelled - flag 1")
+	object_placement.cancel_placement()
 
 
 func guest_system():
