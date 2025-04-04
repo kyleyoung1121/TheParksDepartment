@@ -494,7 +494,7 @@ func is_point_on_line(point, target, start, end):
 
 func play_animation(animation_name):
 	if not has_animation_player or animation_player == null:
-		print("AnimationPlayer is not initialized or missing.")
+		#print("AnimationPlayer is not initialized or missing.")
 		return
 	
 	# Check if the animation is already playing, if it's the same as the previous one, do nothing

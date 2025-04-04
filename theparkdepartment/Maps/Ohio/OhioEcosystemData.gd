@@ -127,19 +127,18 @@ var plants_species_data = {
 	}
 }
 
-# 2D array for fences and their edges 
-#  The size is currently -8 to 152
+# 2D array for fences (starting and ending points) 
 var fences = [
 	[
-		Vector3(0, 0, 0), Vector3(0, 0, 25)
+		Vector3(50, 0, 0), Vector3(50, 0, 25)
 	],
 	[
-		Vector3(0, 0, 25), Vector3(25, 0, 25)
+		Vector3(50, 0, 25), Vector3(75, 0, 25)
 	],
 	[
-		Vector3(25, 0, 25), Vector3(25, 0, 0)
+		Vector3(75, 0, 25), Vector3(75, 0, 0)
 	],
 	[
-		Vector3(25, 0, 0), Vector3(0, 0, 0)
+		Vector3(75, 0, 0), Vector3(50, 0, 0)
 	],
 ]
