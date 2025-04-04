@@ -1,6 +1,8 @@
 extends Control
 
 signal start_object_placement(structure_type)
+signal confirm_object_placement()
+signal cancel_object_placement()
 
 # ANIMAL STATS
 var tracking = false
@@ -22,11 +24,13 @@ var CoopersHawkCount
 var PlantCount
 
 # Object Prices
-var fence_cost = 25 
-var log_cabin_cost = 125
-var watchtower_cost = 150
-var tree_cost = 10
-var bathroom_cost = 50
+var building_prices = {
+	"Fence": 25,
+	"Log Cabin": 125,
+	"Watchtower": 150,
+	"Trees": 10,
+	"Bathroom": 50,
+}
 
 #Object Determination
 var selected_object = ""
@@ -110,48 +114,49 @@ func _ready() -> void:
 
 
 func _on_place_fence_button_pressed():
-	selected_object = "Fence"
-	emit_signal("start_object_placement", selected_object)
-	building_check()
+	if OhioEcosystemData.funds >= building_prices["Fence"]:
+		selected_object = "Fence"
+		emit_signal("start_object_placement", selected_object)
 
 
 func _on_place_cabin_button_pressed():
-	selected_object = "Log Cabin"
-	emit_signal("start_object_placement", selected_object)
-	building_check()
+	if OhioEcosystemData.funds >= building_prices["Log Cabin"]:
+		selected_object = "Log Cabin"
+		emit_signal("start_object_placement", selected_object)
 
 
 func _on_place_watchtower_button_pressed():
-	selected_object = "Watchtower"
-	emit_signal("start_object_placement", selected_object)
-	building_check()
+	if OhioEcosystemData.funds >= building_prices["Watchtower"]:
+		selected_object = "Watchtower"
+		emit_signal("start_object_placement", selected_object)
 
 
 func _on_place_trees_button_pressed():
-	selected_object = "Trees"
-	emit_signal("start_object_placement", selected_object)
-	building_check()
+	if OhioEcosystemData.funds >= building_prices["Trees"]:
+		selected_object = "Trees"
+		emit_signal("start_object_placement", selected_object)
 
 
 func _on_place_bathroom_button_pressed():
-	selected_object = "Bathroom"
-	emit_signal("start_object_placement", selected_object)
-	building_check()
+	if OhioEcosystemData.funds >= building_prices["Bathroom"]:
+		selected_object = "Bathroom"
+		emit_signal("start_object_placement", selected_object)
 
 
-func building_check() -> void:
-	if (selected_object == "Fence"):
+func placement_requested(structure_type) -> void:
+	if (structure_type == "Fence"):
 		$BuildConfirmation/BuildCost.text = "Cost: $25"
-	elif (selected_object == "Log Cabin"):
+	elif (structure_type == "Log Cabin"):
 		$BuildConfirmation/BuildCost.text = "Cost: $125"
-	elif (selected_object == "Watchtower"):
+	elif (structure_type == "Watchtower"):
 		$BuildConfirmation/BuildCost.text = "Cost: $150"
-	elif (selected_object == "Trees"):
+	elif (structure_type == "Trees"):
 		$BuildConfirmation/BuildCost.text = "Cost: $10"
-	elif (selected_object == "Bathroom"):
+	elif (structure_type == "Bathroom"):
 		$BuildConfirmation/BuildCost.text = "Cost: $50"
 	
 	$BuildConfirmation.visible = true
+	selected_object = structure_type
 
 
 func _on_fast_forward_button_pressed() -> void:
@@ -214,9 +219,14 @@ func _on_exit_menu_2_pressed() -> void:
 	$BuildMenu.visible = false
 
 
-func _on_cofirm_build_pressed() -> void:
-	pass # Place the Selected Object
+func _on_confirm_build_pressed() -> void:
+	if OhioEcosystemData.funds >= building_prices[selected_object]:
+		OhioEcosystemData.funds -= building_prices[selected_object]
+		emit_signal("confirm_object_placement")
+		$BuildConfirmation.visible = false
+		selected_object = ""
 
 func _on_cancel_build_pressed() -> void:
+	emit_signal("cancel_object_placement")
 	$BuildConfirmation.visible = false
 	selected_object = ""

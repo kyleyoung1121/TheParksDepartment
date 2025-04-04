@@ -9,4 +9,4 @@ species = "Deer"
 self_scene_path = "res://Entities/Animals/Deer/Deer.tscn"
 
 [node name="Deer_skin" parent="." index="2" instance=ExtResource("2_iasi4")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.2, -1.57552)
+transform = Transform3D(-0.4, 0, -6.03983e-08, 0, 0.4, 0, 6.03983e-08, 0, -0.4, 0, 0.307477, -0.96812)

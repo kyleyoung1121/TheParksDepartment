@@ -5,14 +5,14 @@ extends Node3D
 @onready var camera = $CameraTarget/SpringArm3D/Camera3D
 
 # Zoom settings
-@export var max_zoom = 150.0
-@export var min_zoom = 25.0
-@export var zoom_speed = 20.0
-var zoom: float = 75.0
+@export var max_zoom = 50.0
+@export var min_zoom = 15.0
+@export var zoom_speed = 5.0
+var zoom: float = 30.0
 
 # Panning settings
-@export var speed = 12.0
-@export var drag_speed = 0.18
+@export var speed = 2.0
+@export var drag_speed = 0.09
 @export var acceleration = 0.1
 @export var mouse_sensitivity = 0.001
 var move = Vector3()

@@ -293,7 +293,7 @@ offset_right = 139.51
 offset_bottom = 129.279
 text = "Cost: $125"
 
-[node name="CofirmBuild" type="TextureButton" parent="BuildConfirmation"]
+[node name="ConfirmBuild" type="TextureButton" parent="BuildConfirmation"]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 44.5659
@@ -473,7 +473,7 @@ text = "$0"
 [connection signal="pressed" from="BuildMenu/TreesButton" to="." method="_on_place_trees_button_pressed"]
 [connection signal="pressed" from="BuildMenu/BathroomButton" to="." method="_on_place_bathroom_button_pressed"]
 [connection signal="pressed" from="BuildMenu/ExitMenu2" to="." method="_on_exit_menu_2_pressed"]
-[connection signal="pressed" from="BuildConfirmation/CofirmBuild" to="." method="_on_cofirm_build_pressed"]
+[connection signal="pressed" from="BuildConfirmation/ConfirmBuild" to="." method="_on_confirm_build_pressed"]
 [connection signal="pressed" from="BuildConfirmation/CancelBuild" to="." method="_on_cancel_build_pressed"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
