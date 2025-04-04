@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dp4umc3lj5fhc" path="res://UserInterface/EscMenu/EscMenu.tscn" id="5_880vd"]
 [ext_resource type="Script" path="res://Systems/FenceGenerator/FenceGenerator.gd" id="6_juo6g"]
 [ext_resource type="PackedScene" uid="uid://gjvq348elioi" path="res://Props/Natural/Landscape/Landscape.blend" id="6_o01yp"]
-[ext_resource type="PackedScene" uid="uid://o27yt3k5ogk7" path="res://UserInterface/GUI/InGameMenu/InGameMenu.tscn" id="7_wrbmd"]
+[ext_resource type="PackedScene" uid="uid://o27yt3k5ogk7" path="res://UserInterface/example_menu.tscn" id="7_wrbmd"]
 [ext_resource type="PackedScene" uid="uid://dj68fd3ryt7a5" path="res://Props/Natural/Trees/TreeCluster.blend" id="9_6ig1u"]
 
 [sub_resource type="Gradient" id="Gradient_kbrg6"]
@@ -380,7 +380,7 @@ skeleton = NodePath("../..")
 [node name="Trees" type="Node3D" parent="."]
 
 [node name="TreeCluster" parent="Trees" instance=ExtResource("9_6ig1u")]
-transform = Transform3D(0.643, 0, 0, 0, 0.643, 0, 0, 0, 0.643, 62.0097, 0, 0.0448709)
+transform = Transform3D(0.643, 0, 0, 0, 0.643, 0, 0, 0, 0.643, 62.0097, 0, -9.84969)
 
 [node name="TreeCluster2" parent="Trees" instance=ExtResource("9_6ig1u")]
 transform = Transform3D(0.643, 0, 0, 0, 0.643, 0, 0, 0, 0.643, 27.5391, 0, 108.825)
