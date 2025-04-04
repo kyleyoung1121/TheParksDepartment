@@ -174,11 +174,11 @@ func placement_requested(structure_type) -> void:
 
 
 func _on_fast_forward_button_pressed() -> void:
-	OhioEcosystemData.speedMult = 0.2
+	Engine.time_scale = 2
 func _on_play_button_pressed() -> void:
-	OhioEcosystemData.speedMult = 0.1
+	Engine.time_scale = 1
 func _on_pause_button_pressed() -> void:
-	OhioEcosystemData.speedMult = 0
+	Engine.time_scale = 0.0001
 
 
 func _on_animal_status_button_pressed() -> void:

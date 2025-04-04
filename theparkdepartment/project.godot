@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TheParkDepartment"
-run/main_scene="res://UserInterface/Main Menu/MainMenu.tscn"
+run/main_scene="res://Maps/Ohio/OhioPreserve.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
 [autoload]
