@@ -9,6 +9,9 @@ var placement_in_progress = false
 var follow_mouse = true
 var selected_structure_type
 
+# Script reference
+var in_game_menu
+
 # Store available building scenes
 var building_scenes = {
 	#"Fence": preload("res://Props/Artificial/Fence/Fence.tscn"),
@@ -21,13 +24,24 @@ var building_scenes = {
 var selected_building_scene: PackedScene = null
 
 
+func _ready():
+	# Get reference to parent (main scene) and find InGameMenu child node
+	var parent = get_parent()
+	in_game_menu = parent.get_node("InGameMenu")
+	
+	if in_game_menu:
+		print("InGameMenu successfully assigned in ObjectPlacement!")
+	else:
+		print("InGameMenu not found!")
+	
+	
 func _process(delta):
 	if is_instance_valid(current_building) and follow_mouse:
 		# Move the preview building to the mouse
 		current_building.global_transform.origin = get_mouse_world_position()
 		# Check if the user is placing the structure
 		if Input.is_action_just_pressed("place_structure"):
-			emit_signal("request_to_place", selected_structure_type)
+			in_game_menu.placement_requested(selected_structure_type)
 			follow_mouse = false
 
 

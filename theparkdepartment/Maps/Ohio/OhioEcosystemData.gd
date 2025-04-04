@@ -131,13 +131,15 @@ var plants_species_data = {
 #  The size is currently -8 to 152
 var fences = [
 	[
-		Vector3(128, -1, 10), Vector3(128, -1, 128)
+		Vector3(0, -1, 0), Vector3(0, -1, 25)
 	],
 	[
-		Vector3(10, -1, 100), Vector3(100, -1, 100)
+		Vector3(0, -1, 25), Vector3(25, -1, 25)
 	],
 	[
-		Vector3(50, -1, 50), Vector3(70, -1, 70)
+		Vector3(25, -1, 25), Vector3(25, -1, 0)
 	],
-
+	[
+		Vector3(25, -1, 0), Vector3(0, -1, 0)
+	],
 ]

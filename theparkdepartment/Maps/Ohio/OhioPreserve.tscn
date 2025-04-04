@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c446bf6cmnsx6" path="res://Systems/DayNightCycle/DayNightCycle.tscn" id="3_naupw"]
 [ext_resource type="PackedScene" uid="uid://dp4umc3lj5fhc" path="res://UserInterface/EscMenu/EscMenu.tscn" id="5_880vd"]
 [ext_resource type="PackedScene" uid="uid://gjvq348elioi" path="res://Props/Natural/Landscape/Landscape.blend" id="6_o01yp"]
-[ext_resource type="PackedScene" uid="uid://o27yt3k5ogk7" path="res://UserInterface/example_menu.tscn" id="7_tnkxy"]
+[ext_resource type="PackedScene" uid="uid://o27yt3k5ogk7" path="res://UserInterface/GUI/InGameMenu/InGameMenu.tscn" id="7_wrbmd"]
 [ext_resource type="PackedScene" uid="uid://dj68fd3ryt7a5" path="res://Props/Natural/Trees/TreeCluster.blend" id="9_6ig1u"]
 
 [sub_resource type="Gradient" id="Gradient_kbrg6"]
@@ -339,7 +339,7 @@ sun_intensity = SubResource("Curve_0dxvu")
 [node name="ObjectPlacement" type="Node" parent="."]
 script = ExtResource("1_1crrr")
 
-[node name="InGameMenu" parent="." instance=ExtResource("7_tnkxy")]
+[node name="InGameMenu" parent="." instance=ExtResource("7_wrbmd")]
 
 [node name="EscMenu" parent="." instance=ExtResource("5_880vd")]
 
