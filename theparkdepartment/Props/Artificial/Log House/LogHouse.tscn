@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://crneb6e4ao16h" path="res://Props/Artificial/Log House/Log House.blend" id="1_ojeoe"]
 
 [node name="LogHouse" type="Node3D"]
-transform = Transform3D(1.325, 0, 0, 0, 1.325, 0, 0, 0, 1.325, -0.0126781, -0.152117, 0.0150566)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0126781, 0.47896, 0.0150566)
 
 [node name="Log House" parent="." instance=ExtResource("1_ojeoe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0686376, 0)

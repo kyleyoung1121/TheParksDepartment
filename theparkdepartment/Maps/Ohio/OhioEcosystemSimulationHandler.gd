@@ -9,10 +9,8 @@ var american_goldfinch_scene = load("res://Entities/Animals/AmericanGoldfinch/Am
 var coopers_hawk_scene = load("res://Entities/Animals/CoopersHawk/CoopersHawk.tscn")
 var coyote_scene = load("res://Entities/Animals/Coyote/Coyote.tscn")
 
-var fence_scene = load("res://Props/Artificial/Fence/Fence.tscn")  # Load the fence scene
+#var fence_scene = load("res://Props/Artificial/Fence/Fence.tscn")  # Load the fence scene
 
-@onready var in_game_menu = $InGameMenu
-@onready var object_placement = $ObjectPlacement
 
 func _ready():
 	# Print size of whole grid
@@ -21,14 +19,9 @@ func _ready():
 	print("Grid bounds min: ", grid_bounds_min)
 	print("Grid bounds max: ", grid_bounds_max)
 	
-	in_game_menu.start_object_placement.connect(_on_start_object_placement)
-	object_placement.request_to_place.connect(_on_request_to_place)
-	in_game_menu.confirm_object_placement.connect(_on_confirm_placement)
-	in_game_menu.cancel_object_placement.connect(_on_cancel_placement)
-	
 	# Initialize fences
-	for fence in OhioEcosystemData.fences:
-		create_fence(fence)
+	#for fence in OhioEcosystemData.fences:
+		#create_fence(fence)
 	
 	# Proceed with the ecosystem setup
 	randomize()
@@ -38,10 +31,11 @@ func _ready():
 	guest_system()
 
 
-func create_fence(edges: Array):
-	var new_fence = fence_scene.instantiate()
-	new_fence.edges = edges
-	add_child(new_fence)
+#func create_fence(edges: Array):
+	#var new_fence = fence_scene.instantiate()
+	#new_fence.edges = edges
+	#add_child(new_fence)
+
 
 func initialize_ecosystem():
 	# Add plants in every grid spot
@@ -119,24 +113,6 @@ func start_simulation():
 		# Wait between days
 		await get_tree().create_timer(2).timeout
 		OhioEcosystemData.days += 1
-
-
-func _on_start_object_placement(structure_type):
-	object_placement.start_placing(structure_type)
-
-
-func _on_request_to_place(structure_type):
-	in_game_menu.placement_requested(structure_type)
-
-
-func _on_confirm_placement():
-	print("placement: flag 1")
-	object_placement.confirm_placement()
-
-
-func _on_cancel_placement():
-	print("placement: cancelled - flag 1")
-	object_placement.cancel_placement()
 
 
 func guest_system():
