@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://fchbevtkemsv"]
+[gd_scene load_steps=4 format=3 uid="uid://fchbevtkemsv"]
 
 [ext_resource type="Script" path="res://UserInterface/Main Menu/MainMenu.gd" id="1_csg2m"]
 [ext_resource type="Texture2D" uid="uid://i6wxgjhffusr" path="res://UserInterface/Main Menu/Cows-San-Diego-Animal-Farm-Sanctuary.jpg" id="2_7kc3e"]
-[ext_resource type="AudioStream" uid="uid://tv1l3wfrdbh1" path="res://UserInterface/Main Menu/448807-AMB_Nature_Forest_Coniferous_Quiet_Insects.wav" id="3_0xcya"]
 
 [sub_resource type="Theme" id="Theme_c1uh2"]
 
@@ -59,7 +58,6 @@ layout_mode = 2
 text = "Exit"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_0xcya")
 volume_db = -8.432
 
 [node name="Options" type="PanelContainer" parent="."]

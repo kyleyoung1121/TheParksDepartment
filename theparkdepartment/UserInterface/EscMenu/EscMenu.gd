@@ -57,7 +57,7 @@ func _on_settings_pressed() -> void:
 
 
 func _on_quit_to_menu_pressed() -> void:
-	pass # not sure how we're going to redirect back to main menu
+	get_tree().change_scene_to_file("res://UserInterface/Main Menu/MainMenu.tscn")
 
 
 func _on_exit_game_pressed() -> void:
