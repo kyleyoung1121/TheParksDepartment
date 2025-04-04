@@ -9,7 +9,7 @@ var american_goldfinch_scene = load("res://Entities/Animals/AmericanGoldfinch/Am
 var coopers_hawk_scene = load("res://Entities/Animals/CoopersHawk/CoopersHawk.tscn")
 var coyote_scene = load("res://Entities/Animals/Coyote/Coyote.tscn")
 
-var fence_scene = load("res://Props/Artificial/Fence/Fence.tscn")  # Load the fence scene
+#var fence_scene = load("res://Props/Artificial/Fence/Fence.tscn")  # Load the fence scene
 
 
 func _ready():
@@ -20,8 +20,8 @@ func _ready():
 	print("Grid bounds max: ", grid_bounds_max)
 	
 	# Initialize fences
-	for fence in OhioEcosystemData.fences:
-		create_fence(fence)
+	#for fence in OhioEcosystemData.fences:
+		#create_fence(fence)
 	
 	# Proceed with the ecosystem setup
 	randomize()
@@ -31,10 +31,10 @@ func _ready():
 	guest_system()
 
 
-func create_fence(edges: Array):
-	var new_fence = fence_scene.instantiate()
-	new_fence.edges = edges
-	add_child(new_fence)
+#func create_fence(edges: Array):
+	#var new_fence = fence_scene.instantiate()
+	#new_fence.edges = edges
+	#add_child(new_fence)
 
 
 func initialize_ecosystem():
