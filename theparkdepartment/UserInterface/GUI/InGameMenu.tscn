@@ -1,26 +1,45 @@
-[gd_scene load_steps=38 format=3 uid="uid://o27yt3k5ogk7"]
+[gd_scene load_steps=59 format=3 uid="uid://o27yt3k5ogk7"]
 
 [ext_resource type="Script" path="res://UserInterface/GUI/UI_menu.gd" id="1_kghvm"]
-[ext_resource type="Texture2D" uid="uid://s2hs631h504h" path="res://UserInterface/GUI/red-cross-icon-button-png.webp" id="2_8mkx1"]
-[ext_resource type="Texture2D" uid="uid://dne4poa2g5uvf" path="res://UserInterface/GUI/Fence (1).png" id="3_bmyla"]
-[ext_resource type="Texture2D" uid="uid://c3c37gp4u62jp" path="res://UserInterface/GUI/Selected-Fence.png" id="4_hggqf"]
-[ext_resource type="Texture2D" uid="uid://c0lmj72jjla3c" path="res://UserInterface/GUI/Log-Cabin.png" id="4_j3yyc"]
-[ext_resource type="Texture2D" uid="uid://c06f11ke8dgt6" path="res://UserInterface/GUI/Selected-Log-Cabin.png" id="6_rhcgh"]
-[ext_resource type="Texture2D" uid="uid://ycncb2u3pd71" path="res://UserInterface/GUI/trees (1).png" id="6_t888u"]
-[ext_resource type="Texture2D" uid="uid://btpvunh6sy2k" path="res://UserInterface/GUI/Porta-Potty.png" id="7_uggg2"]
-[ext_resource type="Texture2D" uid="uid://xacnwbj0f34b" path="res://UserInterface/GUI/Selected-Watchtower.png" id="8_d05rn"]
-[ext_resource type="Texture2D" uid="uid://lrxelx2ewbtn" path="res://UserInterface/GUI/Selected-Tres.png" id="10_ja5u5"]
-[ext_resource type="Texture2D" uid="uid://c0vcaxyrjpt0r" path="res://UserInterface/GUI/Selected-Porta-Potty.png" id="12_xjaxx"]
-[ext_resource type="Texture2D" uid="uid://dsx01wbxoky6o" path="res://UserInterface/GUI/checkbox.png" id="13_08dqm"]
-[ext_resource type="Texture2D" uid="uid://mehetnher8x7" path="res://UserInterface/GUI/Overlay-Template.png" id="13_oxat6"]
-[ext_resource type="Texture2D" uid="uid://b44k10jwdl234" path="res://UserInterface/GUI/EnergyBarBack.png" id="15_v3neo"]
-[ext_resource type="Texture2D" uid="uid://5cqu6vnh42mj" path="res://UserInterface/GUI/Pause-Button (1).png" id="16_t1a4d"]
-[ext_resource type="Texture2D" uid="uid://cgxh76kuxyn3w" path="res://UserInterface/GUI/EnergyBarFront.png" id="16_yg8c1"]
-[ext_resource type="Texture2D" uid="uid://cvtumu03fm4ga" path="res://UserInterface/GUI/Play-Button (1).png" id="17_3inxt"]
-[ext_resource type="Texture2D" uid="uid://d08k5rv0rgmuf" path="res://UserInterface/GUI/Pause-Button-Selected.png" id="17_meo5g"]
-[ext_resource type="Texture2D" uid="uid://b5g471ol8boj4" path="res://UserInterface/GUI/Fast-Forward-Button.png" id="18_tg00r"]
-[ext_resource type="Texture2D" uid="uid://0q0mc4hppv8v" path="res://UserInterface/GUI/Play-Button-Selected.png" id="19_6j45w"]
-[ext_resource type="Texture2D" uid="uid://d4gu110v6t3fv" path="res://UserInterface/GUI/Fast-Forward-Button-Selected.png" id="21_paxs6"]
+[ext_resource type="Texture2D" uid="uid://s2hs631h504h" path="res://UserInterface/GUI/Button Textures/red-cross-icon-button-png.webp" id="2_8mkx1"]
+[ext_resource type="Texture2D" uid="uid://cj5ns0earjxe7" path="res://UserInterface/GUI/Button Textures/red-cross-hover.png" id="3_6yeco"]
+[ext_resource type="Texture2D" uid="uid://dne4poa2g5uvf" path="res://UserInterface/GUI/Building Images/Fence (1).png" id="3_bmyla"]
+[ext_resource type="Texture2D" uid="uid://c3c37gp4u62jp" path="res://UserInterface/GUI/Building Images/Selected-Fence.png" id="4_hggqf"]
+[ext_resource type="Texture2D" uid="uid://c0lmj72jjla3c" path="res://UserInterface/GUI/Building Images/Log-Cabin.png" id="4_j3yyc"]
+[ext_resource type="Texture2D" uid="uid://c06f11ke8dgt6" path="res://UserInterface/GUI/Building Images/Selected-Log-Cabin.png" id="6_rhcgh"]
+[ext_resource type="Texture2D" uid="uid://ycncb2u3pd71" path="res://UserInterface/GUI/Building Images/trees (1).png" id="6_t888u"]
+[ext_resource type="Texture2D" uid="uid://btpvunh6sy2k" path="res://UserInterface/GUI/Building Images/Porta-Potty.png" id="7_uggg2"]
+[ext_resource type="Texture2D" uid="uid://xacnwbj0f34b" path="res://UserInterface/GUI/Building Images/Selected-Watchtower.png" id="8_d05rn"]
+[ext_resource type="Texture2D" uid="uid://lrxelx2ewbtn" path="res://UserInterface/GUI/Building Images/Selected-Tres.png" id="10_ja5u5"]
+[ext_resource type="Texture2D" uid="uid://c5v2ggjc0llgd" path="res://UserInterface/GUI/Button Textures/Bulldozer.png" id="12_fitms"]
+[ext_resource type="Texture2D" uid="uid://c0vcaxyrjpt0r" path="res://UserInterface/GUI/Building Images/Selected-Porta-Potty.png" id="12_xjaxx"]
+[ext_resource type="Texture2D" uid="uid://cyssmn5wkka8l" path="res://UserInterface/GUI/Button Textures/Bulldozer Selected.png" id="13_7inlu"]
+[ext_resource type="Texture2D" uid="uid://dsx01wbxoky6o" path="res://UserInterface/GUI/Button Textures/checkbox.png" id="13_08dqm"]
+[ext_resource type="Texture2D" uid="uid://dxoq8pwmuksqm" path="res://UserInterface/GUI/Animal Images/deer.png" id="14_ebhie"]
+[ext_resource type="Texture2D" uid="uid://dh2s2qf7ekhwf" path="res://UserInterface/GUI/GUI-Overlay2.png" id="15_hca0k"]
+[ext_resource type="Texture2D" uid="uid://bwkjqdt6xf7ge" path="res://UserInterface/GUI/Animal Images/deer-selected.png" id="15_xkfll"]
+[ext_resource type="Texture2D" uid="uid://empgie2k4ap0" path="res://UserInterface/GUI/Animal Images/wolf.png" id="16_qgnl3"]
+[ext_resource type="Texture2D" uid="uid://5cqu6vnh42mj" path="res://UserInterface/GUI/Button Textures/Pause-Button (1).png" id="16_t1a4d"]
+[ext_resource type="Texture2D" uid="uid://cvtumu03fm4ga" path="res://UserInterface/GUI/Button Textures/Play-Button (1).png" id="17_3inxt"]
+[ext_resource type="Texture2D" uid="uid://d08k5rv0rgmuf" path="res://UserInterface/GUI/Button Textures/Pause-Button-Selected.png" id="17_meo5g"]
+[ext_resource type="Texture2D" uid="uid://dsb7xl16i3j3g" path="res://UserInterface/GUI/Animal Images/wolf-selected.png" id="17_pumao"]
+[ext_resource type="Texture2D" uid="uid://04e6o20ux55e" path="res://UserInterface/GUI/Animal Images/coyote.png" id="18_c85m2"]
+[ext_resource type="Texture2D" uid="uid://b5g471ol8boj4" path="res://UserInterface/GUI/Button Textures/Fast-Forward-Button.png" id="18_tg00r"]
+[ext_resource type="Texture2D" uid="uid://jgdtp2o5ghap" path="res://UserInterface/GUI/Animal Images/coyote-selected.png" id="19_2bvld"]
+[ext_resource type="Texture2D" uid="uid://0q0mc4hppv8v" path="res://UserInterface/GUI/Button Textures/Play-Button-Selected.png" id="19_6j45w"]
+[ext_resource type="Texture2D" uid="uid://de4dmnxttvtf7" path="res://UserInterface/GUI/Animal Images/rabbit.png" id="20_bjtb7"]
+[ext_resource type="Texture2D" uid="uid://c27now07bdeec" path="res://UserInterface/GUI/Animal Images/rabbit-selected.png" id="21_04ved"]
+[ext_resource type="Texture2D" uid="uid://d4gu110v6t3fv" path="res://UserInterface/GUI/Button Textures/Fast-Forward-Button-Selected.png" id="21_paxs6"]
+[ext_resource type="Texture2D" uid="uid://dviyqxp10pi3j" path="res://UserInterface/GUI/Animal Images/goldfinch.png" id="22_wtb70"]
+[ext_resource type="Texture2D" uid="uid://bwoq166is53le" path="res://UserInterface/GUI/Animal Images/goldfinch-selected.png" id="23_6jx7t"]
+[ext_resource type="Texture2D" uid="uid://cu7jb1usfmw3e" path="res://UserInterface/GUI/Button Textures/Book Button.png" id="23_y5114"]
+[ext_resource type="Texture2D" uid="uid://cfpcyncqvs7h7" path="res://UserInterface/GUI/Animal Images/hawk.png" id="24_6lp32"]
+[ext_resource type="Texture2D" uid="uid://bpneb4rl065ca" path="res://UserInterface/GUI/Animal Images/hawk-selected.png" id="25_o02kk"]
+[ext_resource type="Texture2D" uid="uid://bhewme31itwj6" path="res://UserInterface/GUI/Button Textures/Book Button Selected.png" id="25_rvvxo"]
+[ext_resource type="Texture2D" uid="uid://cjvsnhengcorr" path="res://UserInterface/GUI/Animal Images/BlackVulture.png" id="26_eupqq"]
+[ext_resource type="Texture2D" uid="uid://e5lqyqfwpowa" path="res://UserInterface/GUI/Animal Images/black-vulture-selected.png" id="28_jxai4"]
+[ext_resource type="Texture2D" uid="uid://bu4p212lwkyw3" path="res://UserInterface/GUI/Animal Images/TurkeyVulture.png" id="28_oxw88"]
+[ext_resource type="Texture2D" uid="uid://c0qg7jjv5wjec" path="res://UserInterface/GUI/Animal Images/turkey-vulture-selected.png" id="30_urctx"]
 
 [sub_resource type="Theme" id="Theme_qlupe"]
 
@@ -56,6 +75,10 @@ load_path = "res://.godot/imported/Selected-Watchtower.png-062277eaedfbd58b2e46c
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dxrg4"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a2qlt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_icqs2"]
+
 [node name="InGameMenu" type="Control"]
 layout_mode = 3
 anchor_right = 1.669
@@ -71,9 +94,8 @@ script = ExtResource("1_kghvm")
 [node name="Panel" type="Panel" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 0.00741237
-offset_top = 875.0
-offset_right = 287.007
+offset_top = 806.0
+offset_right = 287.0
 offset_bottom = 1075.0
 theme = SubResource("Theme_qlupe")
 
@@ -92,7 +114,7 @@ layout_mode = 0
 offset_left = 14.0
 offset_top = 47.0
 offset_right = 279.0
-offset_bottom = 169.0
+offset_bottom = 239.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
 layout_mode = 2
@@ -135,136 +157,331 @@ offset_right = 648.07
 offset_bottom = 404.728
 scale = Vector2(0.0873505, 0.0873505)
 texture_normal = ExtResource("2_8mkx1")
+texture_hover = ExtResource("3_6yeco")
 
 [node name="BuildMenu" type="Panel" parent="."]
 visible = false
 layout_mode = 0
-offset_top = 854.0
+offset_top = 668.0
 offset_right = 823.0
 offset_bottom = 1054.0
 
-[node name="FenceButton" type="TextureButton" parent="BuildMenu"]
+[node name="BuildMenuLabel" type="Label" parent="BuildMenu"]
 layout_mode = 0
-offset_left = 19.9259
-offset_top = 50.6347
-offset_right = 619.926
-offset_bottom = 550.635
-scale = Vector2(0.214847, 0.214847)
-texture_normal = ExtResource("3_bmyla")
-texture_pressed = ExtResource("4_hggqf")
-texture_hover = ExtResource("4_hggqf")
-
-[node name="FencePrice" type="Label" parent="BuildMenu"]
-layout_mode = 0
-offset_left = 55.7924
-offset_top = 159.231
-offset_right = 110.792
-offset_bottom = 182.231
-theme = SubResource("Theme_2ouy6")
-text = "$25"
-horizontal_alignment = 1
-
-[node name="CabinButton" type="TextureButton" parent="BuildMenu"]
-layout_mode = 0
-offset_left = 180.329
-offset_top = 50.6348
-offset_right = 780.329
-offset_bottom = 550.635
-scale = Vector2(0.217094, 0.217094)
-texture_normal = ExtResource("4_j3yyc")
-texture_pressed = ExtResource("6_rhcgh")
-texture_hover = ExtResource("6_rhcgh")
-
-[node name="CabinPrice" type="Label" parent="BuildMenu"]
-layout_mode = 0
-offset_left = 216.196
-offset_top = 159.231
-offset_right = 271.196
-offset_bottom = 182.231
-theme = SubResource("Theme_2ouy6")
-text = "$125"
-horizontal_alignment = 1
-
-[node name="WatchtowerButton" type="TextureButton" parent="BuildMenu"]
-layout_mode = 0
-offset_left = 342.0
-offset_top = 51.0
-offset_right = 942.0
-offset_bottom = 551.0
-scale = Vector2(0.216995, 0.216995)
-texture_normal = SubResource("CompressedTexture2D_pfpw7")
-texture_pressed = ExtResource("8_d05rn")
-texture_hover = SubResource("CompressedTexture2D_636kd")
-
-[node name="WatchtowerPrice" type="Label" parent="BuildMenu"]
-layout_mode = 0
-offset_left = 375.603
-offset_top = 159.231
-offset_right = 430.603
-offset_bottom = 182.231
-theme = SubResource("Theme_2ouy6")
-text = "$150"
-horizontal_alignment = 1
-
-[node name="TreesButton" type="TextureButton" parent="BuildMenu"]
-layout_mode = 0
-offset_left = 504.815
-offset_top = 50.0073
-offset_right = 1104.81
-offset_bottom = 550.007
-scale = Vector2(0.219592, 0.219592)
-texture_normal = ExtResource("6_t888u")
-texture_pressed = ExtResource("10_ja5u5")
-texture_hover = ExtResource("10_ja5u5")
-
-[node name="TreesPrice" type="Label" parent="BuildMenu"]
-layout_mode = 0
-offset_left = 538.995
-offset_top = 160.227
-offset_right = 593.995
-offset_bottom = 183.227
-theme = SubResource("Theme_2ouy6")
-text = "$10"
-horizontal_alignment = 1
-
-[node name="BathroomButton" type="TextureButton" parent="BuildMenu"]
-layout_mode = 0
-offset_left = 665.525
-offset_top = 50.6348
-offset_right = 1265.52
-offset_bottom = 550.635
-scale = Vector2(0.220264, 0.220264)
-texture_normal = ExtResource("7_uggg2")
-texture_pressed = ExtResource("12_xjaxx")
-texture_hover = ExtResource("12_xjaxx")
-
-[node name="BathroomPrice" type="Label" parent="BuildMenu"]
-layout_mode = 0
-offset_left = 705.376
-offset_top = 160.227
-offset_right = 760.376
-offset_bottom = 183.227
-theme = SubResource("Theme_2ouy6")
-text = "$50"
-horizontal_alignment = 1
-
-[node name="BuildingMenuLabel" type="Label" parent="BuildMenu"]
-layout_mode = 0
-offset_left = 17.9333
-offset_top = 10.7829
-offset_right = 116.933
-offset_bottom = 45.7829
+offset_left = 14.2842
+offset_top = 8.58875
+offset_right = 113.284
+offset_bottom = 43.5887
 theme_override_font_sizes/font_size = 25
-text = "Building"
 
-[node name="ExitMenu2" type="TextureButton" parent="BuildMenu"]
+[node name="BuildingOptions" type="Control" parent="BuildMenu"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.796517, 0.796517)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildMenu/BuildingOptions"]
 layout_mode = 0
-offset_left = 786.076
-offset_top = 3.80859
-offset_right = 1186.08
-offset_bottom = 403.809
-scale = Vector2(0.0819891, 0.0819891)
+offset_left = 26.2671
+offset_top = 58.1816
+offset_right = 2927.27
+offset_bottom = 1123.18
+scale = Vector2(0.340305, 0.340305)
+theme_override_constants/separation = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildMenu/BuildingOptions/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 167
+
+[node name="CabinButton" type="TextureButton" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_j3yyc")
+texture_hover = ExtResource("6_rhcgh")
+texture_focused = ExtResource("6_rhcgh")
+
+[node name="CabinPrice" type="Label" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/CabinButton"]
+layout_mode = 2
+offset_left = 110.267
+offset_top = 503.552
+offset_right = 459.267
+offset_bottom = 577.552
+theme = SubResource("Theme_2ouy6")
+theme_override_font_sizes/font_size = 50
+text = "Cabin: $125"
+horizontal_alignment = 1
+
+[node name="WatchtowerButton" type="TextureButton" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("CompressedTexture2D_pfpw7")
+texture_hover = SubResource("CompressedTexture2D_636kd")
+texture_focused = ExtResource("8_d05rn")
+
+[node name="WatchtowerPrice" type="Label" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/WatchtowerButton"]
+layout_mode = 0
+offset_left = 63.6774
+offset_top = 499.877
+offset_right = 526.677
+offset_bottom = 568.877
+theme = SubResource("Theme_2ouy6")
+theme_override_font_sizes/font_size = 50
+text = "Watchtower: $150"
+horizontal_alignment = 1
+
+[node name="BathroomButton" type="TextureButton" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_uggg2")
+texture_hover = ExtResource("12_xjaxx")
+texture_focused = ExtResource("12_xjaxx")
+
+[node name="BathroomPrice" type="Label" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/BathroomButton"]
+layout_mode = 0
+offset_left = 105.302
+offset_top = 499.877
+offset_right = 476.302
+offset_bottom = 568.877
+theme = SubResource("Theme_2ouy6")
+theme_override_font_sizes/font_size = 50
+text = "Bathroom: $50"
+horizontal_alignment = 1
+
+[node name="NewBuildingButton2" type="TextureButton" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_uggg2")
+texture_hover = ExtResource("12_xjaxx")
+texture_focused = ExtResource("12_xjaxx")
+
+[node name="NewBuildingPrice" type="Label" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/NewBuildingButton2"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 500.0
+offset_right = 599.0
+offset_bottom = 569.0
+theme = SubResource("Theme_2ouy6")
+theme_override_font_sizes/font_size = 50
+text = "Research Building:  $100"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildMenu/BuildingOptions/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 167
+
+[node name="FenceButton" type="TextureButton" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("3_bmyla")
+texture_hover = ExtResource("4_hggqf")
+texture_focused = ExtResource("4_hggqf")
+
+[node name="FencePrice" type="Label" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer2/FenceButton"]
+layout_mode = 0
+offset_left = 166.94
+offset_top = 501.783
+offset_right = 419.94
+offset_bottom = 570.783
+theme = SubResource("Theme_2ouy6")
+theme_override_font_sizes/font_size = 50
+text = "Fence: $25"
+horizontal_alignment = 1
+
+[node name="TreesButton" type="TextureButton" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("6_t888u")
+texture_hover = ExtResource("10_ja5u5")
+texture_focused = ExtResource("10_ja5u5")
+
+[node name="TreesPrice" type="Label" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer2/TreesButton"]
+layout_mode = 0
+offset_left = 181.294
+offset_top = 502.668
+offset_right = 425.294
+offset_bottom = 571.668
+theme = SubResource("Theme_2ouy6")
+theme_override_font_sizes/font_size = 50
+text = "Trees: $10"
+horizontal_alignment = 1
+
+[node name="ExitMenu2" type="TextureButton" parent="BuildMenu/BuildingOptions"]
+layout_mode = 0
+offset_left = 981.888
+offset_top = 4.39659
+offset_right = 1381.89
+offset_bottom = 404.397
+scale = Vector2(0.11837, 0.11837)
 texture_normal = ExtResource("2_8mkx1")
+texture_hover = ExtResource("3_6yeco")
+
+[node name="BulldozerButton" type="TextureButton" parent="BuildMenu/BuildingOptions"]
+layout_mode = 0
+offset_left = 916.846
+offset_top = 4.39663
+offset_right = 1428.85
+offset_bottom = 516.397
+scale = Vector2(0.0939621, 0.0938976)
+texture_normal = ExtResource("12_fitms")
+texture_hover = ExtResource("13_7inlu")
+texture_focused = ExtResource("13_7inlu")
+
+[node name="AnimalOptions" type="Control" parent="BuildMenu"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildMenu/AnimalOptions"]
+layout_mode = 2
+offset_left = 20.9222
+offset_top = 46.3426
+offset_right = 1672.92
+offset_bottom = 721.343
+scale = Vector2(0.457626, 0.457626)
+theme_override_constants/separation = 65
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BuildMenu/AnimalOptions/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 167
+alignment = 1
+
+[node name="DeerButton" type="TextureButton" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("14_ebhie")
+texture_hover = ExtResource("15_xkfll")
+texture_focused = ExtResource("15_xkfll")
+
+[node name="DeerLabel" type="Label" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer/DeerButton"]
+layout_mode = 0
+offset_left = 59.2464
+offset_top = 299.589
+offset_right = 240.246
+offset_bottom = 341.589
+theme_override_font_sizes/font_size = 30
+text = "Deer: $100"
+horizontal_alignment = 1
+
+[node name="WolfButton" type="TextureButton" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("16_qgnl3")
+texture_hover = ExtResource("17_pumao")
+texture_focused = ExtResource("17_pumao")
+
+[node name="WolfLabel" type="Label" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer/WolfButton"]
+layout_mode = 0
+offset_left = 58.1645
+offset_top = 296.801
+offset_right = 247.165
+offset_bottom = 338.801
+theme_override_font_sizes/font_size = 30
+text = "Wolf: $100"
+horizontal_alignment = 1
+
+[node name="CoyoteButton" type="TextureButton" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("18_c85m2")
+texture_hover = ExtResource("19_2bvld")
+texture_focused = ExtResource("19_2bvld")
+
+[node name="CoyoteLabel" type="Label" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer/CoyoteButton"]
+layout_mode = 0
+offset_left = 43.5833
+offset_top = 298.978
+offset_right = 259.583
+offset_bottom = 340.978
+theme_override_font_sizes/font_size = 30
+text = "Coyote: $100"
+horizontal_alignment = 1
+
+[node name="RabbitButton" type="TextureButton" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("20_bjtb7")
+texture_hover = ExtResource("21_04ved")
+texture_focused = ExtResource("21_04ved")
+
+[node name="RabbitLabel" type="Label" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer/RabbitButton"]
+layout_mode = 0
+offset_left = 55.127
+offset_top = 298.978
+offset_right = 251.127
+offset_bottom = 340.978
+theme_override_font_sizes/font_size = 30
+text = "Rabbit: $100"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BuildMenu/AnimalOptions/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 167
+
+[node name="GoldfinchButton" type="TextureButton" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("22_wtb70")
+texture_hover = ExtResource("23_6jx7t")
+texture_focused = ExtResource("23_6jx7t")
+
+[node name="GoldfinchLabel" type="Label" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2/GoldfinchButton"]
+layout_mode = 2
+offset_left = 25.8498
+offset_top = 300.617
+offset_right = 271.85
+offset_bottom = 342.617
+theme_override_font_sizes/font_size = 30
+text = "Goldfinch: $100"
+horizontal_alignment = 1
+
+[node name="CoopersHawkButton" type="TextureButton" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("24_6lp32")
+texture_hover = ExtResource("25_o02kk")
+texture_focused = ExtResource("25_o02kk")
+
+[node name="CoopersHawkLabel" type="Label" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2/CoopersHawkButton"]
+layout_mode = 2
+offset_left = 15.6226
+offset_top = 300.615
+offset_right = 287.623
+offset_bottom = 342.615
+theme_override_font_sizes/font_size = 30
+text = "Coop. Hawk: $100"
+horizontal_alignment = 1
+
+[node name="BlackVultureButton" type="TextureButton" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("26_eupqq")
+texture_hover = ExtResource("28_jxai4")
+texture_focused = ExtResource("28_jxai4")
+
+[node name="BlackVultureLabel" type="Label" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2/BlackVultureButton"]
+layout_mode = 2
+offset_left = 7.57266
+offset_top = 300.616
+offset_right = 294.573
+offset_bottom = 342.616
+theme_override_font_sizes/font_size = 30
+text = "Black Vulture: $100"
+horizontal_alignment = 1
+
+[node name="TurkeyVultureButton" type="TextureButton" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("28_oxw88")
+texture_hover = ExtResource("30_urctx")
+texture_focused = ExtResource("30_urctx")
+
+[node name="TurkeyVultureLabel" type="Label" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2/TurkeyVultureButton"]
+layout_mode = 2
+offset_left = -4.83151
+offset_top = 298.439
+offset_right = 306.168
+offset_bottom = 340.439
+theme_override_font_sizes/font_size = 30
+text = "Turkey Vulture: $100"
+horizontal_alignment = 1
+
+[node name="ExitMenu2" type="TextureButton" parent="BuildMenu/AnimalOptions"]
+layout_mode = 0
+offset_left = 778.105
+offset_top = 5.49512
+offset_right = 1178.11
+offset_bottom = 405.496
+scale = Vector2(0.094988, 0.094988)
+texture_normal = ExtResource("2_8mkx1")
+texture_hover = ExtResource("3_6yeco")
 
 [node name="BuildConfirmation" type="Panel" parent="."]
 visible = false
@@ -276,9 +493,9 @@ offset_bottom = 1030.0
 
 [node name="Label" type="Label" parent="BuildConfirmation"]
 layout_mode = 0
-offset_left = -19.0
+offset_left = 10.9814
 offset_top = 7.0
-offset_right = 209.0
+offset_right = 184.981
 offset_bottom = 62.0
 text = "Click the checkbox to 
 confirm your build!"
@@ -296,26 +513,26 @@ text = "Cost: $125"
 [node name="ConfirmBuild" type="TextureButton" parent="BuildConfirmation"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 44.5659
-offset_top = 61.4457
-offset_right = 404.566
-offset_bottom = 421.446
+offset_left = 45.0
+offset_top = 61.0
+offset_right = 405.0
+offset_bottom = 421.0
 scale = Vector2(0.130964, 0.130964)
 texture_normal = ExtResource("13_08dqm")
 
 [node name="CancelBuild" type="TextureButton" parent="BuildConfirmation"]
 layout_mode = 0
-offset_left = 105.34
-offset_top = 61.4468
-offset_right = 505.34
-offset_bottom = 461.447
+offset_left = 105.0
+offset_top = 61.0
+offset_right = 505.0
+offset_bottom = 461.0
 scale = Vector2(0.111866, 0.111866)
 texture_normal = ExtResource("2_8mkx1")
 
 [node name="NewOverlay2" type="Sprite2D" parent="."]
 position = Vector2(957.438, 559.917)
 scale = Vector2(0.997896, 0.990529)
-texture = ExtResource("13_oxat6")
+texture = ExtResource("15_hca0k")
 
 [node name="DayCount" type="TextEdit" parent="."]
 layout_mode = 0
@@ -326,29 +543,34 @@ offset_bottom = 1099.06
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3y8l7")
+
+[node name="Label" type="Label" parent="DayCount"]
+layout_mode = 0
+offset_left = -2.98889
+offset_top = 3.00366
+offset_right = 63.0111
+offset_bottom = 31.0037
+theme_override_font_sizes/font_size = 20
 text = "Day 0"
 
 [node name="Clock" type="TextEdit" parent="."]
 layout_mode = 0
-offset_left = 953.453
-offset_top = 1059.14
-offset_right = 1044.45
-offset_bottom = 1102.14
+offset_left = 959.431
+offset_top = 1059.06
+offset_right = 1050.43
+offset_bottom = 1102.06
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3p8rj")
-text = "8:00am"
 
-[node name="EnergyBar" type="TextureProgressBar" parent="."]
+[node name="Label" type="Label" parent="Clock"]
 layout_mode = 0
-offset_left = 1758.97
-offset_top = 1058.99
-offset_right = 2058.97
-offset_bottom = 1133.99
-scale = Vector2(0.430916, 0.34438)
-texture_under = ExtResource("15_v3neo")
-texture_over = ExtResource("16_yg8c1")
-texture_progress = ExtResource("16_yg8c1")
+offset_left = 0.996277
+offset_top = 2.98889
+offset_right = 77.9963
+offset_bottom = 30.9889
+theme_override_font_sizes/font_size = 20
+text = "8:00am"
 
 [node name="PauseButton" type="TextureButton" parent="."]
 layout_mode = 0
@@ -359,6 +581,7 @@ offset_bottom = 1232.16
 scale = Vector2(0.10603, 0.108602)
 texture_normal = ExtResource("16_t1a4d")
 texture_pressed = ExtResource("17_meo5g")
+texture_hover = ExtResource("17_meo5g")
 texture_focused = ExtResource("17_meo5g")
 
 [node name="PlayButton" type="TextureButton" parent="."]
@@ -370,6 +593,7 @@ offset_bottom = 1232.16
 scale = Vector2(0.102359, 0.102359)
 texture_normal = ExtResource("17_3inxt")
 texture_pressed = ExtResource("19_6j45w")
+texture_hover = ExtResource("19_6j45w")
 texture_focused = ExtResource("19_6j45w")
 
 [node name="FastForwardButton" type="TextureButton" parent="."]
@@ -381,57 +605,69 @@ offset_bottom = 1231.16
 scale = Vector2(0.111723, 0.104573)
 texture_normal = ExtResource("18_tg00r")
 texture_pressed = ExtResource("21_paxs6")
+texture_hover = ExtResource("21_paxs6")
 texture_focused = ExtResource("21_paxs6")
+
+[node name="FactsButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1576.14
+offset_top = 1052.09
+offset_right = 2088.14
+offset_bottom = 1564.09
+scale = Vector2(0.073671, 0.073671)
+texture_normal = ExtResource("23_y5114")
+texture_hover = ExtResource("25_rvvxo")
+texture_focused = ExtResource("25_rvvxo")
 
 [node name="BuildingButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 47.8221
-offset_top = 1056.07
-offset_right = 164.822
-offset_bottom = 1092.07
+offset_left = 55.0
+offset_top = 1054.0
+offset_right = 164.0
+offset_bottom = 1089.0
 scale = Vector2(1.01224, 1.01224)
 theme_override_colors/font_hover_color = Color(0, 0.788235, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0.788235, 0, 1)
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 24
 theme_override_styles/focus = SubResource("StyleBoxEmpty_olpng")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_haaoa")
 text = "Building"
 
 [node name="AnimalStatusButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 228.151
-offset_top = 1056.07
-offset_right = 410.151
-offset_bottom = 1091.07
+offset_left = 234.0
+offset_top = 1056.0
+offset_right = 403.0
+offset_bottom = 1091.0
 theme_override_colors/font_hover_color = Color(0.443137, 0.917647, 0.364706, 1)
 theme_override_colors/font_focus_color = Color(0, 0.788235, 0, 1)
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 24
 theme_override_styles/focus = SubResource("StyleBoxEmpty_viw8b")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mph3l")
 text = "Animal Status"
 
 [node name="PlantStatusButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 459.292
-offset_top = 1056.07
-offset_right = 621.292
-offset_bottom = 1091.07
+offset_left = 464.0
+offset_top = 1056.0
+offset_right = 616.0
+offset_bottom = 1091.0
 theme_override_colors/font_hover_color = Color(0, 0.788235, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0.788235, 0, 1)
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 24
 theme_override_styles/focus = SubResource("StyleBoxEmpty_367cx")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1kts1")
 text = "Plant Status"
 
 [node name="ReleasingButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 624.676
-offset_top = 1055.08
-offset_right = 761.676
-offset_bottom = 1090.08
+offset_left = 684.0
+offset_top = 1055.0
+offset_right = 806.0
+offset_bottom = 1090.0
 theme_override_colors/font_hover_color = Color(0, 0.788235, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0.788235, 0, 1)
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 24
 theme_override_styles/focus = SubResource("StyleBoxEmpty_pv4xe")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ysiku")
 text = "Releasing"
@@ -450,34 +686,107 @@ text = "Energy:"
 
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 1610.0
-offset_top = 1061.0
-offset_right = 1648.0
-offset_bottom = 1087.0
+offset_left = 1661.0
+offset_top = 1059.0
+offset_right = 1748.0
+offset_bottom = 1085.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_dxrg4")
 
 [node name="Funds" type="Label" parent="Panel2"]
 layout_mode = 0
-offset_left = -0.985591
-offset_top = -6.92124
-offset_right = 39.0144
-offset_bottom = 28.0788
+offset_left = -0.178329
+offset_top = -4.92131
+offset_right = 85.8217
+offset_bottom = 30.0787
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "$0"
 
+[node name="Panel3" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1817.0
+offset_top = 1054.0
+offset_right = 1893.0
+offset_bottom = 1094.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_a2qlt")
+
+[node name="ReleaseCount" type="Label" parent="Panel3"]
+layout_mode = 0
+offset_right = 74.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_icqs2")
+text = "0"
+
+[node name="Random Facts" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1583.0
+offset_top = 39.0
+offset_right = 1886.0
+offset_bottom = 348.0
+
+[node name="Label" type="Label" parent="Random Facts"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 9.0
+offset_right = 244.0
+offset_bottom = 51.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Did you know??"
+
+[node name="ExitMenu3" type="TextureButton" parent="Random Facts"]
+layout_mode = 0
+offset_left = 247.081
+offset_top = 6.97406
+offset_right = 647.083
+offset_bottom = 406.974
+scale = Vector2(0.11837, 0.11837)
+texture_normal = ExtResource("2_8mkx1")
+texture_hover = ExtResource("3_6yeco")
+
+[node name="Photo" type="Sprite2D" parent="Random Facts"]
+position = Vector2(221.288, 150.296)
+scale = Vector2(0.426012, 0.426012)
+texture = ExtResource("26_eupqq")
+
+[node name="Header" type="Label" parent="Random Facts"]
+layout_mode = 0
+offset_left = 15.9926
+offset_top = 53.0074
+offset_right = 283.993
+offset_bottom = 88.0074
+theme_override_colors/font_color = Color(0, 0.788235, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "Black Vulture"
+
+[node name="Fact" type="Label" parent="Random Facts"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 86.0
+offset_right = 287.0
+offset_bottom = 292.0
+
 [connection signal="pressed" from="Panel/ExitMenu" to="." method="_on_exit_menu_pressed"]
-[connection signal="pressed" from="BuildMenu/FenceButton" to="." method="_on_place_fence_button_pressed"]
-[connection signal="pressed" from="BuildMenu/CabinButton" to="." method="_on_place_cabin_button_pressed"]
-[connection signal="pressed" from="BuildMenu/WatchtowerButton" to="." method="_on_place_watchtower_button_pressed"]
-[connection signal="pressed" from="BuildMenu/TreesButton" to="." method="_on_place_trees_button_pressed"]
-[connection signal="pressed" from="BuildMenu/BathroomButton" to="." method="_on_place_bathroom_button_pressed"]
-[connection signal="pressed" from="BuildMenu/ExitMenu2" to="." method="_on_exit_menu_2_pressed"]
+[connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/CabinButton" to="." method="_on_place_cabin_button_pressed"]
+[connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/WatchtowerButton" to="." method="_on_place_watchtower_button_pressed"]
+[connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/BathroomButton" to="." method="_on_place_bathroom_button_pressed"]
+[connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/NewBuildingButton2" to="." method="_on_place_bathroom_button_pressed"]
+[connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer2/FenceButton" to="." method="_on_place_fence_button_pressed"]
+[connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer2/TreesButton" to="." method="_on_place_trees_button_pressed"]
+[connection signal="pressed" from="BuildMenu/BuildingOptions/ExitMenu2" to="." method="_on_exit_menu_2_pressed"]
+[connection signal="pressed" from="BuildMenu/BuildingOptions/BulldozerButton" to="." method="_on_bulldozer_button_pressed"]
+[connection signal="pressed" from="BuildMenu/AnimalOptions/ExitMenu2" to="." method="_on_exit_menu_2_pressed"]
 [connection signal="pressed" from="BuildConfirmation/ConfirmBuild" to="." method="_on_confirm_build_pressed"]
 [connection signal="pressed" from="BuildConfirmation/CancelBuild" to="." method="_on_cancel_build_pressed"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="FastForwardButton" to="." method="_on_fast_forward_button_pressed"]
+[connection signal="pressed" from="FactsButton" to="." method="_on_facts_button_pressed"]
 [connection signal="pressed" from="BuildingButton" to="." method="_on_building_button_pressed"]
 [connection signal="pressed" from="AnimalStatusButton" to="." method="_on_animal_status_button_pressed"]
 [connection signal="pressed" from="PlantStatusButton" to="." method="_on_plant_status_button_pressed"]
+[connection signal="pressed" from="ReleasingButton" to="." method="_on_releasing_button_pressed"]
+[connection signal="pressed" from="Random Facts/ExitMenu3" to="." method="_on_exit_menu_3_pressed"]
