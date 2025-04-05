@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://wmerghdvplqu" path="res://Entities/Animals/Deer/Assets/deer.blend" id="2_iasi4"]
 
 [node name="Deer" instance=ExtResource("1_4cxpb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.856144)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 species = "Deer"
 self_scene_path = "res://Entities/Animals/Deer/Deer.tscn"
 
 [node name="Deer_skin" parent="." index="2" instance=ExtResource("2_iasi4")]
-transform = Transform3D(-0.4, 0, -6.03983e-08, 0, 0.4, 0, 6.03983e-08, 0, -0.4, 0, 0.307477, -0.96812)
+transform = Transform3D(-0.4, 0, -6.03983e-08, 0, 0.4, 0, 6.03983e-08, 0, -0.4, 0, 1.3, -0.284084)

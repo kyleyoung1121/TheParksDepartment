@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://biryhebi3vfjo"]
+[gd_scene load_steps=16 format=3 uid="uid://biryhebi3vfjo"]
 
 [ext_resource type="Script" path="res://Systems/ObjectPlacement/ObjectPlacement.gd" id="1_1crrr"]
 [ext_resource type="PackedScene" uid="uid://bajcno73354v1" path="res://Maps/MapParts/Tile.tscn" id="1_2ewd0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dwp624wmncn58" path="res://Systems/CameraController/Camera.tscn" id="2_ar074"]
 [ext_resource type="PackedScene" uid="uid://c446bf6cmnsx6" path="res://Systems/DayNightCycle/DayNightCycle.tscn" id="3_naupw"]
 [ext_resource type="PackedScene" uid="uid://dp4umc3lj5fhc" path="res://UserInterface/EscMenu/EscMenu.tscn" id="5_880vd"]
+[ext_resource type="Script" path="res://Systems/AnimalPlacement/AnimalPlacement.gd" id="6_87x6r"]
 [ext_resource type="Script" path="res://Systems/FenceGenerator/FenceGenerator.gd" id="6_juo6g"]
 [ext_resource type="PackedScene" uid="uid://gjvq348elioi" path="res://Props/Natural/Landscape/Landscape.blend" id="6_o01yp"]
 [ext_resource type="PackedScene" uid="uid://o27yt3k5ogk7" path="res://UserInterface/example_menu.tscn" id="7_wrbmd"]
@@ -341,6 +342,9 @@ sun_intensity = SubResource("Curve_0dxvu")
 
 [node name="ObjectPlacement" type="Node" parent="."]
 script = ExtResource("1_1crrr")
+
+[node name="AnimalPlacement" type="Node" parent="."]
+script = ExtResource("6_87x6r")
 
 [node name="FenceGeneration" type="Node" parent="."]
 script = ExtResource("6_juo6g")

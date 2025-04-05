@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cpyqrsab7vs8n" path="res://Entities/Animals/AmericanGoldfinch/Assets/passerine-bodyplan.blend" id="2_txxd7"]
 
 [node name="AmericanGoldfinch" instance=ExtResource("1_wc2cl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 species = "AmericanGoldfinch"
 self_scene_path = "res://Entities/Animals/AmericanGoldfinch/AmericanGoldfinch.tscn"
 
 [node name="AmericanGoldfinch_skin" parent="." index="2" instance=ExtResource("2_txxd7")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 2.1351, 0)
