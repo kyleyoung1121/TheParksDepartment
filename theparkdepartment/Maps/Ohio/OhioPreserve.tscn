@@ -415,7 +415,7 @@ transform = Transform3D(0.485543, 0, 0.421541, 0, 0.643, 0, -0.421541, 0, 0.4855
 transform = Transform3D(0.485543, 0, 0.421541, 0, 0.643, 0, -0.421541, 0, 0.485543, 115.566, 0, -9.25803)
 
 [node name="GuestPath" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 curve = SubResource("Curve3D_l3hn8")
 script = ExtResource("11_cearv")
 
