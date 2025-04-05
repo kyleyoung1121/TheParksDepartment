@@ -1,6 +1,5 @@
 extends Node
 
-@export var confirmation_window: ConfirmationDialog  # Drag your confirmation window here
 @onready var current_building: Node3D = null
 
 var placement_in_progress = false
@@ -53,9 +52,9 @@ func _process(delta):
 
 				if fence_points.size() == 2:
 					follow_mouse = false
-					in_game_menu.placement_requested("Fence")
+					in_game_menu.placement_requested("Object", "Fence")
 			else:
-				in_game_menu.placement_requested(selected_structure_type)
+				in_game_menu.placement_requested("Object", selected_structure_type)
 				follow_mouse = false
 
 

@@ -83,8 +83,6 @@ func _process(delta):
 
 	# Clamp pitch to limit looking too far up or down
 	pitch = clamp(pitch, deg_to_rad(pitch_min), deg_to_rad(pitch_max))
-	
-	print("BOUNDS: yaw = " + str(yaw))
 
 
 func _physics_process(delta):

@@ -4,6 +4,15 @@ signal start_object_placement(structure_type)
 signal confirm_object_placement()
 signal cancel_object_placement()
 
+# Building Prices
+var building_prices = {
+	"Fence": 25,
+	"Log Cabin": 125,
+	"Watchtower": 150,
+	"Trees": 10,
+	"Bathroom": 50,
+}
+
 # ANIMAL STATS
 var tracking = false
 var index
@@ -23,20 +32,13 @@ var AmericanGoldfinchCount
 var CoopersHawkCount
 var PlantCount
 
-# Object Prices
-var building_prices = {
-	"Fence": 25,
-	"Log Cabin": 125,
-	"Watchtower": 150,
-	"Trees": 10,
-	"Bathroom": 50,
-}
-
 # Object Determination
 var selected_object = ""
+var selected_object_type = ""
 
 # Script reference
 var object_placement
+var animal_placement
 
 
 func _process(delta: float) -> void:
@@ -84,17 +86,14 @@ func _process(delta: float) -> void:
 	
 	$Clock.text = str(hour) + ":" + str(minutes) + meridiem
 
+
 func _ready() -> void:
 	$BuildMenu/FencePrice.add_theme_color_override("bg_color", Color.WEB_GREEN)
 	
 	# Get reference to parent (main scene) and find ObjectPlacement child node
 	var parent = get_parent()
 	object_placement = parent.get_node("ObjectPlacement")
-	
-	if object_placement:
-		print("ObjectPlacement successfully assigned in InGameMenu!")
-	else:
-		print("ObjectPlacement not found!")
+	animal_placement = parent.get_node("AnimalPlacement")
 	
 	#var menu = get_node("MenuButton")
 	#menu.get_popup().add_item("Deer")
@@ -157,20 +156,41 @@ func _on_place_bathroom_button_pressed():
 		object_placement.start_placing(selected_object)
 
 
-func placement_requested(structure_type) -> void:
-	if (structure_type == "Fence"):
-		$BuildConfirmation/BuildCost.text = "Cost: $25"
-	elif (structure_type == "Log Cabin"):
-		$BuildConfirmation/BuildCost.text = "Cost: $125"
-	elif (structure_type == "Watchtower"):
-		$BuildConfirmation/BuildCost.text = "Cost: $150"
-	elif (structure_type == "Trees"):
-		$BuildConfirmation/BuildCost.text = "Cost: $10"
-	elif (structure_type == "Bathroom"):
-		$BuildConfirmation/BuildCost.text = "Cost: $50"
+func placement_requested(type, selection) -> void:
+	selected_object = selection
+	selected_object_type = type
 	
-	$BuildConfirmation.visible = true
-	selected_object = structure_type
+	if (type == "Object"):
+		if (selection == "Fence"):
+			$BuildConfirmation/BuildCost.text = "Cost: $25"
+		elif (selection == "Log Cabin"):
+			$BuildConfirmation/BuildCost.text = "Cost: $125"
+		elif (selection == "Watchtower"):
+			$BuildConfirmation/BuildCost.text = "Cost: $150"
+		elif (selection == "Trees"):
+			$BuildConfirmation/BuildCost.text = "Cost: $10"
+		elif (selection == "Bathroom"):
+			$BuildConfirmation/BuildCost.text = "Cost: $50"
+		
+		# TODO: we may need to adjust the confirmation menu to be suitable to confirming buildings
+		$BuildConfirmation.visible = true
+	
+	if (type == "Animal"):
+		if (selection == "AmericanGoldfinch"):
+			$BuildConfirmation/BuildCost.text = "NO COST"
+		elif (selection == "CoopersHawk"):
+			$BuildConfirmation/BuildCost.text = "NO COST"
+		elif (selection == "Coyote"):
+			$BuildConfirmation/BuildCost.text = "NO COST"
+		elif (selection == "Deer"):
+			$BuildConfirmation/BuildCost.text = "NO COST"
+		elif (selection == "EasternWolf"):
+			$BuildConfirmation/BuildCost.text = "NO COST"
+		elif (selection == "Rabbit"):
+			$BuildConfirmation/BuildCost.text = "NO COST"
+		
+		# TODO: we may need to adjust the confirmation menu to be suitable to confirming animals
+		$BuildConfirmation.visible = true
 
 
 func _on_fast_forward_button_pressed() -> void:
@@ -198,6 +218,7 @@ func _on_animal_status_button_pressed() -> void:
 	$Panel/ScrollContainer/VBoxContainer/ListItem4.visible = true
 	$Panel/ScrollContainer/VBoxContainer/ListItem5.visible = true
 	$Panel/ScrollContainer/VBoxContainer/ListItem6.visible = true
+
 
 func _on_plant_status_button_pressed() -> void:
 	if ($BuildMenu.visible == true):
@@ -234,13 +255,26 @@ func _on_exit_menu_2_pressed() -> void:
 
 
 func _on_confirm_build_pressed() -> void:
-	if OhioEcosystemData.funds >= building_prices[selected_object]:
-		OhioEcosystemData.funds -= building_prices[selected_object]
-		object_placement.confirm_placement()
+	if selected_object_type == "Object":
+		if OhioEcosystemData.funds >= building_prices[selected_object]:
+			OhioEcosystemData.funds -= building_prices[selected_object]
+			$BuildConfirmation.visible = false
+			object_placement.confirm_placement()
+			selected_object = ""
+	
+	elif selected_object_type == "Animal":
 		$BuildConfirmation.visible = false
+		animal_placement.confirm_placement()
 		selected_object = ""
 
+
 func _on_cancel_build_pressed() -> void:
-	object_placement.cancel_placement()
-	$BuildConfirmation.visible = false
-	selected_object = ""
+	if selected_object_type == "Object":
+		$BuildConfirmation.visible = false
+		object_placement.cancel_placement()
+		selected_object = ""
+	
+	elif selected_object_type == "Animal":
+		$BuildConfirmation.visible = false
+		animal_placement.cancel_placement()
+		selected_object = ""
