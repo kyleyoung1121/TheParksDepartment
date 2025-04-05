@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Systems/AnimalPlacement/AnimalPlacement.gd" id="6_87x6r"]
 [ext_resource type="Script" path="res://Systems/FenceGenerator/FenceGenerator.gd" id="6_juo6g"]
 [ext_resource type="PackedScene" uid="uid://gjvq348elioi" path="res://Props/Natural/Landscape/Landscape.blend" id="6_o01yp"]
-[ext_resource type="PackedScene" uid="uid://o27yt3k5ogk7" path="res://UserInterface/GUI/InGameMenu.tscn" id="7_wrbmd"]
+[ext_resource type="PackedScene" uid="uid://o27yt3k5ogk7" path="res://UserInterface/GUI/InGameMenu.tscn" id="8_mbkmq"]
 [ext_resource type="PackedScene" uid="uid://dj68fd3ryt7a5" path="res://Props/Natural/Trees/TreeCluster.blend" id="9_6ig1u"]
 [ext_resource type="Script" path="res://Systems/GuestManager/GuestSpawner.gd" id="11_cearv"]
 
@@ -349,7 +349,7 @@ script = ExtResource("6_87x6r")
 [node name="FenceGeneration" type="Node" parent="."]
 script = ExtResource("6_juo6g")
 
-[node name="InGameMenu" parent="." instance=ExtResource("7_wrbmd")]
+[node name="InGameMenu" parent="." instance=ExtResource("8_mbkmq")]
 
 [node name="EscMenu" parent="." instance=ExtResource("5_880vd")]
 
@@ -424,6 +424,6 @@ curve = SubResource("Curve3D_l3hn8")
 script = ExtResource("11_cearv")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="GuestPath"]
-transform = Transform3D(-0.00399937, 1.72433e-06, -0.999984, 0, 0.999997, 1.72434e-06, 0.999959, 6.89653e-09, -0.00399947, -21.31, 0, 18)
+transform = Transform3D(-0.00399973, 1.72434e-06, -0.999984, 0, 0.999997, 1.72434e-06, 0.999959, 6.89718e-09, -0.00399983, -21.31, 0, 18)
 
 [node name="GuestSpawnTimer" type="Timer" parent="GuestPath"]
