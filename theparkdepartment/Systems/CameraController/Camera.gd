@@ -83,11 +83,13 @@ func _process(delta):
 
 	# Clamp pitch to limit looking too far up or down
 	pitch = clamp(pitch, deg_to_rad(pitch_min), deg_to_rad(pitch_max))
+	
+	print("BOUNDS: yaw = " + str(yaw))
 
 
 func _physics_process(delta):
 	# Smoothly apply yaw and pitch rotation
-	camera_target.rotation.y = lerp(camera_target.rotation.y, yaw, delta * 10)
+	camera_target.rotation.y = lerp_angle(camera_target.rotation.y, yaw, delta * 10)
 	camera_target.rotation.x = lerp(camera_target.rotation.x, pitch, delta * 10)
 	
 	# Stop drag velocity when the middle button is released
