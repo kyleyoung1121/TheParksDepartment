@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://biryhebi3vfjo"]
+[gd_scene load_steps=16 format=3 uid="uid://biryhebi3vfjo"]
 
 [ext_resource type="Script" path="res://Systems/ObjectPlacement/ObjectPlacement.gd" id="1_1crrr"]
 [ext_resource type="PackedScene" uid="uid://bajcno73354v1" path="res://Maps/MapParts/Tile.tscn" id="1_2ewd0"]
@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dwp624wmncn58" path="res://Systems/CameraController/camera.tscn" id="2_ar074"]
 [ext_resource type="PackedScene" uid="uid://c446bf6cmnsx6" path="res://Systems/DayNightCycle/DayNightCycle.tscn" id="3_naupw"]
 [ext_resource type="PackedScene" uid="uid://dp4umc3lj5fhc" path="res://UserInterface/EscMenu/EscMenu.tscn" id="5_880vd"]
+[ext_resource type="Script" path="res://Systems/AnimalPlacement/AnimalPlacement.gd" id="6_87x6r"]
 [ext_resource type="Script" path="res://Systems/FenceGenerator/FenceGenerator.gd" id="6_juo6g"]
 [ext_resource type="PackedScene" uid="uid://gjvq348elioi" path="res://Props/Natural/Landscape/Landscape.blend" id="6_o01yp"]
 [ext_resource type="PackedScene" uid="uid://o27yt3k5ogk7" path="res://UserInterface/GUI/InGameMenu.tscn" id="7_wrbmd"]
 [ext_resource type="PackedScene" uid="uid://dj68fd3ryt7a5" path="res://Props/Natural/Trees/TreeCluster.blend" id="9_6ig1u"]
+[ext_resource type="Script" path="res://Systems/GuestManager/GuestSpawner.gd" id="11_cearv"]
 
 [sub_resource type="Gradient" id="Gradient_kbrg6"]
 offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
@@ -19,11 +21,12 @@ colors = PackedColorArray(0.92, 0.55154, 0.1012, 1, 0.92, 0.86618, 0.8004, 1, 0.
 _data = [Vector2(0.1, 0), 0.0, 0.0, 0, 0, Vector2(0.347368, 1), 0.0, 0.0, 0, 0, Vector2(0.653, 1), 0.0, 0.0, 0, 0, Vector2(0.9, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64obp"]
-albedo_color = Color(0.356863, 1, 1, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_2yfkx"]
-material = SubResource("StandardMaterial3D_64obp")
+[sub_resource type="Curve3D" id="Curve3D_l3hn8"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -21.31, 0, 18, 0, 0, 0, 0, 0, 0, 42.2917, -0.000109673, 18.2544, 0.00529099, -4.88311e-05, -2.76338, -0.00529099, 4.88311e-05, 2.76338, 44.5265, 0, 20.5781, 0.0289383, -4.88311e-05, -2.04197, -0.0289383, 4.88311e-05, 2.04197, 44.345, 0, 86.18, 0, 0, 0, 0, 0, 0, 42.32, 0, 88.08, 0.804572, -4.88311e-05, -0.00514984, -0.804572, 4.88311e-05, 0.00514984, 7.29, 0, 88.08, 0.0289769, -4.88311e-05, -2.14243, -0.0289769, 4.88311e-05, 2.14243, 5.34, 0, 90.41, -0.0293775, -4.88311e-05, -2.00529, 0.0293775, 4.88311e-05, 2.00529, 5.34, 0, 134.295, 0, 0, 0, 0, 0, 0, 7.345, 0, 136.255, -2.15018, -7.32392e-05, -0.110733, 2.15018, 7.32392e-05, 0.110733, 116.745, 0, 136.26, 0, 0, 0, 0, 0, 0, 118.86, 0, 134.35, -0.0412064, -4.88311e-05, 2.36287, 0.0412064, 4.88311e-05, -2.36287, 118.875, 0, 7.335, 0, 0, 0, 0, 0, 0, 121.11, 0, 5.17, 0, 0, 0, 0, 0, 0, 155.845, 0, 5.17),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 14
 
 [node name="OhioPreserve" type="Node3D"]
 script = ExtResource("1_eab4o")
@@ -340,6 +343,9 @@ sun_intensity = SubResource("Curve_0dxvu")
 [node name="ObjectPlacement" type="Node" parent="."]
 script = ExtResource("1_1crrr")
 
+[node name="AnimalPlacement" type="Node" parent="."]
+script = ExtResource("6_87x6r")
+
 [node name="FenceGeneration" type="Node" parent="."]
 script = ExtResource("6_juo6g")
 
@@ -350,37 +356,10 @@ script = ExtResource("6_juo6g")
 [node name="Landscape" parent="." instance=ExtResource("6_o01yp")]
 transform = Transform3D(35, 0, 0, 0, 35, 0, 0, 0, 35, 73, 0, 73)
 
-[node name="Guests" type="Node3D" parent="."]
-
-[node name="Guest1" type="MeshInstance3D" parent="Guests"]
-transform = Transform3D(0.795, 0, 0, 0, 0.795, 0, 0, 0, 0.795, -14, 1, 18.3)
-mesh = SubResource("CapsuleMesh_2yfkx")
-skeleton = NodePath("../..")
-
-[node name="Guest2" type="MeshInstance3D" parent="Guests"]
-transform = Transform3D(0.795, 0, 0, 0, 0.795, 0, 0, 0, 0.795, -14, 1, 18.3)
-mesh = SubResource("CapsuleMesh_2yfkx")
-skeleton = NodePath("../..")
-
-[node name="Guest3" type="MeshInstance3D" parent="Guests"]
-transform = Transform3D(0.795, 0, 0, 0, 0.795, 0, 0, 0, 0.795, -14, 1, 18.3)
-mesh = SubResource("CapsuleMesh_2yfkx")
-skeleton = NodePath("../..")
-
-[node name="Guest4" type="MeshInstance3D" parent="Guests"]
-transform = Transform3D(0.795, 0, 0, 0, 0.795, 0, 0, 0, 0.795, -14, 1, 18.3)
-mesh = SubResource("CapsuleMesh_2yfkx")
-skeleton = NodePath("../..")
-
-[node name="Guest5" type="MeshInstance3D" parent="Guests"]
-transform = Transform3D(0.795, 0, 0, 0, 0.795, 0, 0, 0, 0.795, -14, 1, 18.3)
-mesh = SubResource("CapsuleMesh_2yfkx")
-skeleton = NodePath("../..")
-
 [node name="Trees" type="Node3D" parent="."]
 
 [node name="TreeCluster" parent="Trees" instance=ExtResource("9_6ig1u")]
-transform = Transform3D(0.643, 0, 0, 0, 0.643, 0, 0, 0, 0.643, 62.0097, 0, 0.0448709)
+transform = Transform3D(0.643, 0, 0, 0, 0.643, 0, 0, 0, 0.643, 62.0097, 0, -9.84969)
 
 [node name="TreeCluster2" parent="Trees" instance=ExtResource("9_6ig1u")]
 transform = Transform3D(0.643, 0, 0, 0, 0.643, 0, 0, 0, 0.643, 27.5391, 0, 108.825)
@@ -438,3 +417,13 @@ transform = Transform3D(0.485543, 0, 0.421541, 0, 0.643, 0, -0.421541, 0, 0.4855
 
 [node name="TreeCluster20" parent="Trees" instance=ExtResource("9_6ig1u")]
 transform = Transform3D(0.485543, 0, 0.421541, 0, 0.643, 0, -0.421541, 0, 0.485543, 115.566, 0, -9.25803)
+
+[node name="GuestPath" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+curve = SubResource("Curve3D_l3hn8")
+script = ExtResource("11_cearv")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="GuestPath"]
+transform = Transform3D(-0.00399937, 1.72433e-06, -0.999984, 0, 0.999997, 1.72434e-06, 0.999959, 6.89653e-09, -0.00399947, -21.31, 0, 18)
+
+[node name="GuestSpawnTimer" type="Timer" parent="GuestPath"]

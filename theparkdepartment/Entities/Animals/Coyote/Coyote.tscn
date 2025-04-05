@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://b0vxvxg8a7d8c" path="res://Entities/Animals/Coyote/Assets/coyote.blend" id="2_7rjva"]
 
 [node name="EasternWolf" instance=ExtResource("1_u062p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 species = "Coyote"
 self_scene_path = "res://Entities/Animals/Coyote/Coyote.tscn"
 
 [node name="coyote" parent="." index="2" instance=ExtResource("2_7rjva")]
-transform = Transform3D(-0.6, 0, -5.24537e-08, 0, 0.6, 0, 5.24537e-08, 0, -0.6, 0, -0.4, 0)
+transform = Transform3D(-0.6, 0, -5.24537e-08, 0, 0.6, 0, 5.24537e-08, 0, -0.6, 0, 0.6, 0)

@@ -69,6 +69,7 @@ scale = Vector2(1.00372, 1.00372)
 script = ExtResource("1_kghvm")
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 0.00741237
 offset_top = 875.0

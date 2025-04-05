@@ -87,7 +87,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	# Smoothly apply yaw and pitch rotation
-	camera_target.rotation.y = lerp(camera_target.rotation.y, yaw, delta * 10)
+	camera_target.rotation.y = lerp_angle(camera_target.rotation.y, yaw, delta * 10)
 	camera_target.rotation.x = lerp(camera_target.rotation.x, pitch, delta * 10)
 	
 	# Stop drag velocity when the middle button is released
@@ -122,3 +122,20 @@ func move_camera(delta):
 	var new_position = camera_target.position + move + drag_velocity * delta
 	new_position.y = camera_target.position.y
 	camera_target.position = new_position
+	
+	# Clamp X and Z to keep camera in bounds
+	var half_tile = OhioEcosystemData.grid_scale / 2
+	var grid_minus_half_tile = (OhioEcosystemData.grid_size * OhioEcosystemData.grid_scale) - half_tile
+	
+	var cam_x = camera_target.global_position.x
+	var cam_z = camera_target.global_position.z
+	
+	if cam_x < -half_tile:
+		camera_target.global_position.x = lerp(cam_x, -half_tile + 1.0, 0.1)
+	elif cam_x > grid_minus_half_tile:
+		camera_target.global_position.x = lerp(cam_x, grid_minus_half_tile + 1.0, 0.1)
+		
+	if cam_z < -half_tile:
+		camera_target.global_position.z = lerp(cam_z, -half_tile + 1.0, 0.1)
+	elif cam_z > grid_minus_half_tile:
+		camera_target.global_position.z = lerp(cam_z, grid_minus_half_tile + 1.0, 0.1)

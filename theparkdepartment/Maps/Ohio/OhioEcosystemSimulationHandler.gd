@@ -9,7 +9,7 @@ var american_goldfinch_scene = load("res://Entities/Animals/AmericanGoldfinch/Am
 var coopers_hawk_scene = load("res://Entities/Animals/CoopersHawk/CoopersHawk.tscn")
 var coyote_scene = load("res://Entities/Animals/Coyote/Coyote.tscn")
 
-#var fence_scene = load("res://Props/Artificial/Fence/Fence.tscn")  # Load the fence scene
+var guest_speed = 0.1
 
 
 func _ready():
@@ -19,22 +19,12 @@ func _ready():
 	print("Grid bounds min: ", grid_bounds_min)
 	print("Grid bounds max: ", grid_bounds_max)
 	
-	# Initialize fences
-	#for fence in OhioEcosystemData.fences:
-		#create_fence(fence)
-	
 	# Proceed with the ecosystem setup
 	randomize()
 	initialize_ecosystem()
 	start_simulation()
 	
-	guest_system()
-
-
-#func create_fence(edges: Array):
-	#var new_fence = fence_scene.instantiate()
-	#new_fence.edges = edges
-	#add_child(new_fence)
+	#est_system()
 
 
 func initialize_ecosystem():
@@ -130,54 +120,55 @@ func guest_system():
 func give_money():
 	OhioEcosystemData.funds += 20
 
+
 func guest_movement(guestNum):
 	#1
 	# for i in range(585):
 	var currpos = get_node("Guests/Guest" + str(guestNum)).position.x
 	while (currpos + (585*0.1) > get_node("Guests/Guest" + str(guestNum)).position.x):
-		get_node("Guests/Guest" + str(guestNum)).position.x += OhioEcosystemData.speedMult
+		get_node("Guests/Guest" + str(guestNum)).position.x += guest_speed
 		await get_tree().create_timer(0.01).timeout
 	
 	#2
 	#for i in range(700):
 	currpos = get_node("Guests/Guest" + str(guestNum)).position.z
 	while (currpos + (700*0.1) > get_node("Guests/Guest" + str(guestNum)).position.z):
-		get_node("Guests/Guest" + str(guestNum)).position.z += OhioEcosystemData.speedMult
+		get_node("Guests/Guest" + str(guestNum)).position.z += guest_speed
 		await get_tree().create_timer(0.01).timeout
 	
 	#3
 	#for i in range(393):
 	currpos = get_node("Guests/Guest" + str(guestNum)).position.x
 	while (currpos - (393*0.1) < get_node("Guests/Guest" + str(guestNum)).position.x):
-		get_node("Guests/Guest" + str(guestNum)).position.x -= OhioEcosystemData.speedMult
+		get_node("Guests/Guest" + str(guestNum)).position.x -= guest_speed
 		await get_tree().create_timer(0.01).timeout
 	
 	#4
 	#for i in range(482):
 	currpos = get_node("Guests/Guest" + str(guestNum)).position.z
 	while (currpos + (482*0.1) > get_node("Guests/Guest" + str(guestNum)).position.z):
-		get_node("Guests/Guest" + str(guestNum)).position.z += OhioEcosystemData.speedMult
+		get_node("Guests/Guest" + str(guestNum)).position.z += guest_speed
 		await get_tree().create_timer(0.01).timeout
 	
 	#5
 	#for i in range(1137):
 	currpos = get_node("Guests/Guest" + str(guestNum)).position.x
 	while (currpos + (1137*0.1) > get_node("Guests/Guest" + str(guestNum)).position.x):
-		get_node("Guests/Guest" + str(guestNum)).position.x += OhioEcosystemData.speedMult
+		get_node("Guests/Guest" + str(guestNum)).position.x += guest_speed
 		await get_tree().create_timer(0.01).timeout
 		
 	#6
 	#for i in range(1315):
 	currpos = get_node("Guests/Guest" + str(guestNum)).position.z
 	while (currpos - (1315*0.1) < get_node("Guests/Guest" + str(guestNum)).position.z):
-		get_node("Guests/Guest" + str(guestNum)).position.z -= OhioEcosystemData.speedMult
+		get_node("Guests/Guest" + str(guestNum)).position.z -= guest_speed
 		await get_tree().create_timer(0.01).timeout
 		
 	#7
 	#for i in range(400):
 	currpos = get_node("Guests/Guest" + str(guestNum)).position.x
 	while (currpos + (400*0.1) > get_node("Guests/Guest" + str(guestNum)).position.x):
-		get_node("Guests/Guest" + str(guestNum)).position.x += OhioEcosystemData.speedMult
+		get_node("Guests/Guest" + str(guestNum)).position.x += guest_speed
 		await get_tree().create_timer(0.01).timeout
 	
 	get_node("Guests/Guest" + str(guestNum)).position.x = -14

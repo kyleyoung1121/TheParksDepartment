@@ -1,10 +1,9 @@
 extends Node
 
-@export var confirmation_window: ConfirmationDialog  # Drag your confirmation window here
 @onready var current_building: Node3D = null
 
 var placement_in_progress = false
-var follow_mouse = true
+var follow_mouse = false
 var selected_structure_type
 
 var in_game_menu
@@ -23,10 +22,12 @@ var fence_preview_meshes: Array[Node3D] = []
 @export var fence_preview_scene: PackedScene = preload("res://Props/Artificial/Fence/FencePost.tscn")
 var fence_generation
 
+
 func _ready():
 	var parent = get_parent()
 	in_game_menu = parent.get_node("InGameMenu")
 	fence_generation = parent.get_node("FenceGeneration")
+
 
 func _process(delta):
 	if follow_mouse:
@@ -51,10 +52,11 @@ func _process(delta):
 
 				if fence_points.size() == 2:
 					follow_mouse = false
-					in_game_menu.placement_requested("Fence")
+					in_game_menu.placement_requested("Object", "Fence")
 			else:
-				in_game_menu.placement_requested(selected_structure_type)
+				in_game_menu.placement_requested("Object", selected_structure_type)
 				follow_mouse = false
+
 
 func start_placing(structure_type: String):
 	if placement_in_progress:
@@ -96,12 +98,19 @@ func start_placing(structure_type: String):
 					if mat is StandardMaterial3D:
 						mat.albedo_color.a = 0.5
 
+
 func confirm_placement():
 	print("placement: going to confirm building")
 	if selected_structure_type == "Fence":
 		if fence_points.size() == 2:
+			# Create the fence visually
 			add_child(fence_generation.create_fence_segment(fence_points[0], fence_points[1]))
 
+			# Add the new fence to the global data
+			OhioEcosystemData.fences.append([fence_points[0], fence_points[1]])
+			print("New fence added to global data:", fence_points[0], "to", fence_points[1])
+
+		# Clear the preview meshes
 		for preview in fence_preview_meshes:
 			if is_instance_valid(preview):
 				preview.queue_free()
@@ -115,8 +124,9 @@ func confirm_placement():
 			get_parent().add_child(final_building)
 			current_building.queue_free()
 			current_building = null
-
+	
 	placement_in_progress = false
+
 
 func cancel_placement():
 	if current_building:
@@ -129,6 +139,7 @@ func cancel_placement():
 	fence_preview_meshes.clear()
 	fence_points.clear()
 	placement_in_progress = false
+
 
 func get_mouse_world_position() -> Vector3:
 	var space_state = get_viewport().get_world_3d().direct_space_state
@@ -144,6 +155,7 @@ func get_mouse_world_position() -> Vector3:
 	if result.has("position"):
 		return result["position"]
 	return Vector3.ZERO
+
 
 func create_transparent_material() -> StandardMaterial3D:
 	var mat := StandardMaterial3D.new()

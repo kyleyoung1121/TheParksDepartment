@@ -21,6 +21,16 @@ func create_fence_segment(start_pos: Vector3, end_pos: Vector3) -> Node3D:
 	var direction = (end_pos - start_pos).normalized()
 	var step = direction * segment_length
 	
+	# Compute rotation for proper alignment
+	var forward = Vector3.FORWARD
+	var axis = forward.cross(direction).normalized()
+	var angle = acos(forward.dot(direction))  # Angle between forward and direction
+	var rotation_quat = Quaternion(axis, angle)  
+
+	# Apply a 90-degree correction around the Y-axis
+	var correction_quat = Quaternion(Vector3.UP, PI / 2)
+	var final_rotation = correction_quat * rotation_quat  # Apply correction after computing direction rotation
+
 	# Adjust the position of the first segment (half segment length offset)
 	var first_segment_offset = direction * (segment_length / 2.0)
 	var position = start_pos + first_segment_offset
@@ -34,14 +44,8 @@ func create_fence_segment(start_pos: Vector3, end_pos: Vector3) -> Node3D:
 		var segment_position = position + step * i  # Position each segment along the edge
 		segment.transform.origin = segment_position  # Set the segment's position
 
-		# Rotate the segment depending on the direction of the edge
-		if abs(direction.x) > abs(direction.z): # If horizontal fence, no rotation needed
-			segment.rotation_degrees = Vector3(0, 0, 0)
-		elif abs(direction.z) > abs(direction.x): # If vertical fence, rotate by 90 degrees
-			segment.rotation_degrees = Vector3(0, 90, 0)
-		else: # If diagonal fence, rotate based on direction
-			var rotation_angle = direction.angle_to(Vector3.FORWARD)  # Angle between the line and the forward direction
-			segment.rotation_degrees = Vector3(0, rotation_angle * 180 / PI, 0)  # Convert radians to degrees
+		# Apply corrected quaternion rotation
+		segment.transform.basis = Basis(final_rotation)
 
 		segment_container.add_child(segment)  # Add the segment to the container
 
