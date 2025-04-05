@@ -4,6 +4,15 @@ extends Node3D
 var path: Path3D
 var distance: float = 0.0
 
+var animation_player: AnimationPlayer
+
+
+func _ready():
+	animation_player = $Guest/AnimationPlayer
+	animation_player.play("walking")
+	animation_player.get_animation("walking").loop = true
+
+
 func _process(delta):
 	if not path:
 		return
