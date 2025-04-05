@@ -1,6 +1,6 @@
 extends Node
 
-@onready var current_animal: Node3D = null
+@onready var current_preview: Node3D = null
 
 var animal_scenes = {
 	"AmericanGoldfinch": preload("res://Entities/Animals/AmericanGoldfinch/AmericanGoldfinch.tscn"),
@@ -11,6 +11,8 @@ var animal_scenes = {
 	"Rabbit": preload("res://Entities/Animals/Rabbit/Rabbit.tscn"),
 }
 
+var animal_crate_scene = preload("res://Props/Artificial/AnimalCrate/AnimalCrate.blend")
+
 var placement_in_progress = false
 var follow_mouse = false
 var selected_animal_type
@@ -20,69 +22,66 @@ var in_game_menu
 
 
 func _ready():
-	var parent = get_parent()
-	in_game_menu = parent.get_node("InGameMenu")
+	in_game_menu = get_parent().get_node("InGameMenu")
 
 
 func _process(delta):
 	if follow_mouse:
 		var mouse_pos = get_mouse_world_position()
 
-		# Handle preview movement
-		if is_instance_valid(current_animal):
-			current_animal.global_transform.origin = mouse_pos
+		if is_instance_valid(current_preview):
+			current_preview.global_transform.origin = mouse_pos
 
-		# Handle placement request
 		if Input.is_action_just_pressed("place_structure"):
 			in_game_menu.placement_requested("Animal", selected_animal_type)
 			follow_mouse = false
 
 
-# TODO: Do not add the actual animal to the scene. 
-#       - It can be consumed while in preview mode
-#       - Animal will begin walking after left click, before confirm button
 func start_placing(animal_type: String):
 	if placement_in_progress:
 		return
 
-	if current_animal:
-		current_animal.queue_free()
-		current_animal = null
+	if current_preview:
+		current_preview.queue_free()
+		current_preview = null
 
 	if animal_scenes.has(animal_type):
 		selected_animal_scene = animal_scenes[animal_type]
 	else:
 		selected_animal_scene = null
 	
-	if selected_animal_scene:
+	if selected_animal_scene and animal_crate_scene:
 		selected_animal_type = animal_type
 		placement_in_progress = true
 		follow_mouse = true
-		current_animal = selected_animal_scene.instantiate()
-		add_child(current_animal)
+		current_preview = animal_crate_scene.instantiate()
+		add_child(current_preview)
 
 
 func confirm_placement():
-	print("placement: going to confirm animal")
 	
-	if current_animal:
-		print("placement: confirmed animal")
-		var final_building = selected_animal_scene.instantiate()
-		final_building.global_transform.origin = current_animal.global_transform.origin
-		get_parent().add_child(final_building)
+	if current_preview:
+		# Get the choosen animal and add it to the parent scene
+		var final_animal = selected_animal_scene.instantiate()
+		final_animal.global_transform.origin = current_preview.global_transform.origin
+		get_parent().add_child(final_animal)
+		# Decrease 'release' currency and increase animal's population count
 		OhioEcosystemData.release_count -= 1
 		if OhioEcosystemData.release_count < 0:
 			OhioEcosystemData.release_count = 0
-		current_animal.queue_free()
-		current_animal = null
+		if selected_animal_type in OhioEcosystemData.animals_species_data:
+			OhioEcosystemData.animals_species_data[selected_animal_type]["count"] += 1
+		# Remove the animal crate preview
+		current_preview.queue_free()
+		current_preview = null
 	
 	placement_in_progress = false
 
 
 func cancel_placement():
-	if current_animal:
-		current_animal.queue_free()
-		current_animal = null
+	if current_preview:
+		current_preview.queue_free()
+		current_preview = null
 
 	placement_in_progress = false
 

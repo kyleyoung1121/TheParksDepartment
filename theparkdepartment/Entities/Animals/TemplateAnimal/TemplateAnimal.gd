@@ -463,6 +463,7 @@ func telepathy_print(text):
 	if animal_name == debug_telepathy_target:
 		print("DEBUG TELEPATHY: ", text)
 
+
 func fence_collision(target_position):
 	
 	for fence in fences:
@@ -472,6 +473,7 @@ func fence_collision(target_position):
 			if is_point_on_line(position, target_position, start_pos, end_pos):
 				return true
 	return false
+
 
 func is_point_on_line(point, target, start, end):
 	# Calculate the direction vectors
@@ -492,6 +494,7 @@ func is_point_on_line(point, target, start, end):
 		return true
 	
 	return false
+
 
 func play_animation(animation_name):
 	if not has_animation_player or animation_player == null:
