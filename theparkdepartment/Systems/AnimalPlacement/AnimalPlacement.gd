@@ -45,11 +45,6 @@ func start_placing(animal_type: String):
 	if placement_in_progress:
 		return
 
-	print("Object Placement: start_placing() called!")
-	placement_in_progress = true
-	follow_mouse = true
-	selected_animal_type = animal_type
-
 	if current_animal:
 		current_animal.queue_free()
 		current_animal = null
@@ -60,13 +55,11 @@ func start_placing(animal_type: String):
 		selected_animal_scene = null
 	
 	if selected_animal_scene:
+		selected_animal_type = animal_type
+		placement_in_progress = true
+		follow_mouse = true
 		current_animal = selected_animal_scene.instantiate()
 		add_child(current_animal)
-		for mesh in current_animal.get_children():
-			if mesh is MeshInstance3D:
-				var mat = mesh.get_surface_override_material(0)
-				if mat is StandardMaterial3D:
-					mat.albedo_color.a = 0.5
 
 
 func confirm_placement():
@@ -77,6 +70,9 @@ func confirm_placement():
 		var final_building = selected_animal_scene.instantiate()
 		final_building.global_transform.origin = current_animal.global_transform.origin
 		get_parent().add_child(final_building)
+		OhioEcosystemData.release_count -= 1
+		if OhioEcosystemData.release_count < 0:
+			OhioEcosystemData.release_count = 0
 		current_animal.queue_free()
 		current_animal = null
 	
@@ -105,12 +101,3 @@ func get_mouse_world_position() -> Vector3:
 	if result.has("position"):
 		return result["position"]
 	return Vector3.ZERO
-
-
-func create_transparent_material() -> StandardMaterial3D:
-	var mat := StandardMaterial3D.new()
-	mat.albedo_color = Color(0.6, 0.9, 1.0, 0.5)
-	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	mat.flags_transparent = true
-	mat.depth_draw_mode = BaseMaterial3D.DEPTH_DRAW_ALWAYS
-	return mat

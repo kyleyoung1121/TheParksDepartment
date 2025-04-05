@@ -155,7 +155,6 @@ texture_normal = ExtResource("2_8mkx1")
 texture_hover = ExtResource("3_6yeco")
 
 [node name="BuildMenu" type="Panel" parent="."]
-visible = false
 layout_mode = 0
 offset_top = 668.0
 offset_right = 823.0
@@ -170,7 +169,6 @@ offset_bottom = 43.5887
 theme_override_font_sizes/font_size = 25
 
 [node name="BuildingOptions" type="Control" parent="BuildMenu"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -772,6 +770,14 @@ offset_bottom = 292.0
 [connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer2/TreesButton" to="." method="_on_place_trees_button_pressed"]
 [connection signal="pressed" from="BuildMenu/BuildingOptions/ExitMenu2" to="." method="_on_exit_menu_2_pressed"]
 [connection signal="pressed" from="BuildMenu/BuildingOptions/BulldozerButton" to="." method="_on_bulldozer_button_pressed"]
+[connection signal="pressed" from="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer/DeerButton" to="." method="_on_deer_button_pressed"]
+[connection signal="pressed" from="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer/WolfButton" to="." method="_on_wolf_button_pressed"]
+[connection signal="pressed" from="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer/CoyoteButton" to="." method="_on_coyote_button_pressed"]
+[connection signal="pressed" from="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer/RabbitButton" to="." method="_on_rabbit_button_pressed"]
+[connection signal="pressed" from="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2/GoldfinchButton" to="." method="_on_goldfinch_button_pressed"]
+[connection signal="pressed" from="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2/CoopersHawkButton" to="." method="_on_coopers_hawk_button_pressed"]
+[connection signal="pressed" from="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2/BlackVultureButton" to="." method="_on_black_vulture_button_pressed"]
+[connection signal="pressed" from="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2/TurkeyVultureButton" to="." method="_on_turkey_vulture_button_pressed"]
 [connection signal="pressed" from="BuildMenu/AnimalOptions/ExitMenu2" to="." method="_on_exit_menu_2_pressed"]
 [connection signal="pressed" from="BuildConfirmation/ConfirmBuild" to="." method="_on_confirm_build_pressed"]
 [connection signal="pressed" from="BuildConfirmation/CancelBuild" to="." method="_on_cancel_build_pressed"]

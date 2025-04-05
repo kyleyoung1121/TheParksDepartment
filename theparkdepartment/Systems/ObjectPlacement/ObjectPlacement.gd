@@ -9,7 +9,7 @@ var selected_structure_type
 var in_game_menu
 
 var building_scenes = {
-	"Log Cabin": preload("res://Props/Artificial/Log House/LogHouse.tscn"),
+	"Cabin": preload("res://Props/Artificial/Log House/LogHouse.tscn"),
 	"Watchtower": preload("res://Props/Artificial/Watchtower/Watchtower.tscn"),
 	"Trees": preload("res://Props/Natural/Trees/TreeCluster.tscn"),
 }
