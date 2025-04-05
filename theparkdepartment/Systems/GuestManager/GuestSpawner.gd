@@ -23,12 +23,11 @@ func _on_timer_timeout():
 
 
 func _set_random_timer():
-	timer.wait_time = randf_range(2, 15)
+	timer.wait_time = randf_range(4, 15)
 	timer.start()
 
 
 func spawn_guest():
-	print("Guest Manager: spawn_guest")
 	if not guest_scene:
 		print("Guest Manager: No guest scene assigned!")
 		return
@@ -37,13 +36,6 @@ func spawn_guest():
 
 	# Reset guest transform to PathFollow's transform
 	guest.global_transform = spawn_point.global_transform
-
-	# Slight random offset around the XZ plane
-	guest.global_transform.origin += Vector3(
-		randf_range(-1.5, 1.5),
-		0,
-		randf_range(-1.5, 1.5)
-	)
 
 	# Tell the guest to follow this path
 	guest.set("path", self)

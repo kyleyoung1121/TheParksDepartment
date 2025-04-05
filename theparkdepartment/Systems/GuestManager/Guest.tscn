@@ -7,3 +7,4 @@
 script = ExtResource("1_mgawi")
 
 [node name="Guest" parent="." instance=ExtResource("1_s1qwb")]
+transform = Transform3D(0.77, 0, 0, 0, 0.77, 0, 0, 0, 0.77, 0, 0, 0)
