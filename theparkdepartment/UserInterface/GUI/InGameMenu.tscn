@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://o27yt3k5ogk7"]
+[gd_scene load_steps=58 format=3 uid="uid://o27yt3k5ogk7"]
 
 [ext_resource type="Script" path="res://UserInterface/GUI/UI_menu.gd" id="1_kghvm"]
 [ext_resource type="Texture2D" uid="uid://s2hs631h504h" path="res://UserInterface/GUI/Button Textures/red-cross-icon-button-png.webp" id="2_8mkx1"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dne4poa2g5uvf" path="res://UserInterface/GUI/Building Images/Fence (1).png" id="3_bmyla"]
 [ext_resource type="Texture2D" uid="uid://c3c37gp4u62jp" path="res://UserInterface/GUI/Building Images/Selected-Fence.png" id="4_hggqf"]
 [ext_resource type="Texture2D" uid="uid://c0lmj72jjla3c" path="res://UserInterface/GUI/Building Images/Log-Cabin.png" id="4_j3yyc"]
+[ext_resource type="Texture2D" uid="uid://bpmu34fflwxxe" path="res://UserInterface/GUI/Building Images/Watchtower.png" id="6_jh2cl"]
 [ext_resource type="Texture2D" uid="uid://c06f11ke8dgt6" path="res://UserInterface/GUI/Building Images/Selected-Log-Cabin.png" id="6_rhcgh"]
 [ext_resource type="Texture2D" uid="uid://ycncb2u3pd71" path="res://UserInterface/GUI/Building Images/trees (1).png" id="6_t888u"]
 [ext_resource type="Texture2D" uid="uid://btpvunh6sy2k" path="res://UserInterface/GUI/Building Images/Porta-Potty.png" id="7_uggg2"]
@@ -44,12 +45,6 @@
 [sub_resource type="Theme" id="Theme_qlupe"]
 
 [sub_resource type="Theme" id="Theme_2ouy6"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pfpw7"]
-load_path = "res://.godot/imported/Watchtower.png-438463539c3818abc1a04b231cdcbda2.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_636kd"]
-load_path = "res://.godot/imported/Selected-Watchtower.png-062277eaedfbd58b2e46c83185a8bde6.ctex"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3y8l7"]
 
@@ -213,8 +208,8 @@ horizontal_alignment = 1
 
 [node name="WatchtowerButton" type="TextureButton" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture_normal = SubResource("CompressedTexture2D_pfpw7")
-texture_hover = SubResource("CompressedTexture2D_636kd")
+texture_normal = ExtResource("6_jh2cl")
+texture_hover = ExtResource("8_d05rn")
 texture_focused = ExtResource("8_d05rn")
 
 [node name="WatchtowerPrice" type="Label" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/WatchtowerButton"]
