@@ -35,7 +35,7 @@ var index
 
 # CLOCK
 const DAY_LENGTH_SECONDS := 240.0  # Real seconds per in-game day (4 minutes)
-var clock := 480 # Start the game at 8:00 am
+var clock := 600 # Start the game at 8:00 am
 var day := 1
 
 # ANIMAL COUNTS
