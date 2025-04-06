@@ -65,7 +65,7 @@ func confirm_placement():
 		var final_animal = selected_animal_scene.instantiate()
 		final_animal.global_transform.origin = current_preview.global_transform.origin
 		get_parent().add_child(final_animal)
-		# Decrease 'release' currency and increase animal's population count
+		# Decrease resources and increase animal's population count
 		OhioEcosystemData.release_count -= 1
 		if OhioEcosystemData.release_count < 0:
 			OhioEcosystemData.release_count = 0

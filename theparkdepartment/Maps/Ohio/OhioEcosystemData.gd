@@ -8,6 +8,7 @@ var animals = []
 var days = 1.2
 var funds = 250
 var release_count = 5
+var release_count_max = 5
 
 var animals_species_data = {
 	"Deer": {

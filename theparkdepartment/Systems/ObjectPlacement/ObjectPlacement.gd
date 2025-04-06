@@ -12,6 +12,8 @@ var building_scenes = {
 	"Cabin": preload("res://Props/Artificial/Log House/LogHouse.tscn"),
 	"Watchtower": preload("res://Props/Artificial/Watchtower/Watchtower.tscn"),
 	"Trees": preload("res://Props/Natural/Trees/TreeCluster.tscn"),
+	#"Bathroom": preload("res://Props/Artificial/Bathroom/Bathroom.tscn"),
+	"Research Center": preload("res://Props/Artificial/ResearchCenter/ResearchCenter.tscn"),
 }
 
 var selected_building_scene: PackedScene = null
@@ -62,7 +64,6 @@ func start_placing(structure_type: String):
 	if placement_in_progress:
 		return
 
-	print("Object Placement: start_placing() called!")
 	placement_in_progress = true
 	follow_mouse = true
 	selected_structure_type = structure_type
@@ -100,15 +101,13 @@ func start_placing(structure_type: String):
 
 
 func confirm_placement():
-	print("placement: going to confirm building")
+	# Special fence placement code to create all segments between the selected points
 	if selected_structure_type == "Fence":
 		if fence_points.size() == 2:
 			# Create the fence visually
 			add_child(fence_generation.create_fence_segment(fence_points[0], fence_points[1]))
-
 			# Add the new fence to the global data
 			OhioEcosystemData.fences.append([fence_points[0], fence_points[1]])
-			print("New fence added to global data:", fence_points[0], "to", fence_points[1])
 
 		# Clear the preview meshes
 		for preview in fence_preview_meshes:
@@ -116,12 +115,19 @@ func confirm_placement():
 				preview.queue_free()
 		fence_preview_meshes.clear()
 		fence_points.clear()
+	
+	# Standard placement procedure
 	else:
 		if current_building:
-			print("placement: confirmed building")
+			# If the user is placing a research center, add corresponding bonus to release_count
+			if selected_structure_type == "Research Center":
+				OhioEcosystemData.release_count_max += 1
+				OhioEcosystemData.release_count += 1
+			# Add building to parent scene
 			var final_building = selected_building_scene.instantiate()
 			final_building.global_transform.origin = current_building.global_transform.origin
 			get_parent().add_child(final_building)
+			# Clear temporary value
 			current_building.queue_free()
 			current_building = null
 	
