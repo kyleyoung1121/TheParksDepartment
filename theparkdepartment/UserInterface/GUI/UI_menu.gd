@@ -4,6 +4,9 @@ signal start_object_placement(structure_type)
 signal confirm_object_placement()
 signal cancel_object_placement()
 
+# Timer reference
+@onready var clock_timer = $ClockTimer
+
 # Object Prices
 var building_prices = {
 	"Fence": 25,
@@ -31,11 +34,9 @@ var tracking = false
 var index
 
 # CLOCK
-var meridiem
-var clock = 288 # 4:48 AM
-var day = 1;
-var mult = 1;
-var check = 0;
+const DAY_LENGTH_SECONDS := 240.0  # Real seconds per in-game day (4 minutes)
+var clock := 480 # Start the game at 8:00 am
+var day := 1
 
 # ANIMAL COUNTS
 var DeerCount
@@ -134,51 +135,22 @@ var animal_facts = {
 
 
 func _process(delta: float) -> void:
-	#for i in animalStats:
-		#i.hunger = i.hunger - 0.025
-		#i.thirst = i.thirst - 0.025
-	
-	#if (tracking == true && index != null):
-		#$HungerBar.value = animalStats[index].hunger
-		#$ThirstBar.value = animalStats[index].thirst
+	# Update funds and release count display
 	$Panel2/Funds.text = "$" + str(OhioEcosystemData.funds)
 	$Panel3/ReleaseCount.text = str(OhioEcosystemData.release_count)
-	
-	if ($Panel/ListHeader.text == "Animal Count"):
-		$Panel/ScrollContainer/VBoxContainer/ListItem1.text = "White Tailed Deer: " + str(OhioEcosystemData.animals_species_data["Deer"]["count"])
-		$Panel/ScrollContainer/VBoxContainer/ListItem2.text = "Rabbit: " + str(OhioEcosystemData.animals_species_data["Rabbit"]["count"])
-		$Panel/ScrollContainer/VBoxContainer/ListItem3.text = "Eastern Wolf: " + str(OhioEcosystemData.animals_species_data["EasternWolf"]["count"])
-		$Panel/ScrollContainer/VBoxContainer/ListItem4.text = "Coyote: " +  str(OhioEcosystemData.animals_species_data["Coyote"]["count"])
-		$Panel/ScrollContainer/VBoxContainer/ListItem5.text = "American Goldfinch: " + str(OhioEcosystemData.animals_species_data["AmericanGoldfinch"]["count"])
-		$Panel/ScrollContainer/VBoxContainer/ListItem6.text = "Cooper's Hawk: " + str(OhioEcosystemData.animals_species_data["CoopersHawk"]["count"])
-	elif ($Panel/ListHeader.text == "Plant Count"):
-		$Panel/ScrollContainer/VBoxContainer/ListItem1.text = "Grass: " + str(OhioEcosystemData.plants_species_data["Grass"]["count"])
-	
-	if (check == 20):
-		clock = clock + mult;
-		check = 0
-	check = check + 1
-	
-	if (clock == 1440):
-		clock = 0
-		day += 1
-		OhioEcosystemData.release_count = OhioEcosystemData.release_count_max
-		$DayCount/Label.text = "Day " + str(day)
-	elif (clock >= 1440):
-		clock = 0
-		print("Color Error")
-	
-	var hour = floor(clock / 60)
-	var minutes = clock - (hour * 60)
-	if (minutes < 10):
-		minutes = "0" + str(minutes)
-		
-	if (clock > 720):
-		meridiem = "pm";
-	else:
-		meridiem = "am";
-	
-	$Clock/Label.text = str(hour) + ":" + str(minutes) + meridiem
+
+	# Update list depending on header
+	if $Panel/ListHeader.text == "Animal Count":
+		var animal_data = OhioEcosystemData.animals_species_data
+		$Panel/ScrollContainer/VBoxContainer/ListItem1.text = "White Tailed Deer: " + str(animal_data["Deer"]["count"])
+		$Panel/ScrollContainer/VBoxContainer/ListItem2.text = "Rabbit: " + str(animal_data["Rabbit"]["count"])
+		$Panel/ScrollContainer/VBoxContainer/ListItem3.text = "Eastern Wolf: " + str(animal_data["EasternWolf"]["count"])
+		$Panel/ScrollContainer/VBoxContainer/ListItem4.text = "Coyote: " + str(animal_data["Coyote"]["count"])
+		$Panel/ScrollContainer/VBoxContainer/ListItem5.text = "American Goldfinch: " + str(animal_data["AmericanGoldfinch"]["count"])
+		$Panel/ScrollContainer/VBoxContainer/ListItem6.text = "Cooper's Hawk: " + str(animal_data["CoopersHawk"]["count"])
+	elif $Panel/ListHeader.text == "Plant Count":
+		var plant_data = OhioEcosystemData.plants_species_data
+		$Panel/ScrollContainer/VBoxContainer/ListItem1.text = "Grass: " + str(plant_data["Grass"]["count"])
 
 
 func _ready() -> void:
@@ -499,3 +471,26 @@ func _on_facts_button_pressed() -> void:
 
 func _on_exit_menu_3_pressed() -> void:
 	$"Random Facts".visible = false
+
+
+func _on_clock_timer_timeout():
+	# Update in-game time by adding 6 minutes every second
+	clock += 30
+
+	if clock >= 1440.0:  # A full day (24 hours * 60 minutes)
+		clock -= 1440.0  # Reset the clock after a full day
+		day += 1
+		OhioEcosystemData.release_count = OhioEcosystemData.release_count_max
+		$DayCount/Label.text = "Day " + str(day)
+
+	# Format time
+	var hour := int(clock) / 60
+	var minutes := int(clock) % 60
+	var meridiem := "pm" if hour >= 12 else "am"
+
+	hour %= 12
+	if hour == 0:
+		hour = 12
+
+	var minutes_str := str(minutes).pad_zeros(2)
+	$Clock/Label.text = str(hour) + ":" + minutes_str + meridiem

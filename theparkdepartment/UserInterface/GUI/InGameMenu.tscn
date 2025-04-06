@@ -763,6 +763,10 @@ offset_top = 86.0
 offset_right = 287.0
 offset_bottom = 292.0
 
+[node name="ClockTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="pressed" from="Panel/ExitMenu" to="." method="_on_exit_menu_pressed"]
 [connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/CabinButton" to="." method="_on_place_cabin_button_pressed"]
 [connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/WatchtowerButton" to="." method="_on_place_watchtower_button_pressed"]
@@ -792,3 +796,4 @@ offset_bottom = 292.0
 [connection signal="pressed" from="PlantStatusButton" to="." method="_on_plant_status_button_pressed"]
 [connection signal="pressed" from="ReleasingButton" to="." method="_on_releasing_button_pressed"]
 [connection signal="pressed" from="Random Facts/ExitMenu3" to="." method="_on_exit_menu_3_pressed"]
+[connection signal="timeout" from="ClockTimer" to="." method="_on_clock_timer_timeout"]
