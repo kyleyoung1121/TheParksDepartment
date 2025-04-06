@@ -21,7 +21,7 @@ var environment : WorldEnvironment
 
 func _ready():
 	time_rate = 1.0 / day_length
-	time = start_time
+	time = start_time / day_length
 	sun = get_node("Sun")
 	moon = get_node("Moon")
 	environment = get_node("WorldEnvironment")
@@ -31,6 +31,7 @@ func _process(delta):
 	time += time_rate * delta
 	if time >= 1.0:
 		time = 0.0
+		
 		
 	sun.rotation_degrees.x = time * 360 + 90
 	sun.light_color = sun_color.sample(time)
