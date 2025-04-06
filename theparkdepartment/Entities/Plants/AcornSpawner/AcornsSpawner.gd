@@ -23,6 +23,7 @@ func _on_spawn_timer_timeout():
 
 	var acorn = acorn_scene.instantiate()
 	acorn.position += get_random_offset()
+	acorn.rotation.y += randf_range(0,PI*2)
 	add_child(acorn)
 	spawned_acorns.append(acorn)
 	

@@ -7,7 +7,6 @@ height = 6.0
 radius = 10.0
 
 [node name="AcornSpawner" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.632, 0)
 script = ExtResource("1_ffa6e")
 
 [node name="Area3D" type="Area3D" parent="."]

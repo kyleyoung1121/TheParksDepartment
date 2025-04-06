@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://biryhebi3vfjo"]
+[gd_scene load_steps=19 format=3 uid="uid://biryhebi3vfjo"]
 
 [ext_resource type="Script" path="res://Systems/ObjectPlacement/ObjectPlacement.gd" id="1_1crrr"]
 [ext_resource type="PackedScene" uid="uid://bajcno73354v1" path="res://Maps/MapParts/Tile.tscn" id="1_2ewd0"]
@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://o27yt3k5ogk7" path="res://UserInterface/GUI/InGameMenu.tscn" id="8_mbkmq"]
 [ext_resource type="PackedScene" uid="uid://dj68fd3ryt7a5" path="res://Props/Natural/Trees/TreeCluster.blend" id="9_6ig1u"]
 [ext_resource type="Script" path="res://Systems/GuestManager/GuestSpawner.gd" id="11_cearv"]
-[ext_resource type="PackedScene" uid="uid://fl2bhorkvldr" path="res://Entities/Plants/AcornSpawner/AcornSpawner.tscn" id="12_6no5u"]
+[ext_resource type="PackedScene" uid="uid://j1y5e51gj0sp" path="res://Props/Natural/Trees/OakTrees/OakTreeClusterThree.tscn" id="12_pwwkg"]
+[ext_resource type="PackedScene" uid="uid://bhxo76fckyplu" path="res://Props/Natural/Trees/OakTrees/OakTreeClusterTwo.tscn" id="13_wdtvw"]
+[ext_resource type="PackedScene" uid="uid://fbbhrcow32nn" path="res://Props/Natural/Trees/OakTrees/OakTreeClusterOne.tscn" id="14_8fv4y"]
 
 [sub_resource type="Gradient" id="Gradient_kbrg6"]
 offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
@@ -380,8 +382,6 @@ transform = Transform3D(0.643, 0, 0, 0, 0.643, 0, 0, 0, 0.643, 26.4331, 0, 52.94
 [node name="TreeCluster7" parent="Trees" instance=ExtResource("9_6ig1u")]
 transform = Transform3D(0.643, 0, 0, 0, 0.643, 0, 0, 0, 0.643, 7.3896, 0, 0.0448709)
 
-[node name="AcornSpawner" parent="Trees/TreeCluster7" instance=ExtResource("12_6no5u")]
-
 [node name="TreeCluster8" parent="Trees" instance=ExtResource("9_6ig1u")]
 transform = Transform3D(0.643, 0, 0, 0, 0.643, 0, 0, 0, 0.643, 87.0232, 0, 147.005)
 
@@ -393,8 +393,6 @@ transform = Transform3D(0.643, 0, 0, 0, 0.643, 0, 0, 0, 0.643, 150.41, 0, 26.485
 
 [node name="TreeCluster11" parent="Trees" instance=ExtResource("9_6ig1u")]
 transform = Transform3D(0.485543, 0, 0.421541, 0, 0.643, 0, -0.421541, 0, 0.485543, 31.4796, 0, 7.43933)
-
-[node name="AcornSpawner" parent="Trees/TreeCluster11" instance=ExtResource("12_6no5u")]
 
 [node name="TreeCluster12" parent="Trees" instance=ExtResource("9_6ig1u")]
 transform = Transform3D(0.485543, 0, 0.421541, 0, 0.643, 0, -0.421541, 0, 0.485543, 76.7646, 0, 112.18)
@@ -422,6 +420,45 @@ transform = Transform3D(0.485543, 0, 0.421541, 0, 0.643, 0, -0.421541, 0, 0.4855
 
 [node name="TreeCluster20" parent="Trees" instance=ExtResource("9_6ig1u")]
 transform = Transform3D(0.485543, 0, 0.421541, 0, 0.643, 0, -0.421541, 0, 0.485543, 115.566, 0, -9.25803)
+
+[node name="OakTreeClusterOne12" parent="Trees" instance=ExtResource("12_pwwkg")]
+transform = Transform3D(-0.0711666, 0, -0.997464, 0, 1, 0, 0.997464, 0, -0.0711666, 69.2834, 0, 8.30476)
+
+[node name="OakTreeClusterOne11" parent="Trees" instance=ExtResource("12_pwwkg")]
+transform = Transform3D(0.435828, 0, -0.90003, 0, 1, 0, 0.90003, 0, 0.435828, 99.2453, 0, 88.9305)
+
+[node name="OakTreeClusterOne10" parent="Trees" instance=ExtResource("12_pwwkg")]
+transform = Transform3D(0.644764, 0, 0.764382, 0, 1, 0, -0.764382, 0, 0.644764, 87.5366, 0, 0.836341)
+
+[node name="OakTreeClusterOne9" parent="Trees" instance=ExtResource("12_pwwkg")]
+transform = Transform3D(0.754732, 0, 0.656033, 0, 1, 0, -0.656033, 0, 0.754732, 21.466, 0, 3.34535)
+
+[node name="OakTreeClusterOne8" parent="Trees" instance=ExtResource("13_wdtvw")]
+transform = Transform3D(0.952662, 0, 0.304033, 0, 1, 0, -0.304033, 0, 0.952662, 139.967, 0, 18.902)
+
+[node name="OakTreeClusterOne7" parent="Trees" instance=ExtResource("13_wdtvw")]
+transform = Transform3D(-0.58835, 0, 0.808607, 0, 1, 0, -0.808607, 0, -0.58835, 104.013, 0, 26.9757)
+
+[node name="OakTreeClusterOne6" parent="Trees" instance=ExtResource("13_wdtvw")]
+transform = Transform3D(0.742958, 0, -0.669338, 0, 1, 0, 0.669338, 0, 0.742958, 59.8815, 0, 68.1209)
+
+[node name="OakTreeClusterOne5" parent="Trees" instance=ExtResource("13_wdtvw")]
+transform = Transform3D(0.646324, 0, 0.763063, 0, 1, 0, -0.763063, 0, 0.646324, 15.0541, 0, 34.2898)
+
+[node name="OakTreeClusterOne" parent="Trees" instance=ExtResource("14_8fv4y")]
+transform = Transform3D(0.997934, 0, 0.0642537, 0, 1, 0, -0.0642537, 0, 0.997934, 64.4445, 3.8147e-06, 37.6402)
+
+[node name="OakTreeClusterOne3" parent="Trees" instance=ExtResource("14_8fv4y")]
+transform = Transform3D(-0.4327, 0, -0.901538, 0, 1, 0, 0.901538, 0, -0.4327, 134.222, 7.62939e-06, 80.3286)
+
+[node name="OakTreeClusterOne4" parent="Trees" instance=ExtResource("14_8fv4y")]
+transform = Transform3D(-0.81137, 0, -0.584533, 0, 1, 0, 0.584533, 0, -0.81137, 102.755, 7.62939e-06, 123.687)
+
+[node name="OakTreeClusterOne13" parent="Trees" instance=ExtResource("14_8fv4y")]
+transform = Transform3D(-0.820112, 0, 0.572203, 0, 1, 0, -0.572203, 0, -0.820112, 17.5475, 1.52588e-05, 148.056)
+
+[node name="OakTreeClusterOne2" parent="Trees" instance=ExtResource("14_8fv4y")]
+transform = Transform3D(-0.299907, 0, -0.953969, 0, 1, 0, 0.953969, 0, -0.299907, 46.4313, 7.62939e-06, 102.933)
 
 [node name="GuestPath" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
