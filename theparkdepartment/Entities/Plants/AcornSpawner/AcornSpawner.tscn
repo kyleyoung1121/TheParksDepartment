@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://fl2bhorkvldr"]
+
+[ext_resource type="Script" path="res://Entities/Plants/AcornSpawner/AcornsSpawner.gd" id="1_ffa6e"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ifro1"]
+height = 6.0
+radius = 10.0
+
+[node name="AcornSpawner" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.632, 0)
+script = ExtResource("1_ffa6e")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_ifro1")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

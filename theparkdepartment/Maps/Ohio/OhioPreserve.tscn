@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://biryhebi3vfjo"]
+[gd_scene load_steps=17 format=3 uid="uid://biryhebi3vfjo"]
 
 [ext_resource type="Script" path="res://Systems/ObjectPlacement/ObjectPlacement.gd" id="1_1crrr"]
 [ext_resource type="PackedScene" uid="uid://bajcno73354v1" path="res://Maps/MapParts/Tile.tscn" id="1_2ewd0"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://o27yt3k5ogk7" path="res://UserInterface/GUI/InGameMenu.tscn" id="8_mbkmq"]
 [ext_resource type="PackedScene" uid="uid://dj68fd3ryt7a5" path="res://Props/Natural/Trees/TreeCluster.blend" id="9_6ig1u"]
 [ext_resource type="Script" path="res://Systems/GuestManager/GuestSpawner.gd" id="11_cearv"]
+[ext_resource type="PackedScene" uid="uid://fl2bhorkvldr" path="res://Entities/Plants/AcornSpawner/AcornSpawner.tscn" id="12_6no5u"]
 
 [sub_resource type="Gradient" id="Gradient_kbrg6"]
 offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
@@ -379,6 +380,8 @@ transform = Transform3D(0.643, 0, 0, 0, 0.643, 0, 0, 0, 0.643, 26.4331, 0, 52.94
 [node name="TreeCluster7" parent="Trees" instance=ExtResource("9_6ig1u")]
 transform = Transform3D(0.643, 0, 0, 0, 0.643, 0, 0, 0, 0.643, 7.3896, 0, 0.0448709)
 
+[node name="AcornSpawner" parent="Trees/TreeCluster7" instance=ExtResource("12_6no5u")]
+
 [node name="TreeCluster8" parent="Trees" instance=ExtResource("9_6ig1u")]
 transform = Transform3D(0.643, 0, 0, 0, 0.643, 0, 0, 0, 0.643, 87.0232, 0, 147.005)
 
@@ -390,6 +393,8 @@ transform = Transform3D(0.643, 0, 0, 0, 0.643, 0, 0, 0, 0.643, 150.41, 0, 26.485
 
 [node name="TreeCluster11" parent="Trees" instance=ExtResource("9_6ig1u")]
 transform = Transform3D(0.485543, 0, 0.421541, 0, 0.643, 0, -0.421541, 0, 0.485543, 31.4796, 0, 7.43933)
+
+[node name="AcornSpawner" parent="Trees/TreeCluster11" instance=ExtResource("12_6no5u")]
 
 [node name="TreeCluster12" parent="Trees" instance=ExtResource("9_6ig1u")]
 transform = Transform3D(0.485543, 0, 0.421541, 0, 0.643, 0, -0.421541, 0, 0.485543, 76.7646, 0, 112.18)
