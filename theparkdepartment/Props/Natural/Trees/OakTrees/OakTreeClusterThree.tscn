@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://j1y5e51gj0sp"]
 
 [ext_resource type="PackedScene" uid="uid://bffuxnhrctjmr" path="res://Props/Natural/Trees/OakTrees/OakTreeTwo.blend" id="2_yjo0x"]
-[ext_resource type="PackedScene" uid="uid://fl2bhorkvldr" path="res://Entities/Plants/AcornSpawner/AcornSpawner.tscn" id="3_w7vxn"]
+[ext_resource type="PackedScene" uid="uid://fl2bhorkvldr" path="res://Entities/Plants/Acorns/AcornSpawner.tscn" id="3_w7vxn"]
 
 [node name="OakTreeClusterOne" type="Node3D"]
 

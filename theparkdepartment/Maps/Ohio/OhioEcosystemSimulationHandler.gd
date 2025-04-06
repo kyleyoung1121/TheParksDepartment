@@ -53,7 +53,7 @@ func initialize_ecosystem():
 		add_child(new_rabbit)
 		OhioEcosystemData.animals_species_data["Rabbit"]["count"] += 1
 	
-	# Add 5 wolves
+	# Add wolves
 	for i in range(10):
 		var new_wolf = wolf_scene.instantiate()
 		new_wolf.set_grid_position(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size)
@@ -61,7 +61,7 @@ func initialize_ecosystem():
 		add_child(new_wolf)
 		OhioEcosystemData.animals_species_data["EasternWolf"]["count"] += 1
 
-	# Add 5 american goldfinches
+	# Add american goldfinches
 	for i in range(15):
 		var new_american_goldfinch = american_goldfinch_scene.instantiate()
 		new_american_goldfinch.set_grid_position(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size)
@@ -69,7 +69,7 @@ func initialize_ecosystem():
 		add_child(new_american_goldfinch)
 		OhioEcosystemData.animals_species_data["AmericanGoldfinch"]["count"] += 1
 
-	# Add 5 Cooper's Hawks
+	# Add Cooper's Hawks
 	for i in range(5):
 		var new_coopers_hawk = coopers_hawk_scene.instantiate()
 		new_coopers_hawk.set_grid_position(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size)
@@ -77,7 +77,7 @@ func initialize_ecosystem():
 		add_child(new_coopers_hawk)
 		OhioEcosystemData.animals_species_data["CoopersHawk"]["count"] += 1
 		
-	# add 5 Coyote
+	# add Coyote
 	for i in range(5):
 		var new_coyote = coyote_scene.instantiate()
 		new_coyote.set_grid_position(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size)

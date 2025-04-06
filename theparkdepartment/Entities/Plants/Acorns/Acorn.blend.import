@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ovrkua7grpjl"
-path="res://.godot/imported/Acorn.blend-94f9eb1177d5d5abd2e73a59d1a4643d.scn"
+path="res://.godot/imported/Acorn.blend-80913f493f2526b231e67fb22943af04.scn"
 
 [deps]
 
-source_file="res://Entities/Plants/AcornSpawner/Acorn.blend"
-dest_files=["res://.godot/imported/Acorn.blend-94f9eb1177d5d5abd2e73a59d1a4643d.scn"]
+source_file="res://Entities/Plants/Acorns/Acorn.blend"
+dest_files=["res://.godot/imported/Acorn.blend-80913f493f2526b231e67fb22943af04.scn"]
 
 [params]
 

@@ -3,7 +3,7 @@ extends Node3D
 @export var spawn_rate := 10  # Seconds between spawns
 @export var crowd_max := 6    # Max number of acorns allowed at once
 
-var acorn_scene := preload("res://Entities/Plants/AcornSpawner/Acorn.tscn")
+var acorn_scene := preload("res://Entities/Plants/Acorns/Acorn.tscn")
 var spawned_acorns := []
 
 @onready var spawn_timer: Timer = $SpawnTimer

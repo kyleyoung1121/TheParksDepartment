@@ -340,6 +340,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 144, -8, 144)
 transform = Transform3D(0.707107, -0.00123413, 0.707106, 0, 0.999999, 0.00174533, -0.707107, -0.00123413, 0.707106, 20, 0, 20)
 
 [node name="DayNightCycle" parent="." instance=ExtResource("3_naupw")]
+start_time = 70.0
 sun_color = SubResource("Gradient_kbrg6")
 sun_intensity = SubResource("Curve_0dxvu")
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dobglsigtudn0"
-path="res://.godot/imported/OakTreeTwo.blend-9cfa292305654e396373eeb7e86dfbbc.scn"
+uid="uid://baprcmo16a067"
+path="res://.godot/imported/squirrel.blend-7036b92a743d83ce61dd5c3babdf7967.scn"
 
 [deps]
 
-source_file="res://Props/Natural/Trees/OakTreeTwo.blend"
-dest_files=["res://.godot/imported/OakTreeTwo.blend-9cfa292305654e396373eeb7e86dfbbc.scn"]
+source_file="res://Entities/Animals/Squirrel/Assets/squirrel.blend"
+dest_files=["res://.godot/imported/squirrel.blend-7036b92a743d83ce61dd5c3babdf7967.scn"]
 
 [params]
 

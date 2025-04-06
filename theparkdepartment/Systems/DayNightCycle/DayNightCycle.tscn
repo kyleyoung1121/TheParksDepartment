@@ -39,7 +39,7 @@ sky = SubResource("Sky_5x27k")
 
 [node name="DayNightCycle" type="Node3D"]
 script = ExtResource("1_1p3qe")
-start_time = 50.0
+start_time = 90.0
 sun_color = SubResource("Gradient_wxbai")
 sun_intensity = SubResource("Curve_lnnnn")
 moon_color = SubResource("Gradient_tr0ge")

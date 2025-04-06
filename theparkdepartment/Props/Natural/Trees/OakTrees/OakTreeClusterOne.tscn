@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b70ujox7yi2e4" path="res://Props/Natural/Trees/OakTrees/OakTreeOne.blend" id="1_crgc8"]
 [ext_resource type="PackedScene" uid="uid://bffuxnhrctjmr" path="res://Props/Natural/Trees/OakTrees/OakTreeTwo.blend" id="2_5cklw"]
-[ext_resource type="PackedScene" uid="uid://fl2bhorkvldr" path="res://Entities/Plants/AcornSpawner/AcornSpawner.tscn" id="3_5u8al"]
+[ext_resource type="PackedScene" uid="uid://fl2bhorkvldr" path="res://Entities/Plants/Acorns/AcornSpawner.tscn" id="3_5u8al"]
 
 [node name="OakTreeClusterOne" type="Node3D"]
 
