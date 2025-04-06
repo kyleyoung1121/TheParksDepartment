@@ -25,6 +25,7 @@ var animal_prices = {
 	"Deer": 50,
 	"EasternWolf": 75,
 	"Rabbit": 25,
+	"Squirrel": 25,
 	"BlackVulture": 50,
 	"TurkeyVulture": 50,
 }
@@ -245,6 +246,12 @@ func _on_rabbit_button_pressed():
 		if OhioEcosystemData.funds >= animal_prices["Rabbit"]:
 			animal_placement.start_placing("Rabbit")
 
+'''
+func _on_squirrel_button_pressed():
+	if OhioEcosystemData.release_count >= 1:
+		if OhioEcosystemData.funds >= animal_prices["Squirrel"]:
+			animal_placement.start_placing("Squirrel")
+'''
 
 func _on_goldfinch_button_pressed():
 	if OhioEcosystemData.release_count >= 1:

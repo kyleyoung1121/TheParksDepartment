@@ -9,6 +9,7 @@ var animal_scenes = {
 	"Deer": preload("res://Entities/Animals/Deer/Deer.tscn"),
 	"EasternWolf": preload("res://Entities/Animals/EasternWolf/EasternWolf.tscn"),
 	"Rabbit": preload("res://Entities/Animals/Rabbit/Rabbit.tscn"),
+	#"Squirrel": preload("res://Entities/Animals/Squirrel/Squirrel.tscn"),
 }
 
 var animal_crate_scene = preload("res://Props/Artificial/AnimalCrate/AnimalCrate.blend")
