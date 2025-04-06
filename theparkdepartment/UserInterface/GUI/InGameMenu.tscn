@@ -155,6 +155,7 @@ texture_normal = ExtResource("2_8mkx1")
 texture_hover = ExtResource("3_6yeco")
 
 [node name="BuildMenu" type="Panel" parent="."]
+visible = false
 layout_mode = 0
 offset_top = 668.0
 offset_right = 823.0
@@ -169,6 +170,7 @@ offset_bottom = 43.5887
 theme_override_font_sizes/font_size = 25
 
 [node name="BuildingOptions" type="Control" parent="BuildMenu"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -238,13 +240,13 @@ theme_override_font_sizes/font_size = 50
 text = "Bathroom: $50"
 horizontal_alignment = 1
 
-[node name="NewBuildingButton2" type="TextureButton" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer"]
+[node name="ResearchCenterButton" type="TextureButton" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("7_uggg2")
 texture_hover = ExtResource("12_xjaxx")
 texture_focused = ExtResource("12_xjaxx")
 
-[node name="NewBuildingPrice" type="Label" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/NewBuildingButton2"]
+[node name="ResearchCenterPrice" type="Label" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/ResearchCenterButton"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 500.0
@@ -252,7 +254,7 @@ offset_right = 599.0
 offset_bottom = 569.0
 theme = SubResource("Theme_2ouy6")
 theme_override_font_sizes/font_size = 50
-text = "Research Building:  $100"
+text = "Research Center:  $100"
 horizontal_alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="BuildMenu/BuildingOptions/VBoxContainer"]
@@ -363,7 +365,7 @@ offset_top = 296.801
 offset_right = 247.165
 offset_bottom = 338.801
 theme_override_font_sizes/font_size = 30
-text = "Wolf: $100"
+text = "Wolf: $125"
 horizontal_alignment = 1
 
 [node name="CoyoteButton" type="TextureButton" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer"]
@@ -379,7 +381,7 @@ offset_top = 298.978
 offset_right = 259.583
 offset_bottom = 340.978
 theme_override_font_sizes/font_size = 30
-text = "Coyote: $100"
+text = "Coyote: $125"
 horizontal_alignment = 1
 
 [node name="RabbitButton" type="TextureButton" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer"]
@@ -395,7 +397,7 @@ offset_top = 298.978
 offset_right = 251.127
 offset_bottom = 340.978
 theme_override_font_sizes/font_size = 30
-text = "Rabbit: $100"
+text = "Rabbit: $75"
 horizontal_alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="BuildMenu/AnimalOptions/VBoxContainer"]
@@ -415,7 +417,7 @@ offset_top = 300.617
 offset_right = 271.85
 offset_bottom = 342.617
 theme_override_font_sizes/font_size = 30
-text = "Goldfinch: $100"
+text = "Goldfinch: $75"
 horizontal_alignment = 1
 
 [node name="CoopersHawkButton" type="TextureButton" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2"]
@@ -431,7 +433,7 @@ offset_top = 300.615
 offset_right = 287.623
 offset_bottom = 342.615
 theme_override_font_sizes/font_size = 30
-text = "Coop. Hawk: $100"
+text = "Coop. Hawk: $125"
 horizontal_alignment = 1
 
 [node name="BlackVultureButton" type="TextureButton" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2"]
@@ -765,7 +767,7 @@ offset_bottom = 292.0
 [connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/CabinButton" to="." method="_on_place_cabin_button_pressed"]
 [connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/WatchtowerButton" to="." method="_on_place_watchtower_button_pressed"]
 [connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/BathroomButton" to="." method="_on_place_bathroom_button_pressed"]
-[connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/NewBuildingButton2" to="." method="_on_place_bathroom_button_pressed"]
+[connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/ResearchCenterButton" to="." method="_on_place_research_center_button_pressed"]
 [connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer2/FenceButton" to="." method="_on_place_fence_button_pressed"]
 [connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer2/TreesButton" to="." method="_on_place_trees_button_pressed"]
 [connection signal="pressed" from="BuildMenu/BuildingOptions/ExitMenu2" to="." method="_on_exit_menu_2_pressed"]

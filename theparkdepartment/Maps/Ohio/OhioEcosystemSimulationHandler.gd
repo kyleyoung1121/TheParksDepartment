@@ -9,8 +9,6 @@ var american_goldfinch_scene = load("res://Entities/Animals/AmericanGoldfinch/Am
 var coopers_hawk_scene = load("res://Entities/Animals/CoopersHawk/CoopersHawk.tscn")
 var coyote_scene = load("res://Entities/Animals/Coyote/Coyote.tscn")
 
-var guest_speed = 0.1
-
 
 func _ready():
 	# Print size of whole grid
@@ -23,8 +21,6 @@ func _ready():
 	randomize()
 	initialize_ecosystem()
 	start_simulation()
-	
-	#est_system()
 
 
 func initialize_ecosystem():
@@ -91,87 +87,15 @@ func initialize_ecosystem():
 
 
 func simulate_day():
-	print("Day: ", OhioEcosystemData.days)
+	print("Cycle: ", OhioEcosystemData.days)
 	get_tree().call_group("plants", "update")
 	get_tree().call_group("animals", "update")
 	print("End of Day: ", OhioEcosystemData.days)
 
 
 func start_simulation():
-	while OhioEcosystemData.days < 300:
+	while true:
 		simulate_day()
-		# Wait between days
+		# Wait between cycles
 		await get_tree().create_timer(2).timeout
 		OhioEcosystemData.days += 1
-
-
-func guest_system():
-	# Seven sets of movement for each straight section of the path
-	var i = 1
-	# max of 5 guests for now
-	while i < 6:
-		guest_movement(i)
-		await get_tree().create_timer(15).timeout
-		i += 1
-		if i == 6:
-			i = 1
-
-
-func give_money():
-	OhioEcosystemData.funds += 20
-
-
-func guest_movement(guestNum):
-	#1
-	# for i in range(585):
-	var currpos = get_node("Guests/Guest" + str(guestNum)).position.x
-	while (currpos + (585*0.1) > get_node("Guests/Guest" + str(guestNum)).position.x):
-		get_node("Guests/Guest" + str(guestNum)).position.x += guest_speed
-		await get_tree().create_timer(0.01).timeout
-	
-	#2
-	#for i in range(700):
-	currpos = get_node("Guests/Guest" + str(guestNum)).position.z
-	while (currpos + (700*0.1) > get_node("Guests/Guest" + str(guestNum)).position.z):
-		get_node("Guests/Guest" + str(guestNum)).position.z += guest_speed
-		await get_tree().create_timer(0.01).timeout
-	
-	#3
-	#for i in range(393):
-	currpos = get_node("Guests/Guest" + str(guestNum)).position.x
-	while (currpos - (393*0.1) < get_node("Guests/Guest" + str(guestNum)).position.x):
-		get_node("Guests/Guest" + str(guestNum)).position.x -= guest_speed
-		await get_tree().create_timer(0.01).timeout
-	
-	#4
-	#for i in range(482):
-	currpos = get_node("Guests/Guest" + str(guestNum)).position.z
-	while (currpos + (482*0.1) > get_node("Guests/Guest" + str(guestNum)).position.z):
-		get_node("Guests/Guest" + str(guestNum)).position.z += guest_speed
-		await get_tree().create_timer(0.01).timeout
-	
-	#5
-	#for i in range(1137):
-	currpos = get_node("Guests/Guest" + str(guestNum)).position.x
-	while (currpos + (1137*0.1) > get_node("Guests/Guest" + str(guestNum)).position.x):
-		get_node("Guests/Guest" + str(guestNum)).position.x += guest_speed
-		await get_tree().create_timer(0.01).timeout
-		
-	#6
-	#for i in range(1315):
-	currpos = get_node("Guests/Guest" + str(guestNum)).position.z
-	while (currpos - (1315*0.1) < get_node("Guests/Guest" + str(guestNum)).position.z):
-		get_node("Guests/Guest" + str(guestNum)).position.z -= guest_speed
-		await get_tree().create_timer(0.01).timeout
-		
-	#7
-	#for i in range(400):
-	currpos = get_node("Guests/Guest" + str(guestNum)).position.x
-	while (currpos + (400*0.1) > get_node("Guests/Guest" + str(guestNum)).position.x):
-		get_node("Guests/Guest" + str(guestNum)).position.x += guest_speed
-		await get_tree().create_timer(0.01).timeout
-	
-	get_node("Guests/Guest" + str(guestNum)).position.x = -14
-	get_node("Guests/Guest" + str(guestNum)).position.z = 18.3
-	
-	give_money()

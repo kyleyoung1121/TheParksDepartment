@@ -11,6 +11,19 @@ var building_prices = {
 	"Watchtower": 150,
 	"Trees": 10,
 	"Bathroom": 50,
+	"Research Center": 100,
+}
+
+# Animal Prices
+var animal_prices = {
+	"AmericanGoldfinch": 75,
+	"CoopersHawk": 125,
+	"Coyote": 125,
+	"Deer": 100,
+	"EasternWolf": 125,
+	"Rabbit": 75,
+	"BlackVulture": 100,
+	"TurkeyVulture": 100,
 }
 
 # ANIMAL STATS
@@ -148,7 +161,7 @@ func _process(delta: float) -> void:
 	if (clock == 1440):
 		clock = 0
 		day += 1
-		OhioEcosystemData.release_count = 5
+		OhioEcosystemData.release_count = OhioEcosystemData.release_count_max
 		$DayCount/Label.text = "Day " + str(day)
 	elif (clock >= 1440):
 		clock = 0
@@ -230,44 +243,57 @@ func _on_place_bathroom_button_pressed():
 		object_placement.start_placing("Bathroom")
 
 
+func _on_place_research_center_button_pressed():
+	if OhioEcosystemData.funds >= building_prices["Research Center"]:
+		object_placement.start_placing("Research Center")
+
+
 func _on_deer_button_pressed():
 	if OhioEcosystemData.release_count >= 1:
-		animal_placement.start_placing("Deer")
+		if OhioEcosystemData.funds >= animal_prices["Deer"]:
+			animal_placement.start_placing("Deer")
 
 
 func _on_wolf_button_pressed():
 	if OhioEcosystemData.release_count >= 1:
-		animal_placement.start_placing("EasternWolf")
+		if OhioEcosystemData.funds >= animal_prices["EasternWolf"]:
+			animal_placement.start_placing("EasternWolf")
 
 
 func _on_coyote_button_pressed():
 	if OhioEcosystemData.release_count >= 1:
-		animal_placement.start_placing("Coyote")
+		if OhioEcosystemData.funds >= animal_prices["Coyote"]:
+			animal_placement.start_placing("Coyote")
 
 
 func _on_rabbit_button_pressed():
 	if OhioEcosystemData.release_count >= 1:
-		animal_placement.start_placing("Rabbit")
+		if OhioEcosystemData.funds >= animal_prices["Rabbit"]:
+			animal_placement.start_placing("Rabbit")
 
 
 func _on_goldfinch_button_pressed():
 	if OhioEcosystemData.release_count >= 1:
-		animal_placement.start_placing("AmericanGoldfinch")
+		if OhioEcosystemData.funds >= animal_prices["AmericanGoldfinch"]:
+			animal_placement.start_placing("AmericanGoldfinch")
 
 
 func _on_coopers_hawk_button_pressed():
 	if OhioEcosystemData.release_count >= 1:
-		animal_placement.start_placing("CoopersHawk")
+		if OhioEcosystemData.funds >= animal_prices["CoopersHawk"]:
+			animal_placement.start_placing("CoopersHawk")
 
 
 func _on_black_vulture_button_pressed():
 	if OhioEcosystemData.release_count >= 1:
-		animal_placement.start_placing("BlackVulture")
+		if OhioEcosystemData.funds >= animal_prices["BlackVulture"]:
+			animal_placement.start_placing("BlackVulture")
 
 
 func _on_turkey_vulture_button_pressed():
 	if OhioEcosystemData.release_count >= 1:
-		animal_placement.start_placing("TurkeyVulture")
+		if OhioEcosystemData.funds >= animal_prices["TurkeyVulture"]:
+			animal_placement.start_placing("TurkeyVulture")
 
 
 func placement_requested(type, selection) -> void:
@@ -275,35 +301,13 @@ func placement_requested(type, selection) -> void:
 	selected_object_type = type
 	
 	if (type == "Object"):
-		if (selection == "Fence"):
-			$BuildConfirmation/BuildCost.text = "Cost: $25"
-		elif (selection == "Cabin"):
-			$BuildConfirmation/BuildCost.text = "Cost: $125"
-		elif (selection == "Watchtower"):
-			$BuildConfirmation/BuildCost.text = "Cost: $150"
-		elif (selection == "Trees"):
-			$BuildConfirmation/BuildCost.text = "Cost: $10"
-		elif (selection == "Bathroom"):
-			$BuildConfirmation/BuildCost.text = "Cost: $50"
-		
-		# TODO: we may need to adjust the confirmation menu to be suitable to confirming buildings
+		var building_cost = building_prices[selection]
+		$BuildConfirmation/BuildCost.text = "Cost: $" + str(building_cost)
 		$BuildConfirmation.visible = true
 	
 	if (type == "Animal"):
-		if (selection == "AmericanGoldfinch"):
-			$BuildConfirmation/BuildCost.text = "NO COST"
-		elif (selection == "CoopersHawk"):
-			$BuildConfirmation/BuildCost.text = "NO COST"
-		elif (selection == "Coyote"):
-			$BuildConfirmation/BuildCost.text = "NO COST"
-		elif (selection == "Deer"):
-			$BuildConfirmation/BuildCost.text = "NO COST"
-		elif (selection == "EasternWolf"):
-			$BuildConfirmation/BuildCost.text = "NO COST"
-		elif (selection == "Rabbit"):
-			$BuildConfirmation/BuildCost.text = "NO COST"
-		
-		# TODO: we may need to adjust the confirmation menu to be suitable to confirming animals
+		var animal_cost = animal_prices[selection]
+		$BuildConfirmation/BuildCost.text = "Cost: $" + str(animal_cost)
 		$BuildConfirmation.visible = true
 
 
@@ -394,9 +398,11 @@ func _on_confirm_build_pressed() -> void:
 			selected_object = ""
 	
 	elif selected_object_type == "Animal":
-		$BuildConfirmation.visible = false
-		animal_placement.confirm_placement()
-		selected_object = ""
+		if OhioEcosystemData.funds >= animal_prices[selected_object]:
+			OhioEcosystemData.funds -= animal_prices[selected_object]
+			$BuildConfirmation.visible = false
+			animal_placement.confirm_placement()
+			selected_object = ""
 
 
 func _on_cancel_build_pressed() -> void:
