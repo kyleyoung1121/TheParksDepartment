@@ -87,10 +87,10 @@ func initialize_ecosystem():
 
 
 func simulate_day():
-	print("Cycle: ", OhioEcosystemData.days)
+	print("Cycle: ", OhioEcosystemData.cycle_count)
 	get_tree().call_group("plants", "update")
 	get_tree().call_group("animals", "update")
-	print("End of Day: ", OhioEcosystemData.days)
+	print("End of Day: ", OhioEcosystemData.cycle_count)
 
 
 func start_simulation():
@@ -98,4 +98,4 @@ func start_simulation():
 		simulate_day()
 		# Wait between cycles
 		await get_tree().create_timer(2).timeout
-		OhioEcosystemData.days += 1
+		OhioEcosystemData.cycle_count += 1

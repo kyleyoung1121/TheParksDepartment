@@ -99,7 +99,7 @@ func _ready():
 	eye_sight_collision.shape.height = 10
 	eye_sight_collision.shape.radius = adjusted_eye_sight
 	
-	var eating_distance = 2.0
+	var eating_distance = 1.0
 	adjusted_eating_distance = eating_distance * OhioEcosystemData.grid_scale * 0.25
 	reproduction_range = adjusted_eating_distance
 	social_range = adjusted_eye_sight / 4
@@ -121,7 +121,7 @@ func _physics_process(delta):
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 		# Set y rotation based on movement direction
-		rotation.y = atan2(-direction.x, -direction.z)
+		rotation.y = lerp_angle(rotation.y, atan2(-direction.x, -direction.z), 0.05)
 	else:
 		play_animation("idle")
 		velocity.x = move_toward(velocity.x, 0, speed)
