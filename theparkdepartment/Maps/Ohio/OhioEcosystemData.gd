@@ -5,8 +5,9 @@ var grid_size: int = 10
 var grid_scale: int = 16
 var plants = []
 var animals = []
-var days = 1.2
-var funds = 250
+var days = 1
+var cycle_count = 0
+var funds = 450
 var release_count = 5
 var release_count_max = 5
 
@@ -19,7 +20,7 @@ var animals_species_data = {
 		"max_hunger": 30,
 		"eye_sight": 8,
 		"movement_chance": 1,
-		"max_age": 80,
+		"max_age": 110,
 		"nutrition": 40,
 		"diet_type": "Herbivore",
 		"prey_organisms": ["Grass"],
@@ -36,7 +37,7 @@ var animals_species_data = {
 		"max_hunger": 30,
 		"eye_sight": 6,
 		"movement_chance": 1,
-		"max_age": 60,
+		"max_age": 90,
 		"nutrition": 35,
 		"diet_type": "Herbivore",
 		"prey_organisms": ["Grass"],
@@ -53,7 +54,7 @@ var animals_species_data = {
 		"max_hunger": 80,
 		"eye_sight": 8,
 		"movement_chance": 1,
-		"max_age": 80,
+		"max_age": 120,
 		"nutrition": 30,
 		"diet_type": "Carnivore",
 		"prey_organisms": ["Deer", "Rabbit","Coyote"],
@@ -70,7 +71,7 @@ var animals_species_data = {
 		"max_hunger": 80,
 		"eye_sight": 8,
 		"movement_chance": 1,
-		"max_age": 80,
+		"max_age": 120,
 		"nutrition": 30,
 		"diet_type": "Carnivore",
 		"prey_organisms": ["Rabbit"],
@@ -104,7 +105,7 @@ var animals_species_data = {
 		"max_hunger": 80,
 		"eye_sight": 8,
 		"movement_chance": 1,
-		"max_age": 80,
+		"max_age": 120,
 		"nutrition": 30,
 		"diet_type": "Carnivore",
 		"prey_organisms": ["AmericanGoldfinch", "Rabbit"],

@@ -16,14 +16,14 @@ var building_prices = {
 
 # Animal Prices
 var animal_prices = {
-	"AmericanGoldfinch": 75,
-	"CoopersHawk": 125,
-	"Coyote": 125,
-	"Deer": 100,
-	"EasternWolf": 125,
-	"Rabbit": 75,
-	"BlackVulture": 100,
-	"TurkeyVulture": 100,
+	"AmericanGoldfinch": 25,
+	"CoopersHawk": 75,
+	"Coyote": 75,
+	"Deer": 50,
+	"EasternWolf": 75,
+	"Rabbit": 25,
+	"BlackVulture": 50,
+	"TurkeyVulture": 50,
 }
 
 # ANIMAL STATS
@@ -132,6 +132,7 @@ var animal_facts = {
 	}
 }
 
+
 func _process(delta: float) -> void:
 	#for i in animalStats:
 		#i.hunger = i.hunger - 0.025
@@ -178,6 +179,7 @@ func _process(delta: float) -> void:
 		meridiem = "am";
 	
 	$Clock/Label.text = str(hour) + ":" + str(minutes) + meridiem
+
 
 func _ready() -> void:
 	$BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer2/TreesButton/TreesPrice.add_theme_color_override("bg_color", Color.WEB_GREEN)
@@ -312,9 +314,13 @@ func placement_requested(type, selection) -> void:
 
 
 func _on_fast_forward_button_pressed() -> void:
-	Engine.time_scale = 10
+	Engine.time_scale = 5
+
+
 func _on_play_button_pressed() -> void:
 	Engine.time_scale = 1
+
+
 func _on_pause_button_pressed() -> void:
 	Engine.time_scale = 0.0001
 
@@ -373,6 +379,7 @@ func _on_building_button_pressed() -> void:
 	$BuildMenu/BuildingOptions.visible = true
 	$BuildMenu.visible = true
 
+
 func _on_releasing_button_pressed() -> void:
 	if ($Panel.visible == true):
 		$Panel.visible = false
@@ -384,6 +391,7 @@ func _on_releasing_button_pressed() -> void:
 	$BuildMenu/BuildingOptions.visible = false
 	$BuildMenu/AnimalOptions.visible = true
 	$BuildMenu.visible = true
+
 
 func _on_exit_menu_2_pressed() -> void:
 	$BuildMenu.visible = false
