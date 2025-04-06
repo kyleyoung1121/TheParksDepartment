@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://j1y5e51gj0sp"]
+
+[ext_resource type="PackedScene" uid="uid://bffuxnhrctjmr" path="res://Props/Natural/Trees/OakTrees/OakTreeTwo.blend" id="2_yjo0x"]
+[ext_resource type="PackedScene" uid="uid://fl2bhorkvldr" path="res://Entities/Plants/AcornSpawner/AcornSpawner.tscn" id="3_w7vxn"]
+
+[node name="OakTreeClusterOne" type="Node3D"]
+
+[node name="OakTreeOne" parent="." instance=ExtResource("2_yjo0x")]
+transform = Transform3D(0.897312, 0, 0.441396, 0, 1.18196, 0, -0.441396, 0, 0.897312, -1.9273, 4.76837e-06, -1.5873)
+
+[node name="OakTreeTwo" parent="." instance=ExtResource("2_yjo0x")]
+transform = Transform3D(0.0749787, 0, -0.997185, 0, 1, 0, 0.997185, 0, 0.0749787, 2.9205, 1.90735e-06, 1.56478)
+
+[node name="OakTreeThree" parent="." instance=ExtResource("2_yjo0x")]
+transform = Transform3D(-1.1191, 0, 0.31238, 0, 1.287, 0, -0.334426, 0, -1.04532, 0.43808, 3.8147e-06, -3.03103)
+
+[node name="OakTreeFour" parent="." instance=ExtResource("2_yjo0x")]
+transform = Transform3D(0.225193, 0, 0.898261, 0, 0.830475, 0, -0.859057, 0, 0.23547, -3.19067, 3.8147e-06, 3.52238)
+
+[node name="AcornSpawner" parent="." instance=ExtResource("3_w7vxn")]
