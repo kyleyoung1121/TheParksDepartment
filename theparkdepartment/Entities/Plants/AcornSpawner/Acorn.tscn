@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c45ry2riiu2lm"]
+
+[ext_resource type="Script" path="res://Entities/Plants/AcornSpawner/Acorn.gd" id="1_kl1pp"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vbotj"]
+
+[node name="Acorn" type="Node3D" groups=["plants"]]
+script = ExtResource("1_kl1pp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_vbotj")
