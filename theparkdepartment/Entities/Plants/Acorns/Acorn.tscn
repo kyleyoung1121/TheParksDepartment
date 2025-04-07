@@ -7,3 +7,4 @@
 script = ExtResource("1_kl1pp")
 
 [node name="Acorn" parent="." instance=ExtResource("2_7sfsx")]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)

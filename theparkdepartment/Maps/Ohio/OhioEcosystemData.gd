@@ -61,7 +61,7 @@ var animals_species_data = {
 		"max_age": 70,
 		"nutrition": 35,
 		"diet_type": "Herbivore",
-		"prey_organisms": ["Grass", "Acorn"],
+		"prey_organisms": ["Acorn"],
 		"population_limit": 100,
 		"social_group_size": 6,
 		"max_social": 10,
