@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk2dm63bx5e3p"]
+
+[ext_resource type="PackedScene" uid="uid://djuod3fskf5cl" path="res://Entities/Animals/TemplateAnimal/TemplateAnimal.tscn" id="1_n1h5u"]
+[ext_resource type="PackedScene" uid="uid://4igxidx8krd0" path="res://Entities/Animals/AmericanGoldfinch/Assets/american-goldfinch_female.blend" id="2_p06n4"]
+
+[node name="AmericanGoldfinch" instance=ExtResource("1_n1h5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+species = "AmericanGoldfinch"
+self_scene_path = "res://Entities/Animals/AmericanGoldfinch/AmericanGoldfinch.tscn"
+
+[node name="american-goldfinch_female" parent="." index="2" instance=ExtResource("2_p06n4")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1, 0)

@@ -91,9 +91,6 @@ func _ready():
 	stamina = get_random_portion(max_stamina, 0, 1)
 	litter_size = get_random_portion(default_litter_size, 0.5, 1.2)
 	
-	# Randomly assign gender
-	gender = "Male" if randi() % 2 == 0 else "Female"
-	
 	adjusted_eye_sight = eye_sight * OhioEcosystemData.grid_scale * 0.25
 	eye_sight_collision.shape = CylinderShape3D.new()
 	eye_sight_collision.shape.height = 10
@@ -220,6 +217,16 @@ func reproduce():
 	
 	# Have as many offspring as the litter size
 	for i in range(litter_size):
+
+		# Randomly assign gender
+		gender = "Male" if randi() % 2 == 0 else "Female"
+
+		if gender == "Male":
+			self_scene_path = OhioEcosystemData.animals_species_data[species]["male_mesh_path"]
+		else:
+			self_scene_path = OhioEcosystemData.animals_species_data[species]["female_mesh_path"]
+
+
 		# Create a new instance of the current scene
 		var new_animal = load(self_scene_path).instantiate()
 		new_animal.position = position + Vector3(randf_range(-1, 1), 0, randf_range(-1, 1))
@@ -238,6 +245,8 @@ func reproduce():
 		new_animal.social = get_random_portion(max_social, 0, 1)
 		new_animal.stamina = get_random_portion(max_stamina, 0, 1)
 		new_animal.litter_size = get_random_portion(default_litter_size, 0.5, 1.2)
+		
+		new_animal.gender = gender
 
 		print("New " + species + " has been born: " + animal_name)
 		OhioEcosystemData.animals_species_data[species]["count"] += 1

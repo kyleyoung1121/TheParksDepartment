@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://byietnao8jbrd"]
+
+[ext_resource type="PackedScene" uid="uid://djuod3fskf5cl" path="res://Entities/Animals/TemplateAnimal/TemplateAnimal.tscn" id="1_5inlc"]
+[ext_resource type="PackedScene" uid="uid://dx6cd8esghlf3" path="res://Entities/Animals/Deer/Assets/deer_female.blend" id="2_awrrg"]
+
+[node name="Deer" instance=ExtResource("1_5inlc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+species = "Deer"
+self_scene_path = "res://Entities/Animals/Deer/Deer.tscn"
+
+[node name="deer_female" parent="." index="2" instance=ExtResource("2_awrrg")]
+transform = Transform3D(-0.4, 0, -3.49691e-08, 0, 0.4, 0, 3.49691e-08, 0, -0.4, 0, 1.3, 0)
