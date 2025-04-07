@@ -17,7 +17,7 @@ var animal_crate_scene = preload("res://Props/Artificial/AnimalCrate/AnimalCrate
 var placement_in_progress = false
 var follow_mouse = false
 var selected_animal_type
-var selected_animal_scene: PackedScene = null
+var selected_animal_scene = null
 
 var in_game_menu
 
@@ -46,10 +46,17 @@ func start_placing(animal_type: String):
 		current_preview.queue_free()
 		current_preview = null
 
-	if animal_scenes.has(animal_type):
-		selected_animal_scene = animal_scenes[animal_type]
-	else:
+	if not animal_scenes.has(animal_type):
 		selected_animal_scene = null
+	
+	
+	# Randomly assign gender
+	var gender = "Male" if randi() % 2 == 0 else "Female"
+	
+	if gender == "Male":
+		selected_animal_scene = OhioEcosystemData.animals_species_data[animal_type]["male_mesh_path"]
+	else:
+		selected_animal_scene = OhioEcosystemData.animals_species_data[animal_type]["female_mesh_path"]
 	
 	if selected_animal_scene and animal_crate_scene:
 		selected_animal_type = animal_type
@@ -63,7 +70,7 @@ func confirm_placement():
 	
 	if current_preview:
 		# Get the choosen animal and add it to the parent scene
-		var final_animal = selected_animal_scene.instantiate()
+		var final_animal = load(selected_animal_scene).instantiate()
 		final_animal.global_transform.origin = current_preview.global_transform.origin
 		get_parent().add_child(final_animal)
 		# Decrease resources and increase animal's population count

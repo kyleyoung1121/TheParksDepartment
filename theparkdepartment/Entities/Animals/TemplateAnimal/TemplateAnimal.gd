@@ -89,7 +89,7 @@ func _ready():
 	speed = get_random_portion(default_speed, 0.8, 1.2)
 	social = get_random_portion(max_social, 0, 1)
 	stamina = get_random_portion(max_stamina, 0, 1)
-	litter_size = get_random_portion(default_litter_size, 0.5, 1.2)
+	litter_size = default_litter_size
 	
 	adjusted_eye_sight = eye_sight * OhioEcosystemData.grid_scale * 0.25
 	eye_sight_collision.shape = CylinderShape3D.new()
@@ -219,9 +219,9 @@ func reproduce():
 	for i in range(litter_size):
 
 		# Randomly assign gender
-		gender = "Male" if randi() % 2 == 0 else "Female"
+		var new_gender = "Male" if randi() % 2 == 0 else "Female"
 
-		if gender == "Male":
+		if new_gender == "Male":
 			self_scene_path = OhioEcosystemData.animals_species_data[species]["male_mesh_path"]
 		else:
 			self_scene_path = OhioEcosystemData.animals_species_data[species]["female_mesh_path"]
