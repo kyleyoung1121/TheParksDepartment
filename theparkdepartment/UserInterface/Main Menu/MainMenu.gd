@@ -5,11 +5,12 @@ const FPS_DICT = {
 	1: 60,
 	2: 120,
 	3: 144,
-	4: 240,
-	5: "Custom"
+	4: 240
 }
 
 var master_bus = AudioServer.get_bus_index("Master")
+
+@onready var option_button = $"Options/VBoxContainer2/Screen Type" as OptionButton
 
 const RES_DICT = {
 	0:Vector2i(3840, 2160),
@@ -22,12 +23,29 @@ const RES_DICT = {
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Options.visible = false;
+	option_button.item_selected.connect(_on_screen_type_item_selected)
+
+func _on_screen_type_item_selected(index: int) -> void:
+	match index:
+		1: #Windowed
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+			get_window().set_size(RES_DICT[3])
+			centre_window()
+		2: #Borderlses Windowed
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+			get_window().set_size(RES_DICT[2])
+			centre_window()
+		0: #Fullscreen
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
 
 func _process(float) -> void:
 	if $AudioStreamPlayer.playing == false:
 		$AudioStreamPlayer.play()
 	
-	#$CurrentFPS.text = "FPS " + str(Engine.get_frames_per_second())
+	$CurrentFPS.text = "FPS: " + str(Engine.get_frames_per_second())
 
 func _on_options_button_pressed() -> void:
 	$Options.visible = true;
@@ -49,15 +67,37 @@ func _on_h_slider_value_changed(value: float) -> void:
 func _on_res_button_item_selected(index: int) -> void:
 	get_window().set_size(RES_DICT[index])
 
-func _on_screen_type_item_selected(index: int) -> void:
+func centre_window():
+	var centre_screen = DisplayServer.screen_get_position() + DisplayServer.screen_get_size()/2
+	var window_size = get_window().get_size_with_decorations()
+	get_window().set_position(centre_screen - window_size/2)
+
+
+#func _on_check_button_toggled(toggled_on: bool) -> void:
+	#if toggled_on:
+		#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		#centre_window()
+	#else:
+		#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		#centre_window()
+
+
+func _on_fps_item_selected(index: int) -> void:
 	match index:
-		0: #Windowed
-			get_window().set_size(RES_DICT[4])
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
-		1: #Borderlses Windowed
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
-		2: #Fullscreen
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+		0:
+			Engine.max_fps = 30
+		1:
+			Engine.max_fps = 60
+		2:
+			Engine.max_fps = 120
+		3:
+			Engine.max_fps = 144
+		4:
+			Engine.max_fps = 240
+
+
+func _on_fps_toggle_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		$CurrentFPS.visible = true
+	else:
+		$CurrentFPS.visible = false

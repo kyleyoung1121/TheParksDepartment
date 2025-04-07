@@ -76,16 +76,36 @@ func _on_h_slider_value_changed(value: float) -> void:
 func _on_res_button_item_selected(index: int) -> void:
 	get_window().set_size(RES_DICT[index])
 
+func centre_window():
+	var centre_screen = DisplayServer.screen_get_position() + DisplayServer.screen_get_size()/2
+	var window_size = get_window().get_size_with_decorations()
+	get_window().set_position(centre_screen - window_size/2)
 
 func _on_screen_type_item_selected(index: int) -> void:
 	match index:
-		0: #Windowed
-			get_window().set_size(RES_DICT[4])
+		1: #Windowed
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
-		1: #Borderlses Windowed
+			get_window().set_size(RES_DICT[3])
+			centre_window()
+		2: #Borderlses Windowed
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
-		2: #Fullscreen
+			get_window().set_size(RES_DICT[2])
+			centre_window()
+		0: #Fullscreen
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+
+func _on_fps_item_selected(index: int) -> void:
+	match index:
+		0:
+			Engine.max_fps = 30
+		1:
+			Engine.max_fps = 60
+		2:
+			Engine.max_fps = 120
+		3:
+			Engine.max_fps = 144
+		4:
+			Engine.max_fps = 240

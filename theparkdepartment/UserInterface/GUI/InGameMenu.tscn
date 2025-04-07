@@ -525,7 +525,7 @@ scale = Vector2(0.111866, 0.111866)
 texture_normal = ExtResource("2_8mkx1")
 
 [node name="NewOverlay2" type="Sprite2D" parent="."]
-position = Vector2(957.438, 559.917)
+position = Vector2(957.438, 561.91)
 scale = Vector2(0.997896, 0.990529)
 texture = ExtResource("15_hca0k")
 

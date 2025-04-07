@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://fchbevtkemsv"]
 
 [ext_resource type="Script" path="res://UserInterface/Main Menu/MainMenu.gd" id="1_csg2m"]
-[ext_resource type="Texture2D" uid="uid://i6wxgjhffusr" path="res://UserInterface/Main Menu/Cows-San-Diego-Animal-Farm-Sanctuary.jpg" id="2_7kc3e"]
+[ext_resource type="Texture2D" uid="uid://dlkch2nbdhwxf" path="res://UserInterface/Main Menu/main-menu-background.png" id="2_hsjfk"]
 
 [sub_resource type="Theme" id="Theme_c1uh2"]
 
@@ -19,33 +19,50 @@ grow_vertical = 2
 script = ExtResource("1_csg2m")
 
 [node name="Cows-san-diego-animal-farm-sanctuary2" type="Sprite2D" parent="."]
-position = Vector2(940, 432)
-scale = Vector2(1.94812, 1.94812)
-texture = ExtResource("2_7kc3e")
+position = Vector2(944, 538)
+scale = Vector2(1.09203, 1.11926)
+texture = ExtResource("2_hsjfk")
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 27.0
-offset_top = 73.0
-offset_right = 462.0
-offset_bottom = 128.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(1, 0.672217, 0.442352, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -943.0
+offset_top = -25.5
+offset_right = -73.0
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.3868, 2.88785e-07, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/font_size = 80
 text = "The Parks Department"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 590.0
-offset_right = 572.0
-offset_bottom = 810.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -926.0
+offset_top = 84.5
+offset_right = -363.0
+offset_bottom = 185.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Start Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "New Game"
 
 [node name="Load Game" type="Button" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Load Game"
 
@@ -61,12 +78,18 @@ text = "Exit"
 volume_db = -8.432
 
 [node name="Options" type="PanelContainer" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 8.0
-offset_top = 502.0
-offset_right = 576.0
-offset_bottom = 772.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -929.0
+offset_top = 85.5
+offset_right = -354.0
+offset_bottom = 419.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Options"]
 layout_mode = 2
@@ -78,6 +101,7 @@ text = "Resolution"
 
 [node name="Res Button" type="OptionButton" parent="Options/VBoxContainer2"]
 layout_mode = 2
+selected = 2
 item_count = 5
 popup/item_0/text = "3840x2160"
 popup/item_1/text = "2560x1440"
@@ -95,22 +119,44 @@ text = "Screen Type"
 
 [node name="Screen Type" type="OptionButton" parent="Options/VBoxContainer2"]
 layout_mode = 2
+selected = 0
 item_count = 3
-popup/item_0/text = "Windowed"
-popup/item_1/text = "Borderless Window"
+popup/item_0/text = "Fullscreen"
+popup/item_1/text = "Windowed"
 popup/item_1/id = 1
-popup/item_2/text = "Fullscreen"
+popup/item_2/text = "Borderless Window"
 popup/item_2/id = 2
 
-[node name="FPS Label" type="Label" parent="Options/VBoxContainer2"]
+[node name="CheckButton" type="CheckButton" parent="Options/VBoxContainer2"]
+visible = false
+layout_mode = 2
+button_pressed = true
+text = "Full Screen"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 425
+
+[node name="FPS Label" type="Label" parent="Options/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
 text = "FPS"
 
+[node name="FPS Toggle" type="CheckButton" parent="Options/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Show FPS"
+
 [node name="FPS" type="OptionButton" parent="Options/VBoxContainer2"]
 layout_mode = 2
-
-[node name="FPS Toggle" type="CheckButton" parent="Options/VBoxContainer2"]
-layout_mode = 2
+item_count = 5
+popup/item_0/text = "30"
+popup/item_1/text = "60"
+popup/item_1/id = 1
+popup/item_2/text = "120"
+popup/item_2/id = 2
+popup/item_3/text = "144"
+popup/item_3/id = 3
+popup/item_4/text = "240"
+popup/item_4/id = 4
 
 [node name="Quality Label" type="Label" parent="Options/VBoxContainer2"]
 layout_mode = 2
@@ -118,9 +164,17 @@ text = "Quality"
 
 [node name="Quality Button" type="OptionButton" parent="Options/VBoxContainer2"]
 layout_mode = 2
+selected = 1
+item_count = 3
+popup/item_0/text = "High"
+popup/item_1/text = "Medium"
+popup/item_1/id = 1
+popup/item_2/text = "Low"
+popup/item_2/id = 2
 
 [node name="Sound Label" type="Label" parent="Options/VBoxContainer2"]
 layout_mode = 2
+text = "Sound Level"
 
 [node name="HSlider" type="HSlider" parent="Options/VBoxContainer2"]
 layout_mode = 2
@@ -132,10 +186,21 @@ value = 1.0
 layout_mode = 2
 text = "Close"
 
+[node name="CurrentFPS" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "FPS: 60"
+
 [connection signal="pressed" from="VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options Button" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit Button" to="." method="_on_exit_button_pressed"]
 [connection signal="item_selected" from="Options/VBoxContainer2/Res Button" to="." method="_on_res_button_item_selected"]
 [connection signal="item_selected" from="Options/VBoxContainer2/Screen Type" to="." method="_on_screen_type_item_selected"]
+[connection signal="toggled" from="Options/VBoxContainer2/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="Options/VBoxContainer2/HBoxContainer/FPS Toggle" to="." method="_on_fps_toggle_toggled"]
+[connection signal="item_selected" from="Options/VBoxContainer2/FPS" to="." method="_on_fps_item_selected"]
 [connection signal="value_changed" from="Options/VBoxContainer2/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="Options/VBoxContainer2/Close Button" to="." method="_on_close_button_pressed"]
