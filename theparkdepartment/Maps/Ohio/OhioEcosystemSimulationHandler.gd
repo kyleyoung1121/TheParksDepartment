@@ -2,12 +2,21 @@ extends Node
 
 
 var grass_scene = load("res://Entities/Plants/Grass/grass.tscn")
+
 var deer_scene = load("res://Entities/Animals/Deer/Deer.tscn")
+var deer_scene_female = load("res://Entities/Animals/Deer/Deer_female.tscn")
 var rabbit_scene = load("res://Entities/Animals/Rabbit/Rabbit.tscn")
+var rabbit_scene_female = load("res://Entities/Animals/Rabbit/Rabbit.tscn")
 var wolf_scene = load("res://Entities/Animals/EasternWolf/EasternWolf.tscn")
+var wolf_scene_female = load("res://Entities/Animals/EasternWolf/EasternWolf.tscn")
 var american_goldfinch_scene = load("res://Entities/Animals/AmericanGoldfinch/AmericanGoldfinch.tscn")
+var american_goldfinch_scene_female = load("res://Entities/Animals/AmericanGoldfinch/AmericanGoldfinch_female.tscn")
 var coopers_hawk_scene = load("res://Entities/Animals/CoopersHawk/CoopersHawk.tscn")
+var coopers_hawk_scene_female = load("res://Entities/Animals/CoopersHawk/CoopersHawk_female.tscn")
 var coyote_scene = load("res://Entities/Animals/Coyote/Coyote.tscn")
+var coyote_scene_female = load("res://Entities/Animals/Coyote/Coyote.tscn")
+var squirrel_scene = load("res://Entities/Animals/Squirrel/Squirrel.tscn")
+var squirrel_scene_female = load("res://Entities/Animals/Squirrel/Squirrel.tscn")
 
 
 func _ready():
@@ -38,52 +47,48 @@ func initialize_ecosystem():
 				OhioEcosystemData.plants_species_data["Grass"]["count"] += 1
 	
 	# Add deer
-	for i in range(15):
-		var new_deer = deer_scene.instantiate()
+	for i in range(5):
+		var gender = "Male" if randi() % 2 == 0 else "Female"
+		var new_deer
+		if gender == "Male":
+			new_deer = deer_scene.instantiate()
+		else:
+			new_deer = deer_scene_female.instantiate()
 		new_deer.set_grid_position(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size)
 		new_deer.animal_name = "deer_" + str(OhioEcosystemData.animals_species_data["Deer"]["count"])
 		add_child(new_deer)
+		new_deer.gender = gender
 		OhioEcosystemData.animals_species_data["Deer"]["count"] += 1
 
 	# Add rabbits
 	for i in range(15):
-		var new_rabbit = rabbit_scene.instantiate()
+		var gender = "Male" if randi() % 2 == 0 else "Female"
+		var new_rabbit
+		if gender == "Male":
+			new_rabbit = rabbit_scene.instantiate()
+		else:
+			new_rabbit = rabbit_scene_female.instantiate()
 		new_rabbit.set_grid_position(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size)
 		new_rabbit.animal_name = "rabbit_" + str(OhioEcosystemData.animals_species_data["Rabbit"]["count"])
 		add_child(new_rabbit)
+		new_rabbit.gender = gender
 		OhioEcosystemData.animals_species_data["Rabbit"]["count"] += 1
-	
-	# Add wolves
-	for i in range(10):
-		var new_wolf = wolf_scene.instantiate()
-		new_wolf.set_grid_position(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size)
-		new_wolf.animal_name = "wolf_" + str(OhioEcosystemData.animals_species_data["EasternWolf"]["count"])
-		add_child(new_wolf)
-		OhioEcosystemData.animals_species_data["EasternWolf"]["count"] += 1
+
 
 	# Add american goldfinches
-	for i in range(15):
-		var new_american_goldfinch = american_goldfinch_scene.instantiate()
+	for i in range(10):
+		var gender = "Male" if randi() % 2 == 0 else "Female"
+		var new_american_goldfinch
+		if gender == "Male":
+			new_american_goldfinch = american_goldfinch_scene.instantiate()
+		else:
+			new_american_goldfinch = american_goldfinch_scene_female.instantiate()
 		new_american_goldfinch.set_grid_position(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size)
 		new_american_goldfinch.animal_name = "americanGoldfinch_" + str(OhioEcosystemData.animals_species_data["AmericanGoldfinch"]["count"])
 		add_child(new_american_goldfinch)
+		new_american_goldfinch.gender = gender
 		OhioEcosystemData.animals_species_data["AmericanGoldfinch"]["count"] += 1
 
-	# Add Cooper's Hawks
-	for i in range(5):
-		var new_coopers_hawk = coopers_hawk_scene.instantiate()
-		new_coopers_hawk.set_grid_position(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size)
-		new_coopers_hawk.animal_name = "coopersHawk_" + str(OhioEcosystemData.animals_species_data["CoopersHawk"]["count"])
-		add_child(new_coopers_hawk)
-		OhioEcosystemData.animals_species_data["CoopersHawk"]["count"] += 1
-		
-	# add Coyote
-	for i in range(5):
-		var new_coyote = coyote_scene.instantiate()
-		new_coyote.set_grid_position(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size)
-		new_coyote.animal_name = "coyote_" + str(OhioEcosystemData.animals_species_data["Coyote"]["count"])
-		add_child(new_coyote)
-		OhioEcosystemData.animals_species_data["Coyote"]["count"] += 1
 
 
 func simulate_day():

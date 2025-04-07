@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dln861f5dsxc3"
-path.s3tc="res://.godot/imported/american-goldfish-m-texture.png-979a30352b339e73c211fc9580f7ea60.s3tc.ctex"
+uid="uid://c3g6ob7vgktx5"
+path.s3tc="res://.godot/imported/white-tailed-deer_juvenile.png-c73b23709b3e8d178bfe9f69acf015e9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Entities/Animals/AmericanGoldfinch/Assets/american-goldfish-m-texture.png"
-dest_files=["res://.godot/imported/american-goldfish-m-texture.png-979a30352b339e73c211fc9580f7ea60.s3tc.ctex"]
+source_file="res://Entities/Animals/Deer/Assets/white-tailed-deer_juvenile.png"
+dest_files=["res://.godot/imported/white-tailed-deer_juvenile.png-c73b23709b3e8d178bfe9f69acf015e9.s3tc.ctex"]
 
 [params]
 

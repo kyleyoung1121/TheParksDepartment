@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cpyqrsab7vs8n"
-path="res://.godot/imported/passerine-bodyplan.blend-bd422d40920377a13249424c6ba7e27e.scn"
+uid="uid://dx6cd8esghlf3"
+path="res://.godot/imported/deer_female.blend-b7816b3c919c89432bc8645638634387.scn"
 
 [deps]
 
-source_file="res://Entities/Animals/AmericanGoldfinch/Assets/passerine-bodyplan.blend"
-dest_files=["res://.godot/imported/passerine-bodyplan.blend-bd422d40920377a13249424c6ba7e27e.scn"]
+source_file="res://Entities/Animals/Deer/Assets/deer_female.blend"
+dest_files=["res://.godot/imported/deer_female.blend-b7816b3c919c89432bc8645638634387.scn"]
 
 [params]
 

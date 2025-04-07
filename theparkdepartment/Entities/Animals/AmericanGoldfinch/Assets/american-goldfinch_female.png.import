@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnvsyp30ab0ki"
-path.s3tc="res://.godot/imported/exported-goldfinch_american-goldfish-m-texture.png-500bd29c6e175c64ccbf94641d7b8bce.s3tc.ctex"
+uid="uid://20sslqf8l1jy"
+path.s3tc="res://.godot/imported/american-goldfinch_female.png-5b4c6b94efcb1c18be7067e55a2312c3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "6a73c2112d319c26838cd3b9c2a09e77"
-}
 
 [deps]
 
-source_file="res://Entities/Animals/AmericanGoldfinch/Assets/exported-goldfinch_american-goldfish-m-texture.png"
-dest_files=["res://.godot/imported/exported-goldfinch_american-goldfish-m-texture.png-500bd29c6e175c64ccbf94641d7b8bce.s3tc.ctex"]
+source_file="res://Entities/Animals/AmericanGoldfinch/Assets/american-goldfinch_female.png"
+dest_files=["res://.godot/imported/american-goldfinch_female.png-5b4c6b94efcb1c18be7067e55a2312c3.s3tc.ctex"]
 
 [params]
 

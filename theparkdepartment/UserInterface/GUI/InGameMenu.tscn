@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://o27yt3k5ogk7"]
+[gd_scene load_steps=57 format=3 uid="uid://o27yt3k5ogk7"]
 
 [ext_resource type="Script" path="res://UserInterface/GUI/UI_menu.gd" id="1_kghvm"]
 [ext_resource type="Texture2D" uid="uid://s2hs631h504h" path="res://UserInterface/GUI/Button Textures/red-cross-icon-button-png.webp" id="2_8mkx1"]
@@ -35,12 +35,11 @@
 [ext_resource type="Texture2D" uid="uid://bwoq166is53le" path="res://UserInterface/GUI/Animal Images/goldfinch-selected.png" id="23_6jx7t"]
 [ext_resource type="Texture2D" uid="uid://cu7jb1usfmw3e" path="res://UserInterface/GUI/Button Textures/Book Button.png" id="23_y5114"]
 [ext_resource type="Texture2D" uid="uid://cfpcyncqvs7h7" path="res://UserInterface/GUI/Animal Images/hawk.png" id="24_6lp32"]
+[ext_resource type="Texture2D" uid="uid://dkgpm8g5jtdio" path="res://UserInterface/GUI/Animal Images/squirrel.png" id="24_tpf36"]
+[ext_resource type="Texture2D" uid="uid://d2l6tsxb5aoje" path="res://UserInterface/GUI/Animal Images/squirrel-selected.png" id="25_0luqx"]
 [ext_resource type="Texture2D" uid="uid://bpneb4rl065ca" path="res://UserInterface/GUI/Animal Images/hawk-selected.png" id="25_o02kk"]
 [ext_resource type="Texture2D" uid="uid://bhewme31itwj6" path="res://UserInterface/GUI/Button Textures/Book Button Selected.png" id="25_rvvxo"]
 [ext_resource type="Texture2D" uid="uid://cjvsnhengcorr" path="res://UserInterface/GUI/Animal Images/BlackVulture.png" id="26_eupqq"]
-[ext_resource type="Texture2D" uid="uid://e5lqyqfwpowa" path="res://UserInterface/GUI/Animal Images/black-vulture-selected.png" id="28_jxai4"]
-[ext_resource type="Texture2D" uid="uid://bu4p212lwkyw3" path="res://UserInterface/GUI/Animal Images/TurkeyVulture.png" id="28_oxw88"]
-[ext_resource type="Texture2D" uid="uid://c0qg7jjv5wjec" path="res://UserInterface/GUI/Animal Images/turkey-vulture-selected.png" id="30_urctx"]
 
 [sub_resource type="Theme" id="Theme_qlupe"]
 
@@ -87,9 +86,8 @@ scale = Vector2(1.00372, 1.00372)
 script = ExtResource("1_kghvm")
 
 [node name="Panel" type="Panel" parent="."]
-visible = false
 layout_mode = 0
-offset_top = 806.0
+offset_top = 775.0
 offset_right = 287.0
 offset_bottom = 1075.0
 theme = SubResource("Theme_qlupe")
@@ -109,7 +107,7 @@ layout_mode = 0
 offset_left = 14.0
 offset_top = 47.0
 offset_right = 279.0
-offset_bottom = 239.0
+offset_bottom = 274.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
 layout_mode = 2
@@ -123,6 +121,11 @@ text = "White Tailed Deer: "
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Rabbit: "
+
+[node name="ListItem7" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Squirrels: "
 
 [node name="ListItem3" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -404,6 +407,22 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_constants/separation = 167
 
+[node name="SquirrelButton" type="TextureButton" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("24_tpf36")
+texture_hover = ExtResource("25_0luqx")
+texture_focused = ExtResource("25_0luqx")
+
+[node name="SquirrelLabel" type="Label" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2/SquirrelButton"]
+layout_mode = 2
+offset_left = 7.57266
+offset_top = 300.616
+offset_right = 294.573
+offset_bottom = 342.616
+theme_override_font_sizes/font_size = 30
+text = "Squirrel: $75"
+horizontal_alignment = 1
+
 [node name="GoldfinchButton" type="TextureButton" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 texture_normal = ExtResource("22_wtb70")
@@ -434,38 +453,6 @@ offset_right = 287.623
 offset_bottom = 342.615
 theme_override_font_sizes/font_size = 30
 text = "Coop. Hawk: $125"
-horizontal_alignment = 1
-
-[node name="BlackVultureButton" type="TextureButton" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-texture_normal = ExtResource("26_eupqq")
-texture_hover = ExtResource("28_jxai4")
-texture_focused = ExtResource("28_jxai4")
-
-[node name="BlackVultureLabel" type="Label" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2/BlackVultureButton"]
-layout_mode = 2
-offset_left = 7.57266
-offset_top = 300.616
-offset_right = 294.573
-offset_bottom = 342.616
-theme_override_font_sizes/font_size = 30
-text = "Black Vulture: $100"
-horizontal_alignment = 1
-
-[node name="TurkeyVultureButton" type="TextureButton" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-texture_normal = ExtResource("28_oxw88")
-texture_hover = ExtResource("30_urctx")
-texture_focused = ExtResource("30_urctx")
-
-[node name="TurkeyVultureLabel" type="Label" parent="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2/TurkeyVultureButton"]
-layout_mode = 2
-offset_left = -4.83151
-offset_top = 298.439
-offset_right = 306.168
-offset_bottom = 340.439
-theme_override_font_sizes/font_size = 30
-text = "Turkey Vulture: $100"
 horizontal_alignment = 1
 
 [node name="ExitMenu2" type="TextureButton" parent="BuildMenu/AnimalOptions"]
@@ -780,10 +767,9 @@ autostart = true
 [connection signal="pressed" from="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer/WolfButton" to="." method="_on_wolf_button_pressed"]
 [connection signal="pressed" from="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer/CoyoteButton" to="." method="_on_coyote_button_pressed"]
 [connection signal="pressed" from="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer/RabbitButton" to="." method="_on_rabbit_button_pressed"]
+[connection signal="pressed" from="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2/SquirrelButton" to="." method="_on_squirrel_button_pressed"]
 [connection signal="pressed" from="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2/GoldfinchButton" to="." method="_on_goldfinch_button_pressed"]
 [connection signal="pressed" from="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2/CoopersHawkButton" to="." method="_on_coopers_hawk_button_pressed"]
-[connection signal="pressed" from="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2/BlackVultureButton" to="." method="_on_black_vulture_button_pressed"]
-[connection signal="pressed" from="BuildMenu/AnimalOptions/VBoxContainer/HBoxContainer2/TurkeyVultureButton" to="." method="_on_turkey_vulture_button_pressed"]
 [connection signal="pressed" from="BuildMenu/AnimalOptions/ExitMenu2" to="." method="_on_exit_menu_2_pressed"]
 [connection signal="pressed" from="BuildConfirmation/ConfirmBuild" to="." method="_on_confirm_build_pressed"]
 [connection signal="pressed" from="BuildConfirmation/CancelBuild" to="." method="_on_cancel_build_pressed"]
