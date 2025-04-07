@@ -149,6 +149,7 @@ func _process(delta: float) -> void:
 		$Panel/ScrollContainer/VBoxContainer/ListItem4.text = "Coyote: " + str(animal_data["Coyote"]["count"])
 		$Panel/ScrollContainer/VBoxContainer/ListItem5.text = "American Goldfinch: " + str(animal_data["AmericanGoldfinch"]["count"])
 		$Panel/ScrollContainer/VBoxContainer/ListItem6.text = "Cooper's Hawk: " + str(animal_data["CoopersHawk"]["count"])
+		$Panel/ScrollContainer/VBoxContainer/ListItem7.text = "Squirrel: " + str(animal_data["Squirrel"]["count"])
 	elif $Panel/ListHeader.text == "Plant Count":
 		var plant_data = OhioEcosystemData.plants_species_data
 		$Panel/ScrollContainer/VBoxContainer/ListItem1.text = "Grass: " + str(plant_data["Grass"]["count"])
@@ -246,12 +247,12 @@ func _on_rabbit_button_pressed():
 		if OhioEcosystemData.funds >= animal_prices["Rabbit"]:
 			animal_placement.start_placing("Rabbit")
 
-'''
+
 func _on_squirrel_button_pressed():
 	if OhioEcosystemData.release_count >= 1:
 		if OhioEcosystemData.funds >= animal_prices["Squirrel"]:
 			animal_placement.start_placing("Squirrel")
-'''
+
 
 func _on_goldfinch_button_pressed():
 	if OhioEcosystemData.release_count >= 1:
@@ -266,15 +267,17 @@ func _on_coopers_hawk_button_pressed():
 
 
 func _on_black_vulture_button_pressed():
-	if OhioEcosystemData.release_count >= 1:
-		if OhioEcosystemData.funds >= animal_prices["BlackVulture"]:
-			animal_placement.start_placing("BlackVulture")
+	return
+	#if OhioEcosystemData.release_count >= 1:
+		#if OhioEcosystemData.funds >= animal_prices["BlackVulture"]:
+			#animal_placement.start_placing("BlackVulture")
 
 
 func _on_turkey_vulture_button_pressed():
-	if OhioEcosystemData.release_count >= 1:
-		if OhioEcosystemData.funds >= animal_prices["TurkeyVulture"]:
-			animal_placement.start_placing("TurkeyVulture")
+	return
+	#if OhioEcosystemData.release_count >= 1:
+		#if OhioEcosystemData.funds >= animal_prices["TurkeyVulture"]:
+			#animal_placement.start_placing("TurkeyVulture")
 
 
 func placement_requested(type, selection) -> void:
@@ -320,6 +323,7 @@ func _on_animal_status_button_pressed() -> void:
 	$Panel/ScrollContainer/VBoxContainer/ListItem4.visible = true
 	$Panel/ScrollContainer/VBoxContainer/ListItem5.visible = true
 	$Panel/ScrollContainer/VBoxContainer/ListItem6.visible = true
+	$Panel/ScrollContainer/VBoxContainer/ListItem7.visible = true
 	$Panel.visible = true
 
 
@@ -339,6 +343,7 @@ func _on_plant_status_button_pressed() -> void:
 	$Panel/ScrollContainer/VBoxContainer/ListItem4.visible = false
 	$Panel/ScrollContainer/VBoxContainer/ListItem5.visible = false
 	$Panel/ScrollContainer/VBoxContainer/ListItem6.visible = false
+	$Panel/ScrollContainer/VBoxContainer/ListItem7.visible = false
 	$Panel.visible = true
 
 
