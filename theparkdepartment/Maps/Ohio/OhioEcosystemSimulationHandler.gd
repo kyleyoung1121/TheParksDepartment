@@ -47,7 +47,7 @@ func initialize_ecosystem():
 				OhioEcosystemData.plants_species_data["Grass"]["count"] += 1
 	
 	# Add deer
-	for i in range(15):
+	for i in range(5):
 		var gender = "Male" if randi() % 2 == 0 else "Female"
 		var new_deer
 		if gender == "Male":
@@ -73,23 +73,10 @@ func initialize_ecosystem():
 		add_child(new_rabbit)
 		new_rabbit.gender = gender
 		OhioEcosystemData.animals_species_data["Rabbit"]["count"] += 1
-	
-	# Add wolves
-	for i in range(10):
-		var gender = "Male" if randi() % 2 == 0 else "Female"
-		var new_wolf
-		if gender == "Male":
-			new_wolf = wolf_scene.instantiate()
-		else:
-			new_wolf = wolf_scene_female.instantiate()
-		new_wolf.set_grid_position(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size)
-		new_wolf.animal_name = "wolf_" + str(OhioEcosystemData.animals_species_data["EasternWolf"]["count"])
-		add_child(new_wolf)
-		new_wolf.gender = gender
-		OhioEcosystemData.animals_species_data["EasternWolf"]["count"] += 1
+
 
 	# Add american goldfinches
-	for i in range(15):
+	for i in range(10):
 		var gender = "Male" if randi() % 2 == 0 else "Female"
 		var new_american_goldfinch
 		if gender == "Male":
@@ -102,47 +89,6 @@ func initialize_ecosystem():
 		new_american_goldfinch.gender = gender
 		OhioEcosystemData.animals_species_data["AmericanGoldfinch"]["count"] += 1
 
-	# Add Cooper's Hawks
-	for i in range(5):
-		var gender = "Male" if randi() % 2 == 0 else "Female"
-		var new_coopers_hawk
-		if gender == "Male":
-			new_coopers_hawk = coopers_hawk_scene.instantiate()
-		else:
-			new_coopers_hawk = coopers_hawk_scene_female.instantiate()
-		new_coopers_hawk.set_grid_position(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size)
-		new_coopers_hawk.animal_name = "coopersHawk_" + str(OhioEcosystemData.animals_species_data["CoopersHawk"]["count"])
-		add_child(new_coopers_hawk)
-		new_coopers_hawk.gender = gender
-		OhioEcosystemData.animals_species_data["CoopersHawk"]["count"] += 1
-		
-	# add Coyote
-	for i in range(5):
-		var gender = "Male" if randi() % 2 == 0 else "Female"
-		var new_coyote
-		if gender == "Male":
-			new_coyote = coyote_scene.instantiate()
-		else:
-			new_coyote = coyote_scene_female.instantiate()
-		new_coyote.set_grid_position(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size)
-		new_coyote.animal_name = "coyote_" + str(OhioEcosystemData.animals_species_data["Coyote"]["count"])
-		add_child(new_coyote)
-		new_coyote.gender = gender
-		OhioEcosystemData.animals_species_data["Coyote"]["count"] += 1
-
-	# add Squirrel
-	for i in range(15):
-		var gender = "Male" if randi() % 2 == 0 else "Female"
-		var new_squirrel
-		if gender == "Male":
-			new_squirrel = squirrel_scene.instantiate()
-		else:
-			new_squirrel = squirrel_scene_female.instantiate()
-		new_squirrel.set_grid_position(randi() % OhioEcosystemData.grid_size, randi() % OhioEcosystemData.grid_size)
-		new_squirrel.animal_name = "squirrel_" + str(OhioEcosystemData.animals_species_data["Squirrel"]["count"])
-		add_child(new_squirrel)
-		new_squirrel.gender = gender
-		OhioEcosystemData.animals_species_data["Squirrel"]["count"] += 1
 
 
 func simulate_day():
