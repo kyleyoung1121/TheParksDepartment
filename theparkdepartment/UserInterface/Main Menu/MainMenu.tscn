@@ -1,13 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://fchbevtkemsv"]
+[gd_scene load_steps=8 format=3 uid="uid://fchbevtkemsv"]
 
 [ext_resource type="Script" path="res://UserInterface/Main Menu/MainMenu.gd" id="1_csg2m"]
 [ext_resource type="Texture2D" uid="uid://dlkch2nbdhwxf" path="res://UserInterface/Main Menu/main-menu-background.png" id="2_hsjfk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfjed"]
+bg_color = Color(0, 0, 0, 0.486275)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_08yoh"]
+Panel/styles/panel = SubResource("StyleBoxFlat_yfjed")
 
 [sub_resource type="LabelSettings" id="LabelSettings_md1e8"]
 font_size = 41
 font_color = Color(0.847474, 0.847475, 0.847474, 1)
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_oixfv"]
 
 [sub_resource type="Theme" id="Theme_c1uh2"]
 
@@ -29,6 +41,13 @@ position = Vector2(944, 538)
 scale = Vector2(1.09203, 1.11926)
 texture = ExtResource("2_hsjfk")
 
+[node name="Panel" type="Panel" parent="."]
+offset_left = 37.0
+offset_top = 442.0
+offset_right = 948.0
+offset_bottom = 608.0
+theme = SubResource("Theme_08yoh")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -36,9 +55,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -930.0
+offset_left = -908.0
 offset_top = -105.5
-offset_right = -60.0
+offset_right = -38.0
 offset_bottom = 4.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -80,31 +99,41 @@ anchor_bottom = 0.5
 offset_left = -926.0
 offset_top = 84.5
 offset_right = -363.0
-offset_bottom = 185.5
+offset_bottom = 281.5
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Start Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 55)
 layout_mode = 2
+theme = SubResource("Theme_oixfv")
+theme_override_font_sizes/font_size = 30
 text = "New Game"
 
 [node name="Load Game" type="Button" parent="VBoxContainer"]
 visible = false
+custom_minimum_size = Vector2(0, 55)
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Load Game"
 
 [node name="Options Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 55)
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Settings"
 
 [node name="Exit Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 55)
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Exit"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -8.432
 
 [node name="Options" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
