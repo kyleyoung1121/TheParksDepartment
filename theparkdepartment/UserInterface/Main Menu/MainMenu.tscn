@@ -1,7 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://fchbevtkemsv"]
+[gd_scene load_steps=5 format=3 uid="uid://fchbevtkemsv"]
 
 [ext_resource type="Script" path="res://UserInterface/Main Menu/MainMenu.gd" id="1_csg2m"]
 [ext_resource type="Texture2D" uid="uid://dlkch2nbdhwxf" path="res://UserInterface/Main Menu/main-menu-background.png" id="2_hsjfk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_md1e8"]
+font_size = 41
+font_color = Color(0.847474, 0.847475, 0.847474, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_c1uh2"]
 
@@ -30,10 +36,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -943.0
-offset_top = -25.5
-offset_right = -73.0
-offset_bottom = 84.5
+offset_left = -930.0
+offset_top = -105.5
+offset_right = -60.0
+offset_bottom = 4.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -42,6 +48,27 @@ theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/font_size = 80
 text = "The Parks Department"
+
+[node name="Label" type="Label" parent="Label"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -430.0
+offset_top = 43.0
+offset_right = 440.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.3868, 2.88785e-07, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 80
+text = "A Game of Conservation"
+label_settings = SubResource("LabelSettings_md1e8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
