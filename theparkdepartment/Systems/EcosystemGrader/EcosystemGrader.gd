@@ -5,7 +5,7 @@ var score := 0.0
 func _ready():
 	# Create and configure the timer
 	var timer = Timer.new()
-	timer.wait_time = 10.0
+	timer.wait_time = 5.0
 	timer.one_shot = false
 	timer.autostart = true
 	
@@ -57,7 +57,6 @@ func get_shannon_diversity_index(populations: Array) -> float:
 	
 	# Calculate multiplier based on H (using the scaling formula)
 	var multiplier = scale_shannon_to_multiplier(H)
-	print("Ecosystem - Multiplier based on H: ", multiplier)
 	
 	return multiplier
 
@@ -65,7 +64,7 @@ func get_shannon_diversity_index(populations: Array) -> float:
 # Function to scale Shannon Index (H) to the desired multiplier range
 func scale_shannon_to_multiplier(H: float) -> float:
 	# Define the min and max H values
-	var min_H = 0.989
+	var min_H = 0.85
 	var max_H = 1.79144
 	
 	# Define the min and max multipliers

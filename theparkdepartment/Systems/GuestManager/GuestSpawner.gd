@@ -15,6 +15,9 @@ func _ready():
 	
 	timer.timeout.connect(_on_timer_timeout)
 	_set_random_timer()
+	
+	# Spawn 10 initial guests at increments along the path
+	spawn_initial_guests()
 
 
 func _on_timer_timeout():
@@ -41,3 +44,19 @@ func spawn_guest():
 	guest.set("path", self)
 
 	add_child(guest)  # Adds to the Path3D node
+
+
+# Function to spawn the initial 10 guests
+func spawn_initial_guests():
+	for i in range(10):
+		var guest = guest_scene.instantiate()
+
+		# Set the guest's distance along the path
+		var distance = (i + 1) * 40  # This will give distances from 40 to 480
+
+		guest.distance = distance
+
+		# Tell the guest to follow the path
+		guest.set("path", self)
+
+		add_child(guest)  # Adds the guest to the Path3D node

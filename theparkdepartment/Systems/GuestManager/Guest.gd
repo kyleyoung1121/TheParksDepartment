@@ -38,6 +38,7 @@ func _process(delta):
 	if distance >= curve.get_baked_length():
 		var guest_reward = 5
 		guest_reward *= OhioEcosystemData.ecosystem_multiplier
+		guest_reward = round(guest_reward)
 		OhioEcosystemData.funds += guest_reward
 		queue_free()
 	else:
