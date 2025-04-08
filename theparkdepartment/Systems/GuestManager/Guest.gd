@@ -36,7 +36,9 @@ func _process(delta):
 	distance += delta * speed
 
 	if distance >= curve.get_baked_length():
-		OhioEcosystemData.funds += 5
+		var guest_reward = 5
+		guest_reward *= OhioEcosystemData.ecosystem_multiplier
+		OhioEcosystemData.funds += guest_reward
 		queue_free()
 	else:
 		var pos = curve.sample_baked(distance) + offset

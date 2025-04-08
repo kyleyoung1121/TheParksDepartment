@@ -10,6 +10,7 @@ var cycle_count = 0
 var funds = 450
 var release_count = 5
 var release_count_max = 5
+var ecosystem_multiplier = 1
 
 var animals_species_data = {
 	"Deer": {
