@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://o27yt3k5ogk7"]
+[gd_scene load_steps=59 format=3 uid="uid://o27yt3k5ogk7"]
 
 [ext_resource type="Script" path="res://UserInterface/GUI/UI_menu.gd" id="1_kghvm"]
 [ext_resource type="Texture2D" uid="uid://s2hs631h504h" path="res://UserInterface/GUI/Button Textures/red-cross-icon-button-png.webp" id="2_8mkx1"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://btpvunh6sy2k" path="res://UserInterface/GUI/Building Images/Porta-Potty.png" id="7_uggg2"]
 [ext_resource type="Texture2D" uid="uid://xacnwbj0f34b" path="res://UserInterface/GUI/Building Images/Selected-Watchtower.png" id="8_d05rn"]
 [ext_resource type="Texture2D" uid="uid://lrxelx2ewbtn" path="res://UserInterface/GUI/Building Images/Selected-Tres.png" id="10_ja5u5"]
+[ext_resource type="Texture2D" uid="uid://ps0cc67a6sib" path="res://UserInterface/GUI/Building Images/research-building.png" id="10_u5bxc"]
+[ext_resource type="Texture2D" uid="uid://c8xlcet542yvv" path="res://UserInterface/GUI/Building Images/selected-research-building.png" id="11_2nc5m"]
 [ext_resource type="Texture2D" uid="uid://c5v2ggjc0llgd" path="res://UserInterface/GUI/Button Textures/Bulldozer.png" id="12_fitms"]
 [ext_resource type="Texture2D" uid="uid://c0vcaxyrjpt0r" path="res://UserInterface/GUI/Building Images/Selected-Porta-Potty.png" id="12_xjaxx"]
 [ext_resource type="Texture2D" uid="uid://cyssmn5wkka8l" path="res://UserInterface/GUI/Button Textures/Bulldozer Selected.png" id="13_7inlu"]
@@ -246,9 +248,9 @@ horizontal_alignment = 1
 
 [node name="ResearchCenterButton" type="TextureButton" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("7_uggg2")
-texture_hover = ExtResource("12_xjaxx")
-texture_focused = ExtResource("12_xjaxx")
+texture_normal = ExtResource("10_u5bxc")
+texture_hover = ExtResource("11_2nc5m")
+texture_focused = ExtResource("11_2nc5m")
 
 [node name="ResearchCenterPrice" type="Label" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/ResearchCenterButton"]
 layout_mode = 0
@@ -310,6 +312,7 @@ texture_normal = ExtResource("2_8mkx1")
 texture_hover = ExtResource("3_6yeco")
 
 [node name="BulldozerButton" type="TextureButton" parent="BuildMenu/BuildingOptions"]
+visible = false
 layout_mode = 0
 offset_left = 916.846
 offset_top = 4.39663

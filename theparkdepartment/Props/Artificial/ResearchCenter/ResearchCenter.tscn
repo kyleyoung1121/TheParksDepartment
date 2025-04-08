@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bor0y0g5pgl8h"]
+[gd_scene load_steps=3 format=3 uid="uid://bor0y0g5pgl8h"]
 
-[ext_resource type="PackedScene" uid="uid://crneb6e4ao16h" path="res://Props/Artificial/Log House/Log House.blend" id="1_ptikx"]
+[ext_resource type="PackedScene" uid="uid://bo6cwktoycha4" path="res://Props/Artificial/ResearchCenter/Researching Building.blend" id="1_p40no"]
+[ext_resource type="PackedScene" uid="uid://dg87r78x7nuun" path="res://Props/Artificial/ResearchCenter/Researching Workbench.blend" id="2_b6svh"]
 
-[node name="LogHouse" type="Node3D"]
+[node name="Research Center" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0126781, 0.47896, 0.0150566)
 
-[node name="Log House" parent="." instance=ExtResource("1_ptikx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0686376, 0)
+[node name="Researching Building" parent="." instance=ExtResource("1_p40no")]
+transform = Transform3D(-1.525, 0, -1.3332e-07, 0, 1.525, 0, 1.3332e-07, 0, -1.525, 0.0460915, 0, 0.0218873)
+
+[node name="Researching Workbench" parent="." instance=ExtResource("2_b6svh")]
+transform = Transform3D(-6.66599e-08, 0, 1.525, 0, 1.525, 0, -1.525, 0, -6.66599e-08, 0.467618, 0, -5.06494)
