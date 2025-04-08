@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://lmd4cwnt2dh1"]
+
+[ext_resource type="PackedScene" uid="uid://dhc5kieudshwh" path="res://Props/Artificial/Outhouse/Outhouse.blend" id="1_q1uc7"]
+
+[node name="Outhouse" type="Node3D"]
+
+[node name="Outhouse" parent="." instance=ExtResource("1_q1uc7")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)

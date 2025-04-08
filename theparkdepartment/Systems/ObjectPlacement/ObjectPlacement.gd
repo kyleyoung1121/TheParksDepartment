@@ -12,7 +12,7 @@ var building_scenes = {
 	"Cabin": preload("res://Props/Artificial/Log House/LogHouse.tscn"),
 	"Watchtower": preload("res://Props/Artificial/Watchtower/Watchtower.tscn"),
 	"Trees": preload("res://Props/Natural/Trees/TreeCluster.tscn"),
-	#"Bathroom": preload("res://Props/Artificial/Bathroom/Bathroom.tscn"),
+	"Outhouse": preload("res://Props/Artificial/Outhouse/Outhouse.tscn"),
 	"Research Center": preload("res://Props/Artificial/ResearchCenter/ResearchCenter.tscn"),
 }
 

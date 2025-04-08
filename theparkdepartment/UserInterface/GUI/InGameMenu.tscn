@@ -9,13 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://bpmu34fflwxxe" path="res://UserInterface/GUI/Building Images/Watchtower.png" id="6_jh2cl"]
 [ext_resource type="Texture2D" uid="uid://c06f11ke8dgt6" path="res://UserInterface/GUI/Building Images/Selected-Log-Cabin.png" id="6_rhcgh"]
 [ext_resource type="Texture2D" uid="uid://ycncb2u3pd71" path="res://UserInterface/GUI/Building Images/trees (1).png" id="6_t888u"]
-[ext_resource type="Texture2D" uid="uid://btpvunh6sy2k" path="res://UserInterface/GUI/Building Images/Porta-Potty.png" id="7_uggg2"]
 [ext_resource type="Texture2D" uid="uid://xacnwbj0f34b" path="res://UserInterface/GUI/Building Images/Selected-Watchtower.png" id="8_d05rn"]
+[ext_resource type="Texture2D" uid="uid://n4x2q2jhp1bh" path="res://UserInterface/GUI/Building Images/Outhouse.png" id="8_mrmiw"]
+[ext_resource type="Texture2D" uid="uid://cojqnnsijpr52" path="res://UserInterface/GUI/Building Images/Selected-Outhouse.png" id="9_2cmvv"]
 [ext_resource type="Texture2D" uid="uid://lrxelx2ewbtn" path="res://UserInterface/GUI/Building Images/Selected-Tres.png" id="10_ja5u5"]
 [ext_resource type="Texture2D" uid="uid://ps0cc67a6sib" path="res://UserInterface/GUI/Building Images/research-building.png" id="10_u5bxc"]
 [ext_resource type="Texture2D" uid="uid://c8xlcet542yvv" path="res://UserInterface/GUI/Building Images/selected-research-building.png" id="11_2nc5m"]
 [ext_resource type="Texture2D" uid="uid://c5v2ggjc0llgd" path="res://UserInterface/GUI/Button Textures/Bulldozer.png" id="12_fitms"]
-[ext_resource type="Texture2D" uid="uid://c0vcaxyrjpt0r" path="res://UserInterface/GUI/Building Images/Selected-Porta-Potty.png" id="12_xjaxx"]
 [ext_resource type="Texture2D" uid="uid://cyssmn5wkka8l" path="res://UserInterface/GUI/Button Textures/Bulldozer Selected.png" id="13_7inlu"]
 [ext_resource type="Texture2D" uid="uid://dsx01wbxoky6o" path="res://UserInterface/GUI/Button Textures/checkbox.png" id="13_08dqm"]
 [ext_resource type="Texture2D" uid="uid://dxoq8pwmuksqm" path="res://UserInterface/GUI/Animal Images/deer.png" id="14_ebhie"]
@@ -229,13 +229,13 @@ theme_override_font_sizes/font_size = 50
 text = "Watchtower: $150"
 horizontal_alignment = 1
 
-[node name="BathroomButton" type="TextureButton" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer"]
+[node name="OuthouseButton" type="TextureButton" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("7_uggg2")
-texture_hover = ExtResource("12_xjaxx")
-texture_focused = ExtResource("12_xjaxx")
+texture_normal = ExtResource("8_mrmiw")
+texture_hover = ExtResource("9_2cmvv")
+texture_focused = ExtResource("9_2cmvv")
 
-[node name="BathroomPrice" type="Label" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/BathroomButton"]
+[node name="OuthousePrice" type="Label" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/OuthouseButton"]
 layout_mode = 0
 offset_left = 105.302
 offset_top = 499.877
@@ -243,7 +243,7 @@ offset_right = 476.302
 offset_bottom = 568.877
 theme = SubResource("Theme_2ouy6")
 theme_override_font_sizes/font_size = 50
-text = "Bathroom: $50"
+text = "Outhouse: $50"
 horizontal_alignment = 1
 
 [node name="ResearchCenterButton" type="TextureButton" parent="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer"]
@@ -595,9 +595,9 @@ texture_focused = ExtResource("21_paxs6")
 
 [node name="FactsButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 1576.14
+offset_left = 1425.7
 offset_top = 1052.09
-offset_right = 2088.14
+offset_right = 1937.7
 offset_bottom = 1564.09
 scale = Vector2(0.073671, 0.073671)
 texture_normal = ExtResource("23_y5114")
@@ -704,6 +704,23 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxEmpty_icqs2")
 text = "0"
 
+[node name="Panel4" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1516.12
+offset_top = 1054.0
+offset_right = 1592.12
+offset_bottom = 1094.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_a2qlt")
+
+[node name="EcosystemHealthMultiplier" type="Label" parent="Panel4"]
+layout_mode = 0
+offset_right = 74.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_icqs2")
+text = "x1.62"
+
 [node name="Random Facts" type="Panel" parent="."]
 visible = false
 layout_mode = 0
@@ -761,7 +778,7 @@ autostart = true
 [connection signal="pressed" from="Panel/ExitMenu" to="." method="_on_exit_menu_pressed"]
 [connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/CabinButton" to="." method="_on_place_cabin_button_pressed"]
 [connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/WatchtowerButton" to="." method="_on_place_watchtower_button_pressed"]
-[connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/BathroomButton" to="." method="_on_place_bathroom_button_pressed"]
+[connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/OuthouseButton" to="." method="_on_place_outhouse_button_pressed"]
 [connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer/ResearchCenterButton" to="." method="_on_place_research_center_button_pressed"]
 [connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer2/FenceButton" to="." method="_on_place_fence_button_pressed"]
 [connection signal="pressed" from="BuildMenu/BuildingOptions/VBoxContainer/HBoxContainer2/TreesButton" to="." method="_on_place_trees_button_pressed"]

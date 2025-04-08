@@ -13,7 +13,7 @@ var building_prices = {
 	"Cabin": 125,
 	"Watchtower": 150,
 	"Trees": 10,
-	"Bathroom": 50,
+	"Outhouse": 50,
 	"Research Center": 100,
 }
 
@@ -139,6 +139,9 @@ func _process(delta: float) -> void:
 	# Update funds and release count display
 	$Panel2/Funds.text = "$" + str(OhioEcosystemData.funds)
 	$Panel3/ReleaseCount.text = str(OhioEcosystemData.release_count)
+	$Panel4/EcosystemHealthMultiplier.text = "x%.2f" % OhioEcosystemData.ecosystem_multiplier
+
+
 
 	# Update list depending on header
 	if $Panel/ListHeader.text == "Animal Count":
@@ -214,9 +217,9 @@ func _on_place_trees_button_pressed():
 		object_placement.start_placing("Trees")
 
 
-func _on_place_bathroom_button_pressed():
-	if OhioEcosystemData.funds >= building_prices["Bathroom"]:
-		object_placement.start_placing("Bathroom")
+func _on_place_outhouse_button_pressed():
+	if OhioEcosystemData.funds >= building_prices["Outhouse"]:
+		object_placement.start_placing("Outhouse")
 
 
 func _on_place_research_center_button_pressed():
@@ -421,7 +424,7 @@ func _on_bulldozer_button_pressed() -> void:
 		$BuildConfirmation/BuildCost.text = "Cost: $120"
 	elif (selected_object == "Trees"):
 		$BuildConfirmation/BuildCost.text = "Cost: $10"
-	elif (selected_object == "Bathroom"):
+	elif (selected_object == "Outhouse"):
 		$BuildConfirmation/BuildCost.text = "Cost: $40"
 
 

@@ -65,7 +65,7 @@ func get_shannon_diversity_index(populations: Array) -> float:
 func scale_shannon_to_multiplier(H: float) -> float:
 	# Define the min and max H values
 	var min_H = 0.85
-	var max_H = 1.79144
+	var max_H = 1.79
 	
 	# Define the min and max multipliers
 	var min_multiplier = 1.0
