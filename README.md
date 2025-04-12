@@ -1,40 +1,20 @@
 # The Park Department
 
 ## Table of Contents
-You can also use the default github table of contents too!
-- [The Park Department](#the-park-department)
-  - [Table of Contents](#table-of-contents)
-  - [Core Information](#core-information)
-    - [Team Members](#team-members)
-    - [Project Abstract](#project-abstract)
-  - [Project Description (Assignment #2)](#project-description-assignment-2)
-  - [User Stories and Design Diagrams (Assignment #4)](#user-stories-and-design-diagrams-assignment-4)
-    - [User Stories](#user-stories)
-    - [Design Diagrams: Level 0, Level 1 and Level 2](#design-diagrams-level-0-level-1-and-level-2)
-      - [Summary of Design](#summary-of-design)
-      - [**Conventions in the Diagrams**](#conventions-in-the-diagrams)
-      - [**Level D0 (High-Level Design)**](#level-d0-high-level-design)
-      - [**Level D1 (Intermediate Design)**](#level-d1-intermediate-design)
-      - [**Level D2 (Detailed Design)**](#level-d2-detailed-design)
-  - [Project Tasks and Timeline (Assignment #5-6)](#project-tasks-and-timeline-assignment-5-6)
-    - [Task List](#task-list)
-    - [Timeline](#timeline)
-    - [Effort Matrix](#effort-matrix)
-  - [ABET Concerns Essay (Assignment #7)](#abet-concerns-essay-assignment-7)
-  - [PPT Slideshow (includes ABET Concerns) (Assignment #8)](#ppt-slideshow-includes-abet-concerns-assignment-8)
-  - [Self-Assessment Essays (Assignment #3)](#self-assessment-essays-assignment-3)
-  - [Professional Biographies  (Assignment #1)](#professional-biographies--assignment-1)
-  - [Budget](#budget)
-    - [Expenses to date](#expenses-to-date)
-    - [Show monetary value of donated items and donation sources.](#show-monetary-value-of-donated-items-and-donation-sources)
-  - [Appendix](#appendix)
-    - [References, citations, links to code repositories, and meeting notes.](#references-citations-links-to-code-repositories-and-meeting-notes)
-    - [Hours Justification for Team Members](#hours-justification-for-team-members)
-  - [Summary of Effort](#summary-of-effort)
-  - [Meeting Hours](#meeting-hours)
-  - [Additional Assignments](#additional-assignments)
-  - [Project Development](#project-development)
-  - [Total Hours Breakdown](#total-hours-breakdown)
+- [Core Information](#core-information)
+  - [Team Members](#team-members)
+  - [Project Abstract](#project-abstract)
+- [Project Description (Assignment #2)](#project-description-assignment-2)
+- [User Interface Specification](#user-interface-specification)
+- [Test Plan and Results](#test-plan-and-results)
+- [User Manual](#user-manual)
+- [Spring Final PPT Presentation](#spring-final-ppt-presentation)
+- [Final Expo Poster](#final-expo-poster)
+- [Assessments](#assessments)
+- [Summary of Hours and Justification](#summary-of-hours-and-justification)
+- [Summary of Expenses](#summary-of-expenses)
+- [Appendix](#appendix)
+
 
 ## Core Information
 ### Team Members
@@ -55,168 +35,128 @@ This educational video game teaches responsible forestry, species identification
 ## Project Description (Assignment #2)
 [Project Description](HW_Assignments/Project-Description.md)
 
-## User Stories and Design Diagrams (Assignment #4)
-
-### User Stories
-[User Stories](HW_Assignments/user-stories.md)
-
-### Design Diagrams: Level 0, Level 1 and Level 2
-
-#### Summary of Design
-The diagrams (D0, D1, and D2) show the structure and gameplay flow for "The Park Department" game:
-1. **D0:** High-level structure with basic menu navigation.
-2. **D1:** Mid-level design focusing on options and pre-game setup.
-3. **D2:** Detailed configuration options and tutorial onboarding.
-
-#### **Conventions in the Diagrams**
-- **Arrows:** Represent user inputs or the flow of interaction.
-- **Red Text:** Represents outputs.
-- **Green Text:** Represents actions.
-- **Blue Text:** Represents states.
-- **Goal Statement:** Specifies the game's purpose as a foundation for the design.
-- **Legend:** Clarifies the meaning of symbols used (e.g., arrows = user input).
-
-#### **Level D0 (High-Level Design)**
-- **Purpose:** Provides a broad overview of the main menu structure and basic interactions.
-- **Components:**
-  - **Start:** Leads to the game beginning.
-  - **Options:** Displays settings players can modify.
-  - **Quit:** Ends the game.
-
-![Design Diagram Level 0](Design_Diagrams/DesignDiagram-D0_Updated.png)
-
-#### **Level D1 (Intermediate Design)**
-- **Purpose:** Expands on D0 by detailing the options menu and pre-game setup process.
-- **Components:**
-  - **Options Menu:** Includes settings like aspect ratio, screen size, volume, graphics, and FPS.
-  - **Game Setup:** Includes steps for selecting a map, naming the preserve, and setting difficulty.
-  - **Quit:** Closes the game, similar to D0.
-
-![Design Diagram Level 1](Design_Diagrams/DesignDiagram-D1_Updated.png)
-
-#### **Level D2 (Detailed Design)**
-- **Purpose:** Provides the most detailed breakdown, focusing on options and initial gameplay decisions.
-- **Components:**
-  - **Options Menu:**
-    - **Aspect Ratio and Screen Size:** Allows players to specify exact parameters.
-    - **Volume and Graphics Settings:** Adjusted via sliders or presets.
-    - **FPS (Frames Per Second):** Allows specific frame rate values or unlimited FPS.
-  - **Game Start:**
-    - **Tutorial Option:** Gives players the choice to begin with a tutorial or jump straight into gameplay.
-
-![Design Diagram Level 2](Design_Diagrams/DesignDiagram-D2_Updated.png)
-
-## Project Tasks and Timeline (Assignment #5-6)
-
-### Task List
-[Task List](HW_Assignments/Tasklist.md)
-
-### Timeline
-[Timeline](HW_Assignments/Timeline_Table.csv)
-
-### Effort Matrix
-[Task List](HW_Assignments/Effort_Matrix.csv)
+## User Interface Specification
+TODO
 
 
-## ABET Concerns Essay (Assignment #7)
-[ABET Concerns Essay](HW_Assignments/ConstraintEssay.txt)
+## Test Plan and Results 
+In this document is our test plan, I will go through the results in this Document. 
 
-## PPT Slideshow (includes ABET Concerns) (Assignment #8)
-[Slide Show](https://docs.google.com/presentation/d/1j2VIWUOZVFvMsKo1UwIQpQx6Llhs67gb/edit#slide=id.p1)
+[Test Plan](HW_Assignments\Test_Plan.md)
 
-## Self-Assessment Essays (Assignment #3)
-- [Nathan Suer's Self-Assessment Essay](HW_Assignments/Nathan_Suer_Individual_Capstone_Assessment.md)
-- [Ryan Williams's Self-Assessment Essay](HW_Assignments/Ryan_Williams_Individual_Capstone_Assessment.md)
-- [Kyle Young's Self-Assessment Essay](HW_Assignments/Kyle_Young_Individual_Capstone_Assessment.md)
-- [Owen Richards's Self-Assessment Essay](HW_Assignments/Owen_Richards_Individual_Capstone_Assessment.md)
+### Test Results
+1. Test Case Identifier: 1
+    - Description: The player will move the camera around the map using the arrow keys. The camera should move in the direction of the arrow key that is pressed. The camera should not move off the map.
+    - Description of execution: Feature was tested by pressing the arrow keys and observing the camera movement. The camera was moved to the edge of the map and was allowed past it.
+    - Result: Partially successful.
+2. Test Case Identifier: 2
+    - Description: The player will place a building on the map by clicking on the building and then clicking on the map where they want to place the building. The building should be placed on the map where the player clicked.
+    - Description of execution: Feature was tested by clicking on the building and then clicking on the map. The building was placed on the map where the player clicked. 
+    - Result: Passed
+3. Test Case Identifier: 3
+    - Description: The player will place an animal on the map by clicking on the animal and then clicking on the map where they want to place the animal. The animal should be placed 
+    - Description of execution: Feature was tested by clicking on the animal and then clicking on the map. The animal was placed on the map where the player clicked.
+    - Result: Passed
+4. Test Case Identifier: 4
+    - Description: The player will place a plant on the map by clicking on the plant and then clicking on the map where they want to place the plant. The plant should be placed on 
+    - Description of execution: Feature was tested by clicking on the plant and then clicking on the map. The plant was placed on the map where the player clicked.
+    - Result: Passed
+5. Test Case Identifier: 5
+    - Description: The player will place the max amount of plants on the map. The game should not crash.
+    - Description of execution:  Feature was tested by placing the max amount of plants on the map. The game did not crash.
+    - Result: Passed
+6. Test Case Identifier: 6
+    - Description: The player will place the max amount of animals on the map. The game should not crash.
+    - Description of execution: Feature was tested by placing the max amount of animals on the map. The game did not crash.
+    - Result: Passed
+7. Test Case Identifier: 7
+    - Description: The player will place the max amount of buildings on the map. The game should not crash.
+    - Description of execution: Feature was tested by placing the max amount of buildings on the map. The game did not crash.
+    - Result: Passed
+8. Test Case Identifier: 8
+    - Description: The player will place the max amount of animals and plants on the map. The game should not crash.
+    - Description of execution:  Feature was tested by placing the max amount of animals and plants on the map. The game did not crash.
+    - Result: Passed
+9. Test Case Identifier: 9
+    - Description: The player will place the max amount of animals, plants, and buildings on the map. The game should not crash.
+    - Description of execution: Feature was tested by placing the max amount of animals, plants, and buildings on the map. The game did not crash.
+    - Result: Passed
+10. Test Case Identifier: 10
+    - Description: The player will place the max amount of animals, plants, and buildings on the map and then try to place another animal, plant, or building. The game should not crash.
+    - Description of execution: Feature was tested by placing the max amount of animals, plants, and buildings on the map and then trying to place another animal, plant, or building. The game did not crash.
+    - Result: Passed
+11. Test Case Identifier: 11
+    - Description: The player will place the max amount of animals on the map and then wait for a baby animal to be born. The game should not allow for a baby animal to be born.
+    - Description of execution: Feature was tested by placing the max amount of animals on the map and then waiting for a baby animal to be born. The game did not allow for a baby animal to be born.
+    - Result: Passed
+12. Test Case Identifier: 12
+    - Description: The player will place the max amount of plants on the map and then wait for a baby plant to be born. The game should not allow for a baby plant to be born.
+    - Description of execution: Feature was tested by placing the max amount of plants on the map and then waiting for a baby plant to be born. The game did not allow for a baby plant to be born.
+    - Result: Passed
+13. Test Case Identifier: 13
+    - Description: The player will play the game and the game should stay within the minimum frame rate limit.
+    - Description of execution: Feature was tested by playing the game and observing the frame rate. The game stayed within the minimum frame rate limit.
+    - Result: Passed
+14. Test Case Identifier: 14
+    - Description: The player will place the max amount of animals, plants, and buildings on the map and then play the game. The game should stay within the minimum frame rate limit.
+    - Description of execution: Feature was tested by placing the max amount of animals, plants, and buildings on the map and then playing the game. The game stayed within the minimum frame rate limit.
+    - Result: Passed 
+15. Test Case Identifier: 15
+    - Description: The player will play the game and the game should not take up more than 75% of the CPU.
+    - Description of execution: Feature was tested by playing the game and observing the CPU usage. The game did not take up more than 75% of the CPU.
+    - Result: Passed
+16. Test Case Identifier: 16
+    - Description: The player will place the max amount of animals, plants, and buildings on the map and then play the game. The game should not take up more than 75% of the CPU.
+    - Description of execution: Feature was tested by placing the max amount of animals, plants, and buildings on the map and then playing the game. The game did not take up more than 75% of the CPU.
+    - Result: Passed
+17. Test Case Identifier: 17
+    - Description: The player will save the game by clicking on the save button. The game should be saved and the player should be able to load the game from the save file.
+    - Description of execution:  Feature did not end up being implemented.
+    - Result: Failed
+18. Test Case Identifier: 18
+    - Description: The player will place the max amount of animals on the map and then try to place another animal. The game should not allow for another animal to be placed.
+    - Description of execution: Feature was tested by placing the max amount of animals on the map and then trying to place another animal. The game did not allow for another animal to be placed.
+    - Result: Passed
+19. Test Case Identifier: 19
+    - Description: The player will place the max amount of plants on the map and then try to place another plant. The game should not allow for another plant to be placed.
+    - Description of execution:  Feature was tested by placing the max amount of plants on the map and then trying to place another plant. The game did not allow for another plant to be placed.
+    - Result: Passed
+20. Test Case Identifier: 20
+    - Description: The player will place the max amount of buildings on the map and then try to place another building. The game should not allow for another building to be placed.
+    - Description of execution: Feature was tested by placing the max amount of buildings on the map and then trying to place another building. The game did not allow for another building to be placed.
+    - Result: Passed
 
-## Professional Biographies  (Assignment #1)
-- [Nathan Suer's Professional Biography](HW_Assignments/Nathan_Suer_Professional_Bio.md)
-- [Ryan Williams's Professional Biography](HW_Assignments/Ryan_Williams_Professional_Bio.md)
-- [Kyle Young's Professional Biography](HW_Assignments/Kyle_Young_Professional_Bio.md)
-- [Owen Richards's Professional Biography](HW_Assignments/Owen_Richards_Professional_Bio.md)
+## User Manual
+TODO
 
-## Budget 
+## Spring Final PPT Presentation
+TODO
 
-### Expenses to date
-There has no been no expenses so far.
+## Final Expo Poster
+TODO
 
-### Show monetary value of donated items and donation sources.
-There have been no donations to our project.
+## Assessments
+TODO
+
+### Initial Self-Assessments
+- [Nathan Suer's Initial Self-Assessment](HW_Assignments/Nathan_Suer_Individual_Capstone_Assessment.md)
+- [Ryan Williams's Initial Self-Assessment](HW_Assignments/Ryan_Williams_Individual_Capstone_Assessment.md)
+- [Kyle Young's Initial Self-Assessment](HW_Assignments/Kyle_Young_Individual_Capstone_Assessment.md)
+- [Owen Richards's Initial Self-Assessment](HW_Assignments/Owen_Richards_Individual_Capstone_Assessment.md)
+
+### Final Self-Assessments
+- [Nathan Suer's Final Self-Assessment](HW_Assignments\Nathan_Suer_Self_Assessment.md)
+- [Ryan Williams's Final Self-Assessment]() TODO
+- [Kyle Young's Final Self-Assessment]() TODO
+- [Owen Richards's Final Self-Assessment]() TODO
+
+## Summary of Hours and Justification
+TODO
+(one per individual team member)
+
+##  Summary of Expenses
+There has no been no expenses.
 
 ## Appendix
 ### References, citations, links to code repositories, and meeting notes.
 We have not used or referenced any other persons work. We are using the Godot engine, which is an open source game engine (https://github.com/godotengine/godot).
-### Hours Justification for Team Members
-
-## Summary of Effort
-Each team member is required to provide evidence of 45 hours of effort. Below is a breakdown of hours logged through meetings, assignments, and project development.
-
-## Meeting Hours
-- **Initial Meeting**:  
-  - Date: Tuesday, August 27, 2024  
-  - Duration: 2 hours (introduction and planning).  
-- **Regular Meetings**:  
-  - Start Date: Friday, September 13, 2024  
-  - Frequency: Weekly on Fridays, 2 hours each  
-  - Total Possible Meetings: 13  
-  - Cancelled Meetings: 2 (due to midterms and scheduling conflicts)  
-  - Total Meetings: 11
-  - Extended Meetings:  
-    - 2 meetings ran 30 minutes late (+1 hour).  
-    - 2 meetings ran 2 hours late (+4 hours).  
-- **Total Meeting Hours**: 29 hours.
-
-## Additional Assignments
-- **Professional Biographies**:  
-  - Time Spent: 1 hour per team member.  
-- **Capstone Assessments**:  
-  - Time Spent: 2 hours per team member.
-
-## Project Development
-**Individual Contributions**:  
-  Each team member has dedicated time to the development of the project to fulfill the remaining 13 required hours. Detailed logs of individual contributions will be provided in the project documentation.
-
-**Nathan Suer**:
-  - Coming up with project ideas and initial project design: 3 hours
-  - Researching project-related technologies/tools: 4 hours
-  - Watching tutorials or reading documentation to improve Godot and game development programming skills: 3 hours
-  - Working on Final Design Report - 5 hours
-  - Total: 15 hours 
-  
-**Owen Richards**:
-  - Researching Godot/Blender usage, when not working directly in Godot or Blender: 2 hours
-  - General work in Godot: 4 hours
-  - Creating blender designs including a basic house, pens, animals, people, etc. 4 hours
-  - Main Menu design and settings configuration: 3 hours
-  - Animal pathfinding/wandering movement: 2 hours
-  - Total: 15 hours
-    
-**Ryan Williams**:
-  - Blender research for keybinds, tools, etc.: 3 hours
-  - Blender design time for emplacements (power plant, basic station, campfire): 4 hours
-  - Blender design time for natural tiles (forest and variants): 3 hours
-  - Animal research, study of forms, artstyle definition: 2 hours
-  - Working on final design report: 1 hour
-  - Total: 13 hours 
-
-**Kyle Young**:
-  - Ideating gameplay features for our project: 1 hour
-  - Researching similar games on the market: 1 hour
-  - Organizing project into a planned-out file structure: 1 hour
-  - Setting up basic scene with ground and orthogonal camera: 1 hour
-  - Watching tutorials or reading documentation to improve Godot and game development programming skills: 3 hours
-  - Implementing camera panning, rotation, and zoom features: 3 hours
-  - Creating and maintaining several important documentation files in the repository: 2 hours
-  - Working on Final Design Report: 1 hour
-  - Total: 13 hours
-
-
-## Total Hours Breakdown
-| **Category**                 | **Hours**  |
-|-------------------------------|------------|
-| Meetings (incl. overages) | 29 hours   |
-| Professional Biographies      | 1 hour     |
-| Capstone Assessments          | 2 hours    |
-| Project Development (individual) | 13 hours or more  |
-| **Total**                     | **45 hours or more** |
