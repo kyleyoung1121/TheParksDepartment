@@ -37,55 +37,54 @@ This educational video game teaches responsible forestry, species identification
 
 ## User Interface Specification
 ### Main Menu
-img
-Start Game - Starts the game
-Settings - Pop-up settings menu
-Exit Game - Closes Godot
+[Main Menu UI](HW_Assignments/Photos/main-menu.png)
+Start Game - Starts the game.
+Settings - Pop-up settings menu.
+Exit Game - Closes Godot.
 
 ### GUI
 There are eight main buttons the user can interact with on the in-game user interface. Working from left to right:
-img
+[GUI](HW_Assignments/Photos/gui.png)
 
 Left:
 The first button, “Building,” will pull up a menu of all of our available buildings. Some buildings, like the research center, can help the user by allowing them to get an extra animal release per day, or the fence can be used to separate or enclose species you need to control the population of. 
-img
+[Building Button](HW_Assignments/Photos/building-menu.png)
 
 The next is the “Animal Status” button. This will list the current count of all of the animals in your environment. This is useful for the user to see their progress on balancing their ecosystem. 
-img
+[Animal Status Button](HW_Assignments/Photos/animal-status.png)
 
 Similar to the previous button, “Plant Status” will pull up a menu displaying the current count of grass in your environment. This can help the user understand how having too many herbivores can affect your food count. 
-img
+[Plant Status Button](HW_Assignments/Photos/plant-status.png)
 
 The last button on the left half is the “Releasing” button. This one is most similarly compared to the building menu. Once clicked, a menu pops up of all of the current animals you can release into your environment.
-img
+[Plant Status Button](HW_Assignments/Photos/plant-status.png)
 
 Middle:
-
 Pause, Play, and Fast Forward Buttons. These buttons can be used to help the speed of your environment. 
-img
+[Time Management Button](HW_Assignments/Photos/time-skip.png)
 Pause - Stops all interactions and systems like the animals and guests.
 Play - 1x speed (normal speed).
 Fast Forward - 2x speed.
-
-These buttons can be best compared to the “Sims” games. Allowing the user to generate income quickly at the expense of losing some control or pausing the game to intervene with a potential issue in your environment before it happens. 
+These buttons can be best compared to the “Sims” games. Allowing the user to generate income quickly at the expense of losing some control or pausing the game to intervene with a potential issue in your environment before it happens.
 
 Right:
 The last button located on the right is the “Fun Fact” button. 
-img
+[Fun Fact Button](HW_Assignments/Photos/fuun-fact.png)
 
 Clicking the guidebook pulls up a pop-up menu of a random fun fact about the animals we designed, all Ohio native species.
-img
+[Fun Fact Menu](HW_Assignments/Photos/fun-fact-menu.png)
 
 ### Settings Menu
-img
+[Settings UI](HW_Assignments/Photos/options-menu.png)
 Resolution: 800x600, 1280x720, 1920x1080 (default), 2560x1440, 3840x2160, 
 Window Type: Full Screen (default), Windowed, and Borderless Windowed - *There is a known glitch with the windowed button not working if it’s selected first post-game launch.*
 FPS: 30, 60, 120, 144, and 240 - default set based off system settings.
 Quality (non-functional): Low, Medium (default), and High
 
 ### Escape Menu
-img
-Continue - Return to Game
+If the user was to press "Esc" the game will pause and bring up the following menu.
+[Escape Menu UI](HW_Assignments/Photos/esc-menu.png)
+Continue - Return to Game. 
 Save Game (non-functional) - Save the current state of the user's ecosystem to their device.
 Settings - Same as above.
 Quit to Menu - Returns to the main menu screen.
