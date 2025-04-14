@@ -46,7 +46,6 @@ Exit Game - Closes Godot.
 There are eight main buttons the user can interact with on the in-game user interface. Working from left to right:  
 ![GUI](HW_Assignments/Photos/gui.png)  
 
-Left:
 The first button, “Building,” will pull up a menu of all of our available buildings. Some buildings, like the research center, can help the user by allowing them to get an extra animal release per day, or the fence can be used to separate or enclose species you need to control the population of.   
 ![Building Button](HW_Assignments/Photos/building-menu.png)  
 
@@ -57,9 +56,8 @@ Similar to the previous button, “Plant Status” will pull up a menu displayin
 ![Plant Status Button](HW_Assignments/Photos/plant-status.png)  
 
 The last button on the left half is the “Releasing” button. This one is most similarly compared to the building menu. Once clicked, a menu pops up of all of the current animals you can release into your environment.  
-![Releasing Button](HW_Assignments/Photos/plant-status.png)  
+![Releasing Button](HW_Assignments/Photos/releasing.png)  
 
-Middle:
 Pause, Play, and Fast Forward Buttons. These buttons can be used to help the speed of your environment.   
 ![Time Management Button](HW_Assignments/Photos/time-skip.png)  
 Pause - Stops all interactions and systems like the animals and guests.  
@@ -67,9 +65,8 @@ Play - 1x speed (normal speed).
 Fast Forward - 2x speed.  
 These buttons can be best compared to the “Sims” games. Allowing the user to generate income quickly at the expense of losing some control or pausing the game to intervene with a potential issue in your environment before it happens.  
 
-Right:
 The last button located on the right is the “Fun Fact” button.   
-![Fun Fact Button](HW_Assignments/Photos/fuun-fact.png)  
+![Fun Fact Button](HW_Assignments/Photos/fun-fact.png)  
 
 Clicking the guidebook pulls up a pop-up menu of a random fun fact about the animals we designed, all Ohio native species.  
 ![Fun Fact Menu](HW_Assignments/Photos/fun-fact-menu.png)  
