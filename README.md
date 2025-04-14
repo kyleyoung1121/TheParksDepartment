@@ -237,7 +237,7 @@ TODO
 - [Nathan Suer's Final Self-Assessment](HW_Assignments\Nathan_Suer_Self_Assessment.md)
 - [Ryan Williams's Final Self-Assessment]() TODO
 - [Kyle Young's Final Self-Assessment]() TODO
-- [Owen Richards's Final Self-Assessment](HW_Assignments\Owen_Richards_Self_Assessment.md))
+- [Owen Richards's Final Self-Assessment](HW_Assignments/Owen_Richards_Self_Assessment.md)
 
 ## Summary of Hours and Justification
 TODO
