@@ -42,29 +42,36 @@ Start Game - Starts the game.
 Settings - Pop-up settings menu.  
 Exit Game - Closes Godot.  
 
-### GUI
+### In-Game UI
 There are eight main buttons the user can interact with on the in-game user interface. Working from left to right:  
 ![GUI](HW_Assignments/Photos/gui.png)  
 
+### Building
 The first button, “Building,” will pull up a menu of all of our available buildings. Some buildings, like the research center, can help the user by allowing them to get an extra animal release per day, or the fence can be used to separate or enclose species you need to control the population of.   
 ![Building Button](HW_Assignments/Photos/building-menu.png)  
 
+### Animal Status
 The next is the “Animal Status” button. This will list the current count of all of the animals in your environment. This is useful for the user to see their progress on balancing their ecosystem.   
 ![Animal Status Button](HW_Assignments/Photos/animal-status.png)  
 
+### Plant Status
 Similar to the previous button, “Plant Status” will pull up a menu displaying the current count of grass in your environment. This can help the user understand how having too many herbivores can affect your food count.   
 ![Plant Status Button](HW_Assignments/Photos/plant-status.png)  
 
+### Releasing
 The last button on the left half is the “Releasing” button. This one is most similarly compared to the building menu. Once clicked, a menu pops up of all of the current animals you can release into your environment.  
 ![Releasing Button](HW_Assignments/Photos/releasing.png)  
 
-Pause, Play, and Fast Forward Buttons. These buttons can be used to help the speed of your environment.   
+
+### Pause, Play, and Fast Forward  
+These buttons can be used to help the speed of your environment.  
 ![Time Management Button](HW_Assignments/Photos/time-skip.png)  
 Pause - Stops all interactions and systems like the animals and guests.  
 Play - 1x speed (normal speed).  
 Fast Forward - 2x speed.  
 These buttons can be best compared to the “Sims” games. Allowing the user to generate income quickly at the expense of losing some control or pausing the game to intervene with a potential issue in your environment before it happens.  
 
+### Fun Fact
 The last button located on the right is the “Fun Fact” button.   
 ![Fun Fact Button](HW_Assignments/Photos/fun-fact.png)  
 
@@ -174,8 +181,42 @@ In this document is our test plan, I will go through the results in this Documen
     - Description of execution: Feature was tested by placing the max amount of buildings on the map and then trying to place another building. The game did not allow for another building to be placed.
     - Result: Passed
 
-## User Manual
-TODO
+## User Manual  
+When the user first starts the game, they're given an unbalanced environment only inhabited by herbivores. This might not sound like much of a problem, but the result of not interacting with the environment is the herbivores repopulating and eating all of the available food (grass) faster than it can grow.  
+![Starting Game Sequence](HW_Assignments/Photos/starting-screen.png)    
+The user can intervene by releasing carnivores such as the Eastern Wolf, Coyote, or Cooper Hawk to help control the population.  
+
+### Object Placement System:  
+When the user wants to place an object in the building or the releasing menu, they first click the desired object's button to select the building or species. Move their mouse to where they want to place the object in the environment, and click once more.  
+
+Building Placement  
+![Building Example](HW_Assignments/Photos/building-system.png)    
+When the user wants to place a building, the object will follow their mouse to show a projected preview of the placed building.  
+
+Animal Placement  
+![Animal Example](HW_Assignments/Photos/animal-releasing.png)  
+When the user wants to release/place an animal, an animal-releasing crate will follow the user's mouse. On confirmation, the crate will disappear and the animal will be released into the environment.  
+
+The user should then see a confirmation window appear on the bottom right of the screen. If you don’t see the confirmation window and the previous process didn’t work, it is more than likely due to not having sufficient funds. If you see a confirmation window but can’t place your build, you might’ve double-pressed the button, and it’s now located behind the UI; cancel and try again.  
+
+![Build Confirmation Menu](HW_Assignments/Photos/confirmation-menu.png)  
+In the confirmation window, the user can click the check box to confirm their build, or the red X to cancel.  
+
+### Displayed statistics:  
+Three important stats are displayed on the bottom right of the UI: ecosystem health, funds, and release count.  
+![Displayed Stats](HW_Assignments/Photos/stats.png)  
+
+### Ecosystem health
+![Ecosystem Health Stat](HW_Assignments/Photos/ecosystem-health.png)  
+In order to reward the user for having a natural and balanced ecosystem, the game calculates your ecosystem's health based off the real-world statistic called… Using the number of species the user has introduced into their environment, along with tracking the number of animals of each species that are currently alive in the environment, the game will award the user more funds per guest who visited the park.  
+
+### Funds  
+![Funds Stat](HW_Assignments/Photos/funds.png)  
+As the user plays the game, guests will follow a dirt path to view your ecosystem. Once a guest reaches the end tunnel, the guest pays a baseline $5 for their experience. That $5 is then multiplied by the ecosystem health statistic talked about above; the user can generate anywhere between $5 and $25 per guest.  
+
+### Release Count  
+![Releasing Count Stat](HW_Assignments/Photos/releasing.png)  
+In order to control the number of animals the user can release into the environment at a time, we've introduced a releasing count system. This limits the user to 5 animal placements per day. The user can build a research center to increase the number of placements by one.  
 
 ## Spring Final PPT Presentation
 TODO
