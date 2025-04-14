@@ -222,7 +222,7 @@ In order to control the number of animals the user can release into the environm
 TODO
 
 ## Final Expo Poster
-TODO
+![Poster](HW_Assignments/Photos/poster.png)
 
 ## Assessments
 TODO
