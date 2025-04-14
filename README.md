@@ -208,7 +208,7 @@ Three important stats are displayed on the bottom right of the UI: ecosystem hea
 
 ### Ecosystem health
 ![Ecosystem Health Stat](HW_Assignments/Photos/ecosystem-health.png)  
-In order to reward the user for having a natural and balanced ecosystem, the game calculates your ecosystem's health based off the real-world statistic called… Using the number of species the user has introduced into their environment, along with tracking the number of animals of each species that are currently alive in the environment, the game will award the user more funds per guest who visited the park.  
+In order to reward the user for having a natural and balanced ecosystem, the game calculates your ecosystem's health based off the real-world statistic called the Shannon's Biodiversity Index. Using the number of species the user has introduced into their environment, along with tracking the number of animals of each species that are currently alive in the environment, the game will award the user more funds per guest who visited the park.  
 
 ### Funds  
 ![Funds Stat](HW_Assignments/Photos/funds.png)  
@@ -237,7 +237,7 @@ TODO
 - [Nathan Suer's Final Self-Assessment](HW_Assignments\Nathan_Suer_Self_Assessment.md)
 - [Ryan Williams's Final Self-Assessment]() TODO
 - [Kyle Young's Final Self-Assessment]() TODO
-- [Owen Richards's Final Self-Assessment]() TODO
+- [Owen Richards's Final Self-Assessment](HW_Assignments\Owen_Richards_Self_Assessment.md))
 
 ## Summary of Hours and Justification
 TODO
