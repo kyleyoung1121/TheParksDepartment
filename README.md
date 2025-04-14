@@ -36,8 +36,60 @@ This educational video game teaches responsible forestry, species identification
 [Project Description](HW_Assignments/Project-Description.md)
 
 ## User Interface Specification
-TODO
+### Main Menu
+img
+Start Game - Starts the game
+Settings - Pop-up settings menu
+Exit Game - Closes Godot
 
+### GUI
+There are eight main buttons the user can interact with on the in-game user interface. Working from left to right:
+img
+
+Left:
+The first button, “Building,” will pull up a menu of all of our available buildings. Some buildings, like the research center, can help the user by allowing them to get an extra animal release per day, or the fence can be used to separate or enclose species you need to control the population of. 
+img
+
+The next is the “Animal Status” button. This will list the current count of all of the animals in your environment. This is useful for the user to see their progress on balancing their ecosystem. 
+img
+
+Similar to the previous button, “Plant Status” will pull up a menu displaying the current count of grass in your environment. This can help the user understand how having too many herbivores can affect your food count. 
+img
+
+The last button on the left half is the “Releasing” button. This one is most similarly compared to the building menu. Once clicked, a menu pops up of all of the current animals you can release into your environment.
+img
+
+Middle:
+
+Pause, Play, and Fast Forward Buttons. These buttons can be used to help the speed of your environment. 
+img
+Pause - Stops all interactions and systems like the animals and guests.
+Play - 1x speed (normal speed).
+Fast Forward - 2x speed.
+
+These buttons can be best compared to the “Sims” games. Allowing the user to generate income quickly at the expense of losing some control or pausing the game to intervene with a potential issue in your environment before it happens. 
+
+Right:
+The last button located on the right is the “Fun Fact” button. 
+img
+
+Clicking the guidebook pulls up a pop-up menu of a random fun fact about the animals we designed, all Ohio native species.
+img
+
+### Settings Menu
+img
+Resolution: 800x600, 1280x720, 1920x1080 (default), 2560x1440, 3840x2160, 
+Window Type: Full Screen (default), Windowed, and Borderless Windowed - *There is a known glitch with the windowed button not working if it’s selected first post-game launch.*
+FPS: 30, 60, 120, 144, and 240 - default set based off system settings.
+Quality (non-functional): Low, Medium (default), and High
+
+### Escape Menu
+img
+Continue - Return to Game
+Save Game (non-functional) - Save the current state of the user's ecosystem to their device.
+Settings - Same as above.
+Quit to Menu - Returns to the main menu screen.
+Exit Game - Closes the application.
 
 ## Test Plan and Results 
 In this document is our test plan, I will go through the results in this Document. 
