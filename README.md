@@ -219,13 +219,14 @@ As the user plays the game, guests will follow a dirt path to view your ecosyste
 In order to control the number of animals the user can release into the environment at a time, we've introduced a releasing count system. This limits the user to 5 animal placements per day. The user can build a research center to increase the number of placements by one.  
 
 ## Spring Final PPT Presentation
-TODO
+Please download our final slidedeck from this link in the repository:
+
+[Download Here](HW_Assignments/the-parks-department-final-slidedeck.pptx)
 
 ## Final Expo Poster
 ![Poster](HW_Assignments/Photos/poster.png)
 
 ## Assessments
-TODO
 
 ### Initial Self-Assessments
 - [Nathan Suer's Initial Self-Assessment](HW_Assignments/Nathan_Suer_Individual_Capstone_Assessment.md)
