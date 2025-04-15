@@ -241,15 +241,14 @@ TODO
 
 ## Summary of Hours and Justification
 Nathan Suer: 
-Ryan Williams: 
+
+Ryan Williams: I was the lead for animal design and animation. Having not worked with Blender beyond the very basics before this project, I had a lot to learn. I put the time in to understand many features of the software, such as the modeling, texuring, rigging and animation suites. Each of the 7 animals (8 with the unimplemented vultures) presented unique challenges, especially when skeletons were unique and required ground-up work. Combine that with male and female variants, as well as unimplemented juveniles, and a single animal was a feat in itself. 
+
 Kyle Young: 
+
 Owen Richards: 
-TODO
-(one per individual team member)
 
 ### Ryan Williams
-
-I was the lead for animal design and animation. 
 
 #### Fall Semester 
   - Blender research for keybinds, tools, etc.: 3 hours
