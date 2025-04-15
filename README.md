@@ -340,5 +340,14 @@ Please download our final slidedeck from this link in the repository:
 There has no been no expenses.
 
 ## Appendix
-### References, citations, links to code repositories, and meeting notes.
-We have not used or referenced any other persons work. We are using the Godot engine, which is an open source game engine (https://github.com/godotengine/godot).
+### References, citations, links to code repositories, and meeting notes.  
+Generative AI (Microsoft Copilot) has been used sparingly to help implement some features and to resolve bugs.  
+Several YouTube videos have been used as a baseline for certain features.  
+
+#### Guest System
+https://www.youtube.com/watch?v=jO9adVKegLA  
+https://www.youtube.com/watch?v=9ANa_V1mc9E  
+
+#### Software
+We are using the Godot engine, which is an open source game engine (https://github.com/godotengine/godot).  
+We also are using Blender to create models and animations (https://www.blender.org/download/).
