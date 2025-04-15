@@ -345,8 +345,19 @@ There has no been no expenses.
 ### References, citations, links to code repositories, and meeting notes.
 We are using the Godot engine, which is an open source game engine (https://github.com/godotengine/godot).
 
+The Shannon Biodiversity Index is as described [here](https://www.statology.org/shannon-diversity-index/) on Statology.
+
+Generative AI (Microsoft Copilot) has been used sparingly to help implement some features and to resolve bugs.  
+Several YouTube videos have been used as a baseline for certain features.  
+
+#### Guest System
+https://www.youtube.com/watch?v=jO9adVKegLA  
+https://www.youtube.com/watch?v=9ANa_V1mc9E  
+
 These resources were helpful in learning to rig and animate, skills which were applied to the animals.
 - [Rigging Tutorial](https://youtu.be/DDeB4tDVCGY?si=cQ2JbA3FxZYvZxIw)
 - [Animation Tutorial](https://youtu.be/GAIZkIfXXjQ?si=2JVV0ChilLnsWWTk)
 
-The Shannon Biodiversity Index is as described [here](https://www.statology.org/shannon-diversity-index/) on Statology.
+#### Software
+We are using the Godot engine, which is an open source game engine (https://github.com/godotengine/godot).  
+We also are using Blender to create models and animations (https://www.blender.org/download/).
