@@ -236,17 +236,21 @@ TODO
 ### Final Self-Assessments
 - [Nathan Suer's Final Self-Assessment](HW_Assignments\Nathan_Suer_Self_Assessment.md)
 - [Ryan Williams's Final Self-Assessment](HW_Assignments/Ryan_Williams_Self_Assessment.md)
-- [Kyle Young's Final Self-Assessment]() (HW_Assignments/Kyle_Young_Self_Assessment.md)
+- [Kyle Young's Final Self-Assessment](HW_Assignments/Kyle_Young_Self_Assessment.md)
 - [Owen Richards's Final Self-Assessment](HW_Assignments/Owen_Richards_Self_Assessment.md)
 
 ## Summary of Hours and Justification
-Nathan Suer: 
+
+### Nathan Suer
+- Designed and Implemented Animal Behavior: 20 Hours
+- Tested and Refined Animal AI and Statistics: 10 Hours
+- Integrated Animal Animations and Meshes: 5 Hours
+- Implemented Animal Dimorphism: 5 Hours
+- Meeting Time: 10 Hours
+
+**Total: 50 hours**
 
 Ryan Williams: I was the lead for animal design and animation. Having not worked with Blender beyond the very basics before this project, I had a lot to learn. I put the time in to understand many features of the software, such as the modeling, texuring, rigging and animation suites. Each of the 7 animals (8 with the unimplemented vultures) presented unique challenges, especially when skeletons were unique and required ground-up work. Combine that with male and female variants, as well as unimplemented juveniles, and a single animal was a feat in itself. 
-
-Kyle Young: 
-
-Owen Richards: 
 
 ### Ryan Williams
 
@@ -273,6 +277,27 @@ Owen Richards:
 
 ### Project Total Hours
 TODO
+
+### Kyle Young
+- Refactored Animal AI, Guest Logic, and Fence Generation using Godot best practices: 14 Hours
+- Implemeted and refined Camera Movement: 8 Hours
+- Added and connected Day Night Cycle: 5 Hours
+- Researched and created Ecosystem Grader: 5 Hours
+- Created Animal and Structure Placement: 15 Hours
+- Meeting Time: 10 Hours
+- Material Packing & Transportation for EXPO: 3 Hours
+
+**Total: 60 hours**
+
+### Owen Richards
+- Created Main Menu: 5 Hours
+- Implemented Setting Options: 5 Hours
+- Designed and Implemented User Interface: 15 Hours
+- Created Models for Environment and Buildings: 10 Hours
+- Linked UI to Animal Count and In-game Clock: 5 Hours
+- Meeting Time: 10 Hours
+
+**Total: 50 hours**
 
 ##  Summary of Expenses
 There has no been no expenses.
