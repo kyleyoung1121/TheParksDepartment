@@ -265,6 +265,8 @@ Please download our final slidedeck from this link in the repository:
 
 ### Ryan Williams
 
+I was the lead for animal design and animation. Having not worked with Blender beyond the very basics before this project, I had a lot to learn. I put the time in to understand many features of the software, such as the modeling, texuring, rigging and animation suites. Each of the 7 animals (8 with the unimplemented vultures) presented unique challenges, especially when skeletons were unique and required ground-up work. Combine that with male and female variants, as well as unimplemented juveniles, and a single animal was a feat in itself. 
+
 #### Fall Semester 
   - Blender research for keybinds, tools, etc.: 3 hours
   - Blender design time for emplacements (power plant, basic station, campfire): 4 hours
@@ -341,4 +343,10 @@ There has no been no expenses.
 
 ## Appendix
 ### References, citations, links to code repositories, and meeting notes.
-We have not used or referenced any other persons work. We are using the Godot engine, which is an open source game engine (https://github.com/godotengine/godot).
+We are using the Godot engine, which is an open source game engine (https://github.com/godotengine/godot).
+
+These resources were helpful in learning to rig and animate, skills which were applied to the animals.
+- [Rigging Tutorial](https://youtu.be/DDeB4tDVCGY?si=cQ2JbA3FxZYvZxIw)
+- [Animation Tutorial](https://youtu.be/GAIZkIfXXjQ?si=2JVV0ChilLnsWWTk)
+
+The Shannon Biodiversity Index is as described [here](https://www.statology.org/shannon-diversity-index/) on Statology.
