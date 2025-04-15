@@ -236,10 +236,14 @@ TODO
 ### Final Self-Assessments
 - [Nathan Suer's Final Self-Assessment](HW_Assignments\Nathan_Suer_Self_Assessment.md)
 - [Ryan Williams's Final Self-Assessment](HW_Assignments/Ryan_Williams_Self_Assessment.md)
-- [Kyle Young's Final Self-Assessment]() TODO
+- [Kyle Young's Final Self-Assessment]() (HW_Assignments/Kyle_Young_Self_Assessment.md)
 - [Owen Richards's Final Self-Assessment](HW_Assignments/Owen_Richards_Self_Assessment.md)
 
 ## Summary of Hours and Justification
+Nathan Suer: 
+Ryan Williams: 
+Kyle Young: 
+Owen Richards: 
 TODO
 (one per individual team member)
 
