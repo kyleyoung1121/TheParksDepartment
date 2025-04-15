@@ -243,15 +243,25 @@ Please download our final slidedeck from this link in the repository:
 ## Summary of Hours and Justification
 
 ### Nathan Suer
+
+#### Fall Semester
+- Coming up with project ideas and initial project design: 3 hours
+- Researching project-related technologies/tools: 4 hours
+- Watching tutorials or reading documentation to improve Godot and game development programming skills: 3 hours
+- Working on Final Design Report - 5 hours
+- Meetings (incl. overages): 29 hours
+- Professional Biography: 1 hour
+- Capstone Assessment: 2 hours
+
+#### Spring Semester
+
 - Designed and Implemented Animal Behavior: 20 Hours
 - Tested and Refined Animal AI and Statistics: 10 Hours
 - Integrated Animal Animations and Meshes: 5 Hours
 - Implemented Animal Dimorphism: 5 Hours
 - Meeting Time: 10 Hours
 
-**Total: 50 hours**
-
-Ryan Williams: I was the lead for animal design and animation. Having not worked with Blender beyond the very basics before this project, I had a lot to learn. I put the time in to understand many features of the software, such as the modeling, texuring, rigging and animation suites. Each of the 7 animals (8 with the unimplemented vultures) presented unique challenges, especially when skeletons were unique and required ground-up work. Combine that with male and female variants, as well as unimplemented juveniles, and a single animal was a feat in itself. 
+**Grand Total: 97 hours**
 
 ### Ryan Williams
 
@@ -275,30 +285,56 @@ Ryan Williams: I was the lead for animal design and animation. Having not worked
 
 **Grand Total: 99 Hours** 
 
-
-### Project Total Hours
-TODO
-
 ### Kyle Young
-- Refactored Animal AI, Guest Logic, and Fence Generation using Godot best practices: 14 Hours
-- Implemeted and refined Camera Movement: 8 Hours
+
+#### Fall Semester
+
+- Ideating gameplay features for our project: 1 hour
+- Researching similar games on the market: 1 hour
+- Organizing project into a planned-out file structure: 1 hour
+- Setting up basic scene with ground and orthogonal camera: 1 hour
+- Watching tutorials or reading documentation to improve Godot and game development programming skills: 3 hours
+- Implementing camera panning, rotation, and zoom features: 3 hours
+- Creating and maintaining several important documentation files in the repository: 2 hours
+- Working on Final Design Report: 1 hour
+- Meetings (incl. overages): 29 hours
+- Professional Biography: 1 hour
+- Capstone Assessment: 2 hours
+
+#### Spring Semester
+
+- Refactored Animal AI, Guest Logic, and Fence Generation using Godot best practices: 18 Hours
+- Refined Camera Movement: 4 Hours
 - Added and connected Day Night Cycle: 5 Hours
 - Researched and created Ecosystem Grader: 5 Hours
 - Created Animal and Structure Placement: 15 Hours
 - Meeting Time: 10 Hours
 - Material Packing & Transportation for EXPO: 3 Hours
 
-**Total: 60 hours**
+**Grand Total: 105 hours**
 
 ### Owen Richards
-- Created Main Menu: 5 Hours
+
+#### Fall Semester 
+
+- Researching Godot/Blender usage, when not working directly in Godot or Blender: 2 hours
+- General work in Godot: 4 hours
+- Creating blender designs including a basic house, pens, animals, people, etc. 4 hours
+- Main Menu design and settings configuration: 3 hours
+- Animal pathfinding/wandering movement: 2 hours
+- Meetings (incl. overages): 29 hours
+- Professional Biography: 1 hour
+- Capstone Assessment: 2 hours
+
+#### Spring Semester
+
 - Implemented Setting Options: 5 Hours
-- Designed and Implemented User Interface: 15 Hours
+- Designed and Implemented User Interface: 20 Hours
 - Created Models for Environment and Buildings: 10 Hours
 - Linked UI to Animal Count and In-game Clock: 5 Hours
 - Meeting Time: 10 Hours
 
-**Total: 50 hours**
+**Grand Total: 97 hours**
 
 ##  Summary of Expenses
 There has no been no expenses.
