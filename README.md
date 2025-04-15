@@ -243,6 +243,16 @@ TODO
 TODO
 (one per individual team member)
 
+### Ryan Williams
+ - Animal Research and Form Study: 3 Hours
+ - Animal Sculpting & Topology: 20 Hours
+ - Animal Texturing & UV Mapping: 8 Hours
+ - Animal Rigging & Animation: 9 Hours
+ - Meeting Time: 10 Hours
+ - Poster Creation: 4 Hours
+
+**Total: 54 hours** 
+
 ##  Summary of Expenses
 There has no been no expenses.
 
