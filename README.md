@@ -250,7 +250,21 @@ TODO
 
 **Total: 50 hours**
 
+Ryan Williams: I was the lead for animal design and animation. Having not worked with Blender beyond the very basics before this project, I had a lot to learn. I put the time in to understand many features of the software, such as the modeling, texuring, rigging and animation suites. Each of the 7 animals (8 with the unimplemented vultures) presented unique challenges, especially when skeletons were unique and required ground-up work. Combine that with male and female variants, as well as unimplemented juveniles, and a single animal was a feat in itself. 
+
 ### Ryan Williams
+
+#### Fall Semester 
+  - Blender research for keybinds, tools, etc.: 3 hours
+  - Blender design time for emplacements (power plant, basic station, campfire): 4 hours
+  - Blender design time for natural tiles (forest and variants): 3 hours
+  - Animal research, study of forms, artstyle definition: 2 hours
+  - Working on final design report: 1 hour
+  - Meetings (incl. overages): 29 hours
+  - Professional Biography: 1 hour
+  - Capstone Assessment: 2 hours
+
+#### Spring Semester
  - Animal Research and Form Study: 3 Hours
  - Animal Sculpting & Topology: 20 Hours
  - Animal Texturing & UV Mapping: 8 Hours
@@ -258,7 +272,11 @@ TODO
  - Meeting Time: 10 Hours
  - Poster Creation: 4 Hours
 
-**Total: 54 hours** 
+**Grand Total: 99 Hours** 
+
+
+### Project Total Hours
+TODO
 
 ### Kyle Young
 - Refactored Animal AI, Guest Logic, and Fence Generation using Godot best practices: 14 Hours
