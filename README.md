@@ -1,4 +1,4 @@
-# The Park Department
+# The Parks Department
 
 ## Table of Contents
 - [Core Information](#core-information)
